@@ -207,7 +207,7 @@
 <body data-lang="zh" id="therasik-body">
   <header class="top-header">
     <div class="brand">
-      <a href="therasik_index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
         <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
           <defs>
             <linearGradient id="logo_grad_zh_idx" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
@@ -227,7 +227,7 @@
       <span class="slogan">生命科学 AI</span>
     </div>
     <nav class="top-header-nav">
-      <a href="therasik_index.html" class="active">首页</a>
+      <a href="index.html" class="active">首页</a>
       <a href="#about">关于我们</a>
       <div class="nav-dropdown" tabindex="0">
         <a href="#services">服务</a>
@@ -661,7 +661,7 @@
     document.documentElement.classList.add('js');
     function setNavActive() {
       var hash = window.location.hash || '';
-      var homeLink = document.querySelector('.top-header-nav a[href="therasik_index.html"]');
+      var homeLink = document.querySelector('.top-header-nav a[href="index.html"]');
       if (homeLink) homeLink.classList.toggle('active', !hash || hash === '#' || hash === '#home');
       document.querySelectorAll('.top-header-nav a[href^="#"]').forEach(function(a) {
         var href = a.getAttribute('href');
