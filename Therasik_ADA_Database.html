@@ -9,7 +9,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.therasik.com/Therasik_ADA_Database.html">
   <meta property="og:title" content="临床 ADA 数据库 | Therasik">
-  <meta property="og:description" content="Therasik's clinical ADA (anti-drug antibody) database: 120+ immunogenicity records from approved and clinical-stage therapeutic antibodies, with incidence rates and risk stratification.">
+  <meta property="og:description" content="Therasik's clinical ADA (anti-drug antibody) database: 138 immunogenicity records from approved and clinical-stage therapeutic antibodies, with incidence rates and risk stratification.">
   <meta property="og:image" content="https://www.therasik.com/images/hero-bg.svg">
   <title>临床 ADA 参考数据库 | Therasik</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0S2HLBZ0B"></script>
@@ -143,9 +143,17 @@
     /* ── Responsive ── */
     @media(max-width:768px) {
       .hero { padding:32px 16px 20px; }
-      .controls { padding:10px 14px; }
-      .stats-bar { padding:8px 14px; }
+      .controls { padding:10px 14px; top:52px; }
+      .stats-bar { padding:8px 14px; gap:12px; }
       .detail-panel { width:100%; }
+      .search-wrap { max-width:100%; }
+      .result-count { margin-left:0; }
+    }
+    @media(max-width:480px) {
+      .controls { flex-direction:column; align-items:stretch; gap:8px; }
+      .search-wrap { min-width:0; max-width:100%; }
+      .filter-select { width:100%; }
+      .stats-bar { flex-direction:column; gap:6px; align-items:flex-start; }
     }
 
     /* col widths */
@@ -163,7 +171,7 @@
     .col-assay { min-width:60px; text-align:center; }
     .badge-moa { background:#e8f4f8; color:#0369a1; border-radius:3px; padding:1px 5px; font-size:10px; font-weight:500; white-space:nowrap; }
   </style>
-  <meta name="citation_title" content="Therasik 临床 ADA 数据库：120+ 条治疗性抗体免疫原性验证记录">
+  <meta name="citation_title" content="Therasik 临床 ADA 数据库：138 条治疗性抗体免疫原性验证记录">
   <meta name="citation_author" content="Therasik">
   <meta name="citation_publisher" content="Therasik">
   <meta name="citation_online_date" content="2026/03/01">
