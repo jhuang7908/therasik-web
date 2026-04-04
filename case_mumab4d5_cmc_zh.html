@@ -55,13 +55,13 @@
 
     /* ─── HERO ─── */
     .case-hero { background: url('images/hero-bg.svg') center/cover no-repeat, linear-gradient(135deg, #0d4a44 0%, #0d7a70 55%, #0d9488 100%); padding: 80px 24px 70px; text-align: center; }
-    .hero-inner { max-width: 860px; margin: 0 auto; }
+    .hero-inner { max-width: 1000px; margin: 0 auto; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #a7f3d0; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 24px; }
     .case-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,5vw,52px); color: #fff; line-height: 1.15; margin-bottom: 18px; font-weight: 700; }
     .case-hero h1 em { font-style: italic; color: #6ee7b7; }
-    .subtitle { font-size: 17px; color: #a7f3d0; max-width: 640px; margin: 0 auto 40px; line-height: 1.6; }
-    .hero-stats { display: flex; justify-content: center; flex-wrap: wrap; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 24px 32px; max-width: 700px; margin: 0 auto; }
-    .hero-stat { flex: 1; min-width: 120px; padding: 8px 16px; border-right: 1px solid rgba(255,255,255,0.12); }
+    .subtitle { font-size: 17px; color: #a7f3d0; max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+    .hero-stats { display: flex; justify-content: center; flex-wrap: nowrap; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 24px 32px; max-width: 680px; margin: 0 auto; overflow-x: auto; }
+    .hero-stat { flex: 1; min-width: 120px; padding: 8px 16px; border-right: 1px solid rgba(255,255,255,0.12); text-align: center; }
     .hero-stat:last-child { border-right: none; }
     .hero-stat .val { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
     .hero-stat .lbl { font-size: 11px; color: #6ee7b7; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -240,7 +240,8 @@
   <section class="case-hero">
     <div class="hero-inner">
       <div class="hero-badge">
-        ⚗ 案例研究 · CMC 可开发性
+        <i data-lucide="flask-conical" style="width:14px;height:14px"></i>
+        案例研究 · CMC 可开发性
       </div>
       <h1>muMAb4D5 <em>CMC 可开发性评估</em><br>——临床级验证</h1>
       <p class="subtitle">全部 15 项物理化学参数通过。与 458 个临床抗体基准对标——免疫原性安全性优于 Herceptin®。</p>
