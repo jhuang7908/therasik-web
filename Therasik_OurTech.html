@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Therasik 技术平台：AbEngineCore 系统集成 AlphaFold2、ABodyBuilder2、HADDOCK3、ProteinMPNN 等工具，以 1,142 条临床抗体序列为基准，为药物设计提供专家审核输出。">
+  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noai, noimageai">
+  <title>技术平台 | Therasik — 生命科学 AI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWDN9HEPC0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MWDN9HEPC0');
+  </script>
+  <style>
+    :root { --primary: #0d9488; --primary-dark: #0f766e; --text: #111827; --text-muted: #4b5563; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
+
+    /* Header */
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; }
+    .top-header .brand a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+    .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
+    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s ease; font-weight: 600; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
+    .top-header-nav a.active { background: var(--primary); color: #fff; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
+    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 240px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16,1,0.3,1); z-index: 100; margin-top: 8px; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; border-radius: 8px; }
+    .nav-dropdown .dropdown-menu a:hover { background: var(--bg-alt); }
+    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
+    .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+
+    /* Page layout */
+    .page-hero { background: linear-gradient(135deg, #0f766e 0%, #0d9488 60%, #14b8a6 100%); color: #fff; padding: 80px 32px 80px; text-align: center; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 700; margin: 0 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
+    .page-hero p { font-size: 18px; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+
+    .section { padding: 80px 32px; border-bottom: 1px solid rgba(0,0,0,0.015); }
+    .section-alt { background: var(--bg-alt); }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: block; }
+    h2.section-h2 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; line-height: 1.1; margin: 0 0 24px; color: #111827; letter-spacing: -0.02em; }
+    h2.section-h2 span { color: var(--primary); }
+
+    /* Tool grid */
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 40px; }
+    .tool-card { background: #fff; border: 1px solid rgba(13,148,136,0.14); border-radius: 16px; padding: 26px 24px; box-shadow: 0 4px 16px rgba(13,148,136,0.04); transition: all 0.3s; position: relative; overflow: hidden; }
+    .tool-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary), rgba(13,148,136,0.2)); }
+    .tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(13,148,136,0.10); }
+    .tool-card .tc-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); background: rgba(13,148,136,0.1); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
+    .tool-card h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; color: #111827; }
+    .tool-card p { font-size: 14px; color: #5b6472; line-height: 1.6; margin: 0; }
+
+    /* Data highlight strips */
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 32px; }
+    .data-card { background: linear-gradient(160deg, #fff 0%, #f0faf8 100%); border: 1px solid rgba(13,148,136,0.16); border-radius: 14px; padding: 20px; text-align: center; }
+    .data-card .dc-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--primary); letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+    .data-card .dc-label { font-size: 13px; color: #4b5563; font-weight: 600; line-height: 1.4; }
+
+    /* Pipeline flow */
+    .pipeline { display: flex; gap: 0; margin-top: 40px; overflow-x: auto; }
+    .pipeline-step { flex: 1; min-width: 130px; background: #fff; border: 1px solid rgba(13,148,136,0.14); padding: 20px 16px; text-align: center; position: relative; transition: all 0.3s; }
+    .pipeline-step:first-child { border-radius: 12px 0 0 12px; }
+    .pipeline-step:last-child { border-radius: 0 12px 12px 0; }
+    .pipeline-step:not(:last-child) { border-right: none; }
+    .pipeline-step:hover { background: #f0fdf9; z-index: 1; box-shadow: 0 0 0 1px var(--primary); border-radius: 8px; }
+    .pipeline-step .ps-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: rgba(13,148,136,0.25); position: absolute; top: 8px; right: 12px; line-height: 1; }
+    .pipeline-step strong { display: block; font-size: 14px; font-weight: 600; color: #111827; margin-bottom: 4px; }
+    .pipeline-step span { display: block; font-size: 12px; color: #6b7280; line-height: 1.4; }
+
+    /* Feature list */
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 12px; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #374151; line-height: 1.6; }
+    .feature-list li::before { content: ''; display: inline-block; width: 20px; height: 20px; flex-shrink: 0; background: rgba(13,148,136,0.1); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230d9488' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; margin-top: 2px; }
+
+    .cta-section { background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); color: #fff; padding: 72px 32px; text-align: center; }
+    .cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; margin: 0 0 16px; letter-spacing: -0.02em; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.85); margin: 0 0 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #fff; color: var(--primary-dark); text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: 700; transition: all 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .cta-btn.alt { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.35); box-shadow: none; margin-left: 12px; }
+    .cta-btn.alt:hover { background: rgba(255,255,255,0.25); }
+
+    .site-footer { padding: 32px; text-align: center; font-size: 13px; color: #9ca3af; border-top: 1px solid rgba(0,0,0,0.05); background: #fff; }
+    .site-footer a { color: #6b7280; text-decoration: none; }
+    .site-footer a:hover { color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .top-header { padding: 10px 16px; flex-wrap: nowrap; }
+      .top-header .slogan { display: none !important; }
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: auto; }
+      .top-header-nav a { font-size: 18px; padding: 12px 24px; }
+      .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
+      body { padding-top: 52px; }
+      .page-hero h1 { font-size: 36px; }
+      .pipeline { flex-direction: column; gap: 12px; }
+      .pipeline-step { border-radius: 12px !important; border-right: 1px solid rgba(13,148,136,0.14) !important; }
+    }
+  </style>
+</head>
+<body data-lang="zh">
+
+<header class="top-header">
+  <div class="brand">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+        <defs>
+          <linearGradient id="logo_grad_ot" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#0d9488"/><stop offset="1" stop-color="#065f58"/>
+          </linearGradient>
+        </defs>
+        <circle cx="17" cy="17" r="16" fill="url(#logo_grad_ot)"/>
+        <path d="M9 13 H25" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M17 13 V24" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+        <circle cx="9" cy="13" r="2.3" fill="white"/>
+        <circle cx="25" cy="13" r="2.3" fill="white"/>
+        <circle cx="17" cy="24" r="2.3" fill="white"/>
+      </svg>
+      <span style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; color: #1f2937; letter-spacing: -0.02em;">Thera<span style="color: #0d9488;">sik</span></span>
+    </a>
+    <span class="slogan">生命科学 AI</span>
+  </div>
+  <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="top-header-nav">
+    <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
+    <a href="index.html">首页</a>
+    <a href="index.html#about">关于我们</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#services">服务</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+        <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T 设计</span><span class="menu-desc">智慧 CAR-T 架构设计</span></a>
+        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异性抗体</span><span class="menu-desc">多特异性工程</span></a>
+        <a href="Therasik_Immunogenicity.html"><span class="menu-title">免疫原性研究</span><span class="menu-desc">ADA 预测与参考数据库</span></a>
+        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+      </div>
+    </div>
+    <a href="index.html#case-studies">案例</a>
+    <a href="Therasik_OurTech.html" class="active">技术平台</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">联系我们</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <h1>技术平台</h1>
+  <p>AbEngineCore——Therasik 的核心计算框架，集成业界领先工具与 1,142 条临床抗体基准数据，将机器学习与领域专业知识深度融合，交付真正可执行的设计方案。</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <span class="section-label">核心框架</span>
+    <h2 class="section-h2">AbEngineCore — <span>统一设计引擎</span></h2>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7;">AbEngineCore 不是单一工具，而是一个有机整合的工作流——每个工具在正确的场景下发挥其强项，由领域专家审核串联，最终输出经过验证的设计方案。</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <span class="tc-tag">结构预测</span>
+        <h3>AlphaFold2</h3>
+        <p>高精度蛋白质结构预测，用于抗体可变区和复合物建模，为可开发性与免疫原性评估提供结构基础。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">抗体结构</span>
+        <h3>ABodyBuilder2</h3>
+        <p>专为 Fv 区优化的抗体结构预测模型，CDR 构象精度优于通用结构预测工具。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">对接精修</span>
+        <h3>HADDOCK3</h3>
+        <p>基于数据驱动的蛋白质-蛋白质对接与界面精修，用于抗原-抗体复合物分析及亲和力成熟。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">序列设计</span>
+        <h3>ProteinMPNN</h3>
+        <p>深度学习驱动的反向折叠序列设计，用于从头 CDR 设计和人源化框架优化。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">扩散生成</span>
+        <h3>RFdiffusion</h3>
+        <p>基于扩散模型的蛋白质骨架设计，支持特定表位靶向抗体从头生成。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">编号注释</span>
+        <h3>ANARCII</h3>
+        <p>深度学习抗体编号系统，支持 Kabat、IMGT、Chothia 方案，精准划定 FR 与 CDR 区域。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">免疫原性</span>
+        <h3>IEDB API</h3>
+        <p>基于 IEDB 的 MHC-II 结合预测，覆盖 27 个 HLA-DR 等位基因，用于 T 细胞表位风险评分。</p>
+      </div>
+      <div class="tool-card">
+        <span class="tc-tag">热稳定性</span>
+        <h3>ThermoMPNN</h3>
+        <p>突变热稳定性预测，结合可开发性分析筛选亲和力成熟候选。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">知识库</span>
+    <h2 class="section-h2">以临床数据为<span>校准基础</span></h2>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7; margin-bottom: 8px;">Therasik 的差异化不在于工具本身，而在于我们以真实临床结果校准每一项评估——提供有意义的背景，而非孤立的分数。</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="dc-num">1,142</div>
+        <div class="dc-label">批准及临床阶段抗体序列</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">120+</div>
+        <div class="dc-label">验证临床 ADA 记录</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">842</div>
+        <div class="dc-label">临床种系基因数据库</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">134+</div>
+        <div class="dc-label">双特异性抗体 CMC 基准</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">237</div>
+        <div class="dc-label">CAR-T 设计元件</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">458</div>
+        <div class="dc-label">AbRef CMC 可开发性基准</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="section-label">工作流程</span>
+    <h2 class="section-h2">从输入序列到<span>可执行报告</span></h2>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7; margin-bottom: 8px;">AbEngineCore 的工作流是模块化的——根据项目类型和可用输入选择相关模块，每个阶段的输出均经专家验证。</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="ps-num">1</div>
+        <strong>序列输入</strong>
+        <span>VH/VL、VHH 或复合物 PDB</span>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">2</div>
+        <strong>编号注释</strong>
+        <span>ANARCII 多方案编号与 CDR 划定</span>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">3</div>
+        <strong>结构建模</strong>
+        <span>ABodyBuilder2 / AlphaFold2</span>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">4</div>
+        <strong>多维评估</strong>
+        <span>CMC · 免疫原性 · 界面分析</span>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">5</div>
+        <strong>临床基准</strong>
+        <span>与 1,142 条临床序列对标</span>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">6</div>
+        <strong>专家审核</strong>
+        <span>领域专家解读与建议</span>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">7</div>
+        <strong>报告交付</strong>
+        <span>PDF / Markdown，3–5 工作日</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">能力覆盖</span>
+    <h2 class="section-h2">全方位<span>评估能力</span></h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 24px;">
+      <div>
+        <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 16px; color: #111827;">抗体评估</h3>
+        <ul class="feature-list">
+          <li><strong>序列分析</strong> — Kabat/IMGT 编号、CDR 划定、种系基因归属</li>
+          <li><strong>CMC 可开发性</strong> — pI、疏水性、SAP、TAP、化学修饰风险</li>
+          <li><strong>免疫原性</strong> — MHC-II 27 等位基因预测、表面风险评估</li>
+          <li><strong>结构分析</strong> — VH-VL 角度、界面接触、paratope/epitope 分析</li>
+          <li><strong>VH/VL 人源化</strong> — 结构驱动回突变，842 条临床种系优先</li>
+          <li><strong>VHH 人源化</strong> — 表面重塑与框架移植，含结构评估</li>
+          <li><strong>VH → VHH 转化</strong> — CDR 保留骆驼化改造</li>
+          <li><strong>亲和力成熟</strong> — ΔΔG 扫描、5D 过滤、上位协同分析</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 16px; color: #111827;">细胞治疗与多特异性</h3>
+        <ul class="feature-list">
+          <li><strong>CAR-T 架构设计</strong> — 结合域、间隔区、跨膜域、共刺激域选择</li>
+          <li><strong>CAR 元件基准</strong> — 237 个临床 CAR 元件数据库比对</li>
+          <li><strong>双特异性格式筛选</strong> — 134+ 临床双抗格式可开发性基准</li>
+          <li><strong>接头设计</strong> — 柔性/刚性接头选择与长度优化</li>
+          <li><strong>pI 工程</strong> — 双链电荷不对称性设计，改善分离纯化</li>
+          <li><strong>疫苗设计</strong> — 新抗原 neoantigen 筛选、异克隆优化、多表位 mRNA</li>
+          <li><strong>免疫原性数据库</strong> — 120+ ADA 记录，临床免疫原性率关联分析</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>准备好开始了吗？</h2>
+  <p>提交您的序列，我们将在 3–5 个工作日内交付专家审核报告。</p>
+  <a href="Therasik_Antibody_Page.html#submit" class="cta-btn">开始项目评估</a>
+  <a href="index.html#contact" class="cta-btn alt">联系我们</a>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Therasik · <a href="https://therasik.com">therasik.com</a> · <a href="mailto:contact@therasik.com">contact@therasik.com</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('.top-header-nav a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.top-header-nav').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noai, noimageai">
+  <meta name="AI-Training" content="opt-out">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>案例研究：muMAb4D5 CMC 可开发性评估 | Therasik</title>
+  <meta name="description" content="muMAb4D5 人源化抗体 CMC 可开发性全面评估——ADI 77/100，全部 15 项指标通过，免疫原性优于 Herceptin®。">
+  <link rel="canonical" href="https://www.therasik.com/case_mumab4d5_cmc_zh.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.therasik.com/case_mumab4d5_cmc_zh.html">
+  <meta property="og:title" content="muMAb4D5 CMC 可开发性评估 | Therasik">
+  <meta property="og:description" content="muMAb4D5 CMC 可开发性全面报告：聚集倾向、pI、疏水补丁、脱酰胺化、氧化及 CDR 翻译后修饰风险评估。">
+  <meta property="og:image" content="https://www.therasik.com/images/hero-bg.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWDN9HEPC0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MWDN9HEPC0');
+  </script>
+  <style>
+    :root {
+      --primary: #0d9488; --primary-dark: #0f766e; --primary-light: #5eead4;
+      --text: #111827; --text-muted: #4b5563; --border: #e5e7eb;
+      --bg-white: #ffffff; --bg-light: #f9fafb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans SC', 'Inter', sans-serif; background: var(--bg-light); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; padding-top: 72px; }
+
+    /* ─── NAV ─── */
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; }
+    .top-header .brand a { text-decoration: none; display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; color: #111827; white-space: nowrap; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+    .top-header-nav { display: flex; align-items: center; gap: 6px; }
+    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s; font-weight: 600; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 240px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); opacity: 0; visibility: hidden; transition: all 0.2s; z-index: 2001; }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .dropdown-menu a { display: block; padding: 12px 14px; color: var(--text); border-radius: 8px; text-decoration: none; text-align: left; }
+    .dropdown-menu a:hover { background: #f9fafb; }
+    .menu-title { display: block; font-weight: 700; font-size: 14px; color: #111827; margin-bottom: 2px; }
+    .menu-desc { display: block; font-size: 12px; color: #6b7280; font-weight: 400; }
+
+    /* ─── HERO ─── */
+    .case-hero { background: url('images/hero-bg.svg') center/cover no-repeat, linear-gradient(135deg, #0d4a44 0%, #0d7a70 55%, #0d9488 100%); padding: 80px 24px 70px; text-align: center; }
+    .hero-inner { max-width: 860px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #a7f3d0; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 24px; }
+    .case-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,5vw,52px); color: #fff; line-height: 1.15; margin-bottom: 18px; font-weight: 700; }
+    .case-hero h1 em { font-style: italic; color: #6ee7b7; }
+    .subtitle { font-size: 17px; color: #a7f3d0; max-width: 640px; margin: 0 auto 40px; line-height: 1.6; }
+    .hero-stats { display: flex; justify-content: center; flex-wrap: wrap; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 24px 32px; max-width: 700px; margin: 0 auto; }
+    .hero-stat { flex: 1; min-width: 120px; padding: 8px 16px; border-right: 1px solid rgba(255,255,255,0.12); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat .val { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
+    .hero-stat .lbl { font-size: 11px; color: #6ee7b7; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ─── BODY ─── */
+    .page-body { padding: 64px 20px 80px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; margin-bottom: 48px; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .section-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 8px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,3.5vw,36px); font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.2; }
+    .section-title span { color: var(--primary); }
+    .section-intro { font-size: 16px; color: var(--text-muted); max-width: 700px; margin-bottom: 28px; line-height: 1.7; }
+
+    /* ─── ADI COMPARE ─── */
+    .adi-compare { display: flex; align-items: stretch; background: var(--bg-white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.05); margin-bottom: 28px; }
+    .adi-card { flex: 1; padding: 32px 28px; text-align: center; }
+    .adi-card.ours { background: #f0fdf4; border-right: 1px solid var(--border); }
+    .adi-card.ref { background: #f9fafb; }
+    .adi-card .adi-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+    .adi-card.ours .adi-label { color: #16a34a; }
+    .adi-card.ref .adi-label { color: #6b7280; }
+    .adi-card .adi-score { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+    .adi-card.ours .adi-score { color: #16a34a; }
+    .adi-card.ref .adi-score { color: #6b7280; }
+    .adi-card .adi-tier { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .adi-card.ours .adi-tier { color: #15803d; }
+    .adi-card.ref .adi-tier { color: #4b5563; }
+    .adi-card .adi-sub { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+    .adi-divider { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; background: var(--bg-white); min-width: 88px; gap: 6px; }
+    .adi-divider .vs { font-size: 13px; font-weight: 800; color: #9ca3af; letter-spacing: 1px; }
+    .adi-win { display: inline-flex; align-items: center; gap: 4px; background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px; margin-top: 4px; }
+
+    /* ─── CMC TABLE ─── */
+    .cmc-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px var(--border); font-size: 14px; }
+    .cmc-table th { background: #064e3b; color: #fff; font-weight: 700; padding: 12px 14px; text-align: left; }
+    .cmc-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .cmc-table tr:last-child td { border-bottom: none; }
+    .cmc-table tr:nth-child(even) td { background: #f9fafb; }
+    .cmc-table tbody tr:hover td { background: #f0fdfa !important; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 1px solid; }
+    .badge.pass { background: #dcfce7; color: #065f46; border-color: #a7f3d0; }
+    .badge.pass-ex { background: #064e3b; color: #fff; border-color: #064e3b; }
+    .badge.warn { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+    .badge.better { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+
+    /* ─── CHART ─── */
+    .chart-wrap { background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .chart-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: #064e3b; margin-bottom: 16px; }
+    .chart-canvas-wrap { position: relative; height: 220px; }
+
+    /* ─── WIN CARDS ─── */
+    .win-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+    .win-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 18px; border-top: 3px solid; }
+    .win-card.green { border-top-color: #16a34a; }
+    .win-card.blue { border-top-color: #2563eb; }
+    .win-card.teal { border-top-color: var(--primary); }
+    .win-card h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .win-card .win-nums { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+    .win-card .win-ours { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; }
+    .win-card.green .win-ours { color: #16a34a; }
+    .win-card.blue .win-ours { color: #2563eb; }
+    .win-card.teal .win-ours { color: var(--primary); }
+    .win-card .win-ref { font-size: 13px; color: #9ca3af; }
+    .win-card p { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+    /* ─── OPTIMIZATION ─── */
+    .opt-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .mut-box { background: #f0fdfa; border: 1px solid #a7f3d0; border-radius: 10px; padding: 18px 20px; }
+    .mut-box .mut-code { font-family: 'Consolas','Courier New',monospace; font-size: 22px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .mut-box .mut-label { font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; }
+    .mut-box p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+    .opt-results table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .opt-results th { text-align: left; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; padding: 6px 8px; border-bottom: 2px solid var(--border); }
+    .opt-results td { padding: 10px 8px; border-bottom: 1px solid var(--border); }
+    .opt-results tr:last-child td { border-bottom: none; }
+    .arrow-up { color: #16a34a; font-weight: 700; }
+
+    /* ─── METRICS ─── */
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .metric-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; border-top: 3px solid #16a34a; }
+    .metric-value { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: #16a34a; line-height: 1; margin-bottom: 4px; }
+    .metric-label { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .metric-threshold { font-size: 11px; color: #9ca3af; }
+
+    /* ─── RESULT BANNER ─── */
+    .result-banner { background: linear-gradient(135deg, #064e3b, #0d9488); border-radius: 16px; padding: 40px; text-align: center; color: white; }
+    .result-banner .score { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 700; line-height: 1; margin-bottom: 4px; color: #6ee7b7; }
+    .result-banner .score-ref { font-size: 16px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .result-banner .score-label { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a7f3d0; margin-bottom: 18px; }
+    .result-banner p { font-size: 15px; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 28px; line-height: 1.7; }
+    .banner-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; background: #fff; color: #065f46; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+    .btn-primary:hover { background: #f0fdf4; transform: translateY(-1px); }
+    .btn-secondary { display: inline-block; background: transparent; color: #fff; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.4); text-decoration: none; transition: all 0.2s; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); }
+
+    .site-footer { background: #111827; padding: 40px 24px; text-align: center; }
+    .site-footer p { color: #6b7280; font-size: 14px; line-height: 1.6; }
+    .site-footer a { color: #9ca3af; text-decoration: none; }
+    .site-footer a:hover { color: #6ee7b7; }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .top-header { padding: 10px 16px; flex-wrap: nowrap; }
+      .top-header .slogan { display: none !important; }
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: auto; }
+      .top-header-nav a { font-size: 18px; padding: 12px 24px; }
+      .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
+      body { padding-top: 52px; }
+      .adi-compare { flex-direction: column; }
+      .adi-divider { flex-direction: row; padding: 14px 20px; gap: 10px; }
+      .win-grid { grid-template-columns: 1fr; }
+      .opt-card { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .case-hero h1 { font-size: 36px; }
+      .hero-stats { flex-direction: column; }
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 12px 0; }
+      .hero-stat:last-child { border-bottom: none; }
+    }
+    @media (max-width: 600px) {
+      .metrics-grid { grid-template-columns: 1fr; }
+      .case-hero h1 { font-size: 28px; }
+      .case-hero .subtitle { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="brand">
+      <a href="index.html">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <defs>
+            <linearGradient id="logo_grad_cmc" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#0d9488"/><stop offset="1" stop-color="#065f58"/>
+            </linearGradient>
+          </defs>
+          <circle cx="17" cy="17" r="16" fill="url(#logo_grad_cmc)"/>
+          <path d="M9 13 H25" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M17 13 V24" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="9" cy="13" r="2.3" fill="white"/>
+          <circle cx="25" cy="13" r="2.3" fill="white"/>
+          <circle cx="17" cy="24" r="2.3" fill="white"/>
+        </svg>
+        <span>Thera<span style="color:#0d9488;">sik</span></span>
+      </a>
+      <span class="slogan">生命科学 AI</span>
+    </div>
+    <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="top-header-nav">
+      <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
+      <a href="index.html">首页</a>
+      <a href="index.html#about">关于我们</a>
+      <div class="nav-dropdown" tabindex="0">
+        <a href="index.html#services">服务</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+          <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T 设计</span><span class="menu-desc">智慧 CAR-T 架构设计</span></a>
+          <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异性抗体</span><span class="menu-desc">多特异性工程</span></a>
+          <a href="Therasik_Immunogenicity.html"><span class="menu-title">免疫原性研究</span><span class="menu-desc">ADA 预测与参考数据库</span></a>
+          <a href="Therasik_Vaccine_Design.html"><span class="menu-title">疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+        </div>
+      </div>
+      <a href="index.html#case-studies">案例</a>
+      <a href="Therasik_OurTech.html">技术平台</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">联系我们</a>
+    </nav>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="case-hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        ⚗ 案例研究 · CMC 可开发性
+      </div>
+      <h1>muMAb4D5 <em>CMC 可开发性评估</em><br>——临床级验证</h1>
+      <p class="subtitle">全部 15 项物理化学参数通过。与 458 个临床抗体基准对标——免疫原性安全性优于 Herceptin®。</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="val">77/100</div>
+          <div class="lbl">ADI 评分</div>
+        </div>
+        <div class="hero-stat">
+          <div class="val">15/15</div>
+          <div class="lbl">指标通过</div>
+        </div>
+        <div class="hero-stat">
+          <div class="val">0.61</div>
+          <div class="lbl">TCIA 对比 Herceptin 0.65</div>
+        </div>
+        <div class="hero-stat">
+          <div class="val">1</div>
+          <div class="lbl">优化突变</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BODY ─── -->
+  <div class="page-body">
+    <div class="container">
+
+      <!-- 第1节：ADI 总览 -->
+      <div class="reveal">
+        <div class="section-label">执行摘要</div>
+        <h2 class="section-title">可接受——<span>可进入表达验证阶段</span></h2>
+        <p class="section-intro">
+          人源化 muMAb4D5 以 AbRef-458（458 个批准或临床阶段抗体的精选数据集）为基准进行评估。全部 15 项 CMC 参数通过。单次框架优化进一步改善了化学稳定性，在关键免疫原性指标上超越 Herceptin®。
+        </p>
+
+        <div class="adi-compare">
+          <div class="adi-card ours">
+            <div class="adi-label">muMAb4D5（优化后）</div>
+            <div class="adi-score">77</div>
+            <div class="adi-tier">可接受 ✓</div>
+            <div class="adi-sub">全部 15 项指标通过<br>TCIA 0.61 · 脱酰胺化：1 个位点</div>
+            <div class="adi-win">↑ 免疫原性更优</div>
+          </div>
+          <div class="adi-divider">
+            <div class="vs">VS</div>
+          </div>
+          <div class="adi-card ref">
+            <div class="adi-label">Herceptin®（参考标准）</div>
+            <div class="adi-score">81</div>
+            <div class="adi-tier">优秀</div>
+            <div class="adi-sub">28 年临床黄金标准<br>TCIA 0.65 · 脱酰胺化：2 个位点</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第2节：15 项参数表格 -->
+      <div class="reveal">
+        <div class="section-label">完整评估</div>
+        <h2 class="section-title">15 项参数 <span>CMC 评估</span></h2>
+        <p class="section-intro">
+          按临床相关性分组：可制造性、储存稳定性、化学降解风险和免疫原性。与 AbRef-458（p5–p95 = 通过）对标。
+        </p>
+        <table class="cmc-table">
+          <thead>
+            <tr><th>类别</th><th>指标</th><th>数值</th><th>状态</th><th>与 Herceptin 比较</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="4" style="font-weight:700;color:#064e3b;background:#f0fdfa;border-right:2px solid #a7f3d0;">可制造性</td>
+                <td>pI（等电点）</td><td>7.86</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">8.29 <span style="color:#16a34a;font-weight:700;">（我方更低——配方窗口更好）</span></td></tr>
+            <tr><td>GRAVY 疏水性</td><td>−0.285</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">−0.312（相当）</td></tr>
+            <tr><td>净电荷（pH 7）</td><td>+1.0</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">+2.0 <span style="color:#16a34a;font-weight:700;">（我方更接近中性）</span></td></tr>
+            <tr><td>表面聚集（SAP）</td><td>0（结构验证）</td><td><span class="badge pass-ex">优秀</span></td><td style="font-size:12px;color:#6b7280;">= 0（相同，均优秀）</td></tr>
+            <tr><td rowspan="5" style="font-weight:700;color:#1d4ed8;background:#eff6ff;border-right:2px solid #bfdbfe;">储存稳定性</td>
+                <td>不稳定性指数</td><td>36.9</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">35.8 <span style="color:#f59e0b;font-weight:700;">（Herceptin 略低）</span></td></tr>
+            <tr><td>疏水补丁</td><td>0（结构验证）</td><td><span class="badge pass-ex">优秀</span></td><td style="font-size:12px;color:#6b7280;">= 0（相同）</td></tr>
+            <tr><td>Fv 电荷不对称</td><td>+14/−13（近乎完美）</td><td><span class="badge pass-ex">优秀</span></td><td style="font-size:12px;color:#6b7280;">≈ 0（近对称，同质量）</td></tr>
+            <tr><td>氧化位点</td><td>8</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">7 <span style="color:#f59e0b;font-weight:700;">（Herceptin 少 1 个）</span></td></tr>
+            <tr><td>糖基化位点</td><td>0</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">= 0（相同）</td></tr>
+            <tr><td rowspan="3" style="font-weight:700;color:#7c3aed;background:#f5f3ff;border-right:2px solid #ddd6fe;">化学降解</td>
+                <td>脱酰胺化位点</td><td>2 → <strong>1</strong>（优化后）</td><td><span class="badge pass">通过</span></td><td><span class="badge better">✓ 更好——Herceptin：2 个位点</span></td></tr>
+            <tr><td>异构化位点</td><td>2</td><td><span class="badge pass">通过</span></td><td><span class="badge warn">△ Herceptin：1 个位点</span></td></tr>
+            <tr><td>游离半胱氨酸</td><td>0</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">= 0（相同）</td></tr>
+            <tr><td rowspan="3" style="font-weight:700;color:#dc2626;background:#fff5f5;border-right:2px solid #fecaca;">免疫原性</td>
+                <td>T 细胞表位风险（TCIA）</td><td>0.61</td><td><span class="badge pass">通过</span></td><td><span class="badge better">✓ 更好——Herceptin：0.65</span></td></tr>
+            <tr><td>高风险表位数量</td><td>21</td><td><span class="badge pass">通过</span></td><td><span class="badge better">✓ 更好——Herceptin：26</span></td></tr>
+            <tr><td>种系人源化</td><td>IGHV3-23 / IGKv1-39</td><td><span class="badge pass">通过</span></td><td style="font-size:12px;color:#6b7280;">= IGHV3 / Vκ1（相同种系家族）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 第3节：超越 Herceptin 的 3 个维度 -->
+      <div class="reveal">
+        <div class="section-label">竞争优势</div>
+        <h2 class="section-title">3 个维度 <span>超越 Herceptin®</span></h2>
+        <p class="section-intro">在免疫原性安全性和化学降解风险方面，优化设计超越了这一已有 28 年临床历史的黄金标准。</p>
+        <div class="win-grid">
+          <div class="win-card green">
+            <h4>T 细胞表位风险</h4>
+            <div class="win-nums">
+              <span class="win-ours">0.61</span>
+              <span class="win-ref">Herceptin 0.65</span>
+            </div>
+            <p>TCIA 评分越低，触发患者产生抗药抗体（ADA）应答的概率越低。更低意味着更安全。</p>
+          </div>
+          <div class="win-card blue">
+            <h4>高风险表位数量</h4>
+            <div class="win-nums">
+              <span class="win-ours">21</span>
+              <span class="win-ref">Herceptin 26</span>
+            </div>
+            <p>少 5 个高风险 MHC-II 表位区域。Herceptin 已报告的临床 HAHA 率约 1–6%；本设计预测比其更低。</p>
+          </div>
+          <div class="win-card teal">
+            <h4>脱酰胺化位点</h4>
+            <div class="win-nums">
+              <span class="win-ours">1</span>
+              <span class="win-ref">Herceptin 2</span>
+            </div>
+            <p>通过 VH84 N→Q 突变从 2 个减少到 1 个。长期储存期间的自发化学修饰减少——延长货架期稳定性。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第4节：优化 -->
+      <div class="reveal">
+        <div class="section-label">优化策略</div>
+        <h2 class="section-title">单点突变，<span>可量化改善</span></h2>
+        <p class="section-intro">一个精准的框架区突变实现所有优化目标——对 CDR 结合几何构型零结构扰动。</p>
+        <div class="opt-card">
+          <div>
+            <div class="mut-box">
+              <div class="mut-code">VH FR3 N84 → Q</div>
+              <div class="mut-label">脱酰胺化位点消除</div>
+              <p>第 84 位天冬酰胺（Asn）构成 NG 序列基序，在水溶液条件下易发生自发脱酰胺化。用谷氨酰胺（Gln）等位替换，在保留骨架几何构型的同时消除化学不稳定性。</p>
+            </div>
+            <div style="margin-top:14px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid var(--border);">
+              <div style="font-size:12px;font-weight:700;color:#6b7280;margin-bottom:8px;">为何此位点安全</div>
+              <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">FR3 第 84 位在 Kabat CDR 区域和所有 Vernier 区残基之外。N→Q 是等位替换，侧链偏差 &lt;0.1 Å——对 paratope（抗原结合位点）结构不可见。</div>
+            </div>
+          </div>
+          <div class="opt-results">
+            <table>
+              <thead>
+                <tr><th>指标</th><th>优化前</th><th>优化后</th><th>变化</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>ADI 评分</td><td>76</td><td><strong>77</strong></td><td><span class="arrow-up">+1</span></td></tr>
+                <tr><td>脱酰胺化位点</td><td>2</td><td><strong>1</strong></td><td><span class="arrow-up">−1 个</span></td></tr>
+                <tr><td>TCIA 评分</td><td>0.74</td><td><strong>0.61</strong></td><td><span class="arrow-up">−17%</span></td></tr>
+                <tr><td>高风险表位</td><td>28</td><td><strong>21</strong></td><td><span class="arrow-up">−7</span></td></tr>
+                <tr><td>结构 QA</td><td>通过</td><td><strong>通过</strong></td><td>—</td></tr>
+                <tr><td>CDR 同一性</td><td>100%</td><td><strong>100%</strong></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第5节：分类图表 -->
+      <div class="reveal">
+        <div class="section-label">分类评分</div>
+        <h2 class="section-title">各维度逐项对比 <span>vs Herceptin®</span></h2>
+        <p class="section-intro">4 个 ADI 子域得分与 AbRef-458 分布对标。muMAb4D5 在聚集风险方面领先；Herceptin 在整体化学稳定性方面领先——总分差距 4 分。</p>
+        <div class="chart-wrap">
+          <div class="chart-title">ADI 子域评分（0–100）</div>
+          <div class="chart-canvas-wrap">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第6节：结构 QA -->
+      <div class="reveal">
+        <div class="section-label">结构验证</div>
+        <h2 class="section-title">CDR 几何构型 <span>完整保留</span></h2>
+        <p class="section-intro">3D 结构比对确认优化突变对 paratope 结合几何构型零扰动。</p>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value">0.28 Å</div>
+            <div class="metric-label">Fv 骨架 RMSD</div>
+            <div class="metric-threshold">门控标准 &lt; 1.0 Å</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">0.42 Å</div>
+            <div class="metric-label">CDR-H3 环 RMSD</div>
+            <div class="metric-threshold">门控标准 &lt; 0.5 Å</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">0.14°</div>
+            <div class="metric-label">VH/VL 角度变化</div>
+            <div class="metric-threshold">门控标准 &lt; 3.0°</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">典型类别匹配</div>
+            <div class="metric-threshold">必须与亲本匹配</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第7节：结论 -->
+      <div class="reveal">
+        <div class="result-banner">
+          <div class="score">77 / 100</div>
+          <div class="score-ref">Herceptin® 81 / 100</div>
+          <div class="score-label">ADI 评分 — 可接受 · 可进入表达验证</div>
+          <p>全部 15 项 CMC 参数通过。免疫原性风险低于 Herceptin。单次精准框架区突变（VH84 N→Q）消除脱酰胺化不稳定性。可进入 CHO 表达验证和临床前制剂研究。</p>
+          <div class="banner-cta">
+            <a href="case_mumab4d5_humanization_zh.html" class="btn-primary">人源化设计案例</a>
+            <a href="index.html#contact" class="btn-secondary">讨论您的抗体项目</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 <a href="index.html">Therasik</a> · 生命科学 AI · <a href="index.html#contact">联系我们</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.top-header-nav a').forEach(a => {
+      a.addEventListener('click', () => document.querySelector('.top-header-nav').classList.remove('open'));
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    new Chart(document.getElementById('categoryChart'), {
+      type: 'bar',
+      data: {
+        labels: ['疏水性\n& 聚集（30%）', '电荷\n& 对称性（25%）', '化学\n稳定性（25%）', '聚集\n风险（20%）'],
+        datasets: [
+          {
+            label: 'muMAb4D5（优化后）',
+            data: [84, 89, 56, 78],
+            backgroundColor: 'rgba(13,148,136,0.75)',
+            borderColor: '#0d9488',
+            borderWidth: 1.5, borderRadius: 5, borderSkipped: false,
+          },
+          {
+            label: 'Herceptin®（参考标准）',
+            data: [88, 93, 63, 76],
+            backgroundColor: 'rgba(99,102,241,0.55)',
+            borderColor: '#6366f1',
+            borderWidth: 1.5, borderRadius: 5, borderSkipped: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { font: { family: 'Noto Sans SC', size: 12, weight: '600' }, padding: 16, boxWidth: 12, boxHeight: 12 } },
+          tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.y}` } }
+        },
+        scales: {
+          y: { min: 40, max: 100, ticks: { font: { family: 'Noto Sans SC', size: 11 } }, grid: { color: '#f3f4f6' } },
+          x: { ticks: { font: { family: 'Noto Sans SC', size: 11, weight: '600' } }, grid: { display: false } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Therasik 免疫原性研究：基于 138 种治疗性抗体的 ADA 预测模型研究——分层建模、ADA 率相关分析与预测评分。">
+  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noai, noimageai">
+  <title>免疫原性研究 | Therasik — 生命科学 AI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWDN9HEPC0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MWDN9HEPC0');
+  </script>
+  <style>
+    :root { --primary: #0d9488; --primary-dark: #0f766e; --text: #111827; --text-muted: #4b5563; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
+
+    /* Header */
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; }
+    .top-header .brand a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+    .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
+    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s ease; font-weight: 600; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
+    .top-header-nav a.active { background: var(--primary); color: #fff; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
+    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 240px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16,1,0.3,1); z-index: 100; margin-top: 8px; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; border-radius: 8px; }
+    .nav-dropdown .dropdown-menu a:hover { background: var(--bg-alt); }
+    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
+    .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+
+    /* Page layout */
+    .page-wrap { display: flex; min-height: calc(100vh - 73px); max-width: 1400px; margin: 0 auto; }
+    .sidebar { width: 280px; flex-shrink: 0; background: var(--bg); border-right: 1px solid rgba(0,0,0,0.05); padding: 40px 20px; position: sticky; top: 73px; height: calc(100vh - 73px); overflow-y: auto; }
+    .sidebar h3 { font-size: 12px; font-weight: 700; color: var(--text-muted); margin: 0 16px 16px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .sidebar nav a { display: flex; align-items: center; padding: 12px 16px; color: var(--text-muted); text-decoration: none; font-size: 15px; transition: all 0.2s; border-radius: 8px; margin-bottom: 4px; font-weight: 500; }
+    .sidebar nav a:hover { background: rgba(13,148,136,0.06); color: var(--primary); }
+    .sidebar nav a.active { background: rgba(13,148,136,0.1); color: var(--primary-dark); font-weight: 600; }
+    .nav-icon { width: 18px; height: 18px; margin-right: 12px; opacity: 0.8; flex-shrink: 0; }
+    .main { flex: 1; padding: 60px 60px 100px; max-width: 960px; margin: 0 auto; }
+    .main h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 700; color: #111827; margin: 0 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
+    .main .subtitle { font-size: 20px; color: #4b5563; margin-bottom: 8px; line-height: 1.6; }
+    .main h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: #111827; margin: 56px 0 24px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.05); letter-spacing: -0.01em; display: flex; align-items: center; }
+    .main h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+    .h2-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin-right: 12px; border-radius: 10px; background: rgba(13,148,136,0.1); color: var(--primary); vertical-align: middle; flex-shrink: 0; }
+    .main p { margin: 0 0 20px; color: #374151; font-size: 17px; line-height: 1.7; }
+    .main ul { padding-left: 24px; margin: 0 0 20px; }
+    .main li { margin-bottom: 10px; color: #374151; font-size: 17px; line-height: 1.7; }
+
+    .mission-block { background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%); border: 1px solid rgba(13,148,136,0.1); border-radius: 16px; padding: 32px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(13,148,136,0.05); }
+    .mission-block p { margin: 0; font-size: 17px; line-height: 1.7; color: #111827; }
+    .mission-block p + p { margin-top: 16px; }
+
+    .trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 24px 0 36px; }
+    .trust-card { background: linear-gradient(160deg, #fff 0%, #f5fbfa 100%); border: 1px solid rgba(13,148,136,0.12); border-radius: 16px; padding: 22px; box-shadow: 0 8px 24px -20px rgba(13,148,136,0.24); }
+    .trust-card .eyebrow { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); }
+    .trust-card h3 { margin: 0 0 8px; font-size: 18px; color: #111827; letter-spacing: -0.01em; }
+    .trust-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #5b6472; }
+
+    .insight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 24px 0; }
+    .insight-card { background: #fff; border: 1px solid rgba(13,148,136,0.12); border-radius: 12px; padding: 18px; }
+    .insight-card .ic-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary); margin-bottom: 6px; display: block; }
+    .insight-card .ic-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: #111827; line-height: 1; margin-bottom: 4px; }
+    .insight-card .ic-desc { font-size: 13px; color: #6b7280; line-height: 1.5; }
+
+    .form-section { background: #fff; border-radius: 16px; padding: 40px; margin-top: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.06); }
+    .form-row { display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+    .form-group { flex: 1; min-width: 180px; }
+    .form-group.full { flex: 1 1 100%; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #111827; font-size: 14px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; transition: border-color .2s; }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,148,136,0.15); }
+    .btn { padding: 14px 32px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; transition: all .2s; box-shadow: 0 4px 12px rgba(13,148,136,0.25); }
+    .btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .nda-note { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: #6b7280; margin-top: 16px; padding: 10px 14px; background: rgba(13,148,136,0.04); border: 1px solid rgba(13,148,136,0.12); border-radius: 8px; line-height: 1.5; }
+    .nda-note svg { flex-shrink: 0; margin-top: 1px; stroke: var(--primary); }
+    .breadcrumb { font-size: 14px; color: #6b7280; margin-bottom: 32px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--primary); }
+    .breadcrumb span { color: #d1d5db; margin: 0 8px; }
+    .site-footer { padding: 32px; text-align: center; font-size: 13px; color: #9ca3af; border-top: 1px solid rgba(0,0,0,0.05); background: #fff; }
+    .site-footer a { color: #6b7280; text-decoration: none; }
+    .site-footer a:hover { color: var(--primary); }
+
+    @media (max-width: 900px) {
+      .page-wrap { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #e0e0e0; padding: 16px; }
+      .sidebar nav { display: flex; flex-wrap: wrap; gap: 8px; }
+      .sidebar nav a { display: inline-flex; padding: 8px 12px; border-radius: 6px; }
+      .main { padding: 32px 24px 64px; }
+      .trust-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .top-header { padding: 10px 16px; flex-wrap: nowrap; }
+      .top-header .slogan { display: none !important; }
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: auto; }
+      .top-header-nav a { font-size: 18px; padding: 12px 24px; }
+      .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
+      body { padding-top: 52px; }
+      .insight-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body data-lang="zh">
+
+<header class="top-header">
+  <div class="brand">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+        <defs>
+          <linearGradient id="logo_grad_im" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#0d9488"/><stop offset="1" stop-color="#065f58"/>
+          </linearGradient>
+        </defs>
+        <circle cx="17" cy="17" r="16" fill="url(#logo_grad_im)"/>
+        <path d="M9 13 H25" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M17 13 V24" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+        <circle cx="9" cy="13" r="2.3" fill="white"/>
+        <circle cx="25" cy="13" r="2.3" fill="white"/>
+        <circle cx="17" cy="24" r="2.3" fill="white"/>
+      </svg>
+      <span style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; color: #1f2937; letter-spacing: -0.02em;">Thera<span style="color: #0d9488;">sik</span></span>
+    </a>
+    <span class="slogan">生命科学 AI</span>
+  </div>
+  <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="top-header-nav">
+    <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
+    <a href="index.html">首页</a>
+    <a href="index.html#about">关于我们</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#services" class="active">服务</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+        <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T 设计</span><span class="menu-desc">智慧 CAR-T 架构设计</span></a>
+        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异性抗体</span><span class="menu-desc">多特异性工程</span></a>
+        <a href="Therasik_Immunogenicity.html" style="background:rgba(13,148,136,0.06);"><span class="menu-title" style="color:var(--primary);">免疫原性研究</span><span class="menu-desc">ADA 预测与参考数据库</span></a>
+        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+      </div>
+    </div>
+    <a href="index.html#case-studies">案例</a>
+    <a href="Therasik_OurTech.html">技术平台</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="#contact">联系我们</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar">
+    <h3>免疫原性</h3>
+    <nav>
+      <a href="#platform" class="nav-link active">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        平台概述
+      </a>
+      <a href="#study" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        研究概况
+      </a>
+      <a href="#prediction" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        预测方法
+      </a>
+      <a href="#database" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        ADA 数据库
+      </a>
+      <a href="#submit" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        提交咨询
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a><span>/</span><a href="index.html#services">服务</a><span>/</span><span>免疫原性研究</span>
+    </div>
+
+    <div class="mission-block">
+      <p><strong>临床校准的免疫原性评估：</strong>我们的平台以 120+ 条真实 ADA 临床记录为基准，提供比纯粹计算评分更有价值的背景分析——帮助团队在早期识别高风险表位，制定减免策略。</p>
+      <p>支持评估任意治疗性抗体序列，包括人源化候选、VHH 纳米抗体及双特异性格式。结果与 138 条临床抗体的历史 ADA 率对标，通常 3–5 个工作日交付。</p>
+    </div>
+
+    <h1 id="platform">免疫原性预测与 ADA 研究</h1>
+    <p class="subtitle">以临床 ADA 数据为基准的治疗性抗体免疫原性评估。</p>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <span class="eyebrow">数据基础</span>
+        <h3>120+ 条 ADA 记录</h3>
+        <p>来自批准及临床阶段治疗性抗体的真实世界免疫原性数据，覆盖多种适应症与给药方案。</p>
+      </div>
+      <div class="trust-card">
+        <span class="eyebrow">预测覆盖</span>
+        <h3>27 个 HLA-DR 等位基因</h3>
+        <p>基于 IEDB API 的 MHC-II 结合预测，覆盖全球主流 HLA-DR 等位基因，捕捉广谱人群风险。</p>
+      </div>
+      <div class="trust-card">
+        <span class="eyebrow">分层分析</span>
+        <h3>多维度风险评分</h3>
+        <p>将序列、结构、表面暴露与种系距离整合为一个综合评分，并与临床 ADA 率对标校准。</p>
+      </div>
+    </div>
+
+    <h2 id="study">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+      研究概况
+    </h2>
+
+    <p>Therasik 免疫原性研究分析了 <strong>138 种治疗性抗体</strong>——涵盖单克隆抗体、融合蛋白和抗体片段——建立了计算免疫原性预测与临床 ADA 率之间的相关性模型。</p>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <span class="ic-label">分析数量</span>
+        <div class="ic-value">138</div>
+        <div class="ic-desc">治疗性抗体，含批准和临床阶段</div>
+      </div>
+      <div class="insight-card">
+        <span class="ic-label">ADA 记录</span>
+        <div class="ic-value">120+</div>
+        <div class="ic-desc">验证临床免疫原性事件</div>
+      </div>
+      <div class="insight-card">
+        <span class="ic-label">HLA 等位基因</span>
+        <div class="ic-value">27</div>
+        <div class="ic-desc">HLA-DR 等位基因覆盖</div>
+      </div>
+      <div class="insight-card">
+        <span class="ic-label">预测模型</span>
+        <div class="ic-value">TCIA</div>
+        <div class="ic-desc">T 细胞免疫原性综合评分</div>
+      </div>
+    </div>
+
+    <p>研究发现，免疫原性风险与以下因素显著相关：</p>
+    <ul>
+      <li><strong>MHC-II 结合亲和力</strong> — 高亲和力 T 细胞表位数量与 ADA 发生率正相关</li>
+      <li><strong>种系同源性</strong> — 与人类种系序列偏差越大，免疫原性风险越高</li>
+      <li><strong>CDR 长度与组成</strong> — 长 CDR-H3 和非典型 CDR 组成与较高风险相关</li>
+      <li><strong>表面暴露残基</strong> — FR 区暴露的非自身序列是潜在 T 细胞激活位点</li>
+      <li><strong>给药途径</strong> — 皮下注射的 ADA 发生率通常高于静脉注射</li>
+    </ul>
+
+    <h2 id="prediction">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+      预测方法
+    </h2>
+
+    <p>我们的免疫原性评估流程整合多个互补方法：</p>
+    <ul>
+      <li><strong>IEDB MHC-II 预测</strong> — 覆盖 27 个 HLA-DR 等位基因的肽段结合亲和力预测（EL 模式）</li>
+      <li><strong>风险位点聚类</strong> — 高亲和力位点的空间聚集分析，识别功能性 T 细胞表位热点</li>
+      <li><strong>表面免疫原性评估</strong> — Parker 亲水性评分与 SASA 分析（提供 PDB 时）</li>
+      <li><strong>种系耐受过滤</strong> — IGHV/IGKV/IGLV 频率加权过滤，识别人类非自身残基</li>
+      <li><strong>TCIA 综合评分</strong> — 整合上述指标的归一化综合免疫原性评分</li>
+    </ul>
+
+    <p>所有评分均与 Therasik ADA 数据库中的临床记录对标，提供分位数排名和基准比较（如 Herceptin®、Humira® 等标杆抗体）。</p>
+
+    <h2 id="database">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+      ADA 参考数据库
+    </h2>
+
+    <p>Therasik ADA 数据库是我们免疫原性评估的校准基础，收录来自临床研究和上市后监测的 ADA 数据：</p>
+    <ul>
+      <li><strong>覆盖格式</strong> — 单克隆抗体（IgG1/2/4）、Fab 片段、融合蛋白、双特异性抗体</li>
+      <li><strong>适应症覆盖</strong> — 肿瘤学、自身免疫、代谢疾病、神经系统疾病</li>
+      <li><strong>数据维度</strong> — ADA 发生率、中和抗体比例、给药方案、联合用药信息</li>
+      <li><strong>人源化程度</strong> — 嵌合体、CDR 移植、完全人源化，各类别均有样本</li>
+    </ul>
+
+    <p>该数据库支持我们的预测模型针对特定治疗类别和分子格式进行分层校准。</p>
+
+    <h2 id="submit">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
+      提交免疫原性评估咨询
+    </h2>
+    <p>提交您的抗体序列，获取临床基准校准的免疫原性评估报告。</p>
+
+    <div class="form-section">
+      <form id="inquiry-form" action="https://formspree.io/f/mnjblezr" method="POST">
+        <input type="hidden" name="_subject" value="Therasik Immunogenicity Inquiry">
+        <input type="hidden" name="_next" value="https://therasik.com/thanks.html">
+        <input type="hidden" name="source_page" value="Therasik_Immunogenicity">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">名 *</label>
+            <input type="text" id="fname" name="fname" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">姓 *</label>
+            <input type="text" id="lname" name="lname" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="org">单位 *</label>
+            <input type="text" id="org" name="org" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-group full" style="margin-bottom: 24px;">
+          <label for="vh">VH 序列（氨基酸，单字母）</label>
+          <textarea id="vh" name="vh" style="font-family: monospace; min-height: 80px;" placeholder="EVQLVESGGGLVQPGGSLRLSCAAS..."></textarea>
+        </div>
+        <div class="form-group full" style="margin-bottom: 24px;">
+          <label for="vl">VL 序列（可选，VHH 时留空）</label>
+          <textarea id="vl" name="vl" style="font-family: monospace; min-height: 80px;" placeholder="EIVLTQSPATLSLSPGERATLSC..."></textarea>
+        </div>
+        <div class="form-group full" style="margin-bottom: 24px;">
+          <label for="message">补充说明（靶抗原、适应症、已知 ADA 数据等）</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn">提交免疫原性咨询</button>
+        <p class="nda-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          提交即触发 NDA 启动流程。您的序列与项目信息严格保密，不与第三方共享，项目结束后不留存原始数据。
+        </p>
+      </form>
+    </div>
+
+    <h2 id="contact">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+      联系方式
+    </h2>
+    <p>如有问题，请发送邮件：<a href="mailto:contact@therasik.com" style="color: var(--primary); font-weight: 600;">contact@therasik.com</a></p>
+    <p style="color: var(--text-muted); font-size: 14px;">我们通常在 1–2 个工作日内回复。</p>
+
+    <footer class="site-footer">
+      <p>© 2026 Therasik · <a href="https://therasik.com">therasik.com</a> · <a href="mailto:contact@therasik.com">contact@therasik.com</a></p>
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll('.top-header-nav a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.top-header-nav').classList.remove('open'));
+  });
+  const form = document.getElementById('inquiry-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = '提交中...';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(r => r.ok ? window.location.href = 'thanks.html' : (btn.disabled = false, btn.textContent = '提交免疫原性咨询'))
+        .catch(() => { btn.disabled = false; btn.textContent = '提交免疫原性咨询'; });
+    });
+  }
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = this.getAttribute('href').slice(1);
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
