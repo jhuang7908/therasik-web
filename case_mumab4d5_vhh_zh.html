@@ -55,8 +55,9 @@
     .menu-desc { display: block; font-size: 12px; color: #6b7280; font-weight: 400; }
 
     /* ─── HERO ─── */
-    .case-hero { background: url('images/hero-bg.svg') center/cover no-repeat, linear-gradient(135deg, #0d4a44 0%, #0d7a70 55%, #0d9488 100%); padding: 80px 24px 70px; text-align: center; }
-    .hero-inner { max-width: 1000px; margin: 0 auto; }
+    .case-hero { background: url('images/hero-bg-insynbio.svg') center/cover no-repeat, linear-gradient(135deg, #0b3f3a 0%, #0c6a61 55%, #0d7f76 100%); padding: 80px 24px 70px; text-align: center; position: relative; overflow: hidden; }
+    .case-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,34,31,0.54) 0%, rgba(8,34,31,0.44) 38%, rgba(8,34,31,0.52) 100%); }
+    .hero-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #a7f3d0; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 24px; }
     .case-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,5vw,52px); color: #fff; line-height: 1.15; margin-bottom: 18px; font-weight: 700; }
     .case-hero h1 em { font-style: italic; color: #6ee7b7; }
@@ -4061,22 +4062,22 @@ END
           <path d="M17.5 16 L 24 7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
           <rect x="21.5" y="3.5" width="5" height="5" rx="1" fill="#f59e0b" transform="rotate(45 24 6)"/>
         </svg>
-        <span><span style="color:#111827">In</span><span style="color:var(--primary);font-style:italic">Syn</span><span style="color:#111827">Bio</span></span>
+        <span><span style="color:#111827">Thera</span><span style="color:var(--primary);font-style:italic">sik</span></span>
       </a>
       <span class="slogan">生命科学 AI</span>
     </div>
     <nav class="top-header-nav">
       <a href="index.html">首页</a>
-      <a href="index.html#about">About Us</a>
+      <a href="index.html#about">关于我们</a>
       <div class="nav-dropdown" tabindex="0">
         <a href="index.html#services">服务</a>
         <div class="dropdown-menu">
-          <a href="Therasik_Antibody_Page.html"><span class="menu-title">Antibody</span><span class="menu-desc">Structure-based Development</span></a>
-          <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T</span><span class="menu-desc">Smart CAR-T Design</span></a>
-          <a href="Therasik_Bispecific_Page.html"><span class="menu-title">Bispecific</span><span class="menu-desc">Multispecific Engineering</span></a>
-          <a href="immunogenicity_study.html">
-            <span class="menu-title">Immunogenicity</span>
-            <span class="menu-desc">ADA Prediction &amp; Reference DB</span>
+          <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+          <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T 设计</span><span class="menu-desc">智慧 CAR-T 架构设计</span></a>
+          <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异性抗体</span><span class="menu-desc">多特异性工程</span></a>
+          <a href="Therasik_Immunogenicity.html">
+            <span class="menu-title">免疫原性研究</span>
+            <span class="menu-desc">ADA 预测与参考数据库</span>
           </a>
         </div>
       </div>
@@ -4091,40 +4092,40 @@ END
     <div class="hero-inner">
       <div class="hero-badge">
         <i data-lucide="dna" style="width:14px;height:14px"></i>
-        Case Study · VH → VHH Nanobody Design
+        案例研究 · VH → VHH 纳米抗体设计
       </div>
       <h1>muMAb4D5 <em>VH → 人源化 VHH</em><br>单域抗体工程</h1>
       <p class="subtitle">从 muMAb4D5 VH 设计得到 HER2 靶向纳米抗体，在 100% 保留 CDR 的前提下完成表面重塑，并在关键 CMC 指标上超过临床 anti-HER2 VHH 参考。</p>
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="val">66.66</div>
-            <div class="lbl">VHH ADI Score</div>
-            <span class="eval eval-green">✓ PASS &gt;55</span>
+            <div class="lbl">VHH ADI 评分</div>
+            <span class="eval eval-green">✓ 通过 &gt;55</span>
           </div>
           <div class="hero-stat">
             <div class="val">0.054 Å</div>
-            <div class="lbl">Struct RMSD</div>
-            <span class="eval eval-green">✓ Excellent &lt;1.5Å</span>
+            <div class="lbl">结构 RMSD</div>
+            <span class="eval eval-green">✓ 优秀 &lt;1.5Å</span>
           </div>
           <div class="hero-stat">
             <div class="val">3/3</div>
-            <div class="lbl">CDRs Intact</div>
+            <div class="lbl">CDR 保留</div>
             <span class="eval eval-green">✓ 100%</span>
           </div>
           <div class="hero-stat">
             <div class="val">19/19</div>
-            <div class="lbl">Epitope vs Tras.</div>
-            <span class="eval eval-green">✓ Full Overlap</span>
+            <div class="lbl">表位重合度</div>
+            <span class="eval eval-green">✓ 完整重合</span>
           </div>
           <div class="hero-stat">
             <div class="val">0.671</div>
             <div class="lbl">DockQ</div>
-            <span class="eval eval-teal">★ Medium+</span>
+            <span class="eval eval-teal">★ 中高质量</span>
           </div>
           <div class="hero-stat">
             <div class="val">1524 Å²</div>
             <div class="lbl">BSA</div>
-            <span class="eval eval-green">✓ Strong iface</span>
+            <span class="eval eval-green">✓ 强界面</span>
           </div>
           <div class="hero-stat">
             <div class="val">−4532</div>
