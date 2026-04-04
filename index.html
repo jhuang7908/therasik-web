@@ -77,11 +77,10 @@
     .hero { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 64px; overflow: hidden; }
     .hero-banner { position: absolute; inset: 0; z-index: 0; opacity: 1.0; }
     .hero-banner img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.30) 26%, rgba(0,0,0,0.20) 58%, rgba(0,0,0,0.52) 100%); pointer-events: none; }
-    .hero-decor { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
-    .hero .hero-inner { position: relative; z-index: 3; max-width: 780px; margin-top: 16px; }
-    .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 58px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.04em; color: #ffffff; line-height: 1.05; text-shadow: 0 2px 16px rgba(0,0,0,0.3); }
-    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.88); margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; text-shadow: 0 1px 8px rgba(0,0,0,0.2); }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
+    .hero .hero-inner { position: relative; z-index: 2; max-width: 780px; }
+    .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 58px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.04em; color: #ffffff; line-height: 1.05; }
+    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; }
     .hero-features { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
     .feature-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.92); background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); font-weight: 500; }
     .feature-item svg { stroke: rgba(255,255,255,0.85); }
@@ -315,40 +314,20 @@
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
-    <!-- Decorative motifs -->
-    <svg class="hero-decor" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="rgba(255,255,255,0.18)" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M1338 288 C1336 268 1334 248 1337 222" stroke-width="4.5"/>
-        <path d="M1358 288 C1360 268 1362 248 1359 222" stroke-width="4.5"/>
-        <path d="M1337 222 C1318 210 1288 196 1255 182" stroke-width="3.5"/>
-        <path d="M1359 222 C1378 210 1408 196 1432 182" stroke-width="3.5"/>
-        <path d="M1255 182 C1232 150 1208 116 1192 80" stroke-width="3.5"/>
-        <path d="M1432 182 C1436 148 1438 112 1434 76" stroke-width="3.5"/>
-        <ellipse cx="1185" cy="64" rx="20" ry="13"/>
-        <ellipse cx="1438" cy="66" rx="20" ry="13"/>
-      </g>
-      <g fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M0 340 H120 V380 H260 V340 H400"/>
-        <path d="M120 380 V430 H280 V390 H440 V440"/>
-        <path d="M0 460 H140 V420 H300 V470 H460 V430 H520"/>
-        <path d="M0 540 H160 V500 H320 V550 H460"/>
-      </g>
-    </svg>
-
     <div class="hero-inner">
       <h1>AI 驱动的药物设计</h1>
       <p class="tagline">临床数据与机器学习的深度结合——从抗体人源化到 CAR-T 工程，加速生物治疗创新。</p>
       <div class="hero-features">
         <div class="feature-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           AI 驱动设计
         </div>
         <div class="feature-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           1,142 条临床序列
         </div>
         <div class="feature-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           专家审核报告
         </div>
       </div>
