@@ -493,7 +493,7 @@
             <div class="lt-query">哪个人源种系能最好地保留 CDR 构象并最小化免疫原性？</div>
             <div class="lt-result">IGHV3-23*01 × IGKV1-39*01 — 从 842 条临床抗体数据库中排名第一</div>
             <div class="lt-decision"><strong>IGHV3-23*01</strong>（VH）：最高频率家族（&gt;30% 临床抗体）；CDR-H3 长度 14 aa 的最优 Vernier 几何。<strong>IGKV1-39*01</strong>（VL）：配对频率前 5%；完美 Vernier 兼容性——VL 无需回突变。</div>
-          </div>
+      </div>
           <div class="lt-step"><span class="lt-dot"></span>
             <div class="lt-head">A5 · CDR 移植 + Vernier 回突变</div>
             <div class="lt-query">哪些位点结构关键？恢复 VH-VL 堆积所需的最少回突变？</div>
@@ -666,52 +666,52 @@
             <summary>第二步：补充技术细节 <span>首次联系可选填</span></summary>
             <div class="technical-details-body">
               <div class="form-row">
-                <div class="form-group full">
+          <div class="form-group full">
                   <label>服务类型</label>
-                  <div class="check-group">
-                    <div class="check-item"><input type="checkbox" name="service_type" id="st1" value="assessment"><label for="st1">评估（序列、可开发性、免疫原性、结构）</label></div>
-                    <div class="check-item"><input type="checkbox" name="service_type" id="st2" value="humanization"><label for="st2">人源化</label></div>
-                  </div>
-                </div>
+            <div class="check-group">
+              <div class="check-item"><input type="checkbox" name="service_type" id="st1" value="assessment"><label for="st1">评估（序列、可开发性、免疫原性、结构）</label></div>
+              <div class="check-item"><input type="checkbox" name="service_type" id="st2" value="humanization"><label for="st2">人源化</label></div>
+            </div>
+          </div>
               </div>
               <div class="form-row">
-                <div class="form-group full">
-                  <label>人源化服务（如适用）</label>
-                  <div class="check-group">
-                    <div class="check-item"><input type="checkbox" name="humanization" id="h1" value="vhvl"><label for="h1">VH/VL 人源化</label></div>
-                    <div class="check-item"><input type="checkbox" name="humanization" id="h2" value="vhh"><label for="h2">VHH 人源化</label></div>
+          <div class="form-group full">
+            <label>人源化服务（如适用）</label>
+            <div class="check-group">
+              <div class="check-item"><input type="checkbox" name="humanization" id="h1" value="vhvl"><label for="h1">VH/VL 人源化</label></div>
+              <div class="check-item"><input type="checkbox" name="humanization" id="h2" value="vhh"><label for="h2">VHH 人源化</label></div>
                     <div class="check-item"><input type="checkbox" name="humanization" id="h3" value="vh2vhh"><label for="h3">VH → VHH 转化</label></div>
                   </div>
-                </div>
+            </div>
+          </div>
+              <div class="form-row">
+          <div class="form-group full">
+            <label>亲和力成熟（如适用）</label>
+            <div class="check-group">
+              <div class="check-item"><input type="checkbox" name="affinity" id="a1" value="ab_ag"><label for="a1">抗原-抗体</label></div>
+              <div class="check-item"><input type="checkbox" name="affinity" id="a2" value="ligand_receptor"><label for="a2">配体-受体</label></div>
+              <div class="check-item"><input type="checkbox" name="affinity" id="a3" value="vhh"><label for="a3">VHH 亲和力成熟</label></div>
+            </div>
+          </div>
               </div>
               <div class="form-row">
-                <div class="form-group full">
-                  <label>亲和力成熟（如适用）</label>
-                  <div class="check-group">
-                    <div class="check-item"><input type="checkbox" name="affinity" id="a1" value="ab_ag"><label for="a1">抗原-抗体</label></div>
-                    <div class="check-item"><input type="checkbox" name="affinity" id="a2" value="ligand_receptor"><label for="a2">配体-受体</label></div>
-                    <div class="check-item"><input type="checkbox" name="affinity" id="a3" value="vhh"><label for="a3">VHH 亲和力成熟</label></div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group full">
+          <div class="form-group full">
                   <label for="vh">VH 序列（氨基酸单字母）</label>
-                  <textarea id="vh" name="vh" class="seq" placeholder="EVQLVESGGGLVQPGGSLRLSCAAS..."></textarea>
+            <textarea id="vh" name="vh" class="seq" placeholder="EVQLVESGGGLVQPGGSLRLSCAAS..."></textarea>
                   <div class="hint">粘贴重链可变区序列（单字母氨基酸）。</div>
-                </div>
-              </div>
-              <div class="form-row">
+            </div>
+          </div>
+          <div class="form-row">
                 <div class="form-group full">
                   <label for="vl">VL 序列（氨基酸单字母）</label>
                   <textarea id="vl" name="vl" class="seq" placeholder="EIVLTQSPATLSLSPGERATLSC..."></textarea>
                   <div class="hint">粘贴轻链可变区序列。VHH 或 VH→VHH 转化时可留空。</div>
-                </div>
-              </div>
-              <div class="form-row">
+            </div>
+          </div>
+          <div class="form-row">
                 <div class="form-group full">
                   <div class="hint" style="margin:0;">如需提交 PDB 文件，请通过邮件发送至 <a href="mailto:contact@therasik.com" style="color:var(--primary);">contact@therasik.com</a>，并在邮件中注明咨询相关信息。</div>
-                </div>
+          </div>
               </div>
             </div>
           </details>
@@ -799,8 +799,8 @@
             if (r.ok) {
               trackEvent('form_submit_success', { page: 'antibody_assessment_zh', form: 'inquiry_form' });
               setStatus('咨询已收到，正在跳转到确认页面...', 'success');
-              window.location.href = 'thanks.html';
-            } else {
+            window.location.href = 'thanks.html';
+          } else {
               r.json().then(d => setStatus(d.errors ? d.errors.map(x => x.message).join(', ') : '提交失败，请发送邮件至 contact@therasik.com', 'error'));
               btn.disabled = false; btn.innerText = orig;
             }

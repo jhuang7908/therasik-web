@@ -51,10 +51,22 @@
     .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
     .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
 
-    /* Page layout */
-    .page-hero { background: linear-gradient(135deg, #0f766e 0%, #0d9488 60%, #14b8a6 100%); color: #fff; padding: 80px 32px 80px; text-align: center; }
-    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 700; margin: 0 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
-    .page-hero p { font-size: 18px; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+    /* Hero — aligned with index.html (shared banner, typography, chips, CTAs) */
+    .hero { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 64px; overflow: hidden; }
+    .hero-banner { position: absolute; inset: 0; z-index: 0; opacity: 1.0; }
+    .hero-banner img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
+    .hero .hero-inner { position: relative; z-index: 2; max-width: 780px; }
+    .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 58px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.04em; color: #ffffff; line-height: 1.05; }
+    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; }
+    .hero-features { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+    .feature-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.92); background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); font-weight: 500; }
+    .feature-item svg { stroke: rgba(255,255,255,0.85); }
+    .hero .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 14px 0 rgba(13,148,136,0.3); }
+    .hero .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,148,136,0.4); }
+    .hero .btn-outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.35); box-shadow: none; backdrop-filter: blur(4px); }
+    .hero .btn-outline:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
 
     .section { padding: 80px 32px; border-bottom: 1px solid rgba(0,0,0,0.015); }
     .section-alt { background: var(--bg-alt); }
@@ -106,6 +118,9 @@
     .site-footer a { color: #6b7280; text-decoration: none; }
     .site-footer a:hover { color: var(--primary); }
 
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 40px; }
+    }
     @media (max-width: 768px) {
       .mobile-menu-btn { display: block; }
       .top-header { padding: 10px 16px; flex-wrap: nowrap; }
@@ -115,9 +130,16 @@
       .top-header-nav a { font-size: 18px; padding: 12px 24px; }
       .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
       body { padding-top: 52px; }
-      .page-hero h1 { font-size: 36px; }
+      .hero h1 { font-size: 40px; }
       .pipeline { flex-direction: column; gap: 12px; }
       .pipeline-step { border-radius: 12px !important; border-right: 1px solid rgba(13,148,136,0.14) !important; }
+    }
+    @media (max-width: 600px) {
+      .hero { min-height: auto; padding: 40px 20px 48px; }
+      .hero h1 { font-size: 34px; }
+      .hero .tagline { font-size: 16px; }
+      .hero-features { gap: 8px; }
+      .feature-item { font-size: 12px; padding: 5px 10px; }
     }
   </style>
 </head>
@@ -167,16 +189,40 @@
   </nav>
 </header>
 
-<div class="page-hero">
-  <h1>技术平台</h1>
-  <p>AbEngineCore——Therasik 的核心计算框架，集成业界领先工具与 1,142 条临床抗体基准数据，将机器学习与领域专业知识深度融合，交付真正可执行的设计方案。</p>
-</div>
+<section class="hero">
+    <div class="hero-banner">
+      <img src="images/hero-bg-insynbio.svg" alt="" role="presentation">
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <h1>AI 驱动的药物设计</h1>
+      <p class="tagline">临床数据与机器学习的深度结合——从抗体人源化到 CAR-T 工程，加速生物治疗创新。</p>
+      <div class="hero-features">
+        <div class="feature-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          AI 驱动设计
+        </div>
+        <div class="feature-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          1,142 条临床序列
+        </div>
+        <div class="feature-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          专家审核报告
+        </div>
+      </div>
+      <div class="cta-row">
+        <a href="Therasik_Antibody_Page.html#submit" class="btn">开始评估</a>
+        <a href="index.html#contact" class="btn btn-outline">联系我们</a>
+      </div>
+    </div>
+</section>
 
 <section class="section">
   <div class="container">
-    <span class="section-label">核心框架</span>
+    <span class="section-label">技术平台</span>
     <h2 class="section-h2">AbEngineCore — <span>统一设计引擎</span></h2>
-    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7;">AbEngineCore 不是单一工具，而是一个有机整合的工作流——每个工具在正确的场景下发挥其强项，由领域专家审核串联，最终输出经过验证的设计方案。</p>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7;">AbEngineCore——Therasik 的核心计算框架，集成业界领先工具与 1,142 条临床抗体基准数据，将机器学习与领域专业知识深度融合，交付真正可执行的设计方案。AbEngineCore 不是单一工具，而是一个有机整合的工作流——每个工具在正确的场景下发挥其强项，由领域专家审核串联，最终输出经过验证的设计方案。</p>
 
     <div class="tool-grid">
       <div class="tool-card">
@@ -227,12 +273,20 @@
   <div class="container">
     <span class="section-label">知识库</span>
     <h2 class="section-h2">以临床数据为<span>校准基础</span></h2>
-    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7; margin-bottom: 8px;">Therasik 的差异化不在于工具本身，而在于我们以真实临床结果校准每一项评估——提供有意义的背景，而非孤立的分数。</p>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7; margin-bottom: 8px;">Therasik 的差异化不在于工具本身，而在于我们以真实临床结果校准每一项评估——提供有意义的背景，而非孤立的分数。知识库侧持续对齐 <strong>1,142</strong> 条批准及临床阶段抗体序列（含 <strong>42</strong> 条临床阶段 VHH 参考）、疫苗知识库中 <strong>109</strong> 条 MHC I/II 表位记录（EpiDesignCore），以及 <strong>458</strong> 株含 Fc 临床抗体的 CMC 对标（AbRef-458）。</p>
 
     <div class="data-grid">
       <div class="data-card">
         <div class="dc-num">1,142</div>
         <div class="dc-label">批准及临床阶段抗体序列</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">42</div>
+        <div class="dc-label">临床阶段 VHH（纳米抗体）参考</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-num">109</div>
+        <div class="dc-label">MHC I/II 表位记录（EpiDesignCore）</div>
       </div>
       <div class="data-card">
         <div class="dc-num">138</div>
@@ -252,7 +306,7 @@
       </div>
       <div class="data-card">
         <div class="dc-num">458</div>
-        <div class="dc-label">AbRef CMC 可开发性基准</div>
+        <div class="dc-label">含 Fc 临床抗体 · AbRef-458 CMC 基准</div>
       </div>
     </div>
   </div>
