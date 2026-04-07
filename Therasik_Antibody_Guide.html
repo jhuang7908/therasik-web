@@ -145,7 +145,7 @@
     }
 
     /* ── Page header ── */
-    .page-header{background: linear-gradient(135deg, #f0fdfa 0%, #e8f6f3 60%, #f5f5f0 100%);border-bottom:1px solid rgba(13,148,136,.1);padding:48px 40px 32px;margin-top:52px;}
+    .page-header{background: linear-gradient(135deg, #f0fdfa 0%, #e8f6f3 60%, #f5f5f0 100%);border-bottom:1px solid rgba(13,148,136,.1);padding:48px 40px 32px;}
     .page-header h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;margin:0 0 10px;letter-spacing:-.02em;color:#111827;}
     .page-header p{color:var(--text-muted);font-size:17px;margin:0 0 20px;max-width:700px;line-height:1.65;}
     .back-link{font-size:14px;color:var(--primary);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;}
@@ -236,7 +236,7 @@
 
     @media(max-width:900px){
       .top-header {padding:10px 16px; width:100%;}
-      .page-header{padding:28px 16px 24px;margin-top:48px;}
+      .page-header{padding:28px 16px 24px;}
       .page-header h1{font-size:28px;}
       .controls{padding:12px 16px;top:48px;}
       .grid-container{padding:20px 16px 60px;}
@@ -371,7 +371,11 @@
   </header>
 
 <div class="page-header">
-  <h1>抗体工程指南</h1>
+  <a href="Therasik_Antibody_Page.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    抗体评估与研发
+  </a>
+    <h1>抗体工程指南</h1>
   <p>涵盖 Fc 突变库（ADCC/CDC/FcRn）、可开发性指标（pI, SAP, PSH, 脱酰胺）、免疫原性风险评估，以及相关的实验技术验证方案的综合技术参考。</p>
 </div>
 
