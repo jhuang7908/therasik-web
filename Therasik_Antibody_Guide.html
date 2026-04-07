@@ -375,21 +375,27 @@
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
     抗体评估与研发
   </a>
-    <h1>抗体工程指南</h1>
+  <h1>抗体工程指南</h1>
   <p>涵盖 Fc 突变库（ADCC/CDC/FcRn）、可开发性指标（pI, SAP, PSH, 脱酰胺）、免疫原性风险评估，以及相关的实验技术验证方案的综合技术参考。</p>
+  <div class="domain-tabs">
+    <button class="dtab active" onclick="switchDomain('fc', this)" data-domain="fc">Fc 突变库</button>
+    <button class="dtab" onclick="switchDomain('dev', this)" data-domain="dev">可开发性指标</button>
+    <button class="dtab" onclick="switchDomain('immuno', this)" data-domain="immuno">免疫原性因素</button>
+    <button class="dtab" onclick="switchDomain('wet', this)" data-domain="wet">实验验证方案</button>
+  </div>
 </div>
 
 <div class="controls">
   <div class="search-wrap">
     <svg class="si" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="search-input" placeholder="Search name, mutation, drug, mechanism…" autocomplete="off" spellcheck="false">
+    <input type="text" id="search-input" placeholder="搜索名称、突变、药物、机制…" autocomplete="off" spellcheck="false">
   </div>
-  <select class="filter-sel" id="cat-filter"><option value="">All Categories</option></select>
+  <select class="filter-sel" id="cat-filter"><option value="">全部类别</option></select>
   <select class="filter-sel" id="tier-filter" style="display:none;">
-    <option value="">All Evidence Levels</option>
-    <option value="T1">T1 — Approved drugs</option>
-    <option value="T2">T2 — Clinical trials</option>
-    <option value="T3">T3 — Preclinical / research</option>
+    <option value="">全部证据级别</option>
+    <option value="T1">T1 — 已获批药物</option>
+    <option value="T2">T2 — 临床试验</option>
+    <option value="T3">T3 — 临床前 / 研究</option>
   </select>
   <button class="clear-btn" id="clear-btn" onclick="clearFilters()">✕ Clear</button>
   <span class="stats-chip" id="stats-chip"></span>
