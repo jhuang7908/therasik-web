@@ -185,7 +185,7 @@
 <body data-lang="zh" id="therasik-body">
   <header class="top-header">
     <div class="brand">
-      <a href="therasik_index.html">
+      <a href="index.html">
         <span style="color:#111827">Thera</span><span class="accent">sik</span>
       </a>
       <span class="slogan">AI 赋能生命科学</span>
@@ -195,9 +195,9 @@
     </button>
     <nav class="top-header-nav">
       <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
-      <a href="therasik_index.html" class="active">首页</a>
+      <a href="index.html" class="active">首页</a>
       <div class="nav-dropdown" tabindex="0">
-        <a href="therasik_index.html#services">服务</a>
+        <a href="index.html#services">服务</a>
         <div class="dropdown-menu">
           <a href="Therasik_Antibody_Page.html">
             <span class="menu-title">抗体评估与研发</span>
@@ -276,8 +276,8 @@
       </div>
     </div>
     <div class="cta-row">
-      <a href="therasik_index.html#services" class="btn">开始项目评估</a>
-      <a href="therasik_index.html#contact" class="btn btn-outline">联系我们</a>
+      <a href="index.html#services" class="btn">开始项目评估</a>
+      <a href="index.html#contact" class="btn btn-outline">联系我们</a>
     </div>
     </div>
   </section>
@@ -440,7 +440,7 @@
   <script>
     function setNavActive() {
       var hash = window.location.hash || '';
-      var homeLink = document.querySelector('.top-header-nav a[href="therasik_index.html"]');
+      var homeLink = document.querySelector('.top-header-nav a[href="index.html"]');
       if (homeLink) homeLink.classList.toggle('active', !hash || hash === '#');
       document.querySelectorAll('.top-header-nav a[href^="#"]').forEach(function(a) {
         a.classList.toggle('active', hash && a.getAttribute('href') === hash);
