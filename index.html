@@ -87,18 +87,18 @@
     .lang-switch button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     
     
-    .hero { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 64px; overflow: hidden; }
-    .hero-banner { position: absolute; inset: 0; z-index: 0; opacity: 1.0; }
+    .hero { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 64px; overflow: hidden; background: #0d9488; }
+    .hero-banner { position: absolute; inset: 0; z-index: 0; opacity: 0.3; mix-blend-mode: overlay; }
     .hero-banner img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(13,148,136,0.95) 0%, rgba(15,118,110,0.85) 100%); pointer-events: none; }
     .hero .hero-inner { position: relative; z-index: 2; max-width: 780px; }
     .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 58px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.04em; color: #ffffff; line-height: 1.05; }
-    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; }
+    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.95); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; }
     .hero .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .hero .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 14px 0 rgba(13,148,136,0.3); }
-    .hero .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,148,136,0.4); }
-    .hero .btn-outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.35); box-shadow: none; backdrop-filter: blur(4px); }
-    .hero .btn-outline:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .hero .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: #ffffff; color: var(--primary); text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1); }
+    .hero .btn:hover { background: #f8fafc; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .hero .btn-outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.4); box-shadow: none; backdrop-filter: blur(4px); }
+    .hero .btn-outline:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.7); transform: translateY(-2px); }
     .hero-features { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
     .feature-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.92); background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); font-weight: 500; }
     .feature-item svg { stroke: rgba(255,255,255,0.85); }
@@ -259,7 +259,7 @@
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-inner">
-    <h1><span style="color:#ffffff">Thera</span><span class="accent" style="color: var(--primary); font-style: italic; font-weight: 700;">sik</span></h1>
+    <h1><span style="color:#ffffff">Thera</span> <span class="accent" style="color: #ffffff; font-style: italic; font-weight: 700;">sik</span></h1>
     <p class="tagline lang-zh">AI 辅助药物研发。基于临床与科学文献数据，结合机器学习，助力药物设计、评估与创新。</p>
     <div class="hero-features">
       <div class="feature-item">
@@ -288,7 +288,7 @@
         <div class="trust-label" style="font-size:13px; color:var(--text-muted); margin-top:4px; font-weight:600;">临床抗体序列</div>
       </div>
       <div class="trust-item" style="flex:1; min-width:160px; text-align:center;">
-        <div class="trust-number" style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--primary); line-height:1;">120+</div>
+        <div class="trust-number" style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--primary); line-height:1;">138</div>
         <div class="trust-label" style="font-size:13px; color:var(--text-muted); margin-top:4px; font-weight:600;">临床 ADA 记录</div>
       </div>
       <div class="trust-item" style="flex:1; min-width:160px; text-align:center;">
@@ -306,7 +306,7 @@
     <div class="section-inner">
       <span class="section-label lang-zh">关于我们</span>
       <h2 style="margin-bottom:16px">临床数据驱动的 AI 药物研发</h2>
-      <p>Therasik 专注 AI 辅助药物研发。我们不依赖合成或假设序列，而是基于<strong>真实临床结果</strong>进行模型校准。我们维护着包含 <strong>1,142 条临床抗体序列</strong>、<strong>120+ 经验证的免疫原性 (ADA) 记录</strong>以及 <strong>100+ 临床 ADC 程序</strong>的精选数据库。每一项设计建议均可追溯至已在人体中测试过的分子。</p>
+      <p>Therasik 专注 AI 辅助药物研发。我们不依赖合成或假设序列，而是基于<strong>真实临床结果</strong>进行模型校准。我们维护着包含 <strong>1,142 条临床抗体序列</strong>、<strong>138 条经验证的免疫原性 (ADA) 记录</strong>以及 <strong>100+ 临床 ADC 程序</strong>的精选数据库。每一项设计建议均可追溯至已在人体中测试过的分子。</p>
       <div class="highlight">
         <p><strong>技术栈：</strong>结构预测集成 AlphaFold2、ABodyBuilder2 与 HADDOCK3；从头设计整合 ProteinMPNN 与 RFdiffusion。专家审核交付，助力临床转化。</p>
       </div>
