@@ -200,6 +200,42 @@
       .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
       body { padding-top: 52px; }
     }
+
+    /* ── service-hero: mirrors KB page-header ── */
+    .service-hero {
+      background:
+        repeating-linear-gradient(135deg, transparent, transparent 14px,
+          rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px),
+        linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%);
+      border-top: 4px solid #0d9488;
+      border-bottom: 1px solid rgba(13,148,136,0.18);
+      padding: 36px 40px 28px;
+    }
+    .service-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+      color: #0d4a43;
+    }
+    .service-hero p {
+      color: #2d6a61;
+      font-size: 15px;
+      max-width: 720px;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .service-hero .back-link {
+      font-size: 13px; color: #0f766e; text-decoration: none;
+      font-weight: 600; display: inline-flex; align-items: center;
+      gap: 5px; margin-bottom: 14px; opacity: 0.85;
+    }
+    .service-hero .back-link:hover { opacity: 1; color: #0d9488; }
+    @media (max-width: 768px) {
+      .service-hero { padding: 24px 20px 20px; }
+      .service-hero h1 { font-size: 26px; }
+    }
   </style>
 </head>
 <body data-lang="zh">
@@ -275,7 +311,16 @@
     </div>
   </header>
 
-  <div class="page-wrap">
+<div class="service-hero">
+  <a href="index.html#services" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    AI 药物设计
+  </a>
+  <h2>抗体研发与评估</h2>
+  <p>基于 AI 驱动的序列分析、可开发性评估、免疫原性预测与人源化工程，覆盖候选筛选至临床前 IND 递交的全链条支持。结合 1,142 条临床抗体基准数据与六工具 ΔΔG 虚拟亲和力成熟体系，为每个候选提供可量化、有文献依据的优化方案。</p>
+</div>
+
+<div class="page-wrap">
     <aside class="sidebar">
       <h3>服务导航</h3>
       <nav>

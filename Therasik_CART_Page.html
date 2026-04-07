@@ -311,6 +311,42 @@
       .quick-proof { gap: 8px; }
       .proof-chip { font-size: 12px; padding: 8px 14px; }
     }
+
+    /* ── service-hero: mirrors KB page-header ── */
+    .service-hero {
+      background:
+        repeating-linear-gradient(135deg, transparent, transparent 14px,
+          rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px),
+        linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%);
+      border-top: 4px solid #0d9488;
+      border-bottom: 1px solid rgba(13,148,136,0.18);
+      padding: 36px 40px 28px;
+    }
+    .service-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+      color: #0d4a43;
+    }
+    .service-hero p {
+      color: #2d6a61;
+      font-size: 15px;
+      max-width: 720px;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .service-hero .back-link {
+      font-size: 13px; color: #0f766e; text-decoration: none;
+      font-weight: 600; display: inline-flex; align-items: center;
+      gap: 5px; margin-bottom: 14px; opacity: 0.85;
+    }
+    .service-hero .back-link:hover { opacity: 1; color: #0d9488; }
+    @media (max-width: 768px) {
+      .service-hero { padding: 24px 20px 20px; }
+      .service-hero h1 { font-size: 26px; }
+    }
   </style>
 </head>
 <body data-lang="zh" id="therasik-body">
@@ -386,7 +422,16 @@
     </div>
   </header>
 
-  <div class="page-wrap">
+<div class="service-hero">
+  <a href="index.html#services" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    AI 药物设计
+  </a>
+  <h2>智慧 CAR-T 设计</h2>
+  <p>ACTES 智慧 CAR-T 设计平台，基于 237 个经临床验证的 CAR 工程组件，提供靶点选择、架构设计、组件优化与制造可行性评估的完整解决方案。覆盖 CAR-T、CAR-NK、CAR-M 多种细胞疗法平台，整合疾病策略分析与监管路径规划。</p>
+</div>
+
+<div class="page-wrap">
     <aside class="sidebar">
       <h3>智慧 CAR-T</h3>
       <nav>

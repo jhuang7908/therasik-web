@@ -179,6 +179,42 @@
       .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
       body { padding-top: 52px; }
     }
+
+    /* ── service-hero: mirrors KB page-header ── */
+    .service-hero {
+      background:
+        repeating-linear-gradient(135deg, transparent, transparent 14px,
+          rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px),
+        linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%);
+      border-top: 4px solid #0d9488;
+      border-bottom: 1px solid rgba(13,148,136,0.18);
+      padding: 36px 40px 28px;
+    }
+    .service-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+      color: #0d4a43;
+    }
+    .service-hero p {
+      color: #2d6a61;
+      font-size: 15px;
+      max-width: 720px;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .service-hero .back-link {
+      font-size: 13px; color: #0f766e; text-decoration: none;
+      font-weight: 600; display: inline-flex; align-items: center;
+      gap: 5px; margin-bottom: 14px; opacity: 0.85;
+    }
+    .service-hero .back-link:hover { opacity: 1; color: #0d9488; }
+    @media (max-width: 768px) {
+      .service-hero { padding: 24px 20px 20px; }
+      .service-hero h1 { font-size: 26px; }
+    }
   </style>
 </head>
 <body data-lang="zh" id="therasik-body">
@@ -253,7 +289,17 @@
     <div class="header-right">
     </div>
   </header>
-  <div class="page-wrap">
+
+<div class="service-hero">
+  <a href="index.html#services" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    AI 药物设计
+  </a>
+  <h2>双特异性抗体工程</h2>
+  <p>整合 Nano-Convert™ 纳米体转化与 SmartLink™ 智能链接技术，提供从格式筛选到双重特异性验证、CMC 可开发性评估的系统性解决方案。参考 75+ 临床双抗数据，为每个项目匹配最优分子格式与连接策略，助力双功能生物药的高效开发。</p>
+</div>
+
+<div class="page-wrap">
     <aside class="sidebar">
       <h3 >双特异性平台</h3>
       <nav>
