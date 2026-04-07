@@ -190,7 +190,7 @@
     .cc-detail{display:none;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);}
     .comp-card.expanded .cc-detail{display:block;}
     .cc-detail .collapse-bar{height:3px;background:#e5f7f5;border-radius:2px;margin-bottom:12px;overflow:hidden;}
-    .cc-detail .collapse-progress{height:100%;width:100%;background:var(--primary);border-radius:2px;}
+    .cc-detail .collapse-progress{height:100%;width:100%;background:var(--primary);border-radius:2px;transition:width linear;}
     .expand-toggle{font-size:11px;color:var(--primary);font-weight:600;float:right;margin-top:2px;user-select:none;}
     .comp-card .expand-toggle::after{content:'▼ 展开';}
     .comp-card.expanded .expand-toggle::after{content:'▲ 收起';}
@@ -1260,6 +1260,8 @@ function renderGrid() {
 // ═══════════════════════════════════════════════════════════
 // INTERACTIONS
 // ═══════════════════════════════════════════════════════════
+let collapseTimers = {};
+
 function toggleCard(ev, id) {
   // Clicks on PubMed / external links must not bubble — otherwise the card toggles
   // collapsed and hides the detail panel (looks like "lost content" until refresh).
@@ -1267,7 +1269,66 @@ function toggleCard(ev, id) {
     if (ev.target.closest('a, button, input, select, textarea, label')) return;
   }
   const el = document.getElementById('card-' + id);
-  if (el) el.classList.toggle('expanded');
+  if (el) {
+    const isExpanded = el.classList.toggle('expanded');
+    
+    // Auto-collapse logic
+    const progress = el.querySelector('.collapse-progress');
+    if (isExpanded) {
+      if (progress) {
+        progress.style.transition = 'none';
+        progress.style.width = '100%';
+      }
+      
+      // Setup hover listeners if not already done
+      if (!el.dataset.hoverBound) {
+        el.dataset.hoverBound = 'true';
+        
+        el.addEventListener('mouseenter', () => {
+          if (!el.classList.contains('expanded')) return;
+          if (collapseTimers[id]) {
+            clearTimeout(collapseTimers[id]);
+            collapseTimers[id] = null;
+          }
+          if (progress) {
+            progress.style.transition = 'none';
+            progress.style.width = '100%';
+          }
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          if (!el.classList.contains('expanded')) return;
+          
+          // Start the 5-second countdown
+          const duration = 5000; // 5 seconds
+          if (progress) {
+            // Force reflow to ensure transition starts from 100%
+            void progress.offsetWidth;
+            progress.style.transition = `width ${duration}ms linear`;
+            progress.style.width = '0%';
+          }
+          
+          collapseTimers[id] = setTimeout(() => {
+            el.classList.remove('expanded');
+            if (progress) {
+              progress.style.transition = 'none';
+              progress.style.width = '100%';
+            }
+          }, duration);
+        });
+      }
+    } else {
+      // Manual collapse: clear timer and reset progress
+      if (collapseTimers[id]) {
+        clearTimeout(collapseTimers[id]);
+        collapseTimers[id] = null;
+      }
+      if (progress) {
+        progress.style.transition = 'none';
+        progress.style.width = '100%';
+      }
+    }
+  }
 }
 
 function switchDomain(domain, btn) {
