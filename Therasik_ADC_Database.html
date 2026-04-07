@@ -35,7 +35,7 @@
     top: 0;
     z-index: 2000;
   }
-  .brand a {
+  .br和 a {
     text-decoration: none;
     color: inherit;
     display: flex;
@@ -45,7 +45,7 @@
     font-weight: 700;
     font-size: 24px;
   }
-  .brand-dot {
+  .br和-dot {
     width: 12px;
     height: 12px;
     background: var(--primary);
@@ -147,27 +147,27 @@
   /* ── Card grid — matches vaccine_kb (280px min) ── */
   .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
 
-  /* ── Cards — matches vaccine_kb + antibody-guide expand pattern ── */
+  /* ── Cards — matches vaccine_kb + antibody-guide exp和 pattern ── */
   .card { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:box-shadow .15s,border-color .15s; cursor:pointer; }
   .card:hover { border-color:var(--primary); box-shadow:0 4px 14px rgba(13,148,136,.09); }
-  .card.expanded { border-color:var(--primary); box-shadow:0 4px 20px rgba(13,148,136,.12); }
+  .card.exp和ed { border-color:var(--primary); box-shadow:0 4px 20px rgba(13,148,136,.12); }
   .card.hidden { display:none; }
   .card-header { display:flex; justify-content:space-between; align-items:flex-start; padding:12px 14px 8px; border-bottom:1px solid var(--border); }
   .card-title { font-size:14px; font-weight:700; color:var(--text); line-height:1.3; }
   .card-subtitle { font-size:11px; color:var(--text-muted); margin-top:2px; }
   .card-body { padding:10px 14px 12px; }
   .cc-brief { font-size:13px; color:var(--text-muted); line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .card.expanded .cc-brief { display:block; -webkit-line-clamp:unset; overflow:visible; }
+  .card.exp和ed .cc-brief { display:block; -webkit-line-clamp:unset; overflow:visible; }
 
-  /* ── Expand / collapse — exact match to vaccine_kb + antibody-guide ── */
+  /* ── Exp和 / collapse — exact match to vaccine_kb + antibody-guide ── */
   .cc-detail { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
-  .card.expanded .cc-detail { display:block; }
+  .card.exp和ed .cc-detail { display:block; }
   .cc-detail .collapse-bar { height:3px; background:#e5f7f5; border-radius:2px; margin-bottom:12px; overflow:hidden; }
   .cc-detail .collapse-progress { height:100%; width:100%; background:var(--primary); border-radius:2px; transition:none; }
   .card.countdown .cc-detail .collapse-progress { transition:width 5s linear; width:0% !important; }
-  .expand-toggle { font-size:10px; color:var(--primary); font-weight:600; float:right; margin-top:4px; text-transform:uppercase; letter-spacing:0.5px; }
-  .card .expand-toggle::after { content:'▼ Expand'; }
-  .card.expanded .expand-toggle::after { content:'▲ Collapse'; }
+  .exp和-toggle { font-size:10px; color:var(--primary); font-weight:600; float:right; margin-top:4px; text-transform:uppercase; letter-spacing:0.5px; }
+  .card .exp和-toggle::after { content:'▼ Exp和'; }
+  .card.exp和ed .exp和-toggle::after { content:'▲ 收起'; }
 
   /* ── Info rows — matches vaccine_kb ── */
   .info-row { display:flex; gap:6px; margin-bottom:5px; align-items:baseline; }
@@ -267,27 +267,27 @@
   </header>
 
 <div class="page">
-  <!-- Page header — same structure as vaccine_kb and antibody-guide -->
+  <!-- Page header — same structure as vaccine_kb 和 antibody-guide -->
   <div class="page-header">
-    <h1>ADC Knowledge Base</h1>
-    <p>Comprehensive reference database covering <strong>100 clinical programs</strong>, <strong>78 target antigens</strong>, <strong>32 payloads (11 mechanism classes)</strong>, <strong>22 linkers</strong>, and <strong>23 conjugation technologies</strong> — with chemical structures, patent status, and failure analysis.</p>
-    <p class="page-card-hint">Each entry is an <strong>expandable card</strong> (same pattern as the <a href="antibody-guide.html">antibody engineering reference</a> and <a href="vaccine_kb_data.html">vaccine knowledge base</a>): <strong>click the card</strong> to show full details; a teal accent bar appears above the detail block. The control reads &ldquo;&#x25BC; Expand&rdquo; / &ldquo;&#x25B2; Collapse&rdquo;.</p>
+    <h1>ADC 知识库</h1>
+    <p>综合参考数据库，涵盖 <strong>100 个临床程序</strong>, <strong>78 个目标抗原</strong>, <strong>32 个载荷 (11 个机制类别)</strong>, <strong>22 个链接子</strong>, 和 <strong>23 种偶联技术</strong> — — 包含化学结构、专利状态和失败分析。</p>
+    <p class="page-card-hint">每个条目都是一个<strong>可展开的卡片</strong> （与 <a href="antibody-guide.html">抗体工程参考指南</a> 和 <a href="vaccine_kb_data.html">疫苗知识库</a>模式相同）：<strong>点击卡片</strong>即可显示完整详情；详情块上方会出现青色强调条。 控件显示为 &ldquo;&#x25BC; Exp和&rdquo; / &ldquo;&#x25B2; 收起&rdquo;.</p>
   </div>
 
   <!-- Tab bar — horizontal underline, same as vaccine_kb -->
   <div class="tabs-bar">
-    <button class="tab-btn active" data-tab="programs">Clinical Programs (100)</button>
-    <button class="tab-btn" data-tab="antigens">Target Antigens (78)</button>
-    <button class="tab-btn" data-tab="payloads">Payloads (32)</button>
-    <button class="tab-btn" data-tab="linkers">Linkers (22)</button>
-    <button class="tab-btn" data-tab="conjugation">Conjugation Tech (23)</button>
-    <button class="tab-btn" data-tab="experiments">Validation Assays (9)</button>
+    <button class="tab-btn active" data-tab="programs">临床程序 (100)</button>
+    <button class="tab-btn" data-tab="antigens">目标抗原 (78)</button>
+    <button class="tab-btn" data-tab="个载荷">载荷 (32)</button>
+    <button class="tab-btn" data-tab="个链接子">链接子 (22)</button>
+    <button class="tab-btn" data-tab="conjugation">偶联技术 (23)</button>
+    <button class="tab-btn" data-tab="experiments">验证分析 (9)</button>
   </div>
 
   <!-- ═══ PROGRAMS ═══ -->
   <div class="tab-panel active" id="panel-programs">
     <h2 class="section-title">Clinical ADC Programs</h2>
-    <p class="section-desc">Approved and late-stage clinical ADC programs with target, payload, linker, DAR, conjugation technology, and trial references. Includes failure analysis for discontinued programs.</p>
+    <p class="section-desc">Approved 和 late-stage clinical ADC programs with target, payload, linker, DAR, conjugation technology, 和 trial references. Includes failure analysis for discontinued programs.</p>
     <div class="ctrl-row">
       <input class="search-box" id="searchPrograms" type="text" placeholder="Search name, target, company, payload…">
       <select class="filter-sel" id="filterStage">
@@ -343,7 +343,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: DXd · DAR: 8.0 · 链接子: GGFG (Tetrapeptide)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Trastuzumab (IgG1)</span></div>
@@ -366,7 +366,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD30</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">cAC10 (Chimeric IgG1)</span></div>
@@ -389,7 +389,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: DM1 · DAR: 3.5 · 链接子: SMCC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Trastuzumab (IgG1)</span></div>
@@ -412,7 +412,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD33</span></div>
     <div class="cc-brief">载荷: Calicheamicin · DAR: 2.5 · 链接子: AcBut</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">hP67.6 (Humanized IgG4)</span></div>
@@ -435,7 +435,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: SN-38 · DAR: 7.6 · 链接子: CL2A</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">hRS7 (Humanized IgG1)</span></div>
@@ -458,7 +458,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Nectin-4</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 3.8 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">AGS-22M6 (Humanized anti-Nectin-4 IgG1) (Human IgG1)</span></div>
@@ -481,7 +481,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD79b</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 3.5 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-CD79b IgG1 (Humanized IgG1)</span></div>
@@ -504,7 +504,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD19</span></div>
     <div class="cc-brief">载荷: SG3199 (PBD dimer) · DAR: 2.3 · 链接子: PEG-Val-Ala-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-CD19 IgG1 (Humanized IgG1)</span></div>
@@ -527,7 +527,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">FRα</span></div>
     <div class="cc-brief">载荷: DM4 · DAR: 3.4 · 链接子: Sulfo-SPDB</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">M9346A (Humanized anti-FRalpha IgG1) (Humanized IgG1)</span></div>
@@ -550,7 +550,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">BCMA</span></div>
     <div class="cc-brief">载荷: MMAF · DAR: 4.0 · 链接子: mc</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">239638 (Humanized anti-BCMA IgG1) (Afucosylated IgG1)</span></div>
@@ -573,7 +573,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Tissue Factor</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-TF IgG1 (Human IgG1)</span></div>
@@ -596,7 +596,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">RC48 (Humanized anti-HER2 IgG1) (Humanized IgG1)</span></div>
@@ -619,7 +619,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER3</span></div>
     <div class="cc-brief">载荷: DXd · DAR: 8.0 · 链接子: GGFG</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Patritumab (Humanized anti-HER3 IgG1) (Human IgG1)</span></div>
@@ -642,7 +642,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: DXd · DAR: 4.0 · 链接子: GGFG</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Dato (Humanized anti-TROP2 IgG1) (Humanized IgG1)</span></div>
@@ -665,7 +665,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">B7-H3</span></div>
     <div class="cc-brief">载荷: DXd · DAR: 4.0 · 链接子: GGFG</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">DS-7300a (Humanized anti-B7-H3 IgG1) (Humanized IgG1)</span></div>
@@ -688,7 +688,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: SHR152852 (TOP1i) · DAR: 8.0 · 链接子: GGFG-like</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Trastuzumab-like (IgG1)</span></div>
@@ -711,7 +711,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: KL610023 (TOP1i) · DAR: 7.4 · 链接子: Sulfonyl-based (K-Link)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">hRS7-like (IgG1)</span></div>
@@ -734,7 +734,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: SN-38 · DAR: 8.0 · 链接子: Unknown</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -757,7 +757,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">B7-H3</span></div>
     <div class="cc-brief">载荷: Bcl-xL inhibitor · DAR: 4.0 · 链接子: Unknown</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -780,7 +780,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CEACAM5</span></div>
     <div class="cc-brief">载荷: DM4 · DAR: 3.8 · 链接子: SPDB</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">SAR408701 (Humanized IgG1)</span></div>
@@ -803,7 +803,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: Duocarmycin · DAR: 2.8 · 链接子: vc-seco-DUBA</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Trastuzumab (IgG1)</span></div>
@@ -826,7 +826,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD25</span></div>
     <div class="cc-brief">载荷: SG3199 (PBD) · DAR: 2.3 · 链接子: Val-Ala-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">HuMax-TAC (IgG1)</span></div>
@@ -849,7 +849,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">ROR1</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Zilovertamab (IgG1)</span></div>
@@ -872,7 +872,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">FRα</span></div>
     <div class="cc-brief">载荷: Eribulin · DAR: 4.0 · 链接子: Cathepsin B cleavable</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Farletuzumab (IgG1)</span></div>
@@ -895,7 +895,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">NaPi2b</span></div>
     <div class="cc-brief">载荷: Auristatin F-HPA · DAR: 10.0 · 链接子: Dolaflexin</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Upifitamab (IgG1)</span></div>
@@ -918,7 +918,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">MET</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 3.1 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">ABT-700 (IgG1)</span></div>
@@ -941,7 +941,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">EGFR x HER3</span></div>
     <div class="cc-brief">载荷: Ed-04 (TOP1i) · DAR: 8.0 · 链接子: Cleavable peptide</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (Bispecific)</span></div>
@@ -964,7 +964,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Claudin18.2</span></div>
     <div class="cc-brief">载荷: Proprietary TOP1i · DAR: 8.0 · 链接子: Cleavable peptide (DXd-like)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-CLDN18.2 (IgG1)</span></div>
@@ -987,7 +987,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Claudin18.2</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: mc-val-cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">CMG901 (IgG1)</span></div>
@@ -1010,7 +1010,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: AS269 (Tubulin inhibitor) · DAR: 2.0 · 链接子: Non-cleavable (PEG-AS)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Trastuzumab-like (IgG1)</span></div>
@@ -1033,7 +1033,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD166 (ALCAM)</span></div>
     <div class="cc-brief">载荷: DM4 · DAR: 3.5 · 链接子: SPDB</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (Probody_Masked_ADC)</span></div>
@@ -1056,7 +1056,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER3</span></div>
     <div class="cc-brief">载荷: TOP1i · DAR: 8.0 · 链接子: TMALIN</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -1079,7 +1079,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CDH6</span></div>
     <div class="cc-brief">载荷: DXd · DAR: 8.0 · 链接子: GGFG (Tetrapeptide)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">DS-6000a (Humanized anti-CDH6 IgG1) (IgG1)</span></div>
@@ -1102,7 +1102,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TA-MUC1</span></div>
     <div class="cc-brief">载荷: DXd · DAR: 8.0 · 链接子: GGFG (Tetrapeptide)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-MUC1 IgG1 (IgG1)</span></div>
@@ -1125,7 +1125,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CLDN18.2</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link (Cleavable)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-CLDN18.2 antibody (IgG1)</span></div>
@@ -1148,7 +1148,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Nectin-4</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link (Cleavable)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">MK-3120 (Anti-Nectin-4) (IgG1)</span></div>
@@ -1171,7 +1171,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CLDN18.2</span></div>
     <div class="cc-brief">载荷: Rezetecan (SHR169106) · DAR: 4.0 · 链接子: mc-Gly-Gly-Phe-Gly (GGFG)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-CLDN18.2 IgG1 (IgG1)</span></div>
@@ -1194,7 +1194,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD79b</span></div>
     <div class="cc-brief">载荷: Topoisomerase I inhibitor · DAR: 8.0 · 链接子: Cleavable peptide linker</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-CD79b antibody (IgG1)</span></div>
@@ -1217,7 +1217,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER3</span></div>
     <div class="cc-brief">载荷: SHR169106 (TOP1i) · DAR: 4 · 链接子: Maleimidocaproyl tetrapeptide (GGFG)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Ruzaltatug rezetecan (Anti-HER3) (IgG1)</span></div>
@@ -1240,7 +1240,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 3.6 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-HER2 IgG1 (IgG1)</span></div>
@@ -1263,7 +1263,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">EGFR</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 3.8 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-EGFR IgG1 (IgG1)</span></div>
@@ -1286,7 +1286,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">PSMA</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 2.0 · 链接子: pAcPhe (Unnatural AA)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-PSMA IgG1 (IgG1)</span></div>
@@ -1309,7 +1309,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">NaPi2b</span></div>
     <div class="cc-brief">载荷: AF-HPA (Auristatin F-hydroxypropylamide) · DAR: 6.0 · 链接子: Dolasynthen (Site-specific scaffold)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Humanized anti-NaPi2b IgG1 (IgG1)</span></div>
@@ -1332,7 +1332,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">B7-H4</span></div>
     <div class="cc-brief">载荷: AF-HPA · DAR: 6.0 · 链接子: Dolasynthen</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-B7-H4 antibody (IgG1)</span></div>
@@ -1355,7 +1355,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD228</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">hL49 (Humanized anti-CD228 IgG1) (IgG1)</span></div>
@@ -1378,7 +1378,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Integrin beta-6</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-Integrin beta-6 antibody (IgG1)</span></div>
@@ -1401,7 +1401,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">STn</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-STn antibody (IgG1)</span></div>
@@ -1424,7 +1424,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">c-Met</span></div>
     <div class="cc-brief">载荷: Adizutecan (TOP1i) · DAR: 8.0 · 链接子: Cleavable peptide</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Telisotuzumab adizutecan (Temab-A) (IgG1)</span></div>
@@ -1447,7 +1447,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">SEZ6</span></div>
     <div class="cc-brief">载荷: Calicheamicin · DAR: 2.0 · 链接子: Hydrazone</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-SEZ6 antibody (IgG1)</span></div>
@@ -1470,7 +1470,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">LRRC15</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-LRRC15 antibody (IgG1)</span></div>
@@ -1493,7 +1493,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD123</span></div>
     <div class="cc-brief">载荷: IGN (DGN462) · DAR: 2.0 · 链接子: s-SPDB</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-CD123 antibody (IgG1)</span></div>
@@ -1516,7 +1516,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">FR alpha</span></div>
     <div class="cc-brief">载荷: DM4 · DAR: 3.5 · 链接子: s-SPDB</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-FRalpha antibody (IMGN151) (IgG1)</span></div>
@@ -1539,7 +1539,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: Maytansinoid (DM1) · DAR: 3.5 · 链接子: 6-maleimidocaproic acid (non-cleavable)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-HER2 antibody (IgG1)</span></div>
@@ -1562,7 +1562,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: Batansine (Maytansinoid) · DAR: 3.5 · 链接子: Non-cleavable (Batansine platform)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-Trop2 antibody (IgG1)</span></div>
@@ -1585,7 +1585,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">B7-H3</span></div>
     <div class="cc-brief">载荷: Batansine · DAR: 3.5 · 链接子: Non-cleavable</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-Trop2 antibody (IgG1)</span></div>
@@ -1608,7 +1608,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Mesothelin</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-MSLN antibody (IgG1)</span></div>
@@ -1631,7 +1631,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">c-Met</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-c-Met antibody (IgG1)</span></div>
@@ -1654,7 +1654,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Claudin18.2</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-CLDN18.2 antibody (IgG1)</span></div>
@@ -1677,7 +1677,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Claudin18.2</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-CLDN18.2 antibody (IgG1)</span></div>
@@ -1700,7 +1700,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">GPRC5D</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: vc-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-GPRC5D antibody (IgG1)</span></div>
@@ -1723,7 +1723,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: P1003 (TOP1i) · DAR: 8.0 · 链接子: Cleavable peptide (DITAC platform)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">DB-1303 (Trastuzumab Pamirtecan) (IgG1)</span></div>
@@ -1746,7 +1746,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: Proprietary TOP1i · DAR: 8.0 · 链接子: Cleavable peptide (DITAC platform)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">DB-1311 (Anti-B7-H3) (IgG1)</span></div>
@@ -1769,7 +1769,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">B7-H3</span></div>
     <div class="cc-brief">载荷: Proprietary TOP1i · DAR: 8.0 · 链接子: Cleavable peptide (DITAC platform)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">DB-1305 (Anti-TROP2) (IgG1)</span></div>
@@ -1792,7 +1792,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER3</span></div>
     <div class="cc-brief">载荷: Topo1i · DAR: 8.0 · 链接子: TMALIN</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-HER3 antibody (YL202) (IgG1)</span></div>
@@ -1815,7 +1815,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">c-Met</span></div>
     <div class="cc-brief">载荷: Topo1i · DAR: 8.0 · 链接子: TMALIN</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-c-Met antibody (IgG1)</span></div>
@@ -1838,7 +1838,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">NaPi2b</span></div>
     <div class="cc-brief">载荷: Topo1i · DAR: 8.0 · 链接子: TMALIN</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-NaPi-2b antibody (IgG1)</span></div>
@@ -1861,7 +1861,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Claudin18.2</span></div>
     <div class="cc-brief">载荷: MMAE · DAR: 4.0 · 链接子: PEG3-Val-Cit-PABC</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">SYSA-1801 (Anti-CLDN18.2) (IgG1)</span></div>
@@ -1884,7 +1884,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER2</span></div>
     <div class="cc-brief">载荷: Duostatin-5 (MMAF derivative) · DAR: 2 · 链接子: Valine-Citrulline (vc)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Trastuzumab botidotin (Anti-HER2) (IgG1)</span></div>
@@ -1907,7 +1907,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">c-Met</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -1930,7 +1930,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">TROP-2</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Sacituzumab tirumotecan (Anti-TROP2) (IgG1)</span></div>
@@ -1953,7 +1953,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">B7-H3</span></div>
     <div class="cc-brief">载荷: Topo1i · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -1976,7 +1976,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Nectin-4</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -1999,7 +1999,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">Claudin18.2</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2022,7 +2022,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">EGFR</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2045,7 +2045,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">HER3</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2068,7 +2068,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD79b</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Anti-STING antibody (IgG1)</span></div>
@@ -2091,7 +2091,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD22</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2114,7 +2114,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD33</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2137,7 +2137,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD30</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2160,7 +2160,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD19</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2183,7 +2183,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">BCMA</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2206,7 +2206,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">GPRC5D</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2229,7 +2229,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">FcRH5</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2252,7 +2252,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CLL-1</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2275,7 +2275,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD123</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2298,7 +2298,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD37</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2321,7 +2321,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD138</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2344,7 +2344,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD70</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2367,7 +2367,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD25</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2390,7 +2390,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD46</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2413,7 +2413,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">CD228</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2436,7 +2436,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">FAP</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2459,7 +2459,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">LGR5</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2482,7 +2482,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">LRRC15</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2505,7 +2505,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">SLITRK6</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2528,7 +2528,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">UPK2</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2551,7 +2551,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">LIV-1</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2574,7 +2574,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">GCC</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2597,7 +2597,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">ASCT2</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2620,7 +2620,7 @@
   <div class="card-body">
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px"><span class="badge badge-target">PTK7</span></div>
     <div class="cc-brief">载荷: KL610015 (Topo1i) · DAR: 7.4 · 链接子: K-Link</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div class="info-row"><span class="info-label">抗体部分</span><span class="info-value">Unknown (IgG1)</span></div>
@@ -2640,7 +2640,7 @@
   <!-- ═══ ANTIGENS ═══ -->
   <div class="tab-panel" id="panel-antigens">
     <h2 class="section-title">Target Antigen Profiles</h2>
-    <p class="section-desc">Detailed mapping of expression density, internalization rates, heterogeneity, and normal tissue expression for 78 ADC-relevant targets.</p>
+    <p class="section-desc">Detailed mapping of expression density, internalization rates, heterogeneity, 和 normal tissue expression for 78 ADC-relevant targets.</p>
     <div class="ctrl-row">
       <input class="search-box" id="searchAntigens" type="text" placeholder="Search antigen name, disease type…">
       <select class="filter-sel" id="filterAgExpr">
@@ -2688,7 +2688,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high_variable · 内吞: moderate · 异质性: moderate_to_high</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2720,7 +2720,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low_to_moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2752,7 +2752,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2784,7 +2784,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2816,7 +2816,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2848,7 +2848,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2880,7 +2880,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2912,7 +2912,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2944,7 +2944,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -2976,7 +2976,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3008,7 +3008,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3040,7 +3040,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3072,7 +3072,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: low_to_moderate · 内吞: low · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3104,7 +3104,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3136,7 +3136,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3168,7 +3168,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3200,7 +3200,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3232,7 +3232,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3264,7 +3264,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3296,7 +3296,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3328,7 +3328,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: low · 异质性: high</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3360,7 +3360,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3392,7 +3392,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3424,7 +3424,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: low · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3456,7 +3456,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3488,7 +3488,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3520,7 +3520,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3552,7 +3552,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3584,7 +3584,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3616,7 +3616,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3648,7 +3648,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3680,7 +3680,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high (stroma) · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3712,7 +3712,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3744,7 +3744,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3776,7 +3776,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3808,7 +3808,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3840,7 +3840,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -3872,7 +3872,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3904,7 +3904,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3936,7 +3936,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -3968,7 +3968,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4000,7 +4000,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4032,7 +4032,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4064,7 +4064,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4096,7 +4096,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4128,7 +4128,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4160,7 +4160,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4192,7 +4192,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4224,7 +4224,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4256,7 +4256,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4288,7 +4288,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -4320,7 +4320,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4352,7 +4352,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4384,7 +4384,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4416,7 +4416,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4448,7 +4448,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4480,7 +4480,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4512,7 +4512,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: low · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4544,7 +4544,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4576,7 +4576,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -4608,7 +4608,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -4640,7 +4640,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4672,7 +4672,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4704,7 +4704,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4736,7 +4736,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4768,7 +4768,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4800,7 +4800,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4832,7 +4832,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -4864,7 +4864,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4896,7 +4896,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4928,7 +4928,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4960,7 +4960,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -4992,7 +4992,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5024,7 +5024,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate_to_high · 内吞: moderate · 异质性: moderate</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -5056,7 +5056,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -5088,7 +5088,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5120,7 +5120,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5152,7 +5152,7 @@
   <div class="card-body">
     <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5180,13 +5180,13 @@
   </div>
 
   <!-- ═══ PAYLOADS ═══ -->
-  <div class="tab-panel" id="panel-payloads">
+  <div class="tab-panel" id="panel-个载荷">
     <h2 class="section-title">Payload Molecules</h2>
-    <p class="section-desc">From classic cytotoxins (MMAE, DXd) to emerging modalities (PROTACs, Radionuclides, ISACs). Includes SMILES structures and PubChem links.</p>
+    <p class="section-desc">From classic cytotoxins (MMAE, DXd) to emerging modalities (PROTACs, Radionuclides, ISACs). Includes SMILES structures 和 PubChem links.</p>
     <div class="ctrl-row">
-      <input class="search-box" id="searchPayloads" type="text" placeholder="Search payload name, class…">
+      <input class="search-box" id="search载荷" type="text" placeholder="Search payload name, class…">
       <select class="filter-sel" id="filterPayloadCls">
-        <option value="">All mechanism classes</option>
+        <option value="">All 个机制类别</option>
     <option value="Bcl-xL 抑制剂">Bcl-xL 抑制剂</option>
     <option value="DNA 损伤剂">DNA 损伤剂</option>
     <option value="Dna Damaging Agents">Dna Damaging Agents</option>
@@ -5202,9 +5202,9 @@
     <option value="放射性核素">放射性核素</option>
     <option value="蛋白质毒素">蛋白质毒素</option>
       </select>
-      <span class="result-count" id="countPayloads"></span>
+      <span class="result-count" id="count载荷"></span>
     </div>
-    <div class="card-grid" id="gridPayloads">
+    <div class="card-grid" id="grid载荷">
 <div class="card" onclick="toggleCard(this)" data-cls="Tubulin Inhibitors" data-search="mmae tubulin inhibitors high (pm) s/g2/m phase only (mitosis-active cells)">
   <div class="card-header">
     <div class="card-title">MMAE</div>
@@ -5213,7 +5213,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.1–1.0 nM · 细胞周期: S/G2/M phase only (mitosis-act…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5223,7 +5223,7 @@
       <div class="info-row"><span class="info-label">IC50</span><span class="info-value">0.1–1.0 nM</span></div>
       <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">High (pM)</span></div>
       <div class="info-row"><span class="info-label">细胞周期依赖性</span><span class="info-value">S/G2/M phase only (mitosis-active cells)</span></div>
-      <div class="info-row"><span class="info-label">旁观者效应</span><span class="info-value">Yes</span></div>
+      
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">临床安全性</div>
       <div class="info-row"><span class="info-label">剂量限制性毒性 (DLTs)</span><span class="info-value">Peripheral sensory neuropathy; Neutropenia/febrile neutropenia; Fatigue</span></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计参数</div>
@@ -5247,7 +5247,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.3 nM · 细胞周期: ALL phases (cell-cycle indepen…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5257,7 +5257,7 @@
       <div class="info-row"><span class="info-label">IC50</span><span class="info-value">0.3 nM</span></div>
       <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">Very High</span></div>
       <div class="info-row"><span class="info-label">细胞周期依赖性</span><span class="info-value">ALL phases (cell-cycle independent)</span></div>
-      <div class="info-row"><span class="info-label">旁观者效应</span><span class="info-value">Yes</span></div>
+      
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">临床安全性</div>
       <div class="info-row"><span class="info-label">剂量限制性毒性 (DLTs)</span><span class="info-value">Interstitial lung disease (ILD/pneumonitis) — ~10–15% incidence; Nausea/vomiting; Myelosuppression</span></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计参数</div>
@@ -5281,7 +5281,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.1–1.0 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5315,7 +5315,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.5–5.0 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5349,7 +5349,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: ? nM · 细胞周期: ?</div>
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -5383,7 +5383,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.1–0.5 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5417,7 +5417,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.01–0.1 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5451,7 +5451,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.01–0.1 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5485,7 +5485,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.001–0.01 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5519,7 +5519,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.00001–0.0001 nM · 细胞周期: ALL phases (intercalation + st…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5553,7 +5553,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.0001–0.001 nM · 细胞周期: ALL phases (DNA alkylation, re…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5587,7 +5587,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.3–3.0 nM · 细胞周期: ALL phases (cell-cycle indepen…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5621,7 +5621,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 1.0–10.0 nM · 细胞周期: ALL phases (cell-cycle indepen…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5655,7 +5655,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 5.0–50.0 nM · 细胞周期: ALL phases (cell-cycle indepen…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5689,7 +5689,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.001–0.01 nM · 细胞周期: ALL phases (transcription-inde…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5723,7 +5723,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.001–0.01 nM · 细胞周期: G2/M arrest (splicing inhibiti…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5757,7 +5757,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.001–0.1 nM · 细胞周期: G2/M arrest</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5791,7 +5791,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 1.0–10.0 nM · 细胞周期: S/G2/M phase only (mitotic kin…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5825,7 +5825,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.1–1.0 nM · 细胞周期: S/G2/M phase only</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5859,7 +5859,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 1.0–100.0 nM · 细胞周期: ALL phases (apoptosis inductio…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5893,7 +5893,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (immunomodulator, EC50 ~10–100 nM) nM · 细胞周期: ALL phases (innate immune acti…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5927,7 +5927,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (immunomodulator, EC50 ~1–50 nM) nM · 细胞周期: ALL phases (innate immune acti…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5961,7 +5961,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (alpha emitter, radiation dose-based) nM · 细胞周期: ALL phases (radiation — double…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -5995,7 +5995,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (alpha emitter) nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6029,7 +6029,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (alpha emitter) nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6063,7 +6063,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (alpha emitter via Bi-212 daughter) nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6097,7 +6097,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: N/A (alpha emitter) nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6131,7 +6131,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.001–0.01 (as RIP, ribosome-inactivating protein) nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -6165,7 +6165,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.001–0.1 nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -6199,7 +6199,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.0001–0.001 nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6233,7 +6233,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.0001–0.001 nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -6267,7 +6267,7 @@
   <div class="card-body">
     <div class="cc-brief">IC50: 0.0001–0.01 nM · 细胞周期: ALL phases</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
@@ -6297,18 +6297,18 @@
   </div>
 
   <!-- ═══ LINKERS ═══ -->
-  <div class="tab-panel" id="panel-linkers">
+  <div class="tab-panel" id="panel-个链接子">
     <h2 class="section-title">Linker Chemistry</h2>
-    <p class="section-desc">Cleavable (protease, pH, disulfide) and non-cleavable linkers matched to antigen internalization kinetics, with chemical structures.</p>
+    <p class="section-desc">Cleavable (protease, pH, disulfide) 和 non-cleavable 个链接子 matched to antigen internalization kinetics, with chemical structures.</p>
     <div class="ctrl-row">
-      <input class="search-box" id="searchLinkers" type="text" placeholder="Search linker name, mechanism…">
+      <input class="search-box" id="search链接子" type="text" placeholder="Search linker name, mechanism…">
       <select class="filter-sel" id="filterLinkerType">
         <option value="">All types</option>
     <option value="可裂解">可裂解</option>
       </select>
-      <span class="result-count" id="countLinkers"></span>
+      <span class="result-count" id="count链接子"></span>
     </div>
-    <div class="card-grid" id="gridLinkers">
+    <div class="card-grid" id="grid链接子">
 <div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mc-val-cit-pabc 可裂解 cathepsin b cleavage">
   <div class="card-header">
     <div class="card-title">mc-val-cit-PABC</div>
@@ -6317,7 +6317,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (very stable in hum… · 裂解酶: Cathepsin B (lysosomal cy…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6348,7 +6348,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (highly stable in h… · 裂解酶: Lysosomal cathepsins (B, …</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6379,7 +6379,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (beta-glucuronidase… · 裂解酶: β-Glucuronidase (lysosoma…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6410,7 +6410,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6441,7 +6441,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (similar stability … · 裂解酶: Cathepsin B (slightly fas…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6472,7 +6472,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Moderate (hours to days; hydro… · 裂解酶: Phosphodiesterase (intrac…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6503,7 +6503,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (legumain not prese… · 裂解酶: Legumain (Asn-specific cy…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6534,7 +6534,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (beta-galactosidase… · 裂解酶: β-Galactosidase (lysosoma…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6565,7 +6565,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Sulfatase (lysosomal aryl…</div>
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6596,7 +6596,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Short (hours) — phosphatases p… · 裂解酶: Alkaline/acid phosphatase…</div>
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6627,7 +6627,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6658,7 +6658,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Unknown — Fmoc is base-labile;… · 裂解酶: Cathepsin B (after Fmoc d…</div>
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6689,7 +6689,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Unknown — Dde is hydrazine-lab… · 裂解酶: Cathepsin B (after Dde de…</div>
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6720,7 +6720,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Short (hours) — hydrazone is a… · 裂解酶: pH-dependent hydrolysis (…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6751,7 +6751,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Variable · 裂解酶: Intracellular thiol (GSH-…</div>
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
@@ -6782,7 +6782,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B or other lyso…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6813,7 +6813,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6844,7 +6844,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6875,7 +6875,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6906,7 +6906,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (non-cleavable cros… · 裂解酶: None (non-cleavable space…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6937,7 +6937,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (non-cleavable) · 裂解酶: None (non-cleavable PEG-m…</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6968,7 +6968,7 @@
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;10 days (non-cleavable thi… · 裂解酶: None — non-cleavable. Req…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
@@ -6996,8 +6996,8 @@
 
   <!-- ═══ CONJUGATION ═══ -->
   <div class="tab-panel" id="panel-conjugation">
-    <h2 class="section-title">Conjugation Technologies</h2>
-    <p class="section-desc">From stochastic cysteine to site-specific enzymatic (FGE, Sortase) and glycan remodeling — DAR homogeneity, CMC complexity, and patent / FTO analysis.</p>
+    <h2 class="section-title">偶联技术nologies</h2>
+    <p class="section-desc">From stochastic cysteine to site-specific enzymatic (FGE, Sortase) 和 glycan remodeling — DAR homogeneity, CMC complexity, 和 patent / FTO analysis.</p>
     <div class="ctrl-row">
       <input class="search-box" id="searchConj" type="text" placeholder="Search technology, patent…">
       <select class="filter-sel" id="filterConjHomo">
@@ -7020,7 +7020,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · GlycoConnect: enzymatic remodeling of Fc N297 glycan → azide coupling</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7047,7 +7047,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Amber codon suppression → pAzF/pAcF incorporation → click chemistry</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7074,7 +7074,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Formylglycine-generating enzyme (FGE) converts Cys to aldehyde for HIPS ligation</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7101,7 +7101,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Enzymatic ligation using Sortase A at LPETG motif</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7128,7 +7128,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Intelligent Ligase-dependent Conjugation (iLDC) using proprietary ligase for sit…</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7155,7 +7155,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · THIOMAB: engineered cysteine at specific sites</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7182,7 +7182,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Microbial transglutaminase (mTG) conjugation at Q295</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7209,7 +7209,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Affinity peptide-directed site-specific conjugation at Fc Lys248</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7236,7 +7236,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 2.0 · Tubulin tyrosine ligase (TTL) adds unnatural tyrosine derivatives</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7263,7 +7263,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 4.0 · Partial reduction of interchain disulfides → maleimide coupling</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7290,7 +7290,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: 3.5 · NHS ester reaction with surface lysines</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7317,7 +7317,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Disulfide bridging conjugation maintaining antibody stability</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7344,7 +7344,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · C-lock conjugation technology</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7371,7 +7371,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Engineered SNAP-tag protein fusion for benzylguanine derivatives</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7398,7 +7398,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Platinum(II)-based coordination chemistry (e.g., LinXis)</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7425,7 +7425,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Second generation AJICAP without Fc affinity peptide</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7452,7 +7452,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Enzymatic conjugation using Sortase A</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7479,7 +7479,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · FGE enzyme conversion of Cys to fGly</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7506,7 +7506,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Native glycan remodeling and click chemistry</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7533,7 +7533,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · Proximity-induced click chemistry without engineering</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7560,7 +7560,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · High DAR polymer scaffold conjugation</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7587,7 +7587,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · </div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7614,7 +7614,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">DAR: ? · </div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
@@ -7637,7 +7637,7 @@
   <!-- ═══ EXPERIMENTS ═══ -->
   <div class="tab-panel" id="panel-experiments">
     <h2 class="section-title">Validation Assay Recommendations</h2>
-    <p class="section-desc">In vitro and in vivo experimental methods for ADC characterization, from binding assays to PDX efficacy models.</p>
+    <p class="section-desc">In vitro 和 in vivo experimental methods for ADC characterization, from binding assays to PDX efficacy models.</p>
     <div class="ctrl-row">
       <input class="search-box" id="searchExp" type="text" placeholder="Search assay, method…">
       <span class="result-count" id="countExp"></span>
@@ -7650,7 +7650,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Measure KD to recombinant antigen and cell-surface antigen. Too high affinity may cause &#x27;binding site barrier&#x27;…</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7672,7 +7672,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Quantify rate and extent of ADC trafficking into acidic endosomes/lysosomes.</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7694,7 +7694,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Determine IC50 on Target-positive vs Target-negative cell lines to prove specificity.</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7716,7 +7716,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Verify if released payload can kill neighboring antigen-negative cells (crucial for heterogeneous tumors).</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7738,7 +7738,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Measure payload shedding rate in circulation (Free payload vs Intact ADC).</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7760,7 +7760,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Confirm payload release mechanism and kinetics.</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7783,7 +7783,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Evaluate tumor growth inhibition (TGI) and survival in immunocompromised mice.</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7805,7 +7805,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">Determine half-life, clearance rate, and systemic exposure of the toxic payload.</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7827,7 +7827,7 @@
   </div>
   <div class="card-body">
     <div class="cc-brief">NHP is critical if the antibody cross-reacts with monkey antigen. Evaluates on-target off-tumor tox and payload-driven t…</div>
-    <span class="expand-toggle"></span>
+    <span class="exp和-toggle"></span>
     <div class="cc-detail">
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">实验概览</div>
@@ -7863,10 +7863,10 @@
 
 /* ── Card toggle with auto-collapse countdown ── */
 function toggleCard(card) {
-  var wasExpanded = card.classList.contains('expanded');
-  card.classList.toggle('expanded');
+  var wasExp和ed = card.classList.contains('exp和ed');
+  card.classList.toggle('exp和ed');
   clearCountdown(card);
-  if (wasExpanded) {
+  if (wasExp和ed) {
     card.classList.remove('countdown');
     var bar = card.querySelector('.collapse-progress');
     if (bar) bar.style.width = '100%';
@@ -7881,7 +7881,7 @@ function clearCountdown(card) {
 }
 
 function startCountdown(card) {
-  if (!card.classList.contains('expanded')) return;
+  if (!card.classList.contains('exp和ed')) return;
   clearCountdown(card);
   var bar = card.querySelector('.collapse-progress');
   if (bar) {
@@ -7893,17 +7893,17 @@ function startCountdown(card) {
     card.classList.add('countdown');
   }
   card._collapseTimer = setTimeout(function() {
-    card.classList.remove('expanded','countdown');
+    card.classList.remove('exp和ed','countdown');
     if (bar) { bar.style.transition = 'none'; bar.style.width = '100%'; }
   }, 5000);
 }
 
 document.addEventListener('mouseover', function(e) {
-  var card = e.target.closest('.card.expanded');
+  var card = e.target.closest('.card.exp和ed');
   if (card) clearCountdown(card);
 });
 document.addEventListener('mouseout', function(e) {
-  var card = e.target.closest('.card.expanded');
+  var card = e.target.closest('.card.exp和ed');
   if (card && !card.contains(e.relatedTarget)) startCountdown(card);
 });
 
@@ -7954,13 +7954,13 @@ function filterActiveTab() {
     case 'antigens':
       filterGridAntigens();
       break;
-    case 'payloads':
-      filterGrid('gridPayloads', 'searchPayloads', 'countPayloads', [
+    case '个载荷':
+      filterGrid('grid载荷', 'search载荷', 'count载荷', [
         { selectId: 'filterPayloadCls', attr: 'data-cls' }
       ]);
       break;
-    case 'linkers':
-      filterGrid('gridLinkers', 'searchLinkers', 'countLinkers', [
+    case '个链接子':
+      filterGrid('grid链接子', 'search链接子', 'count链接子', [
         { selectId: 'filterLinkerType', attr: 'data-ltype' }
       ]);
       break;
@@ -8011,7 +8011,7 @@ function filterGridAntigens() {
 }
 
 /* ── Bind events ── */
-['searchPrograms','searchAntigens','searchPayloads','searchLinkers','searchConj','searchExp'].forEach(function(id) {
+['searchPrograms','searchAntigens','search载荷','search链接子','searchConj','searchExp'].forEach(function(id) {
   document.getElementById(id).addEventListener('input', filterActiveTab);
 });
 ['filterStage','filterTarget','filterPayloadCls','filterLinkerType','filterConjHomo','filterAgExpr','filterAgIntern','filterAgHet','filterAgDensity','filterAgRisk'].forEach(function(id) {
