@@ -276,7 +276,13 @@
     .detail-close:hover { background:var(--bg-alt); color:var(--text); }
     .detail-body { padding:20px 24px; flex:1; }
     .detail-section { margin-bottom:22px; }
-    .detail-section h3 { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--primary); margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid var(--primary-light); }
+    .detail-section h3 { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--primary); margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid var(--primary-light); cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:space-between; }
+    .detail-section h3::after { content:'▾'; font-size:10px; opacity:0.45; margin-left:4px; font-style:normal; text-transform:none; }
+    .detail-section.collapsed h3::after { content:'▸'; }
+    .detail-section.collapsed .ds-body { display:none; }
+    .fc-note-box { background:#f0fdf9; border:1px solid rgba(13,148,136,0.2); border-radius:8px; padding:10px 14px; font-size:12px; line-height:1.65; color:var(--text); margin-top:4px; white-space:pre-wrap; word-break:break-word; }
+    .evidence-toggle { background:none; border:none; color:var(--primary); font-size:11.5px; cursor:pointer; padding:4px 0; text-decoration:underline; }
+    .cdr-seq { font-family:monospace; font-size:11.5px; letter-spacing:0.06em; background:#f9fafb; border:1px solid var(--border); border-radius:4px; padding:3px 8px; display:inline-block; }
     .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; }
     .detail-item { }
     .detail-item .dk { font-size:10.5px; color:var(--text-muted); margin-bottom:1px; }
@@ -388,7 +394,7 @@
           </a>
           <a href="Therasik_Bispecific_Page.html">
             <span class="menu-title">双特异抗体设计与评估</span>
-            <span class="menu-desc">格式筛选 · CMC 评估 · 配对验证</span>
+            <span class="menu-desc">Format筛选 · CMC 评估 · 配对验证</span>
           </a>
           <a href="Therasik_Vaccine_Design.html">
             <span class="menu-title">新型疫苗设计</span>
@@ -481,7 +487,7 @@
     抗体研发与评估
   </a>
     <h1>临床 ADA 参考数据库</h1>
-  <p>收录 <strong>138</strong> 个临床治疗性抗体的免疫原性基准数据，每条记录均经一级文献（PMID 或 FDA 官方来源）核实，确保 ADA 发生率数据的准确性与可溯源性。涵盖抗药抗体（ADA）发生率、表面免疫原性指标、MHC-II 表位谱、CMC 描述符及 MOA 亚组分类，支持多维度横向比较分析。为抗体开发中的免疫原性风险分层、人源化策略优化及临床前安全性评估提供系统性参考依据。</p>
+  <p>收录 <strong>138</strong> 个临床治疗性抗体的免疫原性基准数据，每条记录均经一级文献（PMID 或 FDA 官方来源）核实，确保 ADA Incidence数据的准确性与可溯源性。涵盖抗药抗体（ADA）发生率、表面免疫原性指标、MHC-II 表位谱、CMC 描述符及 MOA 亚组分类，支持多维度横向比较分析。为抗体开发中的免疫原性风险分层、人源化策略优化及临床前安全性评估提供系统性参考依据。</p>
   <div class="hero-meta">
     <span class="meta-chip">收录抗体：<b>138</b> 个</span>
     <span class="meta-chip">Tier A：PMID / FDA 来源验证</span>
@@ -495,15 +501,15 @@
 <div class="controls">
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
-    <input type="text" id="search" placeholder="搜索抗体、靶点、适应症…">
+    <input type="text" id="search" placeholder="搜索抗体、靶点、Indication…">
   </div>
   <select class="filter-select" id="f-origin">
-    <option value="">全部来源</option>
+    <option value="">All Origins</option>
     <option value="natural">Natural (fully human)</option>
     <option value="engineered">Engineered (humanized)</option>
   </select>
   <select class="filter-select" id="f-disease">
-    <option value="">全部疾病</option>
+    <option value="">All Diseases</option>
     <option value="autoimmune">Autoimmune</option>
     <option value="oncology">Oncology</option>
     <option value="infectious">Infectious</option>
@@ -519,7 +525,7 @@
     <option value="B">Tier B only</option>
   </select>
   <select class="filter-select" id="f-route">
-    <option value="">全部给药方式s</option>
+    <option value="">All Routes</option>
     <option value="IV">IV</option>
     <option value="SC">SC</option>
     <option value="IM">IM</option>
@@ -579,7 +585,7 @@
   <table id="main-table">
     <thead>
       <tr>
-        <th class="col-name" data-col="name">抗体评估</th>
+        <th class="col-name" data-col="name">Antibody Evaluator</th>
         <th class="col-target" data-col="targets">Target</th>
         <th class="col-disease" data-col="disease_class">Disease</th>
         <th class="col-ada" data-col="ada_pct">Clinical ADA %</th>
@@ -808,9 +814,29 @@ function escHtml(s) {
 function evidenceBoxHtml(d) {
   const raw = evidenceText(d);
   if (!raw) return '';
-  const maxLen = 4000;
-  const clipped = raw.length > maxLen ? raw.substring(0, maxLen) + '…' : raw;
-  return `<div class="dk" style="margin-top:8px">Evidence chain excerpt</div><div class="evidence-box">${escHtml(clipped)}</div>`;
+  const SHORT = 400;
+  const full = escHtml(raw);
+  const short = raw.length > SHORT ? escHtml(raw.substring(0, SHORT)) + '…' : full;
+  const id = 'ev-' + Math.random().toString(36).slice(2);
+  if (raw.length <= SHORT) {
+    return `<div class="dk" style="margin-top:8px">Evidence Excerpt</div><div class="evidence-box">${full}</div>`;
+  }
+  return `<div class="dk" style="margin-top:8px">Evidence Excerpt</div>
+    <div class="evidence-box" id="${id}-short">${short}
+      <br><button class="evidence-toggle" onclick="toggleEvidence('${id}')">Expand ▾</button>
+    </div>
+    <div class="evidence-box" id="${id}-full" style="display:none">${full}
+      <br><button class="evidence-toggle" onclick="toggleEvidence('${id}')">Collapse ▴</button>
+    </div>`;
+}
+
+function toggleEvidence(id) {
+  const s = document.getElementById(id+'-short');
+  const f = document.getElementById(id+'-full');
+  if (!s || !f) return;
+  const isShort = s.style.display !== 'none';
+  s.style.display = isShort ? 'none' : '';
+  f.style.display = isShort ? '' : 'none';
 }
 
 function adaBar(pct) {
@@ -909,10 +935,16 @@ function openDetail(i) {
 
   const sections = [];
 
+  // helper: wrap content in a collapsible section
+  function mkSection(title, bodyHtml, collapsed=false) {
+    return `<div class="detail-section${collapsed?' collapsed':''}">
+      <h3>${title}</h3>
+      <div class="ds-body">${bodyHtml}</div>
+    </div>`;
+  }
+
   // ── ADA Evidence
-  sections.push(`
-    <div class="detail-section">
-      <h3>Clinical ADA</h3>
+  sections.push(mkSection('Clinical ADA', `
       <div class="detail-grid">
         <div class="detail-item">
           <div class="dk">ADA Incidence</div>
@@ -927,35 +959,49 @@ function openDetail(i) {
           <div class="dv" style="font-size:12px">${d.ada_display || '—'}</div>
         </div>
         ${d.pmids ? `<div class="detail-item wide"><div class="dk">PMIDs</div><div class="dv" style="font-size:11.5px">${String(d.pmids)}</div></div>` : ''}
-        ${d.citation_url ? `<div class="detail-item wide"><div class="dk">Source URL</div><div class="dv"><a class="detail-link" href="${d.citation_url}" target="_blank">${d.citation_url.split('?')[0]}</a></div></div>` : ''}
+        ${d.citation_url ? `<div class="detail-item wide"><div class="dk">Source URL</div><div class="dv"><a class="detail-link" href="${d.citation_url}" target="_blank" onclick="event.stopPropagation()">${d.citation_url.split('?')[0]}</a></div></div>` : ''}
       </div>
       ${evidenceBoxHtml(d)}
-    </div>`);
+    `));
 
   // ── Clinical Context
-  sections.push(`
-    <div class="detail-section">
-      <h3>Clinical Context</h3>
+  const fcNoteHtml = d.fc_mutation_notes
+    ? `<div class="detail-item wide" style="margin-top:4px"><div class="dk">Fc Notes / Design</div><div class="fc-note-box">${escHtml(d.fc_mutation_notes)}</div></div>`
+    : '';
+  const concomitantFlags = [
+    d.concomitant_immuno === true ? 'Concomitant immunosuppressant' : null,
+    d.checkpoint_inhibitor === true ? 'Checkpoint inhibitor' : null,
+    d.immune_depleting === true ? 'Immune-depleting regimen' : null,
+    d.oncology === true ? 'Oncology indication' : null,
+  ].filter(Boolean).join(' · ');
+  sections.push(mkSection('Clinical Context', `
       <div class="detail-grid">
-        <div class="detail-item"><div class="dk">Indication</div><div class="dv" style="font-size:12px">${d.indication || '—'}</div></div>
+        <div class="detail-item wide"><div class="dk">Indication</div><div class="dv" style="font-size:12px">${d.indication || '—'}</div></div>
         <div class="detail-item"><div class="dk">Disease Class</div><div class="dv">${d.disease_class || '—'}</div></div>
         <div class="detail-item"><div class="dk">Route</div><div class="dv">${d.route || '—'}</div></div>
         <div class="detail-item"><div class="dk">Half-life</div><div class="dv">${d.half_life !== null ? d.half_life+' days' : '—'}</div></div>
-        <div class="detail-item"><div class="dk">Dose</div><div class="dv">${d.dose_mg !== null ? d.dose_mg+' mg' : '—'}</div></div>
-        <div class="detail-item"><div class="dk">Assay Generation</div><div class="dv">${d.assay_gen !== null ? 'Gen '+d.assay_gen : '—'} · ${d.assay_platform||'—'}</div></div>
-        <div class="detail-item"><div class="dk">MTX Co-medication</div><div class="dv">${d.mtx || '—'}</div></div>
+        <div class="detail-item"><div class="dk">Dose</div><div class="dv">${d.dose_mg ? d.dose_mg+' mg' : '—'}</div></div>
+        <div class="detail-item"><div class="dk">Frequency</div><div class="dv">${d.dose_freq || '—'}</div></div>
         <div class="detail-item"><div class="dk">Approval Year</div><div class="dv">${d.approval_year || '—'}</div></div>
-        <div class="detail-item"><div class="dk">Fc Isotype</div><div class="dv">${d.fc_isotype ? 'IgG'+d.fc_isotype : '—'}</div></div>
-        <div class="detail-item"><div class="dk">Fc Engineering</div><div class="dv" style="font-size:12px">${d.fc_engineering || '—'}</div></div>
-        <div class="detail-item wide"><div class="dk">Fc Effector Status</div><div class="dv" style="font-size:12px">${d.fc_effector || '—'}</div></div>
+        <div class="detail-item"><div class="dk">Assay Platform</div><div class="dv">${d.assay_gen !== null ? 'Gen '+d.assay_gen : '—'}${d.assay_platform ? ' · '+d.assay_platform : ''}</div></div>
+        <div class="detail-item"><div class="dk">MTX Co-med</div><div class="dv">${d.mtx || '—'}</div></div>
+        ${d.immuno_context ? `<div class="detail-item wide"><div class="dk">Immunosuppressant Context</div><div class="dv" style="font-size:12px">${escHtml(d.immuno_context)}</div></div>` : ''}
+        ${concomitantFlags ? `<div class="detail-item wide"><div class="dk">Clinical Flags</div><div class="dv" style="font-size:11.5px;color:var(--primary)">${concomitantFlags}</div></div>` : ''}
       </div>
-    </div>`);
+    `));
+
+  // ── Fc Engineering
+  sections.push(mkSection('Fc Engineering', `
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dk">Fc Isotype</div><div class="dv">${d.fc_isotype ? 'IgG'+d.fc_isotype : '—'}</div></div>
+        <div class="detail-item"><div class="dk">Effector Status</div><div class="dv" style="font-size:12px">${d.fc_effector || '—'}</div></div>
+        ${fcNoteHtml}
+      </div>
+    `, true));
 
   // ── MHC-II / Immunogenicity
   const mhcNetColor = d.mhcii_net_clusters >= 8 ? '#b91c1c' : d.mhcii_net_clusters >= 4 ? '#92400e' : '#065f46';
-  sections.push(`
-    <div class="detail-section">
-      <h3>MHC-II Epitope Profile</h3>
+  sections.push(mkSection('MHC-II Epitope Profile', `
       <div style="background:var(--bg-alt);border-radius:var(--radius);padding:12px;margin-bottom:10px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
           <span style="font-size:11px;color:var(--text-muted)">Net immunogenic clusters <small>(excl. tolerated)</small></span>
@@ -971,22 +1017,20 @@ function openDetail(i) {
         <div class="detail-item"><div class="dk">TCIA Score</div><div class="dv">${d.tcia_score !== null ? d.tcia_score.toFixed(4) : '—'}</div></div>
         <div class="detail-item"><div class="dk">TCIA Risk Level</div><div class="dv">${riskBadge(d.tcia_risk)}</div></div>
       </div>
-    </div>`);
+    `));
 
   // ── Surface (SASA)
   const hydroPct = d.hydrophilic_frac !== null ? (d.hydrophilic_frac * 100).toFixed(1) + '%' : '—';
   const hydroVhPct = d.hydrophilic_vh !== null ? (d.hydrophilic_vh * 100).toFixed(1) + '%' : '—';
   const hydroVlPct = d.hydrophilic_vl !== null ? (d.hydrophilic_vl * 100).toFixed(1) + '%' : '—';
-  sections.push(`
-    <div class="detail-section">
-      <h3>Surface Immunogenicity (SASA)</h3>
+  sections.push(mkSection('Surface Immunogenicity (SASA)', `
       <div style="background:var(--bg-alt);border-radius:var(--radius);padding:12px;margin-bottom:10px;">
         <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
           <span style="font-size:11px;color:var(--text-muted)">Hydrophilic surface fraction (VH+VL avg)</span>
           <span style="font-weight:700;font-size:15px;color:var(--primary)">${hydroPct}</span>
         </div>
         <div class="gauge-track" style="height:8px"><div class="gauge-fill hydro" style="width:${d.hydrophilic_frac!==null?Math.min(100,d.hydrophilic_frac*100):0}%"></div></div>
-        <div style="font-size:10px;color:var(--text-muted);margin-top:4px">Higher = more hydrophilic surface = lower aggregation risk; lower = more hydrophobic patches = higher aggregation + potential immunogenicity</div>
+        <div style="font-size:10px;color:var(--text-muted);margin-top:4px">Higher = more hydrophilic surface = lower aggregation risk; lower = more hydrophobic patches</div>
       </div>
       <div class="detail-grid">
         <div class="detail-item"><div class="dk">VH hydrophilic fraction</div><div class="dv">${hydroVhPct}</div></div>
@@ -995,12 +1039,10 @@ function openDetail(i) {
         <div class="detail-item"><div class="dk">Surface risk</div><div class="dv">${riskBadge(d.surf_risk)}</div></div>
         <div class="detail-item"><div class="dk">Hydrophobic patch (max9)</div><div class="dv">${d.hydro_patch !== null ? d.hydro_patch.toFixed(3) : '—'}</div></div>
       </div>
-    </div>`);
+    `, true));
 
   // ── CMC
-  sections.push(`
-    <div class="detail-section">
-      <h3>CMC / Developability</h3>
+  sections.push(mkSection('CMC / Developability', `
       <div class="detail-grid">
         <div class="detail-item"><div class="dk">pI (isoelectric point)</div><div class="dv">${d.pI !== null ? d.pI.toFixed(2) : '—'}</div></div>
         <div class="detail-item"><div class="dk">GRAVY (hydrophobicity)</div><div class="dv">${d.gravy !== null ? d.gravy.toFixed(3) : '—'}</div></div>
@@ -1008,22 +1050,33 @@ function openDetail(i) {
         <div class="detail-item"><div class="dk">Net charge @ pH 7</div><div class="dv">${d.net_charge !== null ? (d.net_charge > 0 ? '+' : '') + d.net_charge : '—'}</div></div>
         <div class="detail-item"><div class="dk">ADA V2 Score</div><div class="dv">${d.v2_score !== null ? d.v2_score.toFixed(4) : '—'}</div></div>
         <div class="detail-item"><div class="dk">ADA V2 Risk</div><div class="dv">${riskBadge(d.v2_risk)}</div></div>
+        ${d.deamidation_sites ? `<div class="detail-item wide"><div class="dk">Deamidation sites</div><div class="dv" style="font-family:monospace;font-size:11.5px">${escHtml(d.deamidation_sites)}</div></div>` : ''}
+        ${d.isomerization_sites ? `<div class="detail-item wide"><div class="dk">Isomerization sites</div><div class="dv" style="font-family:monospace;font-size:11.5px">${escHtml(d.isomerization_sites)}</div></div>` : ''}
+        ${d.agg_motifs ? `<div class="detail-item wide"><div class="dk">Aggregation motifs</div><div class="dv" style="font-size:12px">${escHtml(d.agg_motifs)}</div></div>` : ''}
+        ${d.cmc_flags ? `<div class="detail-item wide"><div class="dk">CMC flags</div><div class="dv" style="font-size:12px;color:#b45309">${escHtml(d.cmc_flags)}</div></div>` : ''}
       </div>
-    </div>`);
+    `, true));
 
-  // ── Germline
-  sections.push(`
-    <div class="detail-section">
-      <h3>Germline / Sequence</h3>
+  // ── Germline + CDR
+  sections.push(mkSection('Germline / Sequence', `
       <div class="detail-grid">
         <div class="detail-item"><div class="dk">VH Germline</div><div class="dv" style="font-family:monospace;font-size:12px">${d.vh_germline||'—'}</div></div>
         <div class="detail-item"><div class="dk">VH Identity</div><div class="dv">${d.vh_identity !== null ? (d.vh_identity*100).toFixed(1)+'%' : '—'}</div></div>
+        <div class="detail-item"><div class="dk">VH Family</div><div class="dv">${d.vh_family||'—'}</div></div>
         <div class="detail-item"><div class="dk">VL Germline</div><div class="dv" style="font-family:monospace;font-size:12px">${d.vl_germline||'—'}</div></div>
         <div class="detail-item"><div class="dk">VL Identity</div><div class="dv">${d.vl_identity !== null ? (d.vl_identity*100).toFixed(1)+'%' : '—'}</div></div>
-        <div class="detail-item wide"><div class="dk">CDR-H3</div><div class="dv" style="font-family:monospace;font-size:12px;letter-spacing:0.05em">${d.cdr_h3||'—'}</div></div>
+        <div class="detail-item"><div class="dk">VL Family</div><div class="dv">${d.vl_family||'—'}</div></div>
+        ${d.vh_cdr1 ? `<div class="detail-item"><div class="dk">CDR-H1</div><div class="dv"><span class="cdr-seq">${d.vh_cdr1}</span></div></div>` : ''}
+        ${d.vh_cdr2 ? `<div class="detail-item"><div class="dk">CDR-H2</div><div class="dv"><span class="cdr-seq">${d.vh_cdr2}</span></div></div>` : ''}
+        ${(d.vh_cdr3||d.cdr_h3) ? `<div class="detail-item wide"><div class="dk">CDR-H3</div><div class="dv"><span class="cdr-seq">${d.vh_cdr3||d.cdr_h3}</span></div></div>` : ''}
+        ${d.vl_cdr1 ? `<div class="detail-item"><div class="dk">CDR-L1</div><div class="dv"><span class="cdr-seq">${d.vl_cdr1}</span></div></div>` : ''}
+        ${d.vl_cdr2 ? `<div class="detail-item"><div class="dk">CDR-L2</div><div class="dv"><span class="cdr-seq">${d.vl_cdr2}</span></div></div>` : ''}
+        ${d.vl_cdr3 ? `<div class="detail-item"><div class="dk">CDR-L3</div><div class="dv"><span class="cdr-seq">${d.vl_cdr3}</span></div></div>` : ''}
+        ${d.vh_vl_angle !== null ? `<div class="detail-item"><div class="dk">VH-VL Angle</div><div class="dv">${d.vh_vl_angle.toFixed(1)}°</div></div>` : ''}
+        ${d.interface_pairs !== null ? `<div class="detail-item"><div class="dk">Interface pairs</div><div class="dv">${d.interface_pairs}</div></div>` : ''}
         <div class="detail-item"><div class="dk">Format</div><div class="dv" style="font-size:12px">${d.format_type||'—'}</div></div>
       </div>
-    </div>`);
+    `, true));
 
   document.getElementById('dp-body').innerHTML = sections.join('');
   document.getElementById('detail-panel').classList.add('open');
@@ -1035,6 +1088,15 @@ function closeDetail() {
   document.getElementById('backdrop').classList.remove('open');
   document.querySelectorAll('tbody tr').forEach(tr => tr.classList.remove('selected'));
 }
+
+// Collapsible section click handler
+document.getElementById('dp-body').addEventListener('click', function(e) {
+  const h3 = e.target.closest('.detail-section h3');
+  if (h3) {
+    h3.closest('.detail-section').classList.toggle('collapsed');
+    e.stopPropagation();
+  }
+});
 
 function adaColor(pct) {
   if (pct === null || pct === undefined) return '#6b7280';

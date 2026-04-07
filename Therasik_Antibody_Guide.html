@@ -426,6 +426,7 @@
     <button class="dtab" onclick="switchDomain('dev', this)" data-domain="dev">可开发性指标</button>
     <button class="dtab" onclick="switchDomain('immuno', this)" data-domain="immuno">免疫原性因素</button>
     <button class="dtab" onclick="switchDomain('wet', this)" data-domain="wet">实验验证方案</button>
+    <button class="dtab" onclick="switchDomain('fcada', this)" data-domain="fcada">Fc × ADA 临床影响</button>
   </div>
 </div>
 
@@ -434,12 +435,12 @@
     <svg class="si" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <input type="text" id="search-input" placeholder="搜索名称、突变、药物、机制…" autocomplete="off" spellcheck="false">
   </div>
-  <select class="filter-sel" id="cat-filter"><option value="">全部类别</option></select>
+  <select class="filter-sel" id="cat-filter"><option value="">All Categories</option></select>
   <select class="filter-sel" id="tier-filter" style="display:none;">
-    <option value="">全部证据级别</option>
-    <option value="T1">T1 — 已获批药物</option>
-    <option value="T2">T2 — 临床试验</option>
-    <option value="T3">T3 — 临床前 / 研究</option>
+    <option value="">All Evidence Levels</option>
+    <option value="T1">T1 — Approved</option>
+    <option value="T2">T2 — Clinical Trial</option>
+    <option value="T3">T3 — Preclinical</option>
   </select>
   <button class="clear-btn" id="clear-btn" onclick="clearFilters()">✕ Clear</button>
   <span class="stats-chip" id="stats-chip"></span>
@@ -1140,7 +1141,68 @@ const DOMAINS = {
     filterLabel: 'All Assay Categories',
     card: renderWetCard,
   },
+  fcada: {
+    data: [],
+    staticHtml: true,
+    note: '',
+    cats: [],
+    showTier: false,
+    filterLabel: '—',
+    card: null,
+  },
 };
+
+// ── Fc × ADA static content ─────────────────────────────────────────────────
+const FC_ADA_STATS = [
+  {grp:'IgG1 野生型（正常效应）', n:67, median:5.0, min:0.0, max:87.0, low_risk_n:45, color:'#0d9488', note:'最常用格式；ADA 发生率受给药途径与适应症影响大'},
+  {grp:'IgG2 / IgG4（低效应）', n:39, median:5.6, min:0.0, max:42.9, low_risk_n:24, color:'#0891b2', note:'IgG4 常见 SC 给药，ADA 发生率中位与 IgG1 相近'},
+  {grp:'Fc 沉默（LALA/N297）', n:7, median:2.0, min:0.8, max:30.0, low_risk_n:5, color:'#7c3aed', note:'效应功能消除不直接影响 ADA 抗原性，但减少免疫激活'},
+  {grp:'ADCC 增强型', n:1, median:13.0, min:13.0, max:13.0, low_risk_n:0, color:'#b91c1c', note:'样本极少（n=1），仅供参考'},
+  {grp:'半衰期延长（YTE/LS）', n:10, median:5.0, min:0.4, max:85.0, low_risk_n:6, color:'#059669', note:'YTE/LS 常用于 SC 长效方案，延长暴露时间可能增加累积 ADA'},
+  {grp:'ADC（抗体偶联药物）', n:14, median:7.6, min:0.0, max:17.0, low_risk_n:8, color:'#d97706', note:'ADC 本身不影响 ADA，但载荷偶联增加免疫复合物形成风险'},
+];
+
+function renderFcAdaStatic() {
+  let html = `<div class="domain-note"><p><strong>Fc 工程 × 临床 ADA 影响</strong> — 基于 Therasik 138 条临床 ADA 记录按 Fc 类型的统计分析。数据来自 FDA/EMA 说明书及 PMID 核实文献，经 Tier A/B 证据分层后汇总。ADA 发生率受多重混杂因素影响（给药途径、适应症、检测代数、联用免疫抑制），此统计仅供 Fc 工程选型参考，不可替代具体分子的文献核查。</p></div>`;
+  html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:28px;">`;
+  FC_ADA_STATS.forEach(s => {
+    const barW = Math.min(100, s.median * 1.8);
+    const lowPct = Math.round(100 * s.low_risk_n / s.n);
+    html += `<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;border-top:3px solid ${s.color}">
+      <div style="font-size:13px;font-weight:700;color:${s.color};margin-bottom:12px">${s.grp}</div>
+      <div style="font-size:11px;color:#6b7280;margin-bottom:4px">中位 ADA 发生率</div>
+      <div style="font-size:28px;font-weight:700;color:${s.color};font-family:'Cormorant Garamond',serif;margin-bottom:6px">${s.median.toFixed(1)}%</div>
+      <div style="background:#f3f4f6;border-radius:4px;height:6px;margin-bottom:10px"><div style="width:${barW}%;background:${s.color};border-radius:4px;height:6px"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px;margin-bottom:10px">
+        <div style="text-align:center"><div style="font-weight:700">${s.n}</div><div style="color:#9ca3af">记录数</div></div>
+        <div style="text-align:center"><div style="font-weight:700">${s.min.toFixed(1)}–${s.max.toFixed(1)}%</div><div style="color:#9ca3af">范围</div></div>
+        <div style="text-align:center"><div style="font-weight:700;color:#059669">${lowPct}%</div><div style="color:#9ca3af">低风险</div></div>
+      </div>
+      <div style="font-size:11px;color:#6b7280;border-top:1px solid #f3f4f6;padding-top:8px;line-height:1.5">${s.note}</div>
+    </div>`;
+  });
+  html += `</div>`;
+  html += `<div style="background:#f0fdf9;border:1px solid rgba(13,148,136,0.2);border-radius:12px;padding:20px;font-size:13px;line-height:1.8;margin-bottom:20px">
+    <div style="font-weight:700;color:#0d4a43;margin-bottom:10px">⚠ 关键解读注意事项</div>
+    <ul style="margin:0;padding-left:18px;color:#374151">
+      <li><strong>检测代数偏差：</strong>Gen 1 ELISA 灵敏度低于 Gen 3 ECL，同一分子跨代检测数据差异可达 10 倍，本统计未完全校正此偏差</li>
+      <li><strong>给药途径混杂：</strong>SC 给药 ADA 率普遍高于 IV（约 2–5 倍），而 Fc 类型与给药途径高度相关（YTE 常用于 SC 长效方案）</li>
+      <li><strong>适应症偏倚：</strong>肿瘤患者免疫受损，ADA 发生率系统性偏低；自免患者联用 MTX 后 ADA 可降低 60–90%</li>
+      <li><strong>样本量限制：</strong>Fc 沉默（n=7）与 ADCC 增强（n=1）样本量过小，统计意义有限，请参考原始文献</li>
+      <li><strong>因果方向：</strong>Fc 类型通过影响半衰期、效应功能与免疫激活间接调控 ADA，不是序列抗原性的直接决定因素</li>
+    </ul>
+  </div>
+  <div style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:20px;font-size:13px">
+    <div style="font-weight:700;margin-bottom:12px;color:#374151">📌 Fc 选型快速指南</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+      <div style="padding:14px;background:#fff;border-radius:8px;border-left:3px solid #0d9488"><div style="font-weight:700;font-size:12px;margin-bottom:4px">需要 ADCC/CDC</div><div style="font-size:12px;color:#6b7280">IgG1 野生型，或 GASDALIE（S239D/I332E）增强版；注意输液反应风险</div></div>
+      <div style="padding:14px;background:#fff;border-radius:8px;border-left:3px solid #7c3aed"><div style="font-weight:700;font-size:12px;margin-bottom:4px">需要消除效应功能</div><div style="font-size:12px;color:#6b7280">LALA (L234A/L235A) 或 P329G；IgG4+S228P 备选；免疫检查点阻断常用</div></div>
+      <div style="padding:14px;background:#fff;border-radius:8px;border-left:3px solid #059669"><div style="font-weight:700;font-size:12px;margin-bottom:4px">需要延长半衰期</div><div style="font-size:12px;color:#6b7280">LS (M428L/N434S) 或 YTE (M252Y/S254T/T256E)；SC 给药首选；注意胎盘转移</div></div>
+      <div style="padding:14px;background:#fff;border-radius:8px;border-left:3px solid #d97706"><div style="font-weight:700;font-size:12px;margin-bottom:4px">双特异性抗体</div><div style="font-size:12px;color:#6b7280">Knob-into-Hole + 二硫键优化；或 DuoBody F405L/K409R；注意异二聚体纯度</div></div>
+    </div>
+  </div>`;
+  return html;
+}
 
 // ═══════════════════════════════════════════════════════════
 // RENDER HELPERS
@@ -1275,6 +1337,16 @@ function renderWetCard(d) {
 // ═══════════════════════════════════════════════════════════
 function renderGrid() {
   const dom = DOMAINS[currentDomain];
+  // Handle static-HTML domains
+  if (dom.staticHtml) {
+    const gc = document.getElementById('grid-container');
+    document.getElementById('empty-state').style.display = 'none';
+    document.getElementById('stats-chip').textContent = '';
+    if (currentDomain === 'fcada') {
+      gc.innerHTML = renderFcAdaStatic();
+    }
+    return;
+  }
   const data = dom.data;
   const q = searchTerm.toLowerCase();
 
@@ -1406,6 +1478,9 @@ function switchDomain(domain, btn) {
   updateCatFilter();
   const tierEl = document.getElementById('tier-filter');
   tierEl.style.display = (domain === 'fc') ? '' : 'none';
+  // Hide search/filter bar for static domains
+  const filterBar = document.getElementById('filter-bar');
+  if (filterBar) filterBar.style.display = (domain === 'fcada') ? 'none' : '';
   renderGrid();
   updateClearBtn();
 }
