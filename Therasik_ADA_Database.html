@@ -589,7 +589,8 @@ fetch('ada_db_data.json')
   .then(r => r.json())
   .then(data => {
     ALL_DATA = data;
-    document.getElementById('stat-total').textContent = data.length;
+    const elTotal = document.getElementById('stat-total');
+    if (elTotal) elTotal.textContent = data.length;
     applyFilters();
     bindSortHeaders();
   })
