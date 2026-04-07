@@ -146,40 +146,37 @@
       body { padding-top: 52px; }
     }
 
-    /* ── service-hero: mirrors KB page-header ── */
-    .service-hero {
+
+    /* ── main-intro: green hero within right column ── */
+    .main-intro {
+      margin: -60px -60px 40px;
+      padding: 36px 60px 28px;
       background:
         repeating-linear-gradient(135deg, transparent, transparent 14px,
           rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px),
         linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%);
-      border-top: 4px solid #0d9488;
-      border-bottom: 1px solid rgba(13,148,136,0.18);
-      padding: 36px 40px 28px;
+      border-bottom: 4px solid #0d9488;
     }
-    .service-hero h1 {
+    .main-intro .breadcrumb { margin-bottom: 20px; }
+    .main-intro h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 38px;
       font-weight: 700;
+      color: #0d4a43;
       margin: 0 0 10px;
       letter-spacing: -0.02em;
-      color: #0d4a43;
+      line-height: 1.15;
     }
-    .service-hero p {
+    .main-intro > p {
       color: #2d6a61;
       font-size: 15px;
-      max-width: 720px;
       line-height: 1.65;
+      max-width: 640px;
       margin: 0;
     }
-    .service-hero .back-link {
-      font-size: 13px; color: #0f766e; text-decoration: none;
-      font-weight: 600; display: inline-flex; align-items: center;
-      gap: 5px; margin-bottom: 14px; opacity: 0.85;
-    }
-    .service-hero .back-link:hover { opacity: 1; color: #0d9488; }
-    @media (max-width: 768px) {
-      .service-hero { padding: 24px 20px 20px; }
-      .service-hero h1 { font-size: 26px; }
+    @media (max-width: 900px) {
+      .main-intro { margin: -32px -24px 32px; padding: 28px 24px 24px; }
+      .main-intro h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -257,14 +254,6 @@
     </div>
   </header>
 
-<div class="service-hero">
-  <a href="index.html#services" class="back-link">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-    AI 药物设计
-  </a>
-  <h1>新型疫苗设计</h1>
-  <p>AI 辅助的新型疫苗设计服务，覆盖肿瘤新抗原预测、异克隆表位优化、mRNA 序列设计及递送系统适配。参考经 IEDB 验证的 100 个临床表位条目，支持肿瘤免疫、感染性疾病及自身免疫三大方向的个性化疫苗全流程 in silico 设计。</p>
-</div>
 
 <div class="page-wrap">
   <aside class="sidebar">
@@ -294,17 +283,19 @@
   </aside>
 
   <main class="main">
+  <div class="main-intro" id="platform">
     <div class="breadcrumb">
-      <a href="index.html">首页</a><span>/</span><a href="index.html#services" class="active">AI 药物设计</a><span>/</span><span>疫苗设计</span>
+      <a href="index.html">首页</a><span>/</span><a href="index.html#services" class="active">AI 药物设计</a><span>/</span><span>新型疫苗设计</span>
     </div>
+    <h1>新型疫苗设计</h1>
+    <p>AI 辅助的新型疫苗设计服务，覆盖肿瘤新抗原预测、异克隆表位优化、mRNA 序列设计及递送系统适配。参考经 IEDB 验证的 100 个临床表位条目，支持肿瘤免疫、感染性疾病及自身免疫三大方向。</p>
+  </div>
 
     <div class="mission-block">
       <p><strong>以证据为导向的疫苗与表位设计：</strong>Therasik 疫苗设计服务为转化团队提供新抗原 neoantigen 筛选、异克隆肽优化和多表位 mRNA 构建体设计，重点在于可操作的优先级排序，而非单纯的预测评分。</p>
       <p>适合肿瘤学与传染病项目——我们整合 pMHC 结合预测、TCR 接触分析和 T 细胞激活评估，帮助团队在实验验证前锁定最有希望的靶标。</p>
     </div>
 
-    <h2 id="platform">疫苗与表位设计支持</h2>
-    <p class="subtitle">为肿瘤学与传染病转化团队提供基于证据的新抗原、异克隆及多表位 mRNA 设计支持。</p>
 
     <div class="trust-grid">
       <div class="trust-card">

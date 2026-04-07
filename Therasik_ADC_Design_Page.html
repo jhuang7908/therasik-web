@@ -118,40 +118,37 @@
       .flow-step:not(:last-child)::after { content: '↓'; right: 50%; bottom: -15px; top: auto; transform: translateX(50%); }
     }
 
-    /* ── service-hero: mirrors KB page-header ── */
-    .service-hero {
+
+    /* ── main-intro: green hero within right column ── */
+    .main-intro {
+      margin: -60px -60px 40px;
+      padding: 36px 60px 28px;
       background:
         repeating-linear-gradient(135deg, transparent, transparent 14px,
           rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px),
         linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%);
-      border-top: 4px solid #0d9488;
-      border-bottom: 1px solid rgba(13,148,136,0.18);
-      padding: 36px 40px 28px;
+      border-bottom: 4px solid #0d9488;
     }
-    .service-hero h1 {
+    .main-intro .breadcrumb { margin-bottom: 20px; }
+    .main-intro h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 38px;
       font-weight: 700;
+      color: #0d4a43;
       margin: 0 0 10px;
       letter-spacing: -0.02em;
-      color: #0d4a43;
+      line-height: 1.15;
     }
-    .service-hero p {
+    .main-intro > p {
       color: #2d6a61;
       font-size: 15px;
-      max-width: 720px;
       line-height: 1.65;
+      max-width: 640px;
       margin: 0;
     }
-    .service-hero .back-link {
-      font-size: 13px; color: #0f766e; text-decoration: none;
-      font-weight: 600; display: inline-flex; align-items: center;
-      gap: 5px; margin-bottom: 14px; opacity: 0.85;
-    }
-    .service-hero .back-link:hover { opacity: 1; color: #0d9488; }
-    @media (max-width: 768px) {
-      .service-hero { padding: 24px 20px 20px; }
-      .service-hero h1 { font-size: 26px; }
+    @media (max-width: 900px) {
+      .main-intro { margin: -32px -24px 32px; padding: 28px 24px 24px; }
+      .main-intro h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -228,14 +225,6 @@
     </div>
   </header>
 
-<div class="service-hero">
-  <a href="index.html#services" class="back-link">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-    AI 药物设计
-  </a>
-  <h1>智能 ADC 设计</h1>
-  <p>基于 AI 驱动的端到端抗体偶联药物（ADC）工程平台，整合靶点分析、抗体筛选、链接子-载荷匹配与 CMC 可开发性评估。参考 100+ 临床 ADC 程序数据库，系统优化偶联方案的疗效-安全性平衡，加速从靶点到候选的开发进程。</p>
-</div>
 
 <div class="page-wrap">
     <aside class="sidebar">
@@ -249,11 +238,14 @@
     </aside>
 
     <main class="main">
-      <div class="breadcrumb"><a href="therasik_index.html">首页</a> <span>&gt;</span> <a href="therasik_index.html#services">AI 药物设计</a> <span>&gt;</span> 智能 ADC 设计</div>
-      
-      <h2 id="overview">智能 ADC 设计服务</h2>
-      <p class="subtitle">基于 AI 驱动的端到端抗体偶联药物工程。从靶点分析到链接子-载荷匹配及 CMC 验证。</p>
-      
+  <div class="main-intro" id="overview">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a><span>/</span><a href="index.html#services" class="active">AI 药物设计</a><span>/</span><span>智能 ADC 设计</span>
+    </div>
+    <h1>智能 ADC 设计</h1>
+    <p>基于 AI 的端到端 ADC 工程平台，整合靶点分析、链接子-载荷匹配与 CMC 可开发性评估。参考 100+ 临床 ADC 程序数据库，系统优化偶联方案的疗效-安全性平衡，加速从靶点到候选的开发进程。</p>
+  </div>
+
       <p>Therasik 的智能 ADC 设计平台结合了海量临床数据与先进的计算模型，为客户提供最优化的偶联方案。我们不仅关注杀伤效力，更通过 AI 预测 ADC 的系统稳定性与脱靶风险。</p>
 
       <h2 id="logic"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>8 步智能推荐逻辑</h2>
