@@ -87,18 +87,18 @@
     .lang-switch button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     
     
-    .hero { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 64px; overflow: hidden; background: #0d9488; }
-    .hero-banner { position: absolute; inset: 0; z-index: 0; opacity: 0.3; mix-blend-mode: overlay; }
+    .hero { position: relative; min-height: 440px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 64px; overflow: hidden; }
+    .hero-banner { position: absolute; inset: 0; z-index: 0; opacity: 1.0; }
     .hero-banner img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(13,148,136,0.95) 0%, rgba(15,118,110,0.85) 100%); pointer-events: none; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
     .hero .hero-inner { position: relative; z-index: 2; max-width: 780px; }
     .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 58px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.04em; color: #ffffff; line-height: 1.05; }
     .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.95); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; }
     .hero .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .hero .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: #ffffff; color: var(--primary); text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1); }
-    .hero .btn:hover { background: #f8fafc; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-    .hero .btn-outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.4); box-shadow: none; backdrop-filter: blur(4px); }
-    .hero .btn-outline:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.7); transform: translateY(-2px); }
+    .hero .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 14px 0 rgba(13,148,136,0.3); }
+    .hero .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,148,136,0.4); }
+    .hero .btn-outline { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.35); box-shadow: none; backdrop-filter: blur(4px); }
+    .hero .btn-outline:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
     .hero-features { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
     .feature-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.92); background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); font-weight: 500; }
     .feature-item svg { stroke: rgba(255,255,255,0.85); }
@@ -155,6 +155,20 @@
     .site-footer a { color: var(--primary); text-decoration: none; }
     .site-footer a:hover { text-decoration: underline; }
 
+    /* Case studies */
+    .case-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 28px; }
+    .case-card { grid-column: span 4; display: flex; flex-direction: column; background: var(--card-surface-solid); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; box-shadow: var(--card-shadow); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease; }
+    .case-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px -6px rgba(13, 148, 136, 0.15), 0 8px 20px rgba(0,0,0,0.06); border-color: var(--card-border-hover); }
+    .case-media { width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(135deg, rgba(13,148,136,0.08), rgba(45,212,191,0.06)); position: relative; }
+    .case-media picture, .case-media img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .case-body { padding: 16px 18px 12px; background: rgba(255,255,255,0.45); }
+    .case-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary-dark); background: rgba(13,148,136,0.10); border: 1px solid rgba(13,148,136,0.18); padding: 6px 10px; border-radius: 999px; }
+    .case-title { margin: 10px 0 6px; font-size: 16px; font-weight: 650; letter-spacing: -0.01em; color: #111827; }
+    .case-desc { margin: 0 0 10px; font-size: 14px; color: #6b7280; line-height: 1.55; }
+    .case-bullets { margin: 0; padding-left: 16px; color: #374151; font-size: 13.5px; line-height: 1.5; }
+    .case-bullets li { margin: 0 0 4px; }
+    .case-cta { padding: 0 18px 16px; font-size: 13px; font-weight: 650; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; }
+
     .brand-dot { width: 10px; height: 10px; background: var(--primary); border-radius: 50%; display: inline-block; }
     .accent { color: var(--primary); }
 
@@ -163,6 +177,8 @@
     @media (max-width: 900px) {
       .services-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
+      .case-grid { display: grid; grid-template-columns: 1fr; }
+      .case-card { grid-column: auto; }
       .workflow-steps { flex-wrap: wrap; }
       .workflow-step { min-width: 45%; border-radius: 8px !important; border: 1px solid var(--border); border-top: 3px solid var(--border); margin-bottom: 8px; }
       .workflow-step:not(:last-child)::after { display: none; }
@@ -246,6 +262,7 @@
           </a>
         </div>
       </div>
+      <a href="#case-studies">项目实例</a>
       <a href="#about">关于我们</a>
       <a href="#workflow">流程</a>
       <a href="#contact">联系我们</a>
@@ -386,6 +403,143 @@
       </div>
     </div>
   </section>
+
+  <section id="case-studies" class="section">
+    <div class="section-wide">
+      <span class="section-label lang-zh">项目实例</span>
+      <h2 style="margin-bottom:6px">精选案例</h2>
+      <p style="margin-bottom:0;color:var(--text-muted)">涵盖生物治疗药物设计与评估的代表性项目。</p>
+
+      <div class="case-grid">
+        <a class="case-card fade-up" href="case_mumab4d5_humanization_zh.html">
+          <div class="case-media">
+            <picture>
+              <source srcset="images/case-humanization.webp" type="image/webp">
+              <source srcset="images/case-humanization.jpg" type="image/jpeg">
+              <img src="images/case-humanization.svg" alt="muMAb4D5 抗体人源化案例" loading="lazy">
+            </picture>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">人源化</span>
+            <div class="case-title">muMAb4D5 → 赫赛汀前体人源化</div>
+            <p class="case-desc">使用 AbEngineCore V4.5.1 对全球临床验证最充分的抗体进行系统性重新人源化 — 仅需 4 个回复突变，CDR 100% 保留。</p>
+            <ul class="case-bullets">
+              <li>IGHV3-23*01 + IGKV1-39*01 — 临床验证配对</li>
+              <li>VH/VL 角度偏差 0.64° · 所有 RMSD 指标均通过</li>
+              <li>综合设计质量：4.3 / 5 ⭐</li>
+            </ul>
+          </div>
+          <div class="case-cta">阅读完整案例 →</div>
+        </a>
+
+        <a class="case-card fade-up fade-up-d1" href="case_mumab4d5_cmc.html">
+          <div class="case-media">
+            <picture>
+              <source srcset="images/case-assessment.webp" type="image/webp">
+              <source srcset="images/case-assessment.jpg" type="image/jpeg">
+              <img src="images/case-assessment.svg" alt="muMAb4D5 CMC 可开发性评估案例" loading="lazy">
+            </picture>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">CMC / 可开发性</span>
+            <div class="case-title">muMAb4D5 CMC 可开发性与优化</div>
+            <p class="case-desc">基于 AbRef-458 基准的 15 项全方位 CMC 评估 — 所有指标均通过，在免疫原性和脱酰胺风险上优于赫赛汀®。</p>
+            <ul class="case-bullets">
+              <li>ADI 评分：77/100 (可接受) · 赫赛汀® 81/100</li>
+              <li>TCIA 0.61 vs 赫赛汀 0.65 — 更低的免疫原性</li>
+              <li>单点突变 VH84 N→Q · 0.28 Å Fv RMSD</li>
+            </ul>
+          </div>
+          <div class="case-cta">阅读完整案例 →</div>
+        </a>
+
+        <a class="case-card fade-up fade-up-d2" href="case_mumab4d5_vhh_zh.html">
+          <div class="case-media">
+            <picture>
+              <source srcset="images/case-vh2vhh.webp" type="image/webp">
+              <source srcset="images/case-vh2vhh.jpg" type="image/jpeg">
+              <img src="images/case-vh2vhh.svg" alt="muMAb4D5 VH 转 VHH 纳米抗体" loading="lazy">
+            </picture>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">VH → VHH</span>
+            <div class="case-title">muMAb4D5 VH → 人源化 VHH 纳米抗体</div>
+            <p class="case-desc">由 muMAb4D5 VH 改造的靶向 HER2 纳米抗体 — 100% CDR 保留，SASA 引导的表面重塑，在所有关键 CMC 指标上超越临床抗 HER2 VHH 参考分子。</p>
+            <ul class="case-bullets">
+              <li>VHH_ADI 66.66 · 优于 Anti-HER2-VHH1 (63.17)</li>
+              <li>全局 RMSD 0.054 Å · CDR1/2/3 结构完全保留</li>
+              <li>无需 Stealth 突变 · 一步实现 VGRW 改造</li>
+            </ul>
+          </div>
+          <div class="case-cta">阅读完整案例 →</div>
+        </a>
+
+        <a class="case-card fade-up" href="case_vgrw_sr_r2_affinity_maturation.html">
+          <div class="case-media">
+            <picture>
+              <source srcset="images/case-affinity-maturation.webp" type="image/webp">
+              <source srcset="images/case-affinity-maturation.jpg" type="image/jpeg">
+              <img src="images/case-affinity-maturation.svg" alt="VGRW-SR-R2 HER2 VHH 虚拟亲和力成熟" loading="lazy">
+            </picture>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">亲和力成熟</span>
+            <div class="case-title">VGRW-SR-R2 HER2 VHH 亲和力成熟</div>
+            <p class="case-desc">跨 5 个维度筛选 247 个突变 — 发现上位性双突变 G49A+F112L，结合能提升 −3.32 kcal/mol，界面接触增加 70%，主链 RMSD 保持 0.000 Å。</p>
+            <ul class="case-bullets">
+              <li>详尽的界面扫描 (13 个位点 × 19 种氨基酸)</li>
+              <li>5D 过滤：能量、稳定性、适应度、保守性、CMC</li>
+              <li>交付成果：排序序列 + 上位性协同分析</li>
+            </ul>
+          </div>
+          <div class="case-cta">探讨您的靶点 →</div>
+        </a>
+
+        <a class="case-card fade-up fade-up-d1" href="case_bispecific_vhh_expression_optimization.html">
+          <div class="case-media">
+            <picture>
+              <source srcset="images/case-bispecific.webp" type="image/webp">
+              <source srcset="images/case-bispecific.jpg" type="image/jpeg">
+              <img src="images/case-bispecific.svg" alt="双特异性 VHH 表达优化案例" loading="lazy">
+            </picture>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">双特异性 VHH</span>
+            <div class="case-title">高表达双特异性抗冠状病毒纳米抗体工程</div>
+            <p class="case-desc">SmartLink™ + VirtualCMC 解决了双冠状病毒 VHH-GS-VHH 融合蛋白在酵母中分泌量低的问题 — 通过等电点 (pI) 工程和臂交换实现。</p>
+            <ul class="case-bullets">
+              <li>pI 降低 1.09 个单位 · 净电荷 −4.0</li>
+              <li>臂交换使交叉冠状病毒 IC90 提升 4.8 倍</li>
+              <li>拒绝 Whitlow 链接子：赖氨酸残基会提高融合蛋白 pI</li>
+            </ul>
+          </div>
+          <div class="case-cta">阅读完整案例 →</div>
+        </a>
+
+        <a class="case-card fade-up fade-up-d2" href="case_malaria_carm_design.html">
+          <div class="case-media">
+            <picture>
+              <source srcset="images/case-cart.webp" type="image/webp">
+              <source srcset="images/case-cart.jpg" type="image/jpeg">
+              <img src="images/case-cart.svg" alt="抗 CIDRα1 CAR-巨噬细胞疟疾案例" loading="lazy">
+            </picture>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">CAR‑M 设计</span>
+            <div class="case-title">针对恶性疟原虫的抗 CIDRα1 CAR-巨噬细胞</div>
+            <p class="case-desc">ACTES 11 层决策级联设计了一种靶向所有 6 种 CIDRα1 亚型的双结合域 CAR-M — 采用 mRNA-LNP 递送和 4 层临床前策略。</p>
+            <ul class="case-bullets">
+              <li>双结合域串联 scFv (C7 + C74) 覆盖 6 种亚型</li>
+              <li>FcRγ 巨噬细胞原生信号传导 · mRNA-LNP &lt;1小时部署</li>
+              <li>4 层模型：C57BL/6 → MISTRG6 → NBSGW → NHP</li>
+            </ul>
+          </div>
+          <div class="case-cta">阅读完整案例 →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="workflow" class="section section-alt">
     <div class="section-inner">
       <span class="section-label lang-zh">项目流程</span>
