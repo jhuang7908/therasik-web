@@ -25,17 +25,118 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
   <style>
-    :root{--primary:#0d9488;--primary-dark:#0f766e;--text:#111827;--text-muted:#4b5563;--border:#e5e7eb;--bg:#fff;--bg-alt:#f9fafb;}
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.6;color:var(--text);background:var(--bg-alt);-webkit-font-smoothing:antialiased;}
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --accent: #3b82f6;
+      --text: #111827;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-alt2: #f1f5f9;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:15px; line-height:1.6; color:var(--text); background:var(--bg-alt); -webkit-font-smoothing:antialiased; padding-top:60px; }
+
+    @media print {
+      body { display: none !important; }
+    }
 
     /* ── Header ── */
-    .top-header{display:flex;align-items:center;justify-content:space-between;padding:12px 32px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:2px solid rgba(13,148,136,0.1);flex-wrap:nowrap;gap:12px;position:fixed;width:100%;top:0;z-index:2000;}
-    .brand{display:flex;align-items:center;gap:0;flex-wrap:nowrap;min-width:max-content;}.brand a{text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0;}
-    .slogan{font-size:13px;color:var(--text-muted);padding-left:14px;border-left:1px solid var(--border);white-space:nowrap;font-weight:500;letter-spacing:.02em;display:inline-flex;align-items:center;flex-shrink:0;}
-    .top-header-nav{display:flex;align-items:center;gap:6px;}
-    .top-header-nav a{padding:7px 14px;font-size:14px;color:var(--text-muted);text-decoration:none;border-radius:20px;transition:all .2s;font-weight:500;}
-    .top-header-nav a:hover{color:var(--primary);background:rgba(13,148,136,.06);}
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 32px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(37, 99, 235, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 2000;
+    }
+    .brand a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 24px;
+    }
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+    .accent { color: var(--primary); }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+
+    .top-header-nav { display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; }
+    .top-header-nav a {
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .top-header-nav a:hover {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.06);
+    }
+
+    /* Dropdown */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: white;
+      min-width: 240px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 8px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .dropdown-menu a:hover { background: var(--bg-alt); }
+    .menu-title { display: block; font-size: 14px; font-weight: 700; color: var(--text); }
+    .menu-desc { display: block; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .top-header { padding: 10px 16px; flex-wrap: nowrap; }
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: auto; }
+      .top-header-nav a { font-size: 18px; padding: 12px 24px; }
+      .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
+      .nav-dropdown .dropdown-menu { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; border: none; padding: 0; width: 100%; text-align: center; }
+      .nav-dropdown .dropdown-menu a { text-align: center; }
+      .nav-dropdown > a::after { display: none; }
+    }
 
     /* ── Page header ── */
     .page-header{background:linear-gradient(135deg,#f0fdfa 0%,#fff 80%);border-bottom:1px solid rgba(13,148,136,.1);padding:48px 40px 32px;margin-top:52px;}
@@ -193,43 +294,69 @@
 
 <header class="top-header">
   <div class="brand">
-    <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-      <svg width="34" height="28" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-          <path d="M16 2L2 10V22L16 28L30 22V10L16 2Z" fill="#0d9488" fill-opacity="0.05" stroke="#0d9488" stroke-width="1" stroke-opacity="0.3"/>
-          <path d="M14.5 24 V 16" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M17.5 24 V 16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="13" y1="19" x2="19" y2="19" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="13" y1="21" x2="19" y2="21" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M14.5 16 L 8 7" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M10 16 L 3.5 7" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M17.5 16 L 24 7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="21.5" y="3.5" width="5" height="5" rx="1" fill="#f59e0b" transform="rotate(45 24 6)"/>
-        </svg>
-      <span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:#1f2937;letter-spacing:-.02em;">Thera<span style="color:#0d9488;">sik</span></span>
+    <a href="therasik_index.html">
+      <span class="brand-dot"></span>Thera<span class="accent">sik</span>
     </a>
-    <span class="slogan">生命科学 AI</span>
   </div>
+  <button class="mobile-menu-btn" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </button>
   <nav class="top-header-nav">
-    <a href="index.html">首页</a>
-    <a href="Therasik_Antibody_Page.html">抗体评估</a>
-    <a href="Therasik_Antibody_Page.html#submit">提交咨询</a>
+    <button class="nav-close-btn" onclick="document.querySelector('.top-header-nav').classList.remove('open')">&times;</button>
+    <a href="therasik_index.html">首页</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="therasik_index.html#services">服务</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Page.html">
+          <span class="menu-title">抗体评估与研发</span>
+          <span class="menu-desc">人源化、可开发性、双抗工程</span>
+        </a>
+        <a href="Therasik_ADC_Design_Page.html">
+          <span class="menu-title">智能 ADC 设计</span>
+          <span class="menu-desc">抗原-载荷-链接子匹配</span>
+        </a>
+        <a href="Therasik_CART_Page.html">
+          <span class="menu-title">智慧 CAR-T 设计</span>
+          <span class="menu-desc">架构设计与组件优化</span>
+        </a>
+        <a href="Therasik_Bispecific_Page.html">
+          <span class="menu-title">双特异性抗体</span>
+          <span class="menu-desc">多特异性工程</span>
+        </a>
+        <a href="Therasik_Vaccine_Design.html">
+          <span class="menu-title">新型疫苗设计</span>
+          <span class="menu-desc">新抗原 · 异克隆 · mRNA</span>
+        </a>
+      </div>
+    </div>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="#" style="color:#fff; background:var(--primary); border-radius:20px;">知识库</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_ADA_Database.html">
+          <span class="menu-title">ADA 数据库</span>
+          <span class="menu-desc">临床免疫原性基准</span>
+        </a>
+        <a href="Therasik_ADC_Database.html">
+          <span class="menu-title">ADC 数据库</span>
+          <span class="menu-desc">100+ 临床 ADC 程序</span>
+        </a>
+        <a href="Therasik_Antibody_Guide.html">
+          <span class="menu-title">抗体工程指南</span>
+          <span class="menu-desc">技术标准与设计原则</span>
+        </a>
+        <a href="Therasik_Vaccine_KB.html">
+          <span class="menu-title">疫苗知识库</span>
+          <span class="menu-desc">抗原与佐剂数据</span>
+        </a>
+      </div>
+    </div>
+    <a href="Therasik_OurTech.html">技术平台</a>
   </nav>
 </header>
 
 <div class="page-header">
-  <a href="Therasik_Antibody_Page.html" class="back-link">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-    抗体评估服务
-  </a>
-  <h1>抗体工程参考指南</h1>
-  <p>面向科学团队与客户的知识参考页，整理 <strong>Fc 工程突变</strong>、<strong>可开发性指标</strong> 与 <strong>免疫原性风险因素</strong>，帮助更快理解报告输出。</p>
-  <p class="page-card-hint">每条条目均为<strong>伸缩卡片</strong>（默认收起，与 <a href="Therasik_Component_Browser.html">CAR 组件库</a> 相同模式）：<strong>点击卡片</strong>展开机制说明、参考文献与 IP 等详情；详情区顶部有与组件库一致的强调条。右上角显示「▼ 展开 / ▲ 收起」。点击文内链接不会触发展开/收起。</p>
-  <div class="domain-tabs">
-    <button class="dtab active" data-domain="fc" onclick="switchDomain('fc',this)">⚙ Fc 突变</button>
-    <button class="dtab" data-domain="dev" onclick="switchDomain('dev',this)">📊 可开发性指标</button>
-    <button class="dtab" data-domain="immuno" onclick="switchDomain('immuno',this)">🛡 免疫原性因素</button>
-    <button class="dtab" data-domain="wet" onclick="switchDomain('wet',this)">🧪 湿实验验证</button>
-  </div>
+  <h1>抗体工程指南</h1>
+  <p>涵盖 Fc 突变库（ADCC/CDC/FcRn）、可开发性指标（pI, SAP, PSH, 脱酰胺）以及免疫原性风险评估的综合技术参考。</p>
 </div>
 
 <div class="controls">

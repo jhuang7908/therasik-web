@@ -25,29 +25,37 @@
     gtag('config', 'G-F0S2HLBZ0B');
   </script>
   <style>
-    :root { --primary: #0d9488; --primary-dark: #0f766e; --text: #111827; --text-muted: #4b5563; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
+    :root { --primary: #2563eb; --primary-dark: #1e40af; --text: #111827; --text-muted: #4b5563; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
 
+    @media print {
+      body { display: none !important; }
+    }
+
     /* Header */
-    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(37, 99, 235, 0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: nowrap; }
     .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; }
-    .top-header .brand a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .brand a { text-decoration: none; color: #111827; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .brand .brand-dot { width: 10px; height: 10px; background: var(--primary); border-radius: 50%; display: inline-block; }
+    .top-header .brand .accent { color: var(--primary); }
     .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
     .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
     .nav-close-btn { display: none; }
     .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
     .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s ease; font-weight: 600; }
-    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
-    .top-header-nav a.active { background: var(--primary); color: #fff; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(37, 99, 235, 0.06); }
+    .top-header-nav a.active { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25); }
+    .top-header-nav a.active:hover { background: var(--primary-dark); }
+    
     .nav-dropdown { position: relative; }
     .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
-    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 240px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16,1,0.3,1); z-index: 100; margin-top: 8px; }
+    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 220px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); z-index: 100; margin-top: 8px; }
     .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; border-radius: 8px; }
+    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; line-height: 1.4; border-radius: 8px; text-align: left; }
     .nav-dropdown .dropdown-menu a:hover { background: var(--bg-alt); }
-    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 2px; }
     .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
     .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
 
@@ -118,6 +126,9 @@
     .site-footer a { color: #6b7280; text-decoration: none; }
     .site-footer a:hover { color: var(--primary); }
 
+    .brand-dot { width: 10px; height: 10px; background: var(--primary); border-radius: 50%; display: inline-block; }
+    .accent { color: var(--primary); }
+
     @media (max-width: 900px) {
       .hero h1 { font-size: 40px; }
     }
@@ -146,47 +157,68 @@
 <body data-lang="zh">
 
 <header class="top-header">
-  <div class="brand">
-    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-        <defs>
-          <linearGradient id="logo_grad_ot" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#0d9488"/><stop offset="1" stop-color="#065f58"/>
-          </linearGradient>
-        </defs>
-        <circle cx="17" cy="17" r="16" fill="url(#logo_grad_ot)"/>
-        <path d="M9 13 H25" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
-        <path d="M17 13 V24" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
-        <circle cx="9" cy="13" r="2.3" fill="white"/>
-        <circle cx="25" cy="13" r="2.3" fill="white"/>
-        <circle cx="17" cy="24" r="2.3" fill="white"/>
-      </svg>
-      <span style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; color: #1f2937; letter-spacing: -0.02em;">Thera<span style="color: #0d9488;">sik</span></span>
-    </a>
-    <span class="slogan">生命科学 AI</span>
-  </div>
+    <div class="brand">
+      <a href="therasik_index.html">
+        <span class="brand-dot"></span>Thera<span class="accent">sik</span>
+      </a>
+      <span class="slogan">生命科学 AI</span>
+    </div>
   <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
-  <nav class="top-header-nav">
-    <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
-    <a href="index.html">首页</a>
-    <a href="index.html#about">关于我们</a>
-    <div class="nav-dropdown" tabindex="0">
-      <a href="index.html#services">服务</a>
-      <div class="dropdown-menu">
-        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
-        <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T 设计</span><span class="menu-desc">智慧 CAR-T 架构设计</span></a>
-        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异性抗体</span><span class="menu-desc">多特异性工程</span></a>
-        <a href="Therasik_Immunogenicity.html"><span class="menu-title">免疫原性研究</span><span class="menu-desc">ADA 预测与参考数据库</span></a>
-        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+    <nav class="top-header-nav">
+      <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
+      <a href="therasik_index.html">首页</a>
+      <div class="nav-dropdown" tabindex="0">
+        <a href="therasik_index.html#services">服务</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Antibody_Page.html">
+            <span class="menu-title">抗体评估与研发</span>
+            <span class="menu-desc">人源化、可开发性、双抗工程</span>
+          </a>
+          <a href="Therasik_ADC_Design_Page.html">
+            <span class="menu-title">智能 ADC 设计</span>
+            <span class="menu-desc">抗原-载荷-链接子匹配</span>
+          </a>
+          <a href="Therasik_CART_Page.html">
+            <span class="menu-title">智慧 CAR-T 设计</span>
+            <span class="menu-desc">架构设计与组件优化</span>
+          </a>
+          <a href="Therasik_Bispecific_Page.html">
+            <span class="menu-title">双特异性抗体</span>
+            <span class="menu-desc">多特异性工程</span>
+          </a>
+          <a href="Therasik_Vaccine_Design.html">
+            <span class="menu-title">新型疫苗设计</span>
+            <span class="menu-desc">新抗原 · 异克隆 · mRNA</span>
+          </a>
+        </div>
       </div>
-    </div>
-    <a href="index.html#case-studies">案例</a>
-    <a href="Therasik_OurTech.html" class="active">技术平台</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="index.html#contact">联系我们</a>
-  </nav>
+      <div class="nav-dropdown" tabindex="0">
+        <a href="#">知识库</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_ADA_Database.html">
+            <span class="menu-title">ADA 数据库</span>
+            <span class="menu-desc">临床免疫原性基准</span>
+          </a>
+          <a href="Therasik_ADC_Database.html">
+            <span class="menu-title">ADC 数据库</span>
+            <span class="menu-desc">100+ 临床 ADC 程序</span>
+          </a>
+          <a href="Therasik_Antibody_Guide.html">
+            <span class="menu-title">抗体工程指南</span>
+            <span class="menu-desc">技术标准与设计原则</span>
+          </a>
+          <a href="Therasik_Vaccine_KB.html">
+            <span class="menu-title">疫苗知识库</span>
+            <span class="menu-desc">抗原与佐剂数据</span>
+          </a>
+        </div>
+      </div>
+      <a href="therasik_index.html#about">关于我们</a>
+      <a href="Therasik_OurTech.html" class="active">技术平台</a>
+      <a href="therasik_index.html#contact">联系我们</a>
+    </nav>
 </header>
 
 <section class="hero">
@@ -405,6 +437,18 @@
 </footer>
 
 <script>
+  // Security: Anti-copy, Anti-right-click, Anti-print
+  (function() {
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
+        e.preventDefault();
+      }
+    });
+  })();
+
   document.querySelectorAll('.top-header-nav a').forEach(a => {
     a.addEventListener('click', () => {
       document.querySelector('.top-header-nav').classList.remove('open');
