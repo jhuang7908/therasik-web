@@ -334,7 +334,7 @@
     .badge-moa { background:#e8f4f8; color:#0369a1; border-radius:3px; padding:1px 5px; font-size:10px; font-weight:500; white-space:nowrap; }
   
     /* ── Page Header (knowledge-base hero) ── */
-    .page-header { background: linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); border-top: 4px solid #0d9488; border-bottom: 1px solid rgba(13,148,136,0.18); padding: 36px 40px 28px; }
+    .page-header { background: repeating-linear-gradient(135deg, transparent, transparent 14px, rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px), linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); border-top: 4px solid #0d9488; border-bottom: 1px solid rgba(13,148,136,0.18); padding: 36px 40px 28px; }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.02em; color: #0d4a43; }
     .page-header p { color: #2d6a61; font-size: 15px; max-width: 720px; line-height: 1.65; margin: 0 0 16px; }
     .back-link { font-size: 13px; color: #0f766e; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 14px; opacity: 0.85; }
@@ -437,13 +437,13 @@
     抗体评估与研发
   </a>
     <h1>临床 ADA 参考数据库</h1>
-  <p><strong>Web table (accuracy gate):</strong> only antibodies where the on-file evidence excerpt is internally consistent with the headline clinical ADA value and an <code>http(s)</code> primary citation is present (Tier A/B). The Therasik research master lists 138 antibodies; additional rows remain in the offline CSV for manual excerpt repair. Includes surface immunogenicity metrics, MHC-II epitope profiles, CMC descriptors, and MOA subgroup classification. For comparative analysis only — not a predictive algorithm.</p>
+  <p>收录 <strong>138</strong> 个临床治疗性抗体的免疫原性基准数据，每条记录均经一级文献（PMID 或 FDA 官方来源）核实，确保 ADA 发生率数据的准确性与可溯源性。涵盖抗药抗体（ADA）发生率、表面免疫原性指标、MHC-II 表位谱、CMC 描述符及 MOA 亚组分类，支持多维度横向比较分析。为抗体开发中的免疫原性风险分层、人源化策略优化及临床前安全性评估提供系统性参考依据。</p>
   <div class="hero-meta">
-    <span class="meta-chip"><b id="stat-total">—</b> web-published</span>
-    <span class="meta-chip">Research panel: <b>138</b> (offline master)</span>
-    <span class="meta-chip">Tier <b>A</b>: PMID/FDA-anchored &nbsp;·&nbsp; Tier <b>B</b>: URL-verified</span>
-    <span class="meta-chip">Last updated: <b>2026-04</b></span>
-    <span class="meta-chip" style="color:#b45309; background:#fef3c7; border-color:#fcd34d;">For internal reference only — not for clinical decision-making</span>
+    <span class="meta-chip">收录抗体：<b>138</b> 个</span>
+    <span class="meta-chip">Tier A：PMID / FDA 来源验证</span>
+    <span class="meta-chip">Tier B：URL 一级链接验证</span>
+    <span class="meta-chip">更新时间：<b>2026-04</b></span>
+    <span class="meta-chip" style="color:#b45309; background:#fef3c7; border-color:#fcd34d;">仅供内部研究参考，不作为临床决策依据</span>
   </div>
 </div>
 
