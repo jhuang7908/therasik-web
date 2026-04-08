@@ -77,11 +77,21 @@
       .nav-dropdown > a::after { display: none; }
     }
     .page {
-      max-width:1240px;
-      margin:0 auto;
-      padding:0 0 72px;
+      width: 100%;
+      margin: 0;
+      padding: 0 0 72px;
     }
-    .page-header { background: repeating-linear-gradient(135deg, transparent, transparent 14px, rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px), linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); border-top: 4px solid #0d9488; border-bottom: 1px solid rgba(13,148,136,0.18); padding: 36px 40px 28px; }
+    .page-header { 
+      width: 100%; 
+      background: repeating-linear-gradient(135deg, transparent, transparent 14px, rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px), linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); 
+      border-top: 4px solid #0d9488; 
+      border-bottom: 1px solid rgba(13,148,136,0.18); 
+      padding: 36px 40px 28px; 
+    }
+    .page-header-content {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.02em; color: #0d4a43; }
     .page-header p { color: #2d6a61; font-size: 15px; max-width: 720px; line-height: 1.65; margin: 0 0 16px; }
     .back-link{font-size:14px;color:var(--primary);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;}
@@ -95,17 +105,19 @@
       font-size:13px;
       color:#0d4a43;
     }
+    .stats, .search-row, .tabs, .panel {
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
     .stats {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
       gap:10px;
-      margin:18px 0 20px;
-      padding-left: 22px;
-      padding-right: 22px;
-    }
-    .search-row, .tabs, .panel {
-      padding-left: 22px;
-      padding-right: 22px;
+      margin-top: 18px;
+      margin-bottom: 20px;
     }
     .stat {
       border:1px solid var(--border);
@@ -423,13 +435,15 @@
   </header>
   <main class="page">
     <header class="page-header">
-      <a href="Therasik_Vaccine_Design.html" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        疫苗设计平台
-      </a>
-      <h1>疫苗设计方法与证据库</h1>
-      <p>不再只是分类浏览页面，而是面向决策支持的私有知识底座界面：抗原优先级、感染病 comparator、耐受性靶点、TCR 规则、多表位 mRNA 逻辑、预测 benchmark 与干湿闭环模板都放在同一套 canonical schema 下。</p>
-      <div class="integrity">页面与运行时逻辑共用同一份 canonical 数据库。每条记录保留证据等级、验证状态与 machine-readable justification，并把传染病与耐受性模块重新提升为一等公民。</div>
+      <div class="page-header-content">
+        <a href="Therasik_Vaccine_Design.html" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          疫苗设计平台
+        </a>
+        <h1>疫苗设计方法与证据库</h1>
+        <p>不再只是分类浏览页面，而是面向决策支持的私有知识底座界面：抗原优先级、感染病 comparator、耐受性靶点、TCR 规则、多表位 mRNA 逻辑、预测 benchmark 与干湿闭环模板都放在同一套 canonical schema 下。</p>
+        <div class="integrity">页面与运行时逻辑共用同一份 canonical 数据库。每条记录保留证据等级、验证状态与 machine-readable justification，并把传染病与耐受性模块重新提升为一等公民。</div>
+      </div>
     </header>
 
     <section class="stats" id="stats"></section>
@@ -565,7 +579,47 @@
   </main>
 
   <script>
-    const TEXT = window.PAGE_TEXT;
+    const PAGE_TEXT = {
+      statTumor: "肿瘤抗原",
+      statInfectious: "传染病抗原",
+      statTolerogenic: "耐受性靶点",
+      statDelivery: "递送与佐剂",
+      statTcr: "TCR 克隆/Motif",
+      statBenchmarks: "Neoantigen Benchmarks",
+      resultsLabel: "项结果",
+      noData: "暂无数据",
+      sourceLabel: "查看来源",
+      rankLabel: "优先级",
+      contextLabel: "疾病背景：",
+      locationLabel: "细胞定位：",
+      clinicalLabel: "临床信号：",
+      reasonLabel: "转化理由：",
+      approvedShort: "项已批准",
+      correlateLabel: "免疫相关性：",
+      burdenLabel: "全球负担：",
+      comparatorLabel: "对照疫苗：",
+      translationalLabel: "转化研究",
+      approachLabel: "设计路径：",
+      hlaLabel: "HLA 关联：",
+      ifLabel: "触发条件：",
+      thenLabel: "设计规则：",
+      clonotypesLabel: "个克隆型",
+      frequencyLabel: "人群频率：",
+      manufacturingLabel: "制造工艺：",
+      coldChainLabel: "冷链要求：",
+      compareLabel: "代表性产品：",
+      mechanismLabel: "作用机制：",
+      triggerLabel: "适用场景：",
+      logicLabel: "核心逻辑：",
+      bestForLabel: "最佳用途：",
+      defaultLabel: "默认参数：",
+      inputsLabel: "项输入",
+      readoutsLabel: "项读数",
+      summaryLabel: "摘要：",
+      implicationLabel: "设计启示："
+    };
+
+    const TEXT = PAGE_TEXT;
     let DB = null;
 
     const esc = (value) => String(value ?? '')
