@@ -1629,6 +1629,18 @@ if (urlTab && DOMAINS[urlTab]) {
 }
 updateCatFilter();
 renderGrid();
+
+// Security: Anti-copy, Anti-right-click, Anti-print
+(function() {
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('selectstart', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
+      e.preventDefault();
+    }
+  });
+})();
 </script>
 </body>
 </html>
