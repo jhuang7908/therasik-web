@@ -11969,17 +11969,18 @@
           "evidence": {
             "evidence_tier": "A",
             "verification_status": "VERIFIED",
-            "primary_source_type": "Kariko/Weissman precedents",
-            "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/16111635/",
+            "primary_source_type": "Kariko/Weissman and Holtkamp precedents",
+            "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/16940422/",
             "source_urls": [
-              "https://pubmed.ncbi.nlm.nih.gov/16111635/"
+              "https://pubmed.ncbi.nlm.nih.gov/16940422/",
+              "https://pubmed.ncbi.nlm.nih.gov/21890902/"
             ],
             "pmids": [
-              "16111635",
-              "29165203"
+              "16940422",
+              "21890902"
             ],
-            "last_verified": "2026-04-07",
-            "provenance_note": "Derived from landmark mRNA stability studies and current clinical platform architectures."
+            "last_verified": "2026-04-08",
+            "provenance_note": "Derived from landmark mRNA stability studies (Holtkamp 2006 for tandem 3'UTRs and Kariko 2011 for HPLC purification/optimization)."
           }
         },
         {
@@ -11999,15 +12000,15 @@
             "evidence_tier": "A",
             "verification_status": "VERIFIED",
             "primary_source_type": "Clinical formulation benchmarks",
-            "primary_source_url": "https://www.nature.com/articles/s41565-021-01001-6",
+            "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/33839230/",
             "source_urls": [
-              "https://www.nature.com/articles/s41565-021-01001-6"
+              "https://pubmed.ncbi.nlm.nih.gov/33839230/"
             ],
             "pmids": [
-              "34824388"
+              "33839230"
             ],
-            "last_verified": "2026-04-07",
-            "provenance_note": "Standardized ratio used in multiple approved mRNA-LNP products."
+            "last_verified": "2026-04-08",
+            "provenance_note": "Standardized ratio used in multiple approved mRNA-LNP products, reviewed in Schoenmaker et al. 2021."
           }
         },
         {
@@ -12029,15 +12030,15 @@
             "evidence_tier": "A",
             "verification_status": "VERIFIED",
             "primary_source_type": "Platform engineering standards",
-            "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/21453961/",
+            "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/21890902/",
             "source_urls": [
-              "https://pubmed.ncbi.nlm.nih.gov/21453961/"
+              "https://pubmed.ncbi.nlm.nih.gov/21890902/"
             ],
             "pmids": [
-              "21453961"
+              "21890902"
             ],
-            "last_verified": "2026-04-07",
-            "provenance_note": "General standard for therapeutic mRNA codon optimization."
+            "last_verified": "2026-04-08",
+            "provenance_note": "General standard for therapeutic mRNA codon optimization and purification, Kariko et al. 2011."
           }
         },
         {
