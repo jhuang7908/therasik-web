@@ -293,29 +293,30 @@
         <img src="images/ada_study/fig2_ada_boxplots.png" alt="ADA Boxplots" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
 
-      <li><strong>表面疏水补丁 (Surface Patches)</strong> — 在全人源抗体中，表面疏水补丁数是<strong>最强的单变量预测因子</strong> (ρ=+0.362, p=0.007)，证实了减少聚集倾向可显著降低免疫原性风险。</li>
+      <li><strong>表面疏水补丁 (Surface Patches)</strong> — 在全人源抗体中，表面疏水补丁数是<strong>最强的单变量预测因子之一</strong> (ρ=+0.311, p=0.024)，证实了减少聚集倾向可显著降低免疫原性风险。该关联在检测方法分层后方向完全一致。</li>
       
       <div style="margin: 32px 0; text-align: center;">
         <h4 style="font-size: 16px; color: #111827; margin-bottom: 16px;">图 3: 31 维特征与 ADA 发生率的 Spearman 相关性全景图</h4>
         <img src="images/ada_study/fig3_correlation_heatmap.png" alt="Correlation Heatmap" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
 
-      <li><strong>胚系同源性 (Germline Identity)</strong> — VL 胚系同一性与 ADA 风险显著负相关 (ρ=−0.323, p=0.017)，表明轻链的体细胞高频突变对临床免疫原性的贡献不容忽视。</li>
+      <li><strong>胚系同源性 (Germline Identity)</strong> — VL 胚系同一性与 ADA 风险呈负相关 (ρ=−0.264, p=0.056)，趋势方向与前次分析完全一致（前次 ρ=−0.323），表明轻链的体细胞高频突变对临床免疫原性的贡献不容忽视。</li>
       
       <div style="margin: 32px 0; text-align: center;">
         <h4 style="font-size: 16px; color: #111827; margin-bottom: 16px;">图 4: 关键特征 (VL Identity, Surface Patches 等) 与 ADA 的相关性散点分析</h4>
         <img src="images/ada_study/fig4_scatter_key_features.png" alt="Scatter Analysis" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
 
-      <li><strong>结构界面紧密度</strong> — 首次发现 VH-VL 界面接触对数与 ADA 呈正相关 (ρ=+0.302)，提示结构稳定性与表位暴露之间的复杂平衡。</li>
-      <li><strong>聚集风险基序 (Aggregation Motifs)</strong> — 这是唯一在全抗体面板中均达到显著性的 CMC 特征 (p=0.037)，为早期可开发性筛选提供了直接的免疫学依据。</li>
+      <li><strong>结构界面紧密度</strong> — VH-VL 界面接触对数与 ADA 呈显著正相关 (ρ=+0.369, p=0.007)，且为数据修正后<strong>效应量最大的单一特征</strong>（前次 ρ=+0.302），提示结构稳定性与表位暴露之间的复杂平衡。</li>
+      <li><strong>聚集风险基序 (Aggregation Motifs)</strong> — 在全抗体面板中维持显著 CMC 正相关 (ρ=+0.177, p=0.045)，为早期可开发性筛选提供了直接的免疫学依据。</li>
+      <li><strong>MHC-II T 细胞表位（Drug-tolerant 检测子集）</strong> — 在高灵敏度 Drug-tolerant 检测方法子集中，MHC-II 高风险表位数成为<strong>最强信号</strong> (ρ=+0.365, p=0.005)，提示更灵敏的检测方法能更好地揭示 T 细胞表位与 ADA 的真实关联。</li>
       
       <div style="margin: 32px 0; text-align: center;">
         <h4 style="font-size: 16px; color: #111827; margin-bottom: 16px;">图 8: CMC 可开发性特征 (聚集基序、脱酰胺等) 与 ADA 的关联</h4>
         <img src="images/ada_study/fig8_cmc_vs_ada.png" alt="CMC vs ADA" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
 
-      <li><strong>检测方法的混杂效应</strong> — 分析显示 2012 年后 ADA 报告率的上升主要源于 ECL 等高灵敏度检测技术的普及，而非抗体本身免疫原性的增加。</li>
+      <li><strong>检测方法的混杂效应</strong> — 分析显示 2012 年后 ADA 报告率的上升主要源于 ECL 等高灵敏度检测技术的普及，而非抗体本身免疫原性的增加。最新检测方法分层分析（2026-04-08）证实：不同代际检测方法间 ADA 差异不显著 (Kruskal-Wallis p=0.852)，但分子特征相关性方向 8/8 一致，确认核心发现的稳健性。</li>
     </ul>
 
     <h2 id="prediction">
@@ -332,7 +333,11 @@
       <li><strong>TCIA 综合评分</strong> — 整合上述指标的归一化综合免疫原性评分</li>
     </ul>
 
-    <p>所有评分均与 Therasik ADA 数据库中的临床记录对标，提供分位数排名和基准比较（如 Herceptin®、Humira® 等标杆抗体）。</p>
+    <p>所有评分均与 Therasik ADA 数据库中的 138 条临床记录对标，提供分位数排名和基准比较（如 Herceptin®、Humira® 等标杆抗体）。</p>
+
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:16px 0;font-size:13px;color:#1e40af">
+      <strong>2026-04 更新：检测方法分层验证</strong> — 我们对 138 条记录按检测方法（ELISA 1st-gen / ECL 2nd-gen / Tiered Drug-tolerant / Bridging）进行了分层相关性分析，验证分子特征与 ADA 的关联不受检测代际偏差影响。8 个前次显著特征方向 100% 一致（8/8），5/8 在更新数据集中仍达统计显著。新发现：Drug-tolerant 高灵敏度检测子集中，MHC-II 高风险表位数首次达到强显著（ρ=+0.365, p=0.005），提示更灵敏检测方法能揭示 T 细胞免疫原性的真实贡献。
+    </div>
 
     <h2 id="database">
       <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
