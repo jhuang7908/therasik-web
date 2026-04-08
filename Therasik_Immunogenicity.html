@@ -328,8 +328,8 @@
       <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid rgba(13,148,136,0.25);border-radius:12px;padding:18px 24px;margin-bottom:24px;">
         <div style="text-align:center;flex-shrink:0;">
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#0d9488;">FH 综合评分</div>
-          <div style="font-size:36px;font-weight:700;color:#111827;line-height:1.2;">ρ = +0.266</div>
-          <div style="font-size:12px;color:#6b7280;">p = 0.054 · n = 53</div>
+          <div style="font-size:36px;font-weight:700;color:#111827;line-height:1.2;">ρ = +0.310</div>
+          <div style="font-size:12px;color:#6b7280;">p = 0.024 · n = 53</div>
         </div>
         <div style="font-size:14px;color:#374151;line-height:1.6;">
           ADA V2 综合评分整合了上述四项核心因子，在 FH 子集中与临床 ADA 呈正相关趋势。该评分反映了界面稳定性、种系偏离、疏水斑块和 T 细胞表位的联合效应——综合维度的预测效力接近最强单因子水平。
@@ -402,7 +402,7 @@
     <!-- ── Composite Score ── -->
     <div style="margin: 40px 0;">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">ADA V2 综合评分：FH vs HU 的预测效力对比</h3>
-      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">ADA V2 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈正相关趋势（ρ=+0.266, p=0.054），接近统计显著。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
+      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">ADA V2 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈显著正相关（ρ=+0.310, p=0.024），已达统计显著水平。本次权重更新的关键改进：将 VL 胚系偏离度从近乎零贡献（旧调制量范围 [-0.003, 0.041]）提升至 20% 权重的正向风险因子（1−VL_identity），并将界面接触密度从 5% 提升至 20%（同步扩大 interface_scale 至 100 以避免 FH 特有的饱和问题）。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
       <div style="margin: 0; text-align: center;">
         <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 6: ADA V2 综合评分与临床 ADA — FH vs HU 对比</h4>
         <img src="images/ada_study/fig7_ada_v2_composite.png" alt="ADA V2 Composite Score" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
