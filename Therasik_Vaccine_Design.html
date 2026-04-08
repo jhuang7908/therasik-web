@@ -307,6 +307,10 @@
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         平台概述
       </a>
+      <a href="#decision" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        智能决策
+      </a>
       <a href="#neoantigen" class="nav-link">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
         新抗原设计
@@ -363,6 +367,58 @@
       <a href="Therasik_Vaccine_KB.html#taa" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.16);color:#0f766e;text-decoration:none;font-size:13px;font-weight:600;">浏览肿瘤抗原库 →</a>
       <a href="Therasik_Vaccine_KB.html#tcr" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.16);color:#6d28d9;text-decoration:none;font-size:13px;font-weight:600;">浏览 TCR 配对库 →</a>
     </p>
+
+    <h2 id="decision">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+      智能设计决策引擎
+    </h2>
+
+    <p>疫苗设计引擎基于 IEDB 验证表位库、肿瘤抗原参考集和临床递送平台数据，将项目输入（适应症 × 抗原特征 × HLA 型）自动路由至最优设计策略：</p>
+
+    <ul>
+      <li><strong>① 场景分类：</strong> 根据输入自动判定项目类型 — 个性化新抗原（需 WES/RNA-seq）、共有突变疫苗（KRAS/TP53 热点）、TAA 增强型或传染病广谱型。不同场景启用不同的表位筛选和优先级算法。</li>
+      <li><strong>② 表位优先级引擎：</strong> 整合 HLA-I/II 结合亲和力、蛋白酶体切割预测、TAP 转运效率、表达水平及 TCR 接触面化学性质，生成多维度综合排序，而非单一 IC50 阈值。</li>
+      <li><strong>③ 免疫原性增强路由：</strong> 对弱免疫原性表位（自身抗原、保守病毒序列）自动启用异克隆优化模块 — 锚定位点替换增强 HLA 结合，TCR 接触面优化提升识别亲和力，同时验证交叉反应性（优化肽能否激活识别野生型的 T 细胞克隆）。</li>
+      <li><strong>④ HLA 群体覆盖优化：</strong> 针对目标患者群体（如东亚、高加索、非裔）的 HLA 频率分布，优化表位组合使群体覆盖率达到 ≥90%，兼顾 HLA-I（CTL 应答）与 HLA-II（CD4+ 辅助）。</li>
+      <li><strong>⑤ 构建体架构设计：</strong> 多表位 mRNA 场景下，自动优化表位排列顺序、接头选择（AAY/GPGPG/KK）、排除接头伪表位，并整合密码子优化、5'UTR/polyA 尾和 GC 含量调控。</li>
+      <li><strong>⑥ 递送平台匹配：</strong> 根据抗原数量、免疫应答类型和临床阶段推荐递送方案 — 长肽/短肽（小规模）、mRNA-LNP（快速制造）、病毒载体（强免疫记忆）或 DC 疫苗（个性化）。</li>
+    </ul>
+
+    <div style="background:linear-gradient(135deg,#faf5ff,#f5f3ff);border:1px solid #ddd6fe;border-radius:12px;padding:24px 28px;margin:32px 0">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin:0 0 16px;color:#5b21b6">决策引擎：项目类型驱动设计路径</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden">
+        <thead>
+          <tr style="background:#7c3aed;color:#fff">
+            <th style="padding:10px 14px;text-align:left;font-weight:600">项目场景</th>
+            <th style="padding:10px 14px;text-align:left;font-weight:600">核心挑战</th>
+            <th style="padding:10px 14px;text-align:left;font-weight:600">引擎推荐路径</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #e5e7eb">
+            <td style="padding:10px 14px;font-weight:600">个性化肿瘤新抗原</td>
+            <td style="padding:10px 14px;color:#dc2626">突变负荷高但真正免疫原性表位少</td>
+            <td style="padding:10px 14px;color:#16a34a">多维度优先级排序 → 表达量 + HLA 亲和力 + TCR 可识别性联合筛选</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e5e7eb">
+            <td style="padding:10px 14px;font-weight:600">共有驱动突变（KRAS/TP53）</td>
+            <td style="padding:10px 14px;color:#dc2626">自身耐受导致免疫原性低</td>
+            <td style="padding:10px 14px;color:#16a34a">异克隆优化 → 锚定位点增强 + TCR 接触面重塑 + 交叉反应性验证</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e5e7eb">
+            <td style="padding:10px 14px;font-weight:600">广谱传染病（流感/新冠）</td>
+            <td style="padding:10px 14px;color:#dc2626">病毒变异逃逸 + 人群 HLA 多样性</td>
+            <td style="padding:10px 14px;color:#16a34a">保守表位优先 + 多 HLA 型覆盖优化 → ≥90% 群体覆盖</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 14px;font-weight:600">多表位 mRNA 构建体</td>
+            <td style="padding:10px 14px;color:#dc2626">接头伪表位 + 翻译效率 + 免疫显性竞争</td>
+            <td style="padding:10px 14px;color:#16a34a">排列优化算法 → 伪表位排除 + 密码子优化 + GC 调控</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:#6b7280;margin:12px 0 0">数据来源：IEDB 验证表位库 + 肿瘤抗原参考集 + 临床递送平台数据 · <a href="Therasik_Vaccine_KB.html" style="color:#7c3aed;text-decoration:underline">查看完整知识库 →</a></p>
+    </div>
 
     <h2 id="neoantigen">
       <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></span>

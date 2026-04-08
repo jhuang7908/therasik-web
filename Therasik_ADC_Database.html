@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 78 个目标抗原, 32 个载荷, 27 个链接子（含条件激活型）, 23 个偶联技术。">
+<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 78 个目标抗原, 32 个载荷, 29 个链接子（含条件激活型）, 23 个偶联技术。">
 <meta name="robots" content="noai, noimageai">
 <meta name="AI-Training" content="opt-out">
 <link rel="canonical" href="https://www.therasik.com/Therasik_ADC_Database.html">
@@ -210,7 +210,7 @@
     智能 ADC 设计
   </a>
       <h1>ADC 临床参考数据库</h1>
-  <p>综合参考数据库，收录 <strong>100</strong> 个临床 ADC 项目，涵盖 <strong>78</strong> 个靶抗原、<strong>32</strong> 种载荷（<strong>11</strong> 类作用机制）、<strong>27</strong> 种链接子及 <strong>23</strong> 种偶联技术，覆盖从 I 期临床到已上市产品的完整开发历程。每条记录包含化学结构、药物-抗体比（DAR）、专利状态及失败案例分析，帮助研究人员系统了解 ADC 领域的设计规律与风险因素。为 ADC 开发的靶点选择、载荷适配、链接子优化及偶联工艺决策提供循证数据支撑。</p>
+  <p>综合参考数据库，收录 <strong>100</strong> 个临床 ADC 项目，涵盖 <strong>78</strong> 个靶抗原、<strong>32</strong> 种载荷（<strong>11</strong> 类作用机制）、<strong>29</strong> 种链接子及 <strong>23</strong> 种偶联技术，覆盖从 I 期临床到已上市产品的完整开发历程。每条记录包含化学结构、药物-抗体比（DAR）、专利状态及失败案例分析，帮助研究人员系统了解 ADC 领域的设计规律与风险因素。为 ADC 开发的靶点选择、载荷适配、链接子优化及偶联工艺决策提供循证数据支撑。</p>
   </div>
 
 <div class="page">
@@ -219,7 +219,7 @@
     <button class="tab-btn active" data-tab="programs">临床项目 (100)</button>
     <button class="tab-btn" data-tab="antigens">目标抗原 (78)</button>
     <button class="tab-btn" data-tab="payloads">载荷 (32)</button>
-    <button class="tab-btn" data-tab="linkers">链接子 (27)</button>
+    <button class="tab-btn" data-tab="linkers">链接子 (29)</button>
     <button class="tab-btn" data-tab="conjugation">偶联技术 (23)</button>
     <button class="tab-btn" data-tab="experiments">验证分析 (9)</button>
   </div>
@@ -7369,6 +7369,62 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Classic non-cleavable thioether linker. Requires complete lysosomal degradation of the antibody to release payload (typically as Lys-SMCC-payload adduct). Very high plasma stability.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:16814772 (T-DM1 design)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label: Kadcyla</span></div>
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-ltype="Non-cleavable" data-search="fleximer mersana polymer hydrophilic high-dar dolaflexin xmt-1536">
+  <div class="card-header">
+    <div class="card-title">Fleximer® (Mersana Therapeutics)</div>
+    <span class="badge badge-linker">Non-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#fff3cd;color:#856404;border:1px solid #ffeeba;font-size:9px">Patent: Mersana Therapeutics (Proprietary)</span></div>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: 亲水性聚合物骨架连接子 · DAR: 10–15 · 高载荷不聚集 · Dolaflexin 平台</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Phase 1/2)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
+      <div class="info-row"><span class="info-label">机制</span><span class="info-value">Non-cleavable polymer backbone (poly-1-hydroxymethylethylene hydroxymethylformal, PHF). Payload is released via lysosomal degradation of the polymer after antibody internalization.</span></div>
+      <div class="info-row"><span class="info-label">核心创新</span><span class="info-value">Hydrophilic biodegradable polymer scaffold enables ultra-high DAR (10–15) without increasing hydrophobicity or aggregation — a key limitation of traditional linkers at DAR &gt;4</span></div>
+      <div class="info-row"><span class="info-label">专利 / FTO</span><span class="info-value">Mersana Therapeutics proprietary Fleximer® and Dolaflexin® platforms. US Patent 9,872,918; US 10,548,986. FTO: Blocked — requires license.</span></div>
+      <div class="info-row"><span class="info-label">血浆稳定性</span><span class="info-value">High — hydrophilic polymer counteracts DAR-driven clearance; PK comparable to naked antibody even at DAR 10–15</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计兼容性</div>
+      <div class="info-row"><span class="info-label">兼容的载荷</span><span class="info-value">Auristatin F-HPA (AF-HPA), SC209 (Sting agonist); polymer allows diverse payload attachment via tunable drug-loading ratio</span></div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">DAR 10–15 (ultra-high DAR enabled by hydrophilic polymer masking)</span></div>
+      <div class="info-row"><span class="info-label">代表管线</span><span class="info-value">XMT-1536 (NaPi2b, Phase 1 — Dolaflexin); XMT-2056 (STING agonist ADC, Phase 1)</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:26287985 (Fleximer platform design)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">专利</span><span class="info-value">US 9,872,918; US 10,548,986</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="cl2a govitecan gilead immunomedics sacituzumab trop2 trodelvy sn-38">
+  <div class="card-header">
+    <div class="card-title">CL2A (Gilead / Immunomedics)</div>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#fff3cd;color:#856404;border:1px solid #ffeeba;font-size:9px">Patent: Gilead (Immunomedics) — Proprietary</span></div>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: pH 敏感碳酸酯 + CL2A 连接子 · DAR: 7.6 · 搭配: SN-38 (Topo1i) · Trodelvy 已获批</div>
+    <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高 (FDA Approved — Trodelvy)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
+      <div class="info-row"><span class="info-label">机制</span><span class="info-value">pH-sensitive carbonate bond at the SN-38 10-OH position cleaves in acidic lysosomal environment (pH 5.0); CL2A is a short PEG-containing maleimide linker providing moderate hydrophilicity</span></div>
+      <div class="info-row"><span class="info-label">释放动力学</span><span class="info-value">Moderate — SN-38 released by hydrolysis of carbonate bond in lysosomes; also some extracellular release contributing to bystander effect. t½ release ~8–24h at pH 5.0</span></div>
+      <div class="info-row"><span class="info-label">专利 / FTO</span><span class="info-value">Immunomedics (acquired by Gilead, 2020, $21B) proprietary. US Patent 9,028,833; US 10,130,626. CL2A-SN38 composition of matter. FTO: Blocked — requires license.</span></div>
+      <div class="info-row"><span class="info-label">血浆稳定性</span><span class="info-value">Moderate — intentional slow payload release in circulation (half-life ~1 day in plasma); allows sustained SN-38 delivery to tumor. This "leaky" design is a feature, not a bug, for moderate-potency payloads like SN-38.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计兼容性</div>
+      <div class="info-row"><span class="info-label">兼容的载荷</span><span class="info-value">SN-38 (active metabolite of irinotecan, Topoisomerase I inhibitor) — moderate potency (IC50 ~1–10 nM) compensated by high DAR</span></div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">DAR 7.6 (stochastic cysteine conjugation; high DAR tolerated due to moderate payload potency + hydrophilic CL2A linker)</span></div>
+      <div class="info-row"><span class="info-label">旁观者效应</span><span class="info-value">Strong — SN-38 is membrane-permeable + extracellular hydrolysis provides bystander killing; critical for heterogeneous tumors</span></div>
+      <div class="info-row"><span class="info-label">已获批产品</span><span class="info-value">Sacituzumab govitecan (Trodelvy®) — TROP-2 ADC, approved for TNBC (2020), HR+/HER2- mBC (2023), urothelial carcinoma (2021). Blockbuster &gt;$2B peak sales.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:25267768 (CL2A-SN38 design and pharmacology)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">临床</span><span class="info-value">PMID:33882206 (ASCENT Phase 3 TNBC trial)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">专利</span><span class="info-value">US 9,028,833; US 10,130,626</span></div>
     </div>
   </div>
 </div>

@@ -468,7 +468,8 @@
     <aside class="sidebar">
       <h3>智慧 CAR-T</h3>
       <nav>
-        <a href="#platform" class="nav-link active">
+        <a href="#decision" class="nav-link active"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>智能决策</a>
+        <a href="#platform" class="nav-link">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
           设计平台
         </a>
@@ -541,6 +542,56 @@
       </div>
 
       <p class="disclaimer">免责声明：Therasik 的 in silico 分析仅供参考，不能替代最终湿实验验证，需进行实验确认。</p>
+
+      <h2 id="decision"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>ACTES 智能决策引擎</h2>
+      <p>ACTES 决策引擎的核心逻辑：<strong>靶点特征决定架构选择</strong>，而非反向套用固定模板。引擎基于 237 个组件的临床共现数据与抗原属性联动分析，生成个性化的构建体推荐方案：</p>
+
+      <ul>
+        <li><strong>① 抗原画像：</strong> 整合抗原密度、表位位置（膜远端 vs. 膜近端）、异质性、正常组织表达分布，生成靶点可行性评分。</li>
+        <li><strong>② 细胞疗法模态选择：</strong> 根据疾病类型与微环境特征，自动路由至 CAR-T（适应性免疫）、CAR-NK（先天免疫 + 异体）或 CAR-M（基质重塑），确保生物学匹配。</li>
+        <li><strong>③ 信号域-密度匹配：</strong> 低密度抗原推荐 CD28 共刺激（快速激活），高密度抗原推荐 4-1BB（持久性），极低密度场景启用串联双信号。</li>
+        <li><strong>④ 铰链-表位空间匹配：</strong> 基于 AlphaFold2 预测的表位到膜距离，自动选择短/中/长铰链，避免免疫突触几何失配。</li>
+        <li><strong>⑤ 亲和力工程：</strong> 对高正常组织表达靶点（如 HER2、EGFR）自动降调亲和力保护正常组织；对低密度靶点（如 GPC3）提升亲和力确保识别效率。</li>
+        <li><strong>⑥ 实体瘤障碍应对：</strong> 引擎检测实体瘤适应症后自动推荐装甲模块（TGFB_DNR、IL-7/CCL19 分泌）、基质降解协同（CAR-M）和趋化因子受体表达。</li>
+        <li><strong>⑦ 安全开关选型：</strong> 根据靶点安全窗口自动匹配 iCasp9（快速清除）、EGFRt（ADCC 清除）或逻辑门控（SynNotch AND 门）。</li>
+        <li><strong>⑧ 递送载体与制造路径：</strong> 根据 CAR 基因大小和临床场景选择慢病毒、非病毒转座子或体内 LNP 递送。</li>
+      </ul>
+
+      <div style="background:linear-gradient(135deg,#eff6ff,#eef2ff);border:1px solid #bfdbfe;border-radius:12px;padding:24px 28px;margin:32px 0">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin:0 0 16px;color:#1e40af">决策引擎：疾病特征驱动架构选择</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden">
+          <thead>
+            <tr style="background:#2563eb;color:#fff">
+              <th style="padding:10px 14px;text-align:left;font-weight:600">疾病/靶点特征</th>
+              <th style="padding:10px 14px;text-align:left;font-weight:600">核心挑战</th>
+              <th style="padding:10px 14px;text-align:left;font-weight:600">引擎推荐路径</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e5e7eb">
+              <td style="padding:10px 14px;font-weight:600">实体瘤 + 免疫抑制 TME</td>
+              <td style="padding:10px 14px;color:#dc2626">T 细胞浸润不足 + TGF-β 抑制</td>
+              <td style="padding:10px 14px;color:#16a34a">装甲型 CAR-T（TGFB_DNR + 趋化因子受体）+ CAR-M 基质协同</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb">
+              <td style="padding:10px 14px;font-weight:600">低密度抗原（&lt;1,000/cell）</td>
+              <td style="padding:10px 14px;color:#dc2626">T 细胞激活阈值不足</td>
+              <td style="padding:10px 14px;color:#16a34a">高亲和力 scFv + CD28 快速激活 + 短铰链降低空间损耗</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb">
+              <td style="padding:10px 14px;font-weight:600">正常组织交叉表达靶点</td>
+              <td style="padding:10px 14px;color:#dc2626">On-target / off-tumor 毒性</td>
+              <td style="padding:10px 14px;color:#16a34a">亲和力下调 + SynNotch AND 逻辑门 + iCasp9 安全开关</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 14px;font-weight:600">抗原逃逸 / 异质性高</td>
+              <td style="padding:10px 14px;color:#dc2626">单靶点耐药</td>
+              <td style="padding:10px 14px;color:#16a34a">串联 CAR（OR 门双靶点）或 BiTE 分泌型 + 多靶点覆盖</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:#6b7280;margin:12px 0 0">数据来源：ACTES 元件库 237 组件 × 临床共现分析 · <a href="Therasik_Component_Browser.html" style="color:#2563eb;text-decoration:underline">浏览完整元件库 →</a></p>
+      </div>
 
       <h2 id="platform"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>AI 原生设计平台</h2>
       <p>ACTES 平台基于 <strong>237 个精选 CAR-T 设计元件</strong>，涵盖 12 大类别。每个元件均以靶点、适应症和临床阶段标注，整体数据集通过计算分析识别临床成功构建体中反复出现的元件组合——以及背后的原因。我们不只是组装；我们精准匹配。</p>
