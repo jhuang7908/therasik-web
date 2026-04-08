@@ -434,7 +434,7 @@
     <button class="dtab" onclick="switchDomain('dev', this)" data-domain="dev">可开发性指标</button>
     <button class="dtab" onclick="switchDomain('immuno', this)" data-domain="immuno">免疫原性因素</button>
     <button class="dtab" onclick="switchDomain('wet', this)" data-domain="wet">实验验证方案</button>
-    <button class="dtab" onclick="switchDomain('fcada', this)" data-domain="fcada">Fc × ADA 临床影响</button>
+    <button class="dtab" onclick="switchDomain('adc_registry', this)" data-domain="adc_registry">ADC 临床注册表</button>
   </div>
 </div>
 
@@ -443,14 +443,14 @@
     <svg class="si" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <input type="text" id="search-input" placeholder="搜索名称、突变、药物、机制…" autocomplete="off" spellcheck="false">
   </div>
-  <select class="filter-sel" id="cat-filter"><option value="">All Categories</option></select>
+  <select class="filter-sel" id="cat-filter"><option value="">所有分类</option></select>
   <select class="filter-sel" id="tier-filter" style="display:none;">
-    <option value="">All Evidence Levels</option>
-    <option value="T1">T1 — Approved</option>
-    <option value="T2">T2 — Clinical Trial</option>
-    <option value="T3">T3 — Preclinical</option>
+    <option value="">所有证据等级</option>
+    <option value="T1">T1 — 已上市 (Approved)</option>
+    <option value="T2">T2 — 临床试验 (Clinical Trial)</option>
+    <option value="T3">T3 — 临床前 (Preclinical)</option>
   </select>
-  <button class="clear-btn" id="clear-btn" onclick="clearFilters()">✕ Clear</button>
+  <button class="clear-btn" id="clear-btn" onclick="clearFilters()">✕ 清除筛选</button>
   <span class="stats-chip" id="stats-chip"></span>
 </div>
 
@@ -1130,11 +1130,11 @@ let tierFilter = '';
 const DOMAINS = {
   adc_registry: {
     data: ADC_CLINICAL_DATA,
-    note: '<strong>Clinical ADC Registry</strong> — Comprehensive database of approved and clinical-stage Antibody-Drug Conjugates. Includes target, conjugation tech, DAR, and latest clinical results.',
+    note: '<strong>临床 ADC 注册表</strong> — 全球已批准及各临床阶段抗体偶联药物 (ADC) 的综合数据库。包含靶点、偶联技术、DAR 及最新临床结果（ORR/PFS/毒性）。',
     catField: 'cat',
     cats: [...new Set(ADC_CLINICAL_DATA.map(d=>d.cat))].sort(),
     showTier: true,
-    filterLabel: 'All Targets',
+    filterLabel: '所有靶点',
     card: renderFcCard,
   },
   adc: {
@@ -1148,38 +1148,39 @@ const DOMAINS = {
   },
   fc: {
     data: FC_DATA,
-    note: '<strong>Fc Engineering Mutations</strong> — Each mutation entry shows its regulatory evidence tier (T1: approved drugs, T2: clinical trials, T3: preclinical), mechanism, affected receptors, commercial examples, and <strong>IP/patent status</strong> with design-around guidance. Use the category filter to focus on a specific engineering goal.<br><span style="font-size:12px;color:#6b7280;margin-top:6px;display:block;">⚖ <strong>IP status key:</strong> <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:1px 7px;border-radius:10px;font-weight:700;">Public Domain / Expired</span> = freely usable &nbsp;·&nbsp; <span style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:10px;font-weight:700;">Expiring Soon</span> = core patent expiring within ~3 years &nbsp;·&nbsp; <span style="background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;padding:1px 7px;border-radius:10px;font-weight:700;">Active Patent</span> = in-force protection; license or design-around required. &nbsp;<em>For commercial use, always conduct a full Freedom-to-Operate (FTO) analysis in your target jurisdictions — patent status varies by country and continuation filings.</em></span><br><span style="font-size:12px;color:#6b7280;margin-top:4px;display:block;">📌 Mutations use <strong>EU numbering</strong> (Edelman). For full IgG1/IgG2/IgG4 Fc sequences: <a href="https://www.imgt.org/IMGTrepertoire/Proteins/protein/human/IGH/IGHC/Hu_IGHCall.html" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">IMGT IgHC database →</a> &nbsp;|&nbsp; <a href="https://www.uniprot.org/uniprotkb/P01857" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">UniProt IgG1 (P01857) →</a> &nbsp;|&nbsp; <a href="https://www.ncbi.nlm.nih.gov/protein/NP_000149" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">NCBI RefSeq →</a></span>',
+    note: '<strong>Fc 工程突变库</strong> — 收录了 ADCC/CDC 增强、半衰期延长、效应功能沉默及双特异性抗体相关的核心突变。每个条目均包含证据分层（T1：已上市，T2：临床中，T3：临床前）、作用机制、受体影响、商业案例及 <strong>IP 专利状态</strong>（含设计绕过建议）。<br><span style="font-size:12px;color:#6b7280;margin-top:6px;display:block;">⚖ <strong>IP 状态说明：</strong> <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:1px 7px;border-radius:10px;font-weight:700;">Public Domain / 已过期</span> = 可自由使用 &nbsp;·&nbsp; <span style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:10px;font-weight:700;">即将过期</span> = 核心专利 ~3 年内过期 &nbsp;·&nbsp; <span style="background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;padding:1px 7px;border-radius:10px;font-weight:700;">有效专利</span> = 需授权或设计绕过。</span><br><span style="font-size:12px;color:#6b7280;margin-top:4px;display:block;">📌 突变使用 <strong>EU 编号</strong> (Edelman)。',
     catField: 'cat',
     cats: [...new Set(FC_DATA.map(d=>d.cat))],
     showTier: true,
-    filterLabel: 'All Fc Categories',
+    filterLabel: '所有 Fc 分类',
     card: renderFcCard,
   },
   dev: {
     data: DEV_DATA,
-    note: '<strong>Developability Assessment Metrics</strong> — 15 parameters across 4 categories. Each entry explains the calculation method, Therasik threshold, clinical interpretation, and relevant tools.<br><span style="font-size:12px;color:#6b7280;margin-top:6px;display:block;">⚠ <strong>Risk level definition (CMC context):</strong> <span style="color:#b91c1c;font-weight:700;">High</span> = directly linked to IND/BLA failure or clinical holds in published cases (e.g., aggregation, deamidation potency loss). <span style="color:#92400e;font-weight:700;">Medium</span> = significant concern requiring investigation but manageable by formulation or design change. <span style="color:#166534;font-weight:700;">Low</span> = supplementary metric; flag alone rarely causes failure. All risk levels are calibrated against Therasik AbRef-1142 clinical antibody database and published CMC literature.</span>',
+    note: '<strong>可开发性评估指标</strong> — 涵盖物理化学稳定性、化学稳定性、疏水性及电荷分布等 15 项关键参数。每个条目解释了计算方法、Therasik 阈值、临床解读及相关工具。',
     catField: 'cat',
     cats: [...new Set(DEV_DATA.map(d=>d.cat))],
     showTier: false,
-    filterLabel: 'All Metric Categories',
+    filterLabel: '所有指标分类',
     card: renderDevCard,
   },
   immuno: {
     data: IMMUNO_DATA,
-    note: '<strong>Immunogenicity Risk Factors</strong> — 13 key determinants of anti-drug antibody (ADA) formation. Organized into: sequence-based (addressable by humanization/design), structural/physical (addressable by engineering), glycosylation, and clinical/formulation factors (patient- or process-dependent).<br><span style="font-size:12px;color:#6b7280;margin-top:6px;display:block;">⚠ <strong>Risk level definition (ADA context):</strong> <span style="color:#b91c1c;font-weight:700;">High</span> = directly associated with significantly increased ADA incidence in clinical data (e.g., T-cell epitopes, aggregates, SC route). <span style="color:#92400e;font-weight:700;">Medium</span> = contributes to ADA risk but effect size depends on indication, dose, and patient immune status. <span style="color:#166534;font-weight:700;">Low</span> = minor or indirect contribution. ⚠ Clinical factors (route, disease state, dosing) reflect patient/design decisions — not intrinsic sequence defects.</span>',
+    note: '<strong>免疫原性风险因素</strong> — 13 个影响抗药抗体 (ADA) 形成的关键因素。分为：序列相关（可通过人源化/设计解决）、结构/物理（可通过工程解决）、糖基化以及临床/配方因素（患者或工艺相关）。<br><br><strong>Fc 工程 × 临床 ADA 影响统计</strong> — 基于 Therasik 138 条临床 ADA 记录按 Fc 类型的分析。',
     catField: 'cat',
     cats: [...new Set(IMMUNO_DATA.map(d=>d.cat))],
     showTier: false,
-    filterLabel: 'All Factor Categories',
+    filterLabel: '所有因素分类',
     card: renderImmunoCard,
+    extraHtml: renderFcAdaStatic, // New field to append static analysis
   },
   wet: {
     data: WET_DATA,
-    note: '<strong>Wet Lab Validation Assays</strong> — 16 experimental assays across 4 categories, paired with corresponding Therasik computational metrics. Each entry describes the assay principle, key readout parameters, which in silico predictions it validates, and its regulatory context (ICH/FDA/EMA).<br><span style="font-size:12px;color:#6b7280;margin-top:6px;display:block;">🔬 <strong>Dry-Wet Integration:</strong> Therasik computational analysis identifies sequence liabilities and functional predictions <em>before</em> costly experiments are run. Use this tab to plan your experimental validation strategy after receiving an Therasik report — prioritizing assays for flagged metrics to maximize efficiency.</span>',
+    note: '<strong>湿实验验证方案</strong> — 16 项实验方案，涵盖理化性质、化学负荷、免疫原性及 Fc 功能验证。每个条目描述了实验原理、关键读出参数、对应的计算指标及监管背景（ICH/FDA/EMA）。',
     catField: 'cat',
     cats: [...new Set(WET_DATA.map(d=>d.cat))],
     showTier: false,
-    filterLabel: 'All Assay Categories',
+    filterLabel: '所有实验分类',
     card: renderWetCard,
   },
   fcada: {
@@ -1190,6 +1191,15 @@ const DOMAINS = {
     showTier: false,
     filterLabel: '—',
     card: null,
+  },
+  adc_registry: {
+    data: ADC_CLINICAL_DATA,
+    note: '<strong>临床 ADC 注册表</strong> — 全球已批准及各临床阶段抗体偶联药物 (ADC) 的综合数据库。包含靶点、偶联技术、DAR 及最新临床结果（ORR/PFS/毒性）。',
+    catField: 'cat',
+    cats: [...new Set(ADC_CLINICAL_DATA.map(d=>d.cat))].sort(),
+    showTier: true,
+    filterLabel: '所有靶点',
+    card: renderFcCard,
   },
 };
 
@@ -1378,16 +1388,17 @@ function renderWetCard(d) {
 // ═══════════════════════════════════════════════════════════
 function renderGrid() {
   const dom = DOMAINS[currentDomain];
-  // Handle static-HTML domains
+  const gc = document.getElementById('grid-container');
+  const es = document.getElementById('empty-state');
+
+  // Handle static-HTML domains (deprecated but kept for fallback)
   if (dom.staticHtml) {
-    const gc = document.getElementById('grid-container');
-    document.getElementById('empty-state').style.display = 'none';
+    es.style.display = 'none';
     document.getElementById('stats-chip').textContent = '';
-    if (currentDomain === 'fcada') {
-      gc.innerHTML = renderFcAdaStatic();
-    }
+    if (currentDomain === 'fcada') gc.innerHTML = renderFcAdaStatic();
     return;
   }
+
   const data = dom.data;
   const q = searchTerm.toLowerCase();
 
@@ -1408,9 +1419,6 @@ function renderGrid() {
     (groups[d.cat] = groups[d.cat] || []).push(d);
   });
 
-  const gc = document.getElementById('grid-container');
-  const es = document.getElementById('empty-state');
-
   if (filtered.length === 0) {
     gc.innerHTML = '';
     es.style.display = '';
@@ -1420,6 +1428,12 @@ function renderGrid() {
   es.style.display = 'none';
 
   let html = `<div class="domain-note"><p>${dom.note}</p></div>`;
+  
+  // Append extra HTML if defined (e.g., for immuno tab)
+  if (dom.extraHtml) {
+    html += dom.extraHtml();
+  }
+
   for (const [cat, cards] of Object.entries(groups)) {
     html += `<div class="cat-section">
       <div class="cat-header">
