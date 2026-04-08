@@ -5358,12 +5358,62 @@
     <option value="Spliceosome Inhibitor">Spliceosome Inhibitor</option>
     <option value="Tubulin Inhibitor">Tubulin Inhibitor</option>
     <option value="Topoisomerase I Inhibitor">Topoisomerase I Inhibitor</option>
-    <option value="radionuclide">Radionuclide</option>
-    <option value="protein_toxin">Protein Toxin</option>
+    <option value="Radionuclide">Radionuclide</option>
+    <option value="Protein Toxin">Protein Toxin</option>
+    <option value="PROTACs">PROTACs</option>
+    <option value="ISACs">ISACs</option>
       </select>
       <span class="result-count" id="count载荷"></span>
     </div>
     <div class="card-grid" id="grid载荷">
+<div class="card" onclick="toggleCard(this)" data-cls="PROTACs" data-search="protac brd4 degrader protacs high targeted protein degradation">
+  <div class="card-header">
+    <div class="card-title">BRD4 Degrader (PROTAC)</div>
+    <span class="badge badge-payload">PROTACs</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">IC50: 0.1–10 nM · 机制: Targeted Protein Degradation (TPD)</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Emerging)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
+      <div class="info-row"><span class="info-label">类别</span><span class="info-value">PROTACs</span></div>
+      <div class="info-row"><span class="info-label">MoA</span><span class="info-value">Proteolysis Targeting Chimera (PROTAC). Recruits E3 ligase (e.g., VHL, CRBN) to BRD4, leading to polyubiquitination and proteasomal degradation. Catalytic mechanism allows for sub-stoichiometric activity.</span></div>
+      <div class="info-row"><span class="info-label">IC50</span><span class="info-value">0.1–10 nM</span></div>
+      <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">High (Catalytic)</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计参数</div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">2–4</span></div>
+      <div class="info-row"><span class="info-label">挑战</span><span class="info-value">Large molecular weight (~1000 Da); high hydrophobicity; requires specialized linkers to maintain ADC solubility.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
+      <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Emerging modality (Degrader-Antibody Conjugates / DACs). Combines the specificity of mAbs with the catalytic power of PROTACs.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:32134256 (First DAC report)</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-cls="ISACs" data-search="tlr7/8 agonist isacs high immunostimulatory agonist">
+  <div class="card-header">
+    <div class="card-title">TLR7/8 Agonist (ISAC)</div>
+    <span class="badge badge-payload">ISACs</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: Immune Stimulating Antibody Conjugate (ISAC) · 靶点: TLR7/8</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Clinical)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
+      <div class="info-row"><span class="info-label">类别</span><span class="info-value">ISACs</span></div>
+      <div class="info-row"><span class="info-label">MoA</span><span class="info-value">Immune Stimulating Antibody Conjugate. Delivers Toll-like Receptor (TLR) 7/8 agonists specifically to the tumor microenvironment to activate myeloid cells and promote anti-tumor immunity.</span></div>
+      <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">Immunostimulatory</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计参数</div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">2–4</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
+      <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Clinical stage modality (e.g., Bolt Biotherapeutics, Silverback). Focuses on converting 'cold' tumors to 'hot' tumors.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:33168569 (ISAC technology review)</span></div>
+    </div>
+  </div>
+</div>
 <div class="card" onclick="toggleCard(this)" data-cls="Tubulin Inhibitors" data-search="mmae tubulin inhibitors high (pm) s/g2/m phase only (mitosis-active cells)">
   <div class="card-header">
     <div class="card-title">MMAE</div>
@@ -7801,8 +7851,8 @@
       <input class="search-box" id="searchExp" type="text" placeholder="Search assay, method…">
       <span class="result-count" id="countExp"></span>
     </div>
-    <div id="gridExp">
-<h3 class="section-title" style="font-size:20px;margin:20px 0 8px">In Vitro Assays</h3>
+    <div class="card-grid" id="gridExp">
+<h3 class="section-title" style="font-size:20px;margin:20px 0 8px;grid-column:1/-1">In Vitro Assays</h3>
 <div class="card" onclick="toggleCard(this)" data-search="binding_affinity spr (biacore), bli (octet), flow cytometry (facs)">
   <div class="card-header">
     <div class="card-title">Binding Affinity</div>
@@ -7935,7 +7985,7 @@
     </div>
   </div>
 </div>
-<h3 class="section-title" style="font-size:20px;margin:20px 0 8px">In Vivo Assays</h3>
+<h3 class="section-title" style="font-size:20px;margin:20px 0 8px;grid-column:1/-1">In Vivo Assays</h3>
 <div class="card" onclick="toggleCard(this)" data-search="efficacy_models cdx (cell line-derived xenograft), pdx (patient-derived xenograft)">
   <div class="card-header">
     <div class="card-title">Efficacy Models</div>
