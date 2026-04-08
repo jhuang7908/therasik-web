@@ -916,26 +916,43 @@
     }
 
     async function init() {
-      DB = await fetch('vaccine_kb_data.json').then((response) => response.json());
-      const modules = DB.modules;
-      renderStatCards(DB._meta);
-      document.getElementById('tumorGrid').innerHTML = renderTumorCards(modules.antigens.tumor);
-      document.getElementById('infectiousGrid').innerHTML = renderInfectiousCards(modules.antigens.infectious);
-      document.getElementById('tolerogenicGrid').innerHTML = renderTolerogenicCards(modules.antigens.tolerogenic);
-      document.getElementById('tcrCloneRows').innerHTML = renderTcrRows(modules.tcr.clones);
-      document.getElementById('tcrRuleGrid').innerHTML = renderRuleCards(modules.tcr.design_rules);
-      document.getElementById('tcrMotifGrid').innerHTML = renderMotifCards(modules.tcr.public_motifs);
-      document.getElementById('platformGrid').innerHTML = renderDeliveryCards(modules.delivery.platforms, 'platform');
-      document.getElementById('adjuvantGrid').innerHTML = renderDeliveryCards(modules.delivery.adjuvants, 'adjuvant');
-      document.getElementById('helperGrid').innerHTML = renderDeliveryCards(modules.delivery.adjuvantic_epitopes, 'helper');
-      document.getElementById('playbookGrid').innerHTML = renderMethodCards(modules.methods.design_playbooks);
-      document.getElementById('mrnaRuleGrid').innerHTML = renderMethodCards(modules.methods.multi_epitope_mrna);
-      document.getElementById('assayGrid').innerHTML = renderMethodCards(modules.methods.assay_catalog);
-      document.getElementById('feedbackGrid').innerHTML = renderFeedbackCards(modules.methods.private_learning.feedback_patterns);
-      document.getElementById('benchmarkGrid').innerHTML = renderBenchmarkCards(modules.methods.neoantigen_benchmarks);
-      document.querySelectorAll('.tab').forEach((button) => button.addEventListener('click', () => activateTab(button.dataset.panel)));
-      document.getElementById('globalSearch').addEventListener('input', applySearch);
-      applySearch();
+      try {
+        const response = await fetch('vaccine_kb_data.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        DB = await response.json();
+        console.log('Vaccine DB loaded:', DB);
+        
+        const modules = DB.modules;
+        renderStatCards(DB._meta);
+        
+        // Helper to safely set innerHTML
+        const setHtml = (id, html) => {
+          const el = document.getElementById(id);
+          if (el) el.innerHTML = html || `<div class="no-data">${TEXT.noData || '暂无数据'}</div>`;
+        };
+
+        setHtml('tumorGrid', renderTumorCards(modules.antigens.tumor || []));
+        setHtml('infectiousGrid', renderInfectiousCards(modules.antigens.infectious || []));
+        setHtml('tolerogenicGrid', renderTolerogenicCards(modules.antigens.tolerogenic || []));
+        setHtml('tcrCloneRows', renderTcrRows(modules.tcr.clones || []));
+        setHtml('tcrRuleGrid', renderRuleCards(modules.tcr.design_rules || []));
+        setHtml('tcrMotifGrid', renderMotifCards(modules.tcr.public_motifs || []));
+        setHtml('platformGrid', renderDeliveryCards(modules.delivery.platforms || [], 'platform'));
+        setHtml('adjuvantGrid', renderDeliveryCards(modules.delivery.adjuvants || [], 'adjuvant'));
+        setHtml('helperGrid', renderDeliveryCards(modules.delivery.adjuvantic_epitopes || [], 'helper'));
+        setHtml('playbookGrid', renderMethodCards(modules.methods.design_playbooks || []));
+        setHtml('mrnaRuleGrid', renderMethodCards(modules.methods.multi_epitope_mrna || []));
+        setHtml('assayGrid', renderMethodCards(modules.methods.assay_catalog || []));
+        setHtml('feedbackGrid', renderFeedbackCards(modules.methods.private_learning?.feedback_patterns || []));
+        setHtml('benchmarkGrid', renderBenchmarkCards(modules.methods.neoantigen_benchmarks || []));
+        
+        document.querySelectorAll('.tab').forEach((button) => button.addEventListener('click', () => activateTab(button.dataset.panel)));
+        document.getElementById('globalSearch').addEventListener('input', applySearch);
+        applySearch();
+      } catch (err) {
+        console.error('Failed to init Vaccine KB:', err);
+        document.body.innerHTML += `<div style="position:fixed;bottom:20px;right:20px;background:#fee2e2;color:#991b1b;padding:12px 20px;border-radius:8px;border:1px solid #fecaca;z-index:9999">数据加载失败: ${err.message}</div>`;
+      }
     }
 
     init();
