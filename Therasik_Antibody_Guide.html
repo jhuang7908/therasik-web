@@ -1154,10 +1154,11 @@ const DOMAINS = {
     showTier: true,
     filterLabel: '所有 Fc 分类',
     card: renderFcCard,
+    extraHtml: renderFcAdaStatic, // Move static analysis here
   },
   dev: {
     data: DEV_DATA,
-    note: '<strong>可开发性评估指标</strong> — 涵盖物理化学稳定性、化学稳定性、疏水性及电荷分布等 15 项关键参数。每个条目解释了计算方法、Therasik 阈值、临床解读及相关工具。',
+    note: '<strong>可开发性评估指标</strong> — 涵盖物理化学稳定性、化学稳定性、疏水性及电荷分布等 15 项关键参数。每个条目解释了计算方法、Therasik 阈值、临床解读及相关工具分析。',
     catField: 'cat',
     cats: [...new Set(DEV_DATA.map(d=>d.cat))],
     showTier: false,
@@ -1166,13 +1167,12 @@ const DOMAINS = {
   },
   immuno: {
     data: IMMUNO_DATA,
-    note: '<strong>免疫原性风险因素</strong> — 13 个影响抗药抗体 (ADA) 形成的关键因素。分为：序列相关（可通过人源化/设计解决）、结构/物理（可通过工程解决）、糖基化以及临床/配方因素（患者或工艺相关）。<br><br><strong>Fc 工程 × 临床 ADA 影响统计</strong> — 基于 Therasik 138 条临床 ADA 记录按 Fc 类型的分析。',
+    note: '<strong>免疫原性风险因素</strong> — 13 个影响抗药抗体 (ADA) 形成的关键因素。分为：序列相关（可通过人源化/设计解决）、结构/物理（可通过工程解决）、糖基化以及临床/配方因素（患者或工艺相关）。',
     catField: 'cat',
     cats: [...new Set(IMMUNO_DATA.map(d=>d.cat))],
     showTier: false,
     filterLabel: '所有因素分类',
     card: renderImmunoCard,
-    extraHtml: renderFcAdaStatic, // New field to append static analysis
   },
   wet: {
     data: WET_DATA,
