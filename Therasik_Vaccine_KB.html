@@ -79,43 +79,33 @@
     .page {
       max-width:1240px;
       margin:0 auto;
-      padding:32px 22px 72px;
+      padding:0 0 72px;
     }
-    .hero {
-      background:linear-gradient(135deg, #e6faf7 0%, #f8fffd 58%, #f3f8ff 100%);
-      border:1px solid rgba(13,148,136,.14);
-      border-radius:24px;
-      padding:28px 28px 24px;
-      margin-bottom:22px;
-    }
-    .hero h1 {
-      margin:0 0 10px;
-      font-size:38px;
-      letter-spacing:-.03em;
-      line-height:1.1;
-      font-family:Georgia, "Times New Roman", serif;
-      color:#0f172a;
-    }
-    .hero p {
-      margin:0;
-      max-width:880px;
-      font-size:16px;
-      color:#244b45;
-    }
+    .page-header { background: repeating-linear-gradient(135deg, transparent, transparent 14px, rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px), linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); border-top: 4px solid #0d9488; border-bottom: 1px solid rgba(13,148,136,0.18); padding: 36px 40px 28px; }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.02em; color: #0d4a43; }
+    .page-header p { color: #2d6a61; font-size: 15px; max-width: 720px; line-height: 1.65; margin: 0 0 16px; }
+    .back-link{font-size:14px;color:var(--primary);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;}
+    .back-link:hover{color:var(--primary-dark);}
     .integrity {
       margin-top:16px;
       padding:12px 14px;
-      background:#ecfdf5;
+      background:rgba(255,255,255,0.5);
       border-left:4px solid var(--primary);
       border-radius:10px;
       font-size:13px;
-      color:#065f46;
+      color:#0d4a43;
     }
     .stats {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
       gap:10px;
       margin:18px 0 20px;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+    .search-row, .tabs, .panel {
+      padding-left: 22px;
+      padding-right: 22px;
     }
     .stat {
       border:1px solid var(--border);
@@ -432,11 +422,15 @@
     </nav>
   </header>
   <main class="page">
-    <section class="hero">
+    <header class="page-header">
+      <a href="Therasik_Vaccine_Design.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        疫苗设计平台
+      </a>
       <h1>疫苗设计方法与证据库</h1>
       <p>不再只是分类浏览页面，而是面向决策支持的私有知识底座界面：抗原优先级、感染病 comparator、耐受性靶点、TCR 规则、多表位 mRNA 逻辑、预测 benchmark 与干湿闭环模板都放在同一套 canonical schema 下。</p>
       <div class="integrity">页面与运行时逻辑共用同一份 canonical 数据库。每条记录保留证据等级、验证状态与 machine-readable justification，并把传染病与耐受性模块重新提升为一等公民。</div>
-    </section>
+    </header>
 
     <section class="stats" id="stats"></section>
 
