@@ -434,7 +434,6 @@
     <button class="dtab" onclick="switchDomain('dev', this)" data-domain="dev">可开发性指标</button>
     <button class="dtab" onclick="switchDomain('immuno', this)" data-domain="immuno">免疫原性因素</button>
     <button class="dtab" onclick="switchDomain('wet', this)" data-domain="wet">实验验证方案</button>
-    <button class="dtab" onclick="switchDomain('adc_registry', this)" data-domain="adc_registry">ADC 临床注册表</button>
   </div>
 </div>
 
@@ -1128,24 +1127,6 @@ let tierFilter = '';
 // DOMAIN CONFIG
 // ═══════════════════════════════════════════════════════════
 const DOMAINS = {
-  adc_registry: {
-    data: ADC_CLINICAL_DATA,
-    note: '<strong>临床 ADC 注册表</strong> — 全球已批准及各临床阶段抗体偶联药物 (ADC) 的综合数据库。包含靶点、偶联技术、DAR 及最新临床结果（ORR/PFS/毒性）。',
-    catField: 'cat',
-    cats: [...new Set(ADC_CLINICAL_DATA.map(d=>d.cat))].sort(),
-    showTier: true,
-    filterLabel: '所有靶点',
-    card: renderFcCard,
-  },
-  adc: {
-    data: ADC_DATA,
-    note: '<strong>Antibody-Drug Conjugate (ADC) Components</strong> — Key linkers, payloads, and conjugation technologies used in clinical-stage ADCs. Includes mechanism of release, potency data, and clinical precedent.',
-    catField: 'cat',
-    cats: [...new Set(ADC_DATA.map(d=>d.cat))],
-    showTier: false,
-    filterLabel: 'All ADC Categories',
-    card: renderFcCard,
-  },
   fc: {
     data: FC_DATA,
     note: '<strong>Fc 工程突变库</strong> — 系统收录 <strong>25</strong> 项核心突变，涵盖 <strong>ADCC/CDC 增强</strong>、<strong>半衰期延长</strong>、<strong>效应功能沉默</strong>及<strong>双特异性抗体</strong>四大工程维度。每个条目均包含证据分层（T1：已上市，T2：临床中，T3：临床前）、作用机制、受体影响、商业案例及 <strong>IP 专利状态</strong>（含设计绕过建议）。<br><span style="font-size:12px;color:#6b7280;margin-top:6px;display:block;">⚖ <strong>IP 状态说明：</strong> <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:1px 7px;border-radius:10px;font-weight:700;">Public Domain / 已过期</span> = 可自由使用 &nbsp;·&nbsp; <span style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:10px;font-weight:700;">即将过期</span> = 核心专利 ~3 年内过期 &nbsp;·&nbsp; <span style="background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;padding:1px 7px;border-radius:10px;font-weight:700;">有效专利</span> = 需授权或设计绕过。</span><br><span style="font-size:12px;color:#6b7280;margin-top:4px;display:block;">📌 突变使用 <strong>EU 编号</strong> (Edelman)。',
