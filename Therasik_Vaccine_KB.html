@@ -42,20 +42,7 @@
     .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
     .top-header-nav a.active { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(13,148,136,0.25); }
     .top-header-nav a.active:hover { background: var(--primary-dark); }
-    /* ── Header ── */
-    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
-    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; white-space: nowrap; }
-    .top-header .brand a { text-decoration: none; color: #111827; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
-    .top-header .brand .brand-dot { width: 10px; height: 10px; background: var(--primary); border-radius: 50%; display: inline-block; }
-    .top-header .brand .accent { color: var(--primary); font-style: italic; font-weight: 700; }
-    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
-    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
-    .nav-close-btn { display: none; }
-    .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
-    .top-header-nav a { padding: 8px 16px; font-size: 13px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s ease; font-weight: 600; }
-    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
-    .top-header-nav a.active { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(13,148,136,0.25); }
-    .top-header-nav a.active:hover { background: var(--primary-dark); }
+    
     .nav-dropdown { position: relative; }
     .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
     .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 220px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); z-index: 100; margin-top: 8px; }
@@ -65,6 +52,7 @@
     .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 2px; }
     .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
     .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+
     @media (max-width: 768px) {
       .mobile-menu-btn { display: block; }
       .top-header { padding: 10px 16px; flex-wrap: nowrap; width:100%;}
@@ -86,11 +74,12 @@
       background: repeating-linear-gradient(135deg, transparent, transparent 14px, rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px), linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); 
       border-top: 4px solid #0d9488; 
       border-bottom: 1px solid rgba(13,148,136,0.18); 
-      padding: 36px 40px 28px; 
+      padding: 36px 0 28px; 
     }
     .page-header-content {
       max-width: 1240px;
       margin: 0 auto;
+      padding: 0 22px;
     }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.02em; color: #0d4a43; }
     .page-header p { color: #2d6a61; font-size: 15px; max-width: 720px; line-height: 1.65; margin: 0 0 16px; }
@@ -620,6 +609,7 @@
     };
 
     const TEXT = PAGE_TEXT;
+    window.PAGE_TEXT = PAGE_TEXT; // Ensure it's on window too
     let DB = null;
 
     const esc = (value) => String(value ?? '')
