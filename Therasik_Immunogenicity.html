@@ -278,15 +278,33 @@
       </div>
     </div>
 
-    <p>我们的研究揭示了免疫原性风险的深层驱动因素，并建立了针对不同人源化策略的分层预测模型：</p>
+    <p>我们的研究揭示了免疫原性风险的深层驱动因素，并建立了针对不同人源化策略的 <strong>ADA V2 双轨制预测模型</strong>：</p>
     
+    <div class="insight-grid">
+      <div class="insight-card" style="border-left: 4px solid #0d9488;">
+        <span class="ic-label">全人源 (FH) 核心因子</span>
+        <div class="ic-value">界面稳定性</div>
+        <div class="ic-desc">VH-VL 接触对数 (ρ=+0.339, p=0.018)</div>
+      </div>
+      <div class="insight-card" style="border-left: 4px solid #0d9488;">
+        <span class="ic-label">人源化 (HU) 核心因子</span>
+        <div class="ic-value">聚集风险</div>
+        <div class="ic-desc">聚集基序数 (ρ=+0.196, p=0.110)</div>
+      </div>
+      <div class="insight-card" style="border-left: 4px solid #0d9488;">
+        <span class="ic-label">高灵敏度子集</span>
+        <div class="ic-value">MHC-II 表位</div>
+        <div class="ic-desc">T 细胞表位强度 (ρ=+0.425, p=0.034)</div>
+      </div>
+    </div>
+
     <div style="margin: 32px 0; text-align: center;">
       <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 16px;">图 1: 138 种临床抗体 ADA 发生率分布 (高度右偏)</h4>
       <img src="images/ada_study/fig1_ada_distribution.png" alt="ADA Distribution" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
     </div>
 
     <ul>
-      <li><strong>分层建模的必要性</strong> — 人源化抗体（n=84）与全人源抗体（n=54）具有截然不同的驱动机制。全人源抗体受内在序列/结构特征主导，而人源化抗体受临床管理因素与设计诱导风险（如 Vernier Zone 残留）共同驱动。</li>
+      <li><strong>分层建模的必要性</strong> — 人源化抗体（n=84）与全人源抗体（n=54）具有截然不同的驱动机制。全人源抗体受内在序列/结构特征主导，而人源化抗体受临床管理因素与<strong>设计诱导风险</strong>（如 Vernier Zone 残留、Junction 表位）共同驱动。</li>
       
       <div style="margin: 32px 0; text-align: center;">
         <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 16px;">图 2: 按人源化策略、给药途径、疾病领域和 Fc 亚型的 ADA 分布差异</h4>
