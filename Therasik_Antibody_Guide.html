@@ -1272,11 +1272,15 @@ function renderFcCard(d) {
     return `<span class="${cls}">${hl(e)}</span>`;
   }).join(' · ');
   const ip = d.ip;
-  const ipc = ip ? IP_STATUS[ip.status] : null;
+  // Robust status mapping (case-insensitive and handles compound statuses like Expired/Expiring)
+  let statusKey = ip ? ip.status.toLowerCase().split('/')[0] : null;
+  if (statusKey === 'public domain') statusKey = 'public';
+  const ipc = statusKey ? IP_STATUS[statusKey] : null;
+  
   const ipBadge = ipc ? `<span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:12px;background:${ipc.bg};color:${ipc.color};border:1px solid ${ipc.border};white-space:nowrap;">${ipc.label}</span>` : '';
   const ipBlock = ip ? `
-    <div class="detail-full" style="background:${ipc.bg};border:1px solid ${ipc.border};border-radius:8px;padding:10px 12px;margin-top:4px;">
-      <div class="dl" style="color:${ipc.color};">⚖ IP / Patent Status &nbsp;${ipBadge}</div>
+    <div class="detail-full" style="background:${ipc ? ipc.bg : '#f9fafb'};border:1px solid ${ipc ? ipc.border : '#e5e7eb'};border-radius:8px;padding:10px 12px;margin-top:4px;">
+      <div class="dl" style="color:${ipc ? ipc.color : '#6b7280'};">⚖ IP / Patent Status &nbsp;${ipBadge}</div>
       <div class="dv" style="margin-top:6px;"><strong>Holder:</strong> ${hl(ip.holder)}<br><strong>Key Patent(s):</strong> ${hl(ip.key)}<br><strong>Expiry:</strong> ${hl(ip.expiry)}<br><strong style="color:#374151;">Design-around / Workaround:</strong> ${hl(ip.workaround)}</div>
     </div>` : '';
   return `
@@ -1420,11 +1424,7 @@ function renderGrid() {
 
   let html = `<div class="domain-note"><p>${dom.note}</p></div>`;
   
-  // Append extra HTML if defined (e.g., for immuno tab)
-  if (dom.extraHtml) {
-    html += dom.extraHtml();
-  }
-
+  // Render cards first
   for (const [cat, cards] of Object.entries(groups)) {
     html += `<div class="cat-section">
       <div class="cat-header">
@@ -1434,6 +1434,12 @@ function renderGrid() {
       <div class="card-grid">${cards.map(d => dom.card(d)).join('')}</div>
     </div>`;
   }
+
+  // Append extra HTML at the BOTTOM (e.g., for Fc selection guide)
+  if (dom.extraHtml) {
+    html += dom.extraHtml();
+  }
+
   gc.innerHTML = html;
   document.getElementById('stats-chip').textContent = `${filtered.length} / ${data.length} entries`;
 }
