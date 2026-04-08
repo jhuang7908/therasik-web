@@ -2626,14 +2626,21 @@
     <option value="high">High</option>
       </select>
     </div>
-    <div class="card-grid" id="gridAntigens">
+    
+    <div class="page-card-hint" style="margin-bottom:20px; background: #fffbeb; border-color: #fde68a; color: #92400e;">
+      <strong>Data Attribution Legend:</strong> 
+      <span style="margin-left:15px;"><strong>(D) Direct</strong>: Quantitative experimental data.</span>
+      <span style="margin-left:15px;"><strong>(I) Inferred</strong>: Logical biological inference.</span>
+      <span style="margin-left:15px;"><strong>(C) Clinical</strong>: Inferred from clinical drug performance.</span>
+    </div>
+<div class="card-grid" id="gridAntigens">
 <div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="moderate" data-het="high" data-density="high" data-risk="moderate" data-search="tier 1 (approved) her2 实体瘤 神经系统 moderate moderate_to_high high_variable [tier 1 - approved] high variable density and moderate internalization, internalized via clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">HER2 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Neurologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high_variable · 内吞: moderate · 异质性: moderate_to_high</div>
+    <div class="cc-brief">密度: high_variable · 内吞: moderate · 异质性: moderate_to_high (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2661,15 +2668,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) high_variable density and Clinical (C) validation of moderate internalization via T-DXd DESTINY-Breast01. Internalized via Clathrin-mediated endocytosis (CME); macropinocytosis at high antibody occupancy (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 1 (approved) trop-2 实体瘤 high low_to_moderate high [tier 1 - approved] high density and high internalization, internalized via rapid constitutive clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 1 (approved) trop-2 实体瘤 high low_to_moderate high [tier 1 - approved] high density and high internalization, internalized via rapid constitutive clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">TROP-2 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low_to_moderate</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low_to_moderate (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2697,15 +2702,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) high density and Clinical (C) validation of high internalization via ASCENT sacituzumab. Internalized via Rapid constitutive clathrin-mediated endocytosis (CME) + lipid raft-mediated (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 1 (approved) nectin-4 实体瘤 high low high [tier 1 - approved] high density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 1 (approved) nectin-4 实体瘤 high low high [tier 1 - approved] high density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">Nectin-4 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2733,15 +2736,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) high density and Clinical (C) validation of high internalization via EV-201. Internalized via Rapid clathrin-mediated endocytosis (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 1 (approved) frα 实体瘤 high moderate moderate_to_high [tier 1 - approved] moderate to high density and high internalization, internalized via receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 1 (approved) frα 实体瘤 high moderate moderate_to_high [tier 1 - approved] moderate to high density and high internalization, internalized via receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">FRα <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2769,15 +2770,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate_to_high density and Clinical (C) validation of high internalization via clinical data. Internalized via Receptor-mediated endocytosis (GPI-anchored; clathrin-independent, lipid raft pathway). Internalization is relatively slow but constitutive. (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="high" data-search="tier 1 (approved) tissue factor 实体瘤 moderate moderate moderate [tier 1 - approved] moderate density and moderate internalization, internalized via rapid constitutive and ligand-induced endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="high" data-search="tier 1 (approved) tissue factor 实体瘤 moderate moderate moderate [tier 1 - approved] moderate density and moderate internalization, internalized via rapid constitutive and ligand-induced endocytosis.">
   <div class="card-header">
     <div class="card-title">Tissue Factor <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2805,15 +2804,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate density and Clinical (C) validation of moderate internalization via Tisotumab vedotin innovaTV 204. Internalized via Rapid constitutive and ligand-induced endocytosis (coagulation cascade activation triggers internalization) (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="low" data-search="tier 1 (approved) cd30 血液肿瘤 high low high [tier 1 - approved] high density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="low" data-search="tier 1 (approved) cd30 血液肿瘤 high low high [tier 1 - approved] high density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">CD30 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2841,15 +2838,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) high density and Clinical (C) validation of high internalization via BV HL pivotal. Internalized via Rapid receptor-mediated endocytosis (TNFR superfamily pathway) (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 1 (approved) cd33 血液肿瘤 high moderate moderate [tier 1 - approved] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 1 (approved) cd33 血液肿瘤 high moderate moderate [tier 1 - approved] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">CD33 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2877,15 +2872,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate density and Clinical (C) validation of high internalization via Mylotarg Phase III. Internalized via Rapid receptor-mediated endocytosis (Siglec family; lectin-like internalization) (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="moderate" data-search="tier 1 (approved) cd79b 血液肿瘤 high low moderate [tier 1 - approved] moderate density and high internalization, internalized via rapid internalization via b-cell receptor.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="moderate" data-search="tier 1 (approved) cd79b 血液肿瘤 high low moderate [tier 1 - approved] moderate density and high internalization, internalized via rapid internalization via b-cell receptor.">
   <div class="card-header">
     <div class="card-title">CD79b <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2913,15 +2906,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate density and Clinical (C) validation of high internalization via polatuzumab POLARIX. Internalized via Rapid internalization via B-cell receptor (BCR) complex co-endocytosis; clathrin-mediated (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 1 (approved) cd19 自身免疫 血液肿瘤 high low moderate_to_high [tier 1 - approved] moderate to high density and high internalization, internalized via co-internalization with bcr complex.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 1 (approved) cd19 自身免疫 血液肿瘤 high low moderate_to_high [tier 1 - approved] moderate to high density and high internalization, internalized via co-internalization with bcr complex.">
   <div class="card-header">
     <div class="card-title">CD19 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Autoimmune</span> <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: low (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2949,15 +2940,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate_to_high density and Clinical (C) validation of high internalization via loncastuximab DLBCL. Internalized via Co-internalization with BCR complex (clathrin-mediated); also trogocytosis (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 1 (approved) bcma 自身免疫 血液肿瘤 high moderate moderate [tier 1 - approved] moderate density and high internalization, internalized via clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 1 (approved) bcma 自身免疫 血液肿瘤 high moderate moderate [tier 1 - approved] moderate density and high internalization, internalized via clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">BCMA <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Autoimmune</span> <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -2985,15 +2974,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate density and Clinical (C) validation of high internalization via belantamab DREAMM-2. Internalized via Clathrin-mediated endocytosis; APRIL/BAFF ligand-induced internalization increases rate (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) her3 实体瘤 moderate moderate moderate [tier 2 - active] significant recycling and moderate internalization suggest a high-dar strategy with a topo1 inhibitor (dxd) to maximize payload accumulation despite receptor recycling.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) her3 实体瘤 moderate moderate moderate [tier 2 - active] significant recycling and moderate internalization suggest a high-dar strategy with a topo1 inhibitor (dxd) to maximize payload accumulation despite receptor recycling.">
   <div class="card-header">
     <div class="card-title">HER3 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3021,15 +3008,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) moderate internalization. Internalized via Rapid internalization via HER2/HER3 heterodimer (requires HER2 co-expression for efficient endocytosis) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 2 (active) b7-h3 实体瘤 神经系统 moderate low high [tier 2 - active] high density and low normal tissue expression support a high-dar strategy (dar 8) with topo1 inhibitors, providing a wide therapeutic window.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 2 (active) b7-h3 实体瘤 神经系统 moderate low high [tier 2 - active] high density and low normal tissue expression support a high-dar strategy (dar 8) with topo1 inhibitors, providing a wide therapeutic window.">
   <div class="card-header">
     <div class="card-title">B7-H3 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Neurologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3057,15 +3042,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via Moderate — clathrin-mediated endocytosis (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 3 (failed) dll3 实体瘤 low moderate low_to_moderate [tier 3 - failed] low to moderate density and low internalization, internalized via moderate-to-rapid clathrin-mediated endocytosis. dll3 is a non-canonical delta-like notch ligand.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 3 (failed) dll3 实体瘤 low moderate low_to_moderate [tier 3 - failed] low to moderate density and low internalization, internalized via moderate-to-rapid clathrin-mediated endocytosis. dll3 is a non-canonical delta-like notch ligand.">
   <div class="card-header">
     <div class="card-title">DLL3 <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: low_to_moderate · 内吞: low · 异质性: moderate</div>
+    <div class="cc-brief">密度: low_to_moderate · 内吞: low · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3093,15 +3076,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) low_to_moderate density and Inferred (I) low internalization. Internalized via Moderate-to-rapid clathrin-mediated endocytosis. DLL3 is a non-canonical Delta-like Notch ligand; internalization is ligand-independent. Expressed on cell surface as a cis-inhibitor of Notch. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) met 实体瘤 high high moderate [tier 2 - active] rapid internalization and high heterogeneity in some tumors favor a cleavable linker with a strong bystander effect payload (mmae) to address non-expressing cells.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) met 实体瘤 high high moderate [tier 2 - active] rapid internalization and high heterogeneity in some tumors favor a cleavable linker with a strong bystander effect payload (mmae) to address non-expressing cells.">
   <div class="card-header">
     <div class="card-title">MET <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3129,15 +3110,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid ligand (HGF)-induced clathrin-mediated endocytosis with subsequent lysosomal degradation (CBL-mediated ubiquitination). Constitutive internalization in MET-amplified tumors (ligand-independent). Internalization rate: HIGH when activated. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 1 (approved) cd22 血液肿瘤 high low moderate [tier 1 - approved] moderate density and high internalization, internalized via constitutive receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 1 (approved) cd22 血液肿瘤 high low moderate [tier 1 - approved] moderate density and high internalization, internalized via constitutive receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">CD22 <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3165,15 +3144,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate density and Clinical (C) validation of high internalization via besylomab ALL. Internalized via Constitutive receptor-mediated endocytosis (lectin-type; internalizes B-cell receptor complex) (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 4 (emerging) cldn6 实体瘤 high moderate moderate_to_high [tier 4 - emerging] moderate to high density and high internalization, internalized via rapid clathrin-mediated endocytosis. unlike cldn18.2, cldn6 is often more accessible on the cell surface rather than sequestered in tight junctions in certain tumor types.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 4 (emerging) cldn6 实体瘤 high moderate moderate_to_high [tier 4 - emerging] moderate to high density and high internalization, internalized via rapid clathrin-mediated endocytosis. unlike cldn18.2, cldn6 is often more accessible on the cell surface rather than sequestered in tight junctions in certain tumor types.">
   <div class="card-header">
     <div class="card-title">CLDN6 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3201,15 +3178,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) moderate_to_high density and Inferred (I) high internalization. Internalized via Rapid clathrin-mediated endocytosis. Unlike CLDN18.2, CLDN6 is often more accessible on the cell surface rather than sequestered in tight junctions in certain tumor types. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 4 (emerging) gpc3 实体瘤 high moderate high [tier 4 - emerging] rapid internalization but significant recycling requires a stable linker and a payload that can accumulate effectively, often mitosis-dependent (mmae) due to hcc proliferation patterns.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 4 (emerging) gpc3 实体瘤 high moderate high [tier 4 - emerging] rapid internalization but significant recycling requires a stable linker and a payload that can accumulate effectively, often mitosis-dependent (mmae) due to hcc proliferation patterns.">
   <div class="card-header">
     <div class="card-title">GPC3 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3237,15 +3212,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) high density and Inferred (I) high internalization. Internalized via Moderate clathrin-mediated endocytosis (GPC3 is GPI-anchored heparan sulfate proteoglycan; internalization requires co-receptor engagement or clathrin-independent pathway via glypican shedding of GPI anchor) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 4 (emerging) nectin-2 其他 ? ? ? [tier 4 - emerging] internalized via internalization required for activity.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="其他" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 4 (emerging) nectin-2 其他 ? ? ? [tier 4 - emerging] internalized via internalization required for activity.">
   <div class="card-header">
     <div class="card-title">Nectin-2 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3271,17 +3244,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Internalization required for activity; similar to Nectin-4, it undergoes clathrin-mediated endocytosis. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Moderate (I) and Inferred (I) High (I). Internalized via Internalization required for activity; similar to Nectin-4, it undergoes clathrin-mediated endocytosis. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="moderate" data-risk="moderate" data-search="tier 3 (failed) ptk7 实体瘤 moderate high moderate [tier 3 - failed] moderate density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="moderate" data-risk="moderate" data-search="tier 3 (failed) ptk7 实体瘤 moderate high moderate [tier 3 - failed] moderate density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">PTK7 <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3309,15 +3280,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) moderate density and Inferred (I) moderate internalization. Internalized via Rapid clathrin-mediated endocytosis (Pseudo-tyrosine kinase 7; Wnt pathway co-receptor). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) cdh6 实体瘤 high moderate moderate [tier 2 - active] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) cdh6 实体瘤 high moderate moderate [tier 2 - active] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">CDH6 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3345,15 +3314,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (Cadherin-6; clathrin-mediated). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="high" data-density="high" data-risk="high" data-search="tier 2 (active) ceacam5 实体瘤 low high high [tier 2 - active] low internalization and moderate shedding suggest a payload with high potency and a linker that is stable in circulation to overcome the antigen sink effect.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="high" data-density="high" data-risk="high" data-search="tier 2 (active) ceacam5 实体瘤 low high high [tier 2 - active] low internalization and moderate shedding suggest a payload with high potency and a linker that is stable in circulation to overcome the antigen sink effect.">
   <div class="card-header">
     <div class="card-title">CEACAM5 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: low · 异质性: high</div>
+    <div class="cc-brief">密度: high · 内吞: low · 异质性: high (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3381,15 +3348,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) low internalization. Internalized via Moderate clathrin-mediated endocytosis after antibody cross-linking (CEACAM5 is GPI-anchored in many cells but transmembrane isoform on cancer cells); lipid raft-mediated pathway; internalization rate varies by tumor type (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="moderate" data-search="msln 实体瘤 moderate low high poor internalization and high shedding are major barriers; requires a highly stable linker and a payload with strong bystander activity to compensate for low intracellular delivery.">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="moderate" data-search="msln 实体瘤 moderate low high poor internalization and high shedding are major barriers; requires a highly stable linker and a payload with strong bystander activity to compensate for low intracellular delivery.">
   <div class="card-header">
     <div class="card-title">MSLN</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3417,15 +3382,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Unknown Tier] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via POOR — GPI-anchored protein primarily on apical/luminal surface; macropinocytosis is limited; SLOW internalization is a major ADC design challenge (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="high" data-risk="moderate" data-search="muc1 实体瘤 moderate high high massive shedding requires targeting membrane-proximal domains and using payloads that can overcome the antigen sink, often with high-potency or dna-damaging agents.">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="high" data-risk="moderate" data-search="muc1 实体瘤 moderate high high massive shedding requires targeting membrane-proximal domains and using payloads that can overcome the antigen sink, often with high-potency or dna-damaging agents.">
   <div class="card-header">
     <div class="card-title">MUC1</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: high</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3453,15 +3416,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Unknown Tier] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via Moderate constitutive endocytosis (MUC1 is a heavily glycosylated mucin; internalization occurs via macropinocytosis and clathrin-mediated pathways; rate depends on glycosylation state — aberrantly glycosylated (TA-MUC1) internalizes faster than normal) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="high" data-density="high" data-risk="low" data-search="muc16 实体瘤 low high high massive shedding requires targeting membrane-proximal domains and using payloads that can overcome the antigen sink, often with high-potency or dna-damaging agents.">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="high" data-density="high" data-risk="low" data-search="muc16 实体瘤 low high high massive shedding requires targeting membrane-proximal domains and using payloads that can overcome the antigen sink, often with high-potency or dna-damaging agents.">
   <div class="card-header">
     <div class="card-title">MUC16</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: low · 异质性: high</div>
+    <div class="cc-brief">密度: high · 内吞: low · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3489,15 +3450,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Unknown Tier] Based on Inferred (I) high density and Inferred (I) low internalization. Internalized via Moderate — transmembrane domain anchors it; EGF-domain binding triggers endocytosis (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤|血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 2 (active) ror1 实体瘤 血液肿瘤 high low moderate [tier 2 - active] rapid internalization and moderate density make these ideal for standard dar 4 strategies with tubulin inhibitors (mmae).">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤|血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 2 (active) ror1 实体瘤 血液肿瘤 high low moderate [tier 2 - active] rapid internalization and moderate density make these ideal for standard dar 4 strategies with tubulin inhibitors (mmae).">
   <div class="card-header">
     <div class="card-title">ROR1 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3525,15 +3484,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid clathrin-mediated endocytosis (caveolae-mediated reported in some cell lines; mechanism varies) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 4 (emerging) ror2 其他 ? ? ? [tier 4 - emerging] moderate density and high internalization, internalized via rapid internalization via clathrin-mediated endocytosis, confirmed by functional screening of human antibody libraries.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="其他" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 4 (emerging) ror2 其他 ? ? ? [tier 4 - emerging] moderate density and high internalization, internalized via rapid internalization via clathrin-mediated endocytosis, confirmed by functional screening of human antibody libraries.">
   <div class="card-header">
     <div class="card-title">ROR2 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (I) · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3561,15 +3518,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid internalization via clathrin-mediated endocytosis, confirmed by functional screening of human antibody libraries. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="low" data-search="enpp3 实体瘤 high low high">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="low" data-search="enpp3 实体瘤 high low high">
   <div class="card-header">
     <div class="card-title">ENPP3</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3593,15 +3548,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Target for AGS-16C3 (anti-ENPP3-MMAF).</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:25957392</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤|血液肿瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="low" data-search="tier 3 (failed) cd70 实体瘤 血液肿瘤 high high moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤|血液肿瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="low" data-search="tier 3 (failed) cd70 实体瘤 血液肿瘤 high high moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">CD70 <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3629,15 +3582,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (TNFR superfamily member; rapid after antibody binding). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) cd228 其他 ? ? ? [tier 2 - active] internalized via rapid and efficient internalization in various solid tumor types.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="high" data-het="unknown" data-density="high" data-risk="?" data-search="tier 2 (active) cd228 其他 ? ? ? [tier 2 - active] internalized via rapid and efficient internalization in various solid tumor types.">
   <div class="card-header">
     <div class="card-title">CD228 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: High (I) · 内吞: High (C) · 异质性: NA</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3663,17 +3614,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Rapid and efficient internalization in various solid tumor types (melanoma, lung, breast). (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) High (I) and Inferred (I) High (C). Internalized via Rapid and efficient internalization in various solid tumor types (melanoma, lung, breast). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) fap 其他 ? ? ? [tier 2 - active] internalized via internalization confirmed in vitro for fap-targeting adcs.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 2 (active) fap 其他 ? ? ? [tier 2 - active] internalized via internalization confirmed in vitro for fap-targeting adcs.">
   <div class="card-header">
     <div class="card-title">FAP <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3699,17 +3648,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Internalization confirmed in vitro for FAP-targeting ADCs (e.g., FAP-exatecan), though rate can be influenced by DAR and linker hydrophobicity. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Internalization confirmed in vitro for FAP-targeting ADCs (e.g., FAP-exatecan), though rate can be influenced by DAR and linker hydrophobicity. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="high" data-search="tier 3 (failed) lgr5 实体瘤 high high moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid constitutive clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="high" data-search="tier 3 (failed) lgr5 实体瘤 high high moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid constitutive clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">LGR5 <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3737,15 +3684,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid constitutive clathrin-mediated endocytosis (Leucine-rich repeat-containing G-protein coupled receptor 5; Wnt pathway marker). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 2 (active) lrrc15 实体瘤 moderate low high (stroma) [tier 2 - active] high (stroma) density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 2 (active) lrrc15 实体瘤 moderate low high (stroma) [tier 2 - active] high (stroma) density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">LRRC15 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high (stroma) · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high (stroma) · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3773,15 +3718,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high (stroma) density and Inferred (I) moderate internalization. Internalized via Rapid clathrin-mediated endocytosis (Leucine-rich repeat containing 15; expressed on tumor-associated fibroblasts and some tumor cells). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) slitrk6 实体瘤 high moderate moderate [tier 2 - active] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) slitrk6 实体瘤 high moderate moderate [tier 2 - active] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">SLITRK6 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3809,15 +3752,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (SLIT and NTRK-like protein 6). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) upk2 其他 ? ? ? [tier 2 - active] internalized via efficient internalization in urothelial cells.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 2 (active) upk2 其他 ? ? ? [tier 2 - active] internalized via efficient internalization in urothelial cells.">
   <div class="card-header">
     <div class="card-title">UPK2 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3843,17 +3784,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Efficient internalization in urothelial cells; identified as a highly specific target for bladder cancer. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Efficient internalization in urothelial cells; identified as a highly specific target for bladder cancer. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 2 (active) napi2b 实体瘤 moderate moderate high [tier 2 - active] high density and moderate internalization, internalized via moderate constitutive endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 2 (active) napi2b 实体瘤 moderate moderate high [tier 2 - active] high density and moderate internalization, internalized via moderate constitutive endocytosis.">
   <div class="card-header">
     <div class="card-title">NaPi2b <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: moderate</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3881,15 +3820,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via Moderate constitutive endocytosis (Type IIb sodium-phosphate cotransporter; clathrin-mediated). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 2 (active) liv-1 实体瘤 high moderate moderate_to_high [tier 2 - active] moderate to high density and high internalization, internalized via rapid constitutive endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="low" data-search="tier 2 (active) liv-1 实体瘤 high moderate moderate_to_high [tier 2 - active] moderate to high density and high internalization, internalized via rapid constitutive endocytosis.">
   <div class="card-header">
     <div class="card-title">LIV-1 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate_to_high · 内吞: Moderate (C) · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3902,7 +3839,7 @@
       <div class="info-row"><span class="info-label">正常组织表达</span><span class="info-value">low</span></div>
       <div class="info-row"><span class="info-label">脱靶风险</span><span class="info-value">low</span></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">内吞特性</div>
-      <div class="info-row"><span class="info-label">内吞速率</span><span class="info-value">high</span></div>
+      <div class="info-row"><span class="info-label">内吞速率</span><span class="info-value">Moderate (C)</span></div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Rapid constitutive endocytosis (SLC39A6 zinc transporter; clathrin-mediated). (I)</span></div>
       <div class="info-row"><span class="info-label">内吞 t½</span><span class="info-value">Rapid (Zinc-dependent)</span></div>
       <div class="info-row"><span class="info-label">内吞后回收</span><span class="info-value">Moderate recycling (~40%). (I)</span></div>
@@ -3917,15 +3854,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate_to_high density and Inferred (I) high internalization. Internalized via Rapid constitutive endocytosis (SLC39A6 zinc transporter; clathrin-mediated). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 2 (active) gcc 实体瘤 high low high [tier 2 - active] high density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 2 (active) gcc 实体瘤 high low high [tier 2 - active] high density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">GCC <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3953,15 +3888,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (Guanylyl cyclase C; ligand ST-induced or antibody-induced). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) asct2 其他 ? ? ? [tier 2 - active] internalized via efficient internalization via clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 2 (active) asct2 其他 ? ? ? [tier 2 - active] internalized via efficient internalization via clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">ASCT2 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -3987,17 +3920,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Efficient internalization via clathrin-mediated endocytosis; validated in various tumor types (CRC, NSCLC). (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Moderate (I) and Inferred (I) High (I). Internalized via Efficient internalization via clathrin-mediated endocytosis; validated in various tumor types (CRC, NSCLC). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 2 (active) b7-h4 实体瘤 moderate low high [tier 2 - active] high density and moderate internalization, internalized via moderate clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 2 (active) b7-h4 实体瘤 moderate low high [tier 2 - active] high density and moderate internalization, internalized via moderate clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">B7-H4 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4025,15 +3956,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via Moderate clathrin-mediated endocytosis (B7-H4/VTCN1 is a B7 family checkpoint ligand; internalization rate is moderate — ~40–60% internalized within 4h) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="cd25 其他 ? ? ?">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="其他" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="cd25 其他 ? ? ?">
   <div class="card-header">
     <div class="card-title">CD25</div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4057,15 +3986,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Target for Camidanlumab tesirine (ADCT-301). Rapid internalization is a hallmark of IL-2R signaling.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:28935674</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) cd46 其他 ? ? ? [tier 2 - active] internalized via efficient internalization via multiple pathways.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 2 (active) cd46 其他 ? ? ? [tier 2 - active] internalized via efficient internalization via multiple pathways.">
   <div class="card-header">
     <div class="card-title">CD46 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4091,17 +4018,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Efficient internalization via multiple pathways; identified as a top internalizing target in prostate cancer. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Efficient internalization via multiple pathways; identified as a top internalizing target in prostate cancer. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) cd37 血液肿瘤 ? ? ? [tier 2 - active] internalized via moderate to rapid internalization.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 2 (active) cd37 血液肿瘤 ? ? ? [tier 2 - active] internalized via moderate to rapid internalization.">
   <div class="card-header">
     <div class="card-title">CD37 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (C) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4127,17 +4052,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Moderate to rapid internalization; tetraspanin family members often facilitate rapid endocytosis upon cross-linking. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Moderate (I) and Inferred (I) High (C). Internalized via Moderate to rapid internalization; tetraspanin family members often facilitate rapid endocytosis upon cross-linking. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="low" data-search="cd138 血液肿瘤 high low high">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="low" data-search="cd138 血液肿瘤 high low high">
   <div class="card-header">
     <div class="card-title">CD138</div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4161,15 +4084,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">CD138 expressed on &gt;99% myeloma plasma cells, hepatocytes, epithelial cells. High shedding is the primary challenge — shed ectodomain captures ADC before tumor delivery. Indatuximab ravtansine (BT062, anti-CD138-DM4): modest single-agent activity. Combination with dexamethasone showed improved response. Belantamab approach (BCMA) may have partially superseded CD138 as myeloma target due to lower shedding.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:23963802 (indatuximab Phase 1)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:16239570 (CD138 shedding mechanism)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:28438881 (CD138 shedding in ADC context)</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 2 (active) fcrh5 血液肿瘤 high low moderate [tier 2 - active] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 2 (active) fcrh5 血液肿瘤 high low moderate [tier 2 - active] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">FcRH5 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4197,15 +4118,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (FcRH5/FCRL5 is an Fc receptor-like protein; rapid internalization after antibody binding via clathrin-mediated pathway) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 2 (active) gprc5d 血液肿瘤 high low high [tier 2 - active] high density and high internalization, internalized via rapid constitutive internalization.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 2 (active) gprc5d 血液肿瘤 high low high [tier 2 - active] high density and high internalization, internalized via rapid constitutive internalization.">
   <div class="card-header">
     <div class="card-title">GPRC5D <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4233,15 +4152,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) high internalization. Internalized via Rapid constitutive internalization (orphan GPCR; Class C GPCR family; constitutive ligand-independent endocytosis typical of class C GPCRs via clathrin-mediated pathway) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 2 (active) cll-1 血液肿瘤 high low moderate [tier 2 - active] moderate density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="low" data-density="moderate" data-risk="low" data-search="tier 2 (active) cll-1 血液肿瘤 high low moderate [tier 2 - active] moderate density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">CLL-1 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4269,15 +4186,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid clathrin-mediated endocytosis (CLEC12A/CLL-1 is a C-type lectin; rapid ligand-induced and constitutive internalization; highly expressed on AML blasts and LSCs (leukemic stem cells)) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 2 (active) psma 实体瘤 high moderate high [tier 2 - active] high density and rapid internalization support both high-dar adcs and radioligand therapies; for adcs, dna-damaging payloads are effective for slow-cycling prostate cells.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 2 (active) psma 实体瘤 high moderate high [tier 2 - active] high density and rapid internalization support both high-dar adcs and radioligand therapies; for adcs, dna-damaging payloads are effective for slow-cycling prostate cells.">
   <div class="card-header">
     <div class="card-title">PSMA <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4305,15 +4220,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) high internalization. Internalized via Ligand-induced rapid internalization (clathrin-mediated; PSMA is a Type II membrane protein folate hydrolase) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="moderate" data-risk="low" data-search="tier 2 (active) steap1 实体瘤 moderate high moderate [tier 2 - active] moderate density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="moderate" data-risk="low" data-search="tier 2 (active) steap1 实体瘤 moderate high moderate [tier 2 - active] moderate density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">STEAP1 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4341,15 +4254,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) moderate internalization. Internalized via Rapid clathrin-mediated endocytosis (six-pass transmembrane ferrireductase; ligand-stimulated and constitutive internalization via clathrin-coated pits) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="moderate" data-search="tier 3 (failed) cd20 自身免疫 血液肿瘤 moderate low high [tier 3 - failed] high density and moderate internalization, internalized via very slow — cd20 is a non-internalizing tetraspanin membrane protein in normal b cells.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="moderate" data-search="tier 3 (failed) cd20 自身免疫 血液肿瘤 moderate low high [tier 3 - failed] high density and moderate internalization, internalized via very slow — cd20 is a non-internalizing tetraspanin membrane protein in normal b cells.">
   <div class="card-header">
     <div class="card-title">CD20 <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Autoimmune</span> <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4377,15 +4288,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via VERY SLOW — CD20 is a non-internalizing tetraspanin membrane protein in normal B cells; type II antibody (obinutuzumab) promotes more internalization than type I. Rituximab-type mAbs are specifically engineered to NOT internalize (to maximize ADCC/CDC). ADC format requires careful selection of internalizing antibody clone. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 2 (active) cd38 自身免疫 血液肿瘤 moderate moderate high [tier 2 - active] high density and moderate internalization, internalized via moderate clathrin-mediated endocytosis. cd38 is a type ii transmembrane glycoprotein with ectoenzyme.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="自身免疫|血液肿瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="moderate" data-search="tier 2 (active) cd38 自身免疫 血液肿瘤 moderate moderate high [tier 2 - active] high density and moderate internalization, internalized via moderate clathrin-mediated endocytosis. cd38 is a type ii transmembrane glycoprotein with ectoenzyme.">
   <div class="card-header">
     <div class="card-title">CD38 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Autoimmune</span> <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: moderate</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4413,15 +4322,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via Moderate clathrin-mediated endocytosis. CD38 is a type II transmembrane glycoprotein with ectoenzyme (NADase/cyclase) activity. Internalization occurs after antibody binding; rate is moderate (~30–50% internalized within 4h at 37°C). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="high" data-search="cd47 实体瘤 moderate low high">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="high" data-search="cd47 实体瘤 moderate low high">
   <div class="card-header">
     <div class="card-title">CD47</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4445,15 +4352,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">CD47 is ubiquitously expressed — &#x27;don&#x27;t eat me&#x27; signal on all cells. Magrolimab (anti-CD47) + azacitidine: FDA Breakthrough Designation in MDS/AML. ADC format for CD47 is speculative and challenging due to universal expression and minimal internalization. RBC-based anemia is dose-limiting toxicity even for naked mAb. CD47 ADC requires extremely selective/tumor-specific activation strategy (Probody technology may be applicable).</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:19448626 (CD47 phagocytosis signal)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:33503420 (magrolimab Phase 3 AML)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:35569421 (CD47 ADC challenges)</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="high" data-het="moderate" data-density="high" data-risk="high" data-search="tier 2 (active) egfr 实体瘤 神经系统 high moderate high [tier 2 - active] high density and rapid internalization allow for potent payload delivery, but high normal tissue expression requires a balanced dar or a payload with a manageable toxicity profile.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="high" data-het="moderate" data-density="high" data-risk="high" data-search="tier 2 (active) egfr 实体瘤 神经系统 high moderate high [tier 2 - active] high density and rapid internalization allow for potent payload delivery, but high normal tissue expression requires a balanced dar or a payload with a manageable toxicity profile.">
   <div class="card-header">
     <div class="card-title">EGFR <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Neurologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4481,15 +4386,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) high internalization. Internalized via CME (CBL-mediated ubiquitination → lysosomal degradation after EGF stimulation); at high antibody occupancy also macropinocytosis (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="high" data-het="high" data-density="moderate" data-risk="low" data-search="egfrviii 实体瘤 神经系统 high high moderate absolute specificity but high heterogeneity in gbm mandates a payload with a strong bystander effect to kill neighboring wt-egfr or non-expressing cells.">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="high" data-het="high" data-density="moderate" data-risk="low" data-search="egfrviii 实体瘤 神经系统 high high moderate absolute specificity but high heterogeneity in gbm mandates a payload with a strong bystander effect to kill neighboring wt-egfr or non-expressing cells.">
   <div class="card-header">
     <div class="card-title">EGFRvIII</div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Neurologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4517,15 +4420,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Unknown Tier] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid constitutive internalization (unlike WT EGFR, EGFRvIII internalizes without ligand due to constitutive activation) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) cd123 血液肿瘤 high moderate moderate [tier 2 - active] rapid internalization in aml blasts supports dar 4 strategies; dna-damaging payloads are preferred to target quiescent leukemic stem cells.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) cd123 血液肿瘤 high moderate moderate [tier 2 - active] rapid internalization in aml blasts supports dar 4 strategies; dna-damaging payloads are preferred to target quiescent leukemic stem cells.">
   <div class="card-header">
     <div class="card-title">CD123 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4553,15 +4454,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (IL-3Rα; clathrin-mediated) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) flt3 血液肿瘤 high moderate moderate [tier 2 - active] rapid internalization in aml blasts supports dar 4 strategies; dna-damaging payloads are preferred to target quiescent leukemic stem cells.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="血液肿瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="moderate" data-search="tier 2 (active) flt3 血液肿瘤 high moderate moderate [tier 2 - active] rapid internalization in aml blasts supports dar 4 strategies; dna-damaging payloads are preferred to target quiescent leukemic stem cells.">
   <div class="card-header">
     <div class="card-title">FLT3 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Hematologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4589,15 +4488,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Ligand-induced rapid internalization (RTK pathway; clathrin-mediated) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="moderate" data-search="mesothelin 实体瘤 moderate low high">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="moderate" data-search="mesothelin 实体瘤 moderate low high">
   <div class="card-header">
     <div class="card-title">Mesothelin</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4621,15 +4518,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">High density in mesothelioma and ovarian cancer. Internalization POOR in most cell lines (key limitation limiting payload choice). Low normal tissue expression except pleural/peritoneal surfaces.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:26275529 (anetumab ravtansine)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:30530824 (Mesothelin internalization challenge)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:33273122</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 1 (approved) fr_alpha 实体瘤 high moderate moderate_to_high [tier 1 - approved] moderate to high density and high internalization, internalized via receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 1 (Approved)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="low" data-search="tier 1 (approved) fr_alpha 实体瘤 high moderate moderate_to_high [tier 1 - approved] moderate to high density and high internalization, internalized via receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">FR_alpha <span class="badge badge-approved" style="margin-left:auto">Tier 1 (Approved)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate_to_high · 内吞: high · 异质性: moderate (C)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4657,15 +4552,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 1 (Approved)] Based on Inferred (I) moderate_to_high density and Clinical (C) validation of high internalization via clinical data. Internalized via Receptor-mediated endocytosis (GPI-anchored; clathrin-independent, lipid raft pathway). Internalization is relatively slow but constitutive. (C).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="low" data-het="low" data-density="high" data-risk="moderate" data-search="tier 4 (emerging) gd2 实体瘤 神经系统 low low high [tier 4 - emerging] high density and low internalization, internalized via very slow — ganglioside.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤|神经系统" data-intern="low" data-het="low" data-density="high" data-risk="moderate" data-search="tier 4 (emerging) gd2 实体瘤 神经系统 low low high [tier 4 - emerging] high density and low internalization, internalized via very slow — ganglioside.">
   <div class="card-header">
     <div class="card-title">GD2 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span> <span class="badge badge-target">Neurologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: low · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: low · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4693,15 +4586,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) high density and Inferred (I) low internalization. Internalized via VERY SLOW — ganglioside (glycolipid); lipid raft-mediated macropinocytosis only; classical receptor endocytosis absent (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 3 (failed) gpnmb 实体瘤 high moderate moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 3 (failed) gpnmb 实体瘤 high moderate moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">gpNMB <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4729,15 +4620,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid clathrin-mediated endocytosis (Glycoprotein non-metastatic B; localized to endosomes/lysosomes and cell surface). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="moderate" data-search="tier 3 (failed) axl 实体瘤 high high moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid ligand.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="moderate" data-search="tier 3 (failed) axl 实体瘤 high high moderate [tier 3 - failed] moderate density and high internalization, internalized via rapid ligand.">
   <div class="card-header">
     <div class="card-title">AXL <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4765,15 +4654,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid ligand (Gas6)-induced clathrin-mediated endocytosis. Constitutive in AXL-overexpressing tumors. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 3 (failed) caix 实体瘤 moderate low high [tier 3 - failed] high density and moderate internalization, internalized via slow — carbonic anhydrase ix is a transmembrane enzyme.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="tier 3 (failed) caix 实体瘤 moderate low high [tier 3 - failed] high density and moderate internalization, internalized via slow — carbonic anhydrase ix is a transmembrane enzyme.">
   <div class="card-header">
     <div class="card-title">CAIX <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4801,15 +4688,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via SLOW — Carbonic anhydrase IX is a transmembrane enzyme; minimal spontaneous internalization. Antibody binding triggers slow endocytosis. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="神经系统" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="alk 神经系统 ? ? ?">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="神经系统" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="alk 神经系统 ? ? ?">
   <div class="card-header">
     <div class="card-title">ALK</div>
     <span class="badge badge-target">Neurologic</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (C) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4833,15 +4718,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">ALK-ADC (e.g., CDX-011 variant or similar) shows robust internalization and efficacy in neuroblastoma models.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:28935674</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 4 (emerging) afp 实体瘤 ? ? ? [tier 4 - emerging] internalized via internalization-dependent delivery.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="?" data-search="tier 4 (emerging) afp 实体瘤 ? ? ? [tier 4 - emerging] internalized via internalization-dependent delivery.">
   <div class="card-header">
     <div class="card-title">AFP <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: High (I) · 内吞: High (C) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4867,17 +4750,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Internalization-dependent delivery; AFP-targeted ADCs (e.g., ACT-903) are internalized into lysosomes for payload release. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) High (I) and Inferred (I) High (C). Internalized via Internalization-dependent delivery; AFP-targeted ADCs (e.g., ACT-903) are internalized into lysosomes for payload release. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="cspg4 实体瘤 ? ? ?">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="cspg4 实体瘤 ? ? ?">
   <div class="card-header">
     <div class="card-title">CSPG4</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (C) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4901,15 +4782,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">SNAP-tag-based auristatin F drug conjugate targeting CSPG4 shows specific killing of TNBC cells.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:37452145</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 4 (emerging) pmel 实体瘤 ? ? ? [tier 4 - emerging] internalized via rapid internalization to lysosome-related organelles.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="high" data-risk="?" data-search="tier 4 (emerging) pmel 实体瘤 ? ? ? [tier 4 - emerging] internalized via rapid internalization to lysosome-related organelles.">
   <div class="card-header">
     <div class="card-title">PMEL <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: High (I) · 内吞: High (C) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4935,17 +4814,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Rapid internalization to lysosome-related organelles (melanosomes) upon antibody binding. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) High (I) and Inferred (I) High (C). Internalized via Rapid internalization to lysosome-related organelles (melanosomes) upon antibody binding. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 4 (emerging) podo 实体瘤 ? ? ? [tier 4 - emerging] internalized via internalization confirmed in preclinical models.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 4 (emerging) podo 实体瘤 ? ? ? [tier 4 - emerging] internalized via internalization confirmed in preclinical models.">
   <div class="card-header">
     <div class="card-title">PODO <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -4971,17 +4848,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Internalization confirmed in preclinical models; rate is moderate and can be enhanced by antibody cross-linking. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Internalization confirmed in preclinical models; rate is moderate and can be enhanced by antibody cross-linking. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="moderate" data-search="fgfr2b 实体瘤 high high moderate">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="moderate" data-search="fgfr2b 实体瘤 high high moderate">
   <div class="card-header">
     <div class="card-title">FGFR2b</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5005,15 +4880,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">FGFR2b overexpressed in gastric/GEJ cancer (~30%), urothelial (~15%), endometrial. Bemarituzumab (naked anti-FGFR2b mAb): Phase 3 FORTITUDE-101 in gastric cancer. Zolbetuximab+bemarituzumab combo under study. MFGR1877S (anti-FGFR2b-MMAE ADC): Phase 1 in gastric cancer. FDA CDx: VENTANA FGFR2 IHC approved for bemarituzumab. FGFR2 amplification (FGFR2amp) is separate higher-frequency subgroup.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:23264543 (FGFR2 gastric cancer)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:35636936 (bemarituzumab Phase 2)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">VENTANA FGFR2 IHC FDA CDx</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 2 (active) guanylyl_cyclase_c 实体瘤 high low high [tier 2 - active] high density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="low" data-density="high" data-risk="moderate" data-search="tier 2 (active) guanylyl_cyclase_c 实体瘤 high low high [tier 2 - active] high density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">guanylyl_cyclase_C <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: high · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: high · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5041,15 +4914,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (Guanylyl cyclase C; ligand ST-induced or antibody-induced). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="low" data-search="tier 4 (emerging) il-13ra2 实体瘤 high high moderate [tier 4 - emerging] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="high" data-density="moderate" data-risk="low" data-search="tier 4 (emerging) il-13ra2 实体瘤 high high moderate [tier 4 - emerging] moderate density and high internalization, internalized via rapid receptor-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">IL-13Ra2 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: high (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5077,15 +4948,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid receptor-mediated endocytosis (high-affinity IL-13 decoy receptor; IL-13-induced or antibody-induced clathrin-mediated rapid internalization; t½ internalization ~15–30 min) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 2 (active) sez6 实体瘤 high moderate moderate [tier 2 - active] moderate density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="high" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 2 (active) sez6 实体瘤 high moderate moderate [tier 2 - active] moderate density and high internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">SEZ6 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: high · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5113,15 +4982,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) high internalization. Internalized via Rapid clathrin-mediated endocytosis (SEZ6/CSMD1 complement receptor-related protein; constitutive internalization; t½ internalization ~20–30 min in SCLC cell lines) (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 3 (failed) stn 其他 ? ? ? [tier 3 - failed] internalized via internalization confirmed for stn-targeted antibodies.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 3 (failed) stn 其他 ? ? ? [tier 3 - failed] internalized via internalization confirmed for stn-targeted antibodies.">
   <div class="card-header">
     <div class="card-title">STn <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5147,17 +5014,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Internalization confirmed for STn-targeted antibodies (e.g., SGN-STNV); rate is moderate. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Internalization confirmed for STn-targeted antibodies (e.g., SGN-STNV); rate is moderate. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 2 (active) ta-muc1 其他 ? ? ? [tier 2 - active] internalized via internalization occurs via multiple pathways.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 2 (active) ta-muc1 其他 ? ? ? [tier 2 - active] internalized via internalization occurs via multiple pathways.">
   <div class="card-header">
     <div class="card-title">TA-MUC1 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5183,17 +5048,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Internalization occurs via multiple pathways; rate is significantly influenced by linker hydrophilicity (PEG linkers enhance uptake). (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Internalization occurs via multiple pathways; rate is significantly influenced by linker hydrophilicity (PEG linkers enhance uptake). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 3 (failed) cd166_alcam 其他 ? ? ? [tier 3 - failed] internalized via rapid internalization via multiple pathways.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="其他" data-intern="high" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 3 (failed) cd166_alcam 其他 ? ? ? [tier 3 - failed] internalized via rapid internalization via multiple pathways.">
   <div class="card-header">
     <div class="card-title">CD166_ALCAM <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: High (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5219,17 +5082,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Rapid internalization via multiple pathways; identified as a highly internalizing target in various solid tumors. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) Moderate (I) and Inferred (I) High (I). Internalized via Rapid internalization via multiple pathways; identified as a highly internalizing target in various solid tumors. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="low" data-search="tier 2 (active) integrin_beta6 实体瘤 moderate moderate moderate_to_high [tier 2 - active] moderate to high density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="high" data-risk="low" data-search="tier 2 (active) integrin_beta6 实体瘤 moderate moderate moderate_to_high [tier 2 - active] moderate to high density and moderate internalization, internalized via rapid clathrin-mediated endocytosis.">
   <div class="card-header">
     <div class="card-title">Integrin_beta6 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate_to_high · 内吞: moderate · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate_to_high · 内吞: moderate · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5257,15 +5118,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate_to_high density and Inferred (I) moderate internalization. Internalized via Rapid clathrin-mediated endocytosis (αvβ6 integrin; upregulated in various solid tumors). (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="cd276 实体瘤 moderate low high">
+  </div><div class="card" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="low" data-density="high" data-risk="low" data-search="cd276 实体瘤 moderate low high">
   <div class="card-header">
     <div class="card-title">CD276</div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low</div>
+    <div class="cc-brief">密度: high · 内吞: moderate · 异质性: low (I)</div>
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5289,15 +5148,13 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Broad overexpression in solid tumors. Density moderate-high. Internalization moderate. Low normal tissue expression but widely detected at low levels — important to assess with IHC.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:34373294 (ifinatamab deruxtecan B7-H3)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:28951488 (B7-H3 tumor expression)</span></div>
     </div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 4 (emerging) tnf_receptor 其他 ? ? ? [tier 4 - emerging] internalized via efficient internalization of anti-tnf/tnfr1 complexes into lysosomes.">
+  </div><div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 4 (emerging) tnf_receptor 其他 ? ? ? [tier 4 - emerging] internalized via efficient internalization of anti-tnf/tnfr1 complexes into lysosomes.">
   <div class="card-header">
     <div class="card-title">TNF_receptor <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5323,17 +5180,15 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Efficient internalization of anti-TNF/TNFR1 complexes into lysosomes; used for delivery of immunomodulatory payloads. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Efficient internalization of anti-TNF/TNFR1 complexes into lysosomes; used for delivery of immunomodulatory payloads. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 2 (active) cldn18.2 实体瘤 moderate moderate moderate [tier 2 - active] moderate density and moderate internalization, internalized via slow — tight junction protein.">
+  </div><div class="card" data-tier="Tier 2 (Active)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 2 (active) cldn18.2 实体瘤 moderate moderate moderate [tier 2 - active] moderate density and moderate internalization, internalized via slow — tight junction protein.">
   <div class="card-header">
     <div class="card-title">CLDN18.2 <span class="badge badge-phase3" style="margin-left:auto">Tier 2 (Active)</span></div>
     <span class="badge badge-target">Solid Tumor</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate</div>
+    <div class="cc-brief">密度: moderate · 内吞: moderate · 异质性: moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5361,15 +5216,13 @@
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) moderate density and Inferred (I) moderate internalization. Internalized via SLOW — tight junction protein; ADC-accessible CLDN18.2 limited to 'free surfaces' where cells lose contact with neighbors. Macropinocytosis and lipid raft-mediated internalization; no classical ligand-induced RTK pathway. (I).</span>
       </div></div>
-  </div>
-</div>
-<div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="其他" data-intern="?" data-het="?" data-density="?" data-risk="?" data-search="tier 3 (failed) epha2 其他 ? ? ? [tier 3 - failed] internalized via rapid internalization upon antibody binding, driven by receptor phosphorylation.">
+  </div><div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="其他" data-intern="moderate" data-het="moderate" data-density="moderate" data-risk="?" data-search="tier 3 (failed) epha2 其他 ? ? ? [tier 3 - failed] internalized via rapid internalization upon antibody binding, driven by receptor phosphorylation.">
   <div class="card-header">
     <div class="card-title">EphA2 <span class="badge badge-phase1" style="margin-left:auto">Tier 3 (Failed)</span></div>
     <span class="badge badge-target">Other</span>
   </div>
   <div class="card-body">
-    <div class="cc-brief">密度: ? · 内吞: ? · 异质性: ?</div>
+    <div class="cc-brief">密度: Moderate (I) · 内吞: Moderate (I) · 异质性: Moderate (I)</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
@@ -5395,14 +5248,9 @@
     
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
-        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) Unknown density and Inferred (I) Unknown internalization. Internalized via Rapid internalization upon antibody binding, driven by receptor phosphorylation. (I).</span>
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 3 (Failed)] Based on Inferred (I) Moderate (I) and Inferred (I) Moderate (I). Internalized via Rapid internalization upon antibody binding, driven by receptor phosphorylation. (I).</span>
       </div></div>
-  </div>
-</div>
-    </div>
-  </div>
-
-  <!-- ═══ PAYLOADS ═══ -->
+  </div><!-- ═══ PAYLOADS ═══ -->
   <div class="tab-panel" id="panel-个载荷">
     <h2 class="section-title">Payload Molecules</h2>
     <p class="section-desc">From classic cytotoxins (MMAE, DXd) to emerging modalities (PROTACs, Radionuclides, ISACs). Includes SMILES structures 和 PubChem links.</p>
