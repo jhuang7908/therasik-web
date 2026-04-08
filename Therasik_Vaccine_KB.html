@@ -195,10 +195,30 @@
       border-radius:16px;
       background:#fff;
       overflow:hidden;
+      position: relative;
     }
     details.card[open] {
       border-color:rgba(13,148,136,.35);
       box-shadow:0 10px 28px rgba(15,118,110,.08);
+    }
+    .collapse-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(13,148,136,0.1);
+      z-index: 5;
+      display: none;
+    }
+    details.card[open] .collapse-bar {
+      display: block;
+    }
+    .collapse-progress {
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      transition: none;
     }
     details.card summary {
       list-style:none;
@@ -533,10 +553,12 @@
       ).join('');
     }
 
-    function detailsCard({title, subtitle, badges = [], summary, body, searchText}) {
+    function detailsCard({title, subtitle, badges = [], summary, body, searchText, id}) {
+      const cardId = id || 'card-' + Math.random().toString(36).slice(2, 9);
       return `
-        <details class="card searchable" data-search="${esc(searchText).toLowerCase()}">
-          <summary>
+        <details class="card searchable" id="${cardId}" data-search="${esc(searchText).toLowerCase()}">
+          <div class="collapse-bar"><div class="collapse-progress"></div></div>
+          <summary onclick="handleCardToggle(event, '${cardId}')">
             <div class="card-title">${esc(title)}</div>
             <div class="card-sub">${esc(subtitle || '')}</div>
             <div class="badge-row">${badges.join('')}</div>
@@ -545,6 +567,69 @@
           <div class="card-body">${body}</div>
         </details>
       `;
+    }
+
+    let collapseTimers = {};
+
+    function handleCardToggle(ev, id) {
+      if (ev && ev.target && ev.target.closest('a, button')) return;
+      
+      const el = document.getElementById(id);
+      if (!el) return;
+      
+      // Since <details> toggles 'open' after the click event, we use setTimeout to check the state
+      setTimeout(() => {
+        const isOpen = el.hasAttribute('open');
+        const progress = el.querySelector('.collapse-progress');
+        
+        if (isOpen) {
+          if (progress) {
+            progress.style.transition = 'none';
+            progress.style.width = '100%';
+          }
+          
+          if (!el.dataset.hoverBound) {
+            el.dataset.hoverBound = 'true';
+            el.addEventListener('mouseenter', () => {
+              if (!el.hasAttribute('open')) return;
+              if (collapseTimers[id]) {
+                clearTimeout(collapseTimers[id]);
+                collapseTimers[id] = null;
+              }
+              if (progress) {
+                progress.style.transition = 'none';
+                progress.style.width = '100%';
+              }
+            });
+            
+            el.addEventListener('mouseleave', () => {
+              if (!el.hasAttribute('open')) return;
+              const duration = 3000;
+              if (progress) {
+                void progress.offsetWidth;
+                progress.style.transition = `width ${duration}ms linear`;
+                progress.style.width = '0%';
+              }
+              collapseTimers[id] = setTimeout(() => {
+                el.removeAttribute('open');
+                if (progress) {
+                  progress.style.transition = 'none';
+                  progress.style.width = '100%';
+                }
+              }, duration);
+            });
+          }
+        } else {
+          if (collapseTimers[id]) {
+            clearTimeout(collapseTimers[id]);
+            collapseTimers[id] = null;
+          }
+          if (progress) {
+            progress.style.transition = 'none';
+            progress.style.width = '100%';
+          }
+        }
+      }, 0);
     }
 
     function renderTumorCards(items) {
