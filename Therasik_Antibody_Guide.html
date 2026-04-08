@@ -1393,6 +1393,52 @@ function renderGrid() {
     return matchCat && matchTier && matchSearch;
   });
 
+  /* Update dropdown options (Cascading/Linkage) */
+  const filterConfigs = [
+    { id: 'cat-filter', field: 'cat' },
+    { id: 'tier-filter', field: 'tier' }
+  ];
+
+  filterConfigs.forEach(cfg => {
+    const select = document.getElementById(cfg.id);
+    if (!select || select.style.display === 'none') return;
+    const options = Array.from(select.querySelectorAll('option'));
+    const validValues = new Set();
+
+    data.forEach(d => {
+      // Check if this item matches all OTHER filters
+      let matchOthers = true;
+      if (q) {
+        const matchSearch = [d.name, d.alias, d.brief, d.cat,
+          d.mechanism || '', d.examples ? d.examples.join(' ') : '',
+          d.interp || '', d.detection || '', d.mitigation || '',
+          d.principle || '', d.readout || '', d.compLink || '', d.context || '',
+          d.ip ? `${d.ip.holder} ${d.ip.key} ${d.ip.workaround} ${d.ip.status}` : ''].some(f => f.toLowerCase().includes(q));
+        if (!matchSearch) matchOthers = false;
+      }
+      if (matchOthers) {
+        filterConfigs.forEach(other => {
+          if (other.id === cfg.id) return;
+          const otherSelect = document.getElementById(other.id);
+          if (!otherSelect || otherSelect.style.display === 'none') return;
+          const val = otherSelect.value;
+          if (val && d[other.field] !== val) matchOthers = false;
+        });
+      }
+
+      if (matchOthers) {
+        validValues.add(d[cfg.field]);
+      }
+    });
+
+    options.forEach(opt => {
+      if (opt.value === "") return;
+      const isValid = validValues.has(opt.value);
+      opt.style.display = isValid ? "" : "none";
+      opt.disabled = !isValid;
+    });
+  });
+
   // Group by category
   const groups = {};
   filtered.forEach(d => {

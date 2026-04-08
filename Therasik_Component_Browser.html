@@ -404,6 +404,57 @@ function render(){
   clearTimeout(collapseTimer);
   var f=getF();
   var filtered=filterEls(DATA.elements,f);
+  
+  /* Update dropdown options (Cascading/Linkage) */
+  var filterConfigs = [
+    { id: 'cat-filter', field: 'category' },
+    { id: 'tier-filter', field: 'regulatory_tier' },
+    { id: 'cell-filter', field: 'cell_types', isArray: true }
+  ];
+
+  filterConfigs.forEach(function(cfg) {
+    var select = document.getElementById(cfg.id);
+    var options = Array.from(select.querySelectorAll('option'));
+    var validValues = new Set();
+
+    DATA.elements.forEach(function(e) {
+      // Check if this element matches all OTHER filters
+      var matchOthers = true;
+      if (f.search) {
+        var hay=[e.name,e.category,e.subcategory,e.role,e.design_notes,e.source,(e.approval_products||[]).join(' '),(e.clinical_trials||[]).join(' '),(e.indications||[]).join(' '),e.gene_symbol,e.uniprot_id,e.id].join(' ').toLowerCase();
+        if(!hay.includes(f.search)) matchOthers = false;
+      }
+      if (matchOthers) {
+        filterConfigs.forEach(function(other) {
+          if (other.id === cfg.id) return;
+          var val = document.getElementById(other.id).value;
+          if (val) {
+            if (other.isArray) {
+              if (!(e[other.field]||[]).includes(val)) matchOthers = false;
+            } else {
+              if (e[other.field] !== val) matchOthers = false;
+            }
+          }
+        });
+      }
+
+      if (matchOthers) {
+        if (cfg.isArray) {
+          (e[cfg.field]||[]).forEach(function(v){ validValues.add(v); });
+        } else {
+          validValues.add(e[cfg.field]);
+        }
+      }
+    });
+
+    options.forEach(function(opt) {
+      if (opt.value === "") return;
+      var isValid = validValues.has(opt.value);
+      opt.style.display = isValid ? "" : "none";
+      opt.disabled = !isValid;
+    });
+  });
+
   var chip=document.getElementById('stats-chip');
   chip.textContent=filtered.length+' / '+DATA.elements.length+' elements';
   chip.style.color=filtered.length<DATA.elements.length?'var(--primary-dark)':'var(--text-muted)';

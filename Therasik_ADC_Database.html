@@ -7977,13 +7977,15 @@ document.querySelectorAll('.tab-btn').forEach(function(btn) {
   });
 });
 
-/* ── Generic filter function ── */
+/* ── Generic filter function with cascading logic ── */
 function filterGrid(gridId, searchId, countId, filterConfigs) {
   var q = document.getElementById(searchId).value.toLowerCase();
   var grid = document.getElementById(gridId);
   if (!grid) return;
-  var cards = grid.querySelectorAll('.card');
-  var n = 0;
+  var cards = Array.from(grid.querySelectorAll('.card'));
+  
+  // 1. Perform the filtering
+  var visibleCards = [];
   cards.forEach(function(card) {
     var matchSearch = !q || (card.dataset.search || '').includes(q);
     var matchFilters = true;
@@ -7995,9 +7997,43 @@ function filterGrid(gridId, searchId, countId, filterConfigs) {
     }
     var show = matchSearch && matchFilters;
     card.classList.toggle('hidden', !show);
-    if (show) n++;
+    if (show) visibleCards.push(card);
   });
-  document.getElementById(countId).textContent = n + ' entries';
+  document.getElementById(countId).textContent = visibleCards.length + ' entries';
+
+  // 2. Update dropdown options (Cascading/Linkage)
+  if (filterConfigs) {
+    filterConfigs.forEach(function(currentFc) {
+      var select = document.getElementById(currentFc.selectId);
+      var options = select.querySelectorAll('option');
+      
+      // Determine valid values for THIS dropdown, given all OTHER filters
+      var validValues = new Set();
+      cards.forEach(function(card) {
+        // Check if this card matches all filters EXCEPT the current one
+        var matchOthers = !q || (card.dataset.search || '').includes(q);
+        filterConfigs.forEach(function(otherFc) {
+          if (otherFc.selectId === currentFc.selectId) return;
+          var val = document.getElementById(otherFc.selectId).value;
+          if (val && card.getAttribute(otherFc.attr) !== val) matchOthers = false;
+        });
+        
+        if (matchOthers) {
+          validValues.add(card.getAttribute(currentFc.attr));
+        }
+      });
+
+      // Update option visibility/state
+      options.forEach(function(opt) {
+        if (opt.value === "") return; // Skip "All" option
+        var isValid = validValues.has(opt.value);
+        // We hide/show instead of disable for better UX in some browsers
+        opt.style.display = isValid ? "" : "none";
+        // Also add a class for styling if needed
+        opt.disabled = !isValid;
+      });
+    });
+  }
 }
 
 function filterActiveTab() {

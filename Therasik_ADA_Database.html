@@ -689,6 +689,67 @@ function applyFilters() {
     return true;
   });
 
+  /* Update dropdown options (Cascading/Linkage) */
+  const filterConfigs = [
+    { id: 'f-origin', field: 'origin' },
+    { id: 'f-disease', field: 'disease_class', partial: true },
+    { id: 'f-tier', field: 'tier' },
+    { id: 'f-route', field: 'route', partial: true, upper: true },
+    { id: 'f-risk', field: 'tcia_risk' },
+    { id: 'f-moa', field: 'moa_class' }
+  ];
+
+  filterConfigs.forEach(cfg => {
+    const select = document.getElementById(cfg.id);
+    const options = Array.from(select.querySelectorAll('option'));
+    const validValues = new Set();
+
+    ALL_DATA.forEach(d => {
+      // Check if this item matches all OTHER filters
+      let matchOthers = true;
+      if (q) {
+        const haystack = [(d.name||''), (d.targets||''), (d.indication||''),
+                          (d.disease_class||''), (d.fc_engineering||''),
+                          (d.moa_class||''), (d.vh_germline||''), (d.vl_germline||'')].join(' ').toLowerCase();
+        if (!haystack.includes(q)) matchOthers = false;
+      }
+      if (matchOthers) {
+        filterConfigs.forEach(other => {
+          if (other.id === cfg.id) return;
+          const val = document.getElementById(other.id).value;
+          if (val) {
+            if (other.partial) {
+              const dVal = (d[other.field]||'');
+              if (!(other.upper ? dVal.toUpperCase() : dVal.toLowerCase()).includes(val)) matchOthers = false;
+            } else {
+              if ((d[other.field]||'') !== val) matchOthers = false;
+            }
+          }
+        });
+      }
+
+      if (matchOthers) {
+        validValues.add(d[cfg.field]);
+      }
+    });
+
+    options.forEach(opt => {
+      if (opt.value === "") return;
+      let isValid = false;
+      if (cfg.partial) {
+        const searchVal = opt.value;
+        validValues.forEach(v => {
+          const vStr = (v||'');
+          if ((cfg.upper ? vStr.toUpperCase() : vStr.toLowerCase()).includes(searchVal)) isValid = true;
+        });
+      } else {
+        isValid = validValues.has(opt.value);
+      }
+      opt.style.display = isValid ? "" : "none";
+      opt.disabled = !isValid;
+    });
+  });
+
   sortData();
   renderTable();
   updateStats();
