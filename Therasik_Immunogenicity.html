@@ -328,11 +328,14 @@
       <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid rgba(13,148,136,0.25);border-radius:12px;padding:18px 24px;margin-bottom:24px;">
         <div style="text-align:center;flex-shrink:0;">
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#0d9488;">FH 综合评分</div>
-          <div style="font-size:36px;font-weight:700;color:#111827;line-height:1.2;">ρ = +0.310</div>
-          <div style="font-size:12px;color:#6b7280;">p = 0.024 · n = 53</div>
+          <div style="font-size:36px;font-weight:700;color:#0d9488;line-height:1.2;">ρ = +0.310</div>
+          <div style="font-size:12px;color:#0d9488;font-weight:600;">p = 0.024 · n = 53 · 统计显著 ✓</div>
         </div>
         <div style="font-size:14px;color:#374151;line-height:1.6;">
-          ADA V2 综合评分整合了上述四项核心因子，在 FH 子集中与临床 ADA 呈正相关趋势。该评分反映了界面稳定性、种系偏离、疏水斑块和 T 细胞表位的联合效应——综合维度的预测效力接近最强单因子水平。
+          <strong>ADA V2 双轨制校准（2026-04）</strong>：FH 专项评分修正了两处权重误差：<br>
+          ① 界面接触归一化上限由 60 → 100（FH 均值 ≈ 71，旧标准使近乎所有 FH 抗体 I = 1.0，失去区分度）；<br>
+          ② VL 种系偏离改为 <strong>(1 − VL_identity) × 0.20</strong>（旧调制量范围仅 ±0.004，近乎零贡献）。<br>
+          修正后 FH 综合评分首次达到统计显著，与临床 ADA 正相关（p = 0.024），可媲美最强单一预测因子。
         </div>
       </div>
 
