@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Therasik ADC 知识库 — 100 个临床程序, 78 个目标抗原, 32 个载荷, 22 个链接子, 23 个偶联技术。">
+<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 78 个目标抗原, 32 个载荷, 22 个链接子, 23 个偶联技术。">
 <meta name="robots" content="noai, noimageai">
 <meta name="AI-Training" content="opt-out">
 <link rel="canonical" href="https://www.therasik.com/Therasik_ADC_Database.html">
@@ -257,7 +257,7 @@
           </a>
           <a href="Therasik_ADC_Database.html">
             <span class="menu-title">ADC 数据库</span>
-            <span class="menu-desc">100 个临床 ADC 程序</span>
+            <span class="menu-desc">100 个临床 ADC 项目</span>
           </a>
           <a href="Therasik_Component_Browser.html">
             <span class="menu-title">CAR 组件库</span>
@@ -334,7 +334,7 @@
 <div class="page">
 <!-- Tab bar — horizontal underline, same as vaccine_kb -->
   <div class="tabs-bar">
-    <button class="tab-btn active" data-tab="programs">临床程序 (100)</button>
+    <button class="tab-btn active" data-tab="programs">临床项目 (100)</button>
     <button class="tab-btn" data-tab="antigens">目标抗原 (78)</button>
     <button class="tab-btn" data-tab="个载荷">载荷 (32)</button>
     <button class="tab-btn" data-tab="个链接子">链接子 (22)</button>
@@ -349,12 +349,12 @@
     <div class="ctrl-row">
       <input class="search-box" id="searchPrograms" type="text" placeholder="Search name, target, company, payload…">
       <select class="filter-sel" id="filterStage">
-        <option value="">All stages</option>
-    <option value="approved">Approved</option>
-    <option value="phase3">Phase 3</option>
-    <option value="phase2">Phase 2</option>
-    <option value="phase1">Phase 1</option>
-    <option value="discontinued">Discontinued</option>
+        <option value="">全部阶段</option>
+    <option value="已获批">已获批</option>
+    <option value="临床 3 期">临床 3 期</option>
+    <option value="临床 2 期">临床 2 期</option>
+    <option value="临床 1 期">临床 1 期</option>
+    <option value="已停止">已停止 / 终止</option>
       </select>
       <select class="filter-sel" id="filterTarget">
         <option value="">All targets</option>
@@ -7054,16 +7054,16 @@
 
   <!-- ═══ CONJUGATION ═══ -->
   <div class="tab-panel" id="panel-conjugation">
-    <h2 class="section-title">偶联技术nologies</h2>
+    <h2 class="section-title">偶联技术 · Conjugation</h2>
     <p class="section-desc">From stochastic cysteine to site-specific enzymatic (FGE, Sortase) 和 glycan remodeling — DAR homogeneity, CMC complexity, 和 patent / FTO analysis.</p>
     <div class="ctrl-row">
       <input class="search-box" id="searchConj" type="text" placeholder="Search technology, patent…">
       <select class="filter-sel" id="filterConjHomo">
-        <option value="">All homogeneity</option>
-    <option value="very_high">Very High</option>
-    <option value="high">High</option>
-    <option value="moderate">Moderate</option>
-    <option value="low">Low</option>
+        <option value="">全部均一性</option>
+    <option value="极高">极高 (Very High)</option>
+    <option value="高">高 (High)</option>
+    <option value="中等">中等 (Moderate)</option>
+    <option value="低">低 (Low)</option>
       </select>
       <span class="result-count" id="countConj"></span>
     </div>

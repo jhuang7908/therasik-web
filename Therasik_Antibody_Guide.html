@@ -1192,15 +1192,6 @@ const DOMAINS = {
     filterLabel: '—',
     card: null,
   },
-  adc_registry: {
-    data: ADC_CLINICAL_DATA,
-    note: '<strong>临床 ADC 注册表</strong> — 全球已批准及各临床阶段抗体偶联药物 (ADC) 的综合数据库。包含靶点、偶联技术、DAR 及最新临床结果（ORR/PFS/毒性）。',
-    catField: 'cat',
-    cats: [...new Set(ADC_CLINICAL_DATA.map(d=>d.cat))].sort(),
-    showTier: true,
-    filterLabel: '所有靶点',
-    card: renderFcCard,
-  },
 };
 
 // ── Fc × ADA static content ─────────────────────────────────────────────────
@@ -1533,7 +1524,7 @@ function switchDomain(domain, btn) {
   btn.classList.add('active');
   updateCatFilter();
   const tierEl = document.getElementById('tier-filter');
-  tierEl.style.display = (domain === 'fc') ? '' : 'none';
+  tierEl.style.display = (domain === 'fc' || domain === 'adc_registry') ? '' : 'none';
   // Hide search/filter bar for static domains
   const filterBar = document.getElementById('filter-bar');
   if (filterBar) filterBar.style.display = (domain === 'fcada') ? 'none' : '';
@@ -1592,7 +1583,7 @@ if (urlTab && DOMAINS[urlTab]) {
   document.querySelectorAll('.dtab').forEach(b => {
     b.classList.toggle('active', b.dataset.domain === urlTab);
   });
-  if (urlTab !== 'fc') document.getElementById('tier-filter').style.display = 'none';
+  if (urlTab !== 'fc' && urlTab !== 'adc_registry') document.getElementById('tier-filter').style.display = 'none';
 }
 updateCatFilter();
 renderGrid();
