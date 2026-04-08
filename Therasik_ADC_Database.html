@@ -84,7 +84,7 @@
   .section-desc { color:var(--text-muted); font-size:13.5px; margin-bottom:16px; max-width:700px; }
 
   /* ── Card grid — matches vaccine_kb (280px min) ── */
-  .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; width: 100%; }
 
   /* ── Cards — matches vaccine_kb + antibody-guide expand pattern ── */
   .card { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:box-shadow .15s,border-color .15s; cursor:pointer; }
@@ -218,8 +218,8 @@
   <div class="tabs-bar">
     <button class="tab-btn active" data-tab="programs">临床项目 (100)</button>
     <button class="tab-btn" data-tab="antigens">目标抗原 (78)</button>
-    <button class="tab-btn" data-tab="个载荷">载荷 (32)</button>
-    <button class="tab-btn" data-tab="个链接子">链接子 (22)</button>
+    <button class="tab-btn" data-tab="payloads">载荷 (32)</button>
+    <button class="tab-btn" data-tab="linkers">链接子 (22)</button>
     <button class="tab-btn" data-tab="conjugation">偶联技术 (23)</button>
     <button class="tab-btn" data-tab="experiments">验证分析 (9)</button>
   </div>
@@ -5338,7 +5338,7 @@
   </div>
 
 <!-- ═══ PAYLOADS ═══ -->
-  <div class="tab-panel" id="panel-个载荷">
+  <div class="tab-panel" id="panel-payloads">
     <h2 class="section-title">Payload Molecules</h2>
     <p class="section-desc">From classic cytotoxins (MMAE, DXd) to emerging modalities (PROTACs, Radionuclides, ISACs). Includes SMILES structures 和 PubChem links.</p>
     <div class="ctrl-row">
@@ -6455,7 +6455,7 @@
   </div>
 
   <!-- ═══ LINKERS ═══ -->
-  <div class="tab-panel" id="panel-个链接子">
+  <div class="tab-panel" id="panel-linkers">
     <h2 class="section-title">Linker Chemistry</h2>
     <p class="section-desc">Cleavable (protease, pH, disulfide) 和 non-cleavable 个链接子 matched to antigen internalization kinetics, with chemical structures.</p>
     <div class="ctrl-row">
@@ -8148,12 +8148,12 @@ function filterActiveTab() {
     case 'antigens':
       filterGridAntigens();
       break;
-    case '个载荷':
+    case 'payloads':
       filterGrid('grid载荷', 'search载荷', 'count载荷', [
         { selectId: 'filterPayloadCls', attr: 'data-cls' }
       ]);
       break;
-    case '个链接子':
+    case 'linkers':
       filterGrid('grid链接子', 'search链接子', 'count链接子', [
         { selectId: 'filterLinkerType', attr: 'data-ltype' }
       ]);
