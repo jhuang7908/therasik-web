@@ -6560,16 +6560,19 @@
       <input class="search-box" id="search链接子" type="text" placeholder="Search linker name, mechanism…">
       <select class="filter-sel" id="filterLinkerType">
         <option value="">All types</option>
-    <option value="可裂解">Cleavable</option>
-    <option value="不可裂解">Non-cleavable</option>
+    <option value="Protease-cleavable">Protease-cleavable (酶裂解)</option>
+    <option value="pH-cleavable">pH-cleavable (酸裂解)</option>
+    <option value="Disulfide-cleavable">Disulfide-cleavable (二硫键)</option>
+    <option value="Non-cleavable">Non-cleavable (不可裂解)</option>
       </select>
       <span class="result-count" id="count链接子"></span>
     </div>
     <div class="card-grid" id="grid链接子">
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mc-val-cit-pabc 可裂解 cathepsin b cleavage">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="mc-val-cit-pabc 可裂解 cathepsin b cleavage">
   <div class="card-header">
     <div class="card-title">mc-val-cit-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain / Seagen</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (very stable in hum… · 裂解酶: Cathepsin B (lysosomal cy…</div>
@@ -6598,10 +6601,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="ggfg 可裂解 cathepsin cleavage">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="ggfg 可裂解 cathepsin cleavage">
   <div class="card-header">
     <div class="card-title">GGFG</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Daiichi Sankyo (Proprietary)</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (highly stable in h… · 裂解酶: Lysosomal cathepsins (B, …</div>
@@ -6630,10 +6634,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="glucuronide-mmae 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="glucuronide-mmae 可裂解 various">
   <div class="card-header">
     <div class="card-title">Glucuronide-MMAE</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (beta-glucuronidase… · 裂解酶: β-Glucuronidase (lysosoma…</div>
@@ -6661,10 +6666,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="peg4-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="peg4-vc-pabc 可裂解 various">
   <div class="card-header">
     <div class="card-title">PEG4-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6692,10 +6698,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="va-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="va-pabc 可裂解 various">
   <div class="card-header">
     <div class="card-title">VA-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (similar stability … · 裂解酶: Cathepsin B (slightly fas…</div>
@@ -6723,10 +6730,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="pyrophosphate-diester 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="pyrophosphate-diester 可裂解 various">
   <div class="card-header">
     <div class="card-title">Pyrophosphate-diester</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Moderate (hours to days; hydro… · 裂解酶: Phosphodiesterase (intrac…</div>
@@ -6754,10 +6762,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="legumain-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="legumain-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Legumain-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (legumain not prese… · 裂解酶: Legumain (Asn-specific cy…</div>
@@ -6785,10 +6794,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="beta-galactoside-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="beta-galactoside-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">beta-galactoside-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (beta-galactosidase… · 裂解酶: β-Galactosidase (lysosoma…</div>
@@ -6816,10 +6826,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="sulfatase-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="sulfatase-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Sulfatase-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Sulfatase (lysosomal aryl…</div>
@@ -6847,10 +6858,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="phosphatase-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="phosphatase-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Phosphatase-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Short (hours) — phosphatases p… · 裂解酶: Alkaline/acid phosphatase…</div>
@@ -6878,10 +6890,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mal-peg2-v-cit-pab 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="mal-peg2-v-cit-pab 可裂解 various">
   <div class="card-header">
     <div class="card-title">Mal-PEG2-V-Cit-PAB</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6909,10 +6922,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="fmoc-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="fmoc-vc-pabc 可裂解 various">
   <div class="card-header">
     <div class="card-title">Fmoc-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Unknown — Fmoc is base-labile;… · 裂解酶: Cathepsin B (after Fmoc d…</div>
@@ -6940,10 +6954,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="dde-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="dde-vc-pabc 可裂解 various">
   <div class="card-header">
     <div class="card-title">Dde-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Unknown — Dde is hydrazine-lab… · 裂解酶: Cathepsin B (after Dde de…</div>
@@ -6971,10 +6986,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="hydrazone-disulfide 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="pH-cleavable" data-search="hydrazone-disulfide 可裂解 various">
   <div class="card-header">
     <div class="card-title">Hydrazone-disulfide</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">pH-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Short (hours) — hydrazone is a… · 裂解酶: pH-dependent hydrolysis (…</div>
@@ -7002,10 +7018,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="thioether-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="thioether-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Thioether-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Variable · 裂解酶: Intracellular thiol (GSH-…</div>
@@ -7033,10 +7050,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="peptide-mmaf 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="peptide-mmaf 可裂解 various">
   <div class="card-header">
     <div class="card-title">Peptide-MMAF</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B or other lyso…</div>
@@ -7064,10 +7082,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="peg8-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="peg8-vc-pabc 可裂解 various">
   <div class="card-header">
     <div class="card-title">PEG8-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -7095,10 +7114,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="val-cit-pab-oh 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="val-cit-pab-oh 可裂解 various">
   <div class="card-header">
     <div class="card-title">Val-Cit-PAB-OH</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain / Seagen</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -7126,10 +7146,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mc-val-cit-pab-pnp 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="mc-val-cit-pab-pnp 可裂解 various">
   <div class="card-header">
     <div class="card-title">mc-Val-Cit-PAB-PNP</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain / Seagen</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -7157,10 +7178,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mal-peg4-nhs 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Non-cleavable" data-search="mal-peg4-nhs 可裂解 various">
   <div class="card-header">
     <div class="card-title">Mal-PEG4-NHS</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Non-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (non-cleavable cros… · 裂解酶: None (non-cleavable space…</div>
@@ -7188,10 +7210,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="smpeg24 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Non-cleavable" data-search="smpeg24 可裂解 various">
   <div class="card-header">
     <div class="card-title">SMPEG24</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Non-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (non-cleavable) · 裂解酶: None (non-cleavable PEG-m…</div>
@@ -7219,10 +7242,11 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="sulfo-smcc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Non-cleavable" data-search="sulfo-smcc 可裂解 various">
   <div class="card-header">
     <div class="card-title">Sulfo-SMCC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Non-cleavable</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain / ImmunoGen</span></div>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;10 days (non-cleavable thi… · 裂解酶: None — non-cleavable. Req…</div>
