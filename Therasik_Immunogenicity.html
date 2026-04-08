@@ -281,12 +281,12 @@
     <p>我们的研究揭示了全人源（FH）与人源化（HU）两类抗体的免疫原性风险由完全不同的机制驱动，因此建立了 <strong>ADA V2 双轨制预测模型</strong>，分别使用不同的评估参数与权重体系。</p>
 
     <div style="margin: 32px 0; text-align: center;">
-      <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 16px;">图 1: 138 种临床抗体 ADA 发生率分布 (高度右偏，分层建模必要性)</h4>
+      <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 16px;">图 1: ADA 发生率分布 — 全部 138 种 / 人源化 (HU) / 全人源 (FH)</h4>
       <img src="images/ada_study/fig1_ada_distribution.png" alt="ADA Distribution" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
     </div>
 
     <div style="margin: 32px 0; text-align: center;">
-      <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 16px;">图 2: 按人源化策略与检测方法的 ADA 分布差异</h4>
+      <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 16px;">图 2: 按人源化策略、检测方法、给药途径与 Fc 亚型的 ADA 分布差异</h4>
       <img src="images/ada_study/fig2_ada_boxplots.png" alt="ADA Boxplots" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
     </div>
 
@@ -325,9 +325,24 @@
         </div>
       </div>
 
+      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid rgba(13,148,136,0.25);border-radius:12px;padding:18px 24px;margin-bottom:24px;">
+        <div style="text-align:center;flex-shrink:0;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#0d9488;">FH 综合评分</div>
+          <div style="font-size:36px;font-weight:700;color:#111827;line-height:1.2;">ρ = +0.266</div>
+          <div style="font-size:12px;color:#6b7280;">p = 0.054 · n = 53</div>
+        </div>
+        <div style="font-size:14px;color:#374151;line-height:1.6;">
+          ADA V2 综合评分整合了上述四项核心因子，在 FH 子集中与临床 ADA 呈正相关趋势。该评分反映了界面稳定性、种系偏离、疏水斑块和 T 细胞表位的联合效应——综合维度的预测效力接近最强单因子水平。
+        </div>
+      </div>
+
       <div style="margin: 24px 0; text-align: center;">
-        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 3: FH 抗体——31 维特征与 ADA 相关性全景（高灵敏度子集）</h4>
+        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 3: 31 维特征与 ADA 发生率的 Spearman 相关性全景图</h4>
         <img src="images/ada_study/fig3_correlation_heatmap.png" alt="Correlation Heatmap" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+      </div>
+      <div style="margin: 24px 0; text-align: center;">
+        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 4: FH 抗体——界面接触、种系偏离、疏水斑块与 MHC-II 表位散点分析</h4>
+        <img src="images/ada_study/fig4_scatter_key_features.png" alt="FH Scatter Analysis" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
       <div style="background:rgba(13,148,136,0.06);border-left:3px solid #0d9488;padding:12px 16px;border-radius:6px;font-size:14px;color:#065f58;">
         <strong>关键结论</strong>：全人源抗体的免疫原性直接反映分子设计质量——减少界面异常、控制 SHM 程度、降低疏水斑块，是降低 ADA 风险的三条核心路径。高灵敏度检测（Tiered/ECL）能更清晰地揭示 T 细胞表位的贡献。
@@ -375,12 +390,22 @@
       </div>
 
       <div style="margin: 24px 0; text-align: center;">
-        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 4: HU 抗体——关键特征与 ADA 相关性散点分析（HU 高灵敏度子集）</h4>
-        <img src="images/ada_study/fig4_scatter_key_features.png" alt="Scatter Analysis" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 5: HU 抗体——聚集基序、种系一致性、不稳定性与 TCIA 评分散点分析</h4>
+        <img src="images/ada_study/fig5_hu_scatter.png" alt="HU Scatter Analysis" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
       
       <div style="background:rgba(29,78,216,0.05);border-left:3px solid #1d4ed8;padding:12px 16px;border-radius:6px;font-size:14px;color:#1e3a8a;">
         <strong>关键结论</strong>：人源化抗体的临床 ADA 被免疫抑制剂等管理措施压低，掩盖了分子层面的真实风险。Therasik HU 专项系统绕过这一干扰，直接从"设计质量"切入——Vernier Zone 与 Junction 是否在降解后产生强 T 细胞信号，才是评估 HU 免疫原性风险的核心维度。
+      </div>
+    </div>
+
+    <!-- ── Composite Score ── -->
+    <div style="margin: 40px 0;">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">ADA V2 综合评分：FH vs HU 的预测效力对比</h3>
+      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">ADA V2 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈正相关趋势（ρ=+0.266, p=0.054），接近统计显著。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
+      <div style="margin: 0; text-align: center;">
+        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 6: ADA V2 综合评分与临床 ADA — FH vs HU 对比</h4>
+        <img src="images/ada_study/fig7_ada_v2_composite.png" alt="ADA V2 Composite Score" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
     </div>
 
@@ -389,7 +414,7 @@
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">CMC 可开发性特征：FH 与 HU 的共通风险</h3>
       <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">无论 FH 还是 HU，<strong>聚集基序和疏水斑块</strong>在全样本面板中均维持正相关（全面板 ρ=+0.177, p=0.045），为早期 CMC 筛选提供了共通的免疫学风险依据。检测方法分层（Kruskal-Wallis p=0.852）证实这一相关性不受检测代际偏差影响。</p>
       <div style="margin: 0; text-align: center;">
-        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 5: CMC 可开发性特征（聚集基序、脱酰胺等）与 ADA 的跨抗体形式关联</h4>
+        <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 7: CMC 可开发性特征（聚集基序、脱酰胺等）与 ADA 的跨抗体形式关联</h4>
         <img src="images/ada_study/fig8_cmc_vs_ada.png" alt="CMC vs ADA" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
       </div>
     </div>
