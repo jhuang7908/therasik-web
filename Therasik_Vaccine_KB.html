@@ -28,43 +28,33 @@
       line-height:1.55;
       padding-top:68px;
     }
-    .topbar {
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      height:68px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 24px;
-      background:rgba(255,255,255,.94);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(13,148,136,.14);
-      z-index:20;
-    }
-    .brand {
-      font-family:Georgia, "Times New Roman", serif;
-      font-size:28px;
-      font-weight:700;
-      color:#1f2937;
-      text-decoration:none;
-      letter-spacing:-.03em;
-    }
-    .brand .accent { color:var(--primary); }
-    .topnav { display:flex; gap:10px; align-items:center; }
-    .topnav a {
-      text-decoration:none;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:600;
-      padding:8px 14px;
-      border-radius:999px;
-    }
-    .topnav a.primary {
-      color:var(--primary-dark);
-      background:rgba(13,148,136,.08);
-      border:1px solid rgba(13,148,136,.18);
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; white-space: nowrap; }
+    .top-header .brand a { text-decoration: none; color: #111827; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .brand .brand-dot { width: 10px; height: 10px; background: var(--primary); border-radius: 50%; display: inline-block; }
+    .top-header .brand .accent { color: var(--primary); font-style: italic; font-weight: 700; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .top-header-nav { display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; }
+    .top-header-nav a { padding: 7px 14px; font-size: 13px; font-weight: 600; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: white; min-width: 240px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 12px; padding: 8px; opacity: 0; visibility: hidden; transition: all 0.2s; border: 1px solid var(--border); }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; line-height: 1.4; border-radius: 8px; text-align: left; }
+    .dropdown-menu a:hover { background: var(--bg-alt); }
+    .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 2px; }
+    .dropdown-menu a:hover .menu-title { color: var(--primary); }
+    .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .top-header { padding: 10px 16px; flex-wrap: nowrap; width:100%;}
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: auto; }
+      .top-header-nav a { font-size: 18px; padding: 12px 24px; }
+      .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
     }
     .page {
       max-width:1240px;
@@ -364,12 +354,61 @@
   </style>
 </head>
 <body>
-  <script>window.PAGE_TEXT = {"statTumor": "Tumor", "statInfectious": "Infectious", "statTolerogenic": "Tolerogenic", "statDelivery": "Delivery", "statTcr": "TCR", "statBenchmarks": "Benchmarks", "sourceLabel": "Primary source", "questionsLabel": "Priority questions", "modulesLabel": "Recommended modules", "rankLabel": "Rank", "contextLabel": "Context", "locationLabel": "Location", "clinicalLabel": "Clinical signal", "reasonLabel": "Decision flags", "correlateLabel": "Immune correlate", "burdenLabel": "Burden", "comparatorLabel": "Comparators", "approachLabel": "Approach", "hlaLabel": "HLA", "translationalLabel": "Translational", "ifLabel": "If", "thenLabel": "Then", "clonotypesLabel": "clonotypes", "frequencyLabel": "Frequency", "manufacturingLabel": "Manufacturing", "coldChainLabel": "Cold chain", "compareLabel": "Comparators", "mechanismLabel": "Mechanism", "defaultLabel": "Default / parameters", "triggerLabel": "Trigger / required when", "logicLabel": "Core logic", "bestForLabel": "Best for", "inputsLabel": "inputs", "readoutsLabel": "readouts", "summaryLabel": "Summary", "implicationLabel": "Design implication", "resultsLabel": "results", "approvedShort": "approved", "lang": "zh", "title": "疫苗设计方法与证据库 | Therasik", "meta_description": "以证据为中心的疫苗设计知识库，覆盖肿瘤、传染病、耐受性疫苗，以及 TCR、平台、mRNA 规则与 benchmark 模块。", "brand_prefix": "Thera", "brand_accent": "sik", "home_href": "index.html", "back_href": "Therasik_Vaccine_Design.html", "back_label": "疫苗设计服务", "home_label": "首页", "hero_title": "疫苗设计方法与证据库", "hero_subtitle": "不再只是分类浏览页面，而是面向决策支持的私有知识底座界面：抗原优先级、感染病 comparator、耐受性靶点、TCR 规则、多表位 mRNA 逻辑、预测 benchmark 与干湿闭环模板都放在同一套 canonical schema 下。", "integrity_note": "页面与运行时逻辑共用同一份 canonical 数据库。每条记录保留证据等级、验证状态与 machine-readable justification，并把传染病与耐受性模块重新提升为一等公民。", "search_placeholder": "搜索抗原、TCR、平台、方法规则或预测痛点", "tab_tumor": "肿瘤", "tab_infectious": "传染病", "tab_tolerogenic": "耐受性", "tab_tcr": "TCR", "tab_delivery": "递送与佐剂", "tab_methods": "方法逻辑", "tab_benchmarks": "Benchmark", "tumor_title": "共享肿瘤抗原证据", "tumor_desc": "肿瘤抗原仍保留优先级，但现在同时暴露转化理由与来源，不再只是展示卡片。", "infectious_title": "传染病抗原主线", "infectious_desc": "传染病覆盖恢复为主模块，支持预防、治疗与快速变体更新三类设计工作。", "tolerogenic_title": "耐受性 / 自身免疫主线", "tolerogenic_desc": "逆向疫苗需要自抗原、HLA 与风险背景，因此单独建模，而不是被肿瘤逻辑挤掉。", "tcr_title": "TCR 引导优化层", "tcr_desc": "把临床级 TCR、公共 motif 与显式设计规则做成独立模块，而不是附在边上。", "tcr_clones_title": "已验证 TCR 克隆", "tcr_clones_desc": "主表只保留能回溯到真实序列来源的记录。", "tcr_rules_title": "TCR 设计规则", "tcr_rules_desc": "显式记录哪些 TCR 适合监测、哪些存在风险、为什么。", "tcr_motif_title": "公共 TCR Motif", "tcr_motif_desc": "用于疫苗监测与 TCR-guided epitope optimization 的人群共享模式。", "delivery_title": "平台、佐剂与 helper 模块", "delivery_desc": "递送层不再只是平台名单，而是与制造、冷链、免疫偏向与 helper 逻辑联动。", "platform_title": "递送平台", "platform_desc": "带有制造与冷链语境的临床锚定平台记录。", "adjuvant_title": "佐剂与免疫偏向", "adjuvant_desc": "佐剂不再只是配方注脚，而是改变设计路线的重要决策变量。", "helper_epitope_title": "Helper / 免疫增强表位", "helper_epitope_desc": "当项目需要显式 CD4 help 或借用记忆反应时，可复用这些模块。", "methods_title": "方法逻辑", "methods_desc": "把过去藏在代码和说明文档里的方法规则，变成可查询、可解释的知识对象。", "mrna_rules_title": "多表位 mRNA 规则", "mrna_rules_desc": "暴露 linker、trafficking、delivery 先例与 junction 质量门，而不是只给构建结果。", "playbooks_title": "设计 Playbook", "playbooks_desc": "把疫苗、TCR-guided、感染病更新与 mRNA 设计流程拆成明确步骤与门槛。", "assay_title": "实验关口", "assay_desc": "把还缺什么实验、哪些读数才算过关，明确写成数据库对象。", "private_title": "干湿反馈模板", "private_desc": "预留私有学习模块，用统一 schema 沉淀内部项目，而不把模板内容伪装成公开证据。", "benchmarks_title": "Benchmark 现实层", "benchmarks_desc": "用代表性 benchmark 文献提醒系统：预测分数不是事实本身，必须经验证与回流修正。", "footer_note": "本页已直接消费 canonical vaccine DB。后续网页或运行时逻辑的改动，都应从这份共享数据源出发。"};</script>
-  <header class="topbar">
-    <a class="brand" href="index.html">Thera<span class="accent">sik</span></a>
-    <nav class="topnav">
-      <a class="primary" href="Therasik_Vaccine_Design.html">疫苗设计服务</a>
+  <header class="top-header">
+    <div class="brand">
+      <a href="index.html">
+        <div class="brand-dot"></div>
+        Thera<span class="accent">sik</span>
+      </a>
+    </div>
+    <div class="slogan">Evidence-Centric Design</div>
+    <button class="mobile-menu-btn" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <nav class="top-header-nav">
+      <button class="nav-close-btn" onclick="document.querySelector('.top-header-nav').classList.remove('open')">×</button>
       <a href="index.html">首页</a>
+      <div class="nav-dropdown">
+        <a href="Therasik_Antibody_Page.html">抗体工程</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Antibody_Guide.html">
+            <span class="menu-title">工程参考指南</span>
+            <span class="menu-desc">Fc 突变、可开发性与免疫原性</span>
+          </a>
+          <a href="Therasik_ADA_Database.html">
+            <span class="menu-title">临床 ADA 数据库</span>
+            <span class="menu-desc">138 项临床免疫原性记录</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="Therasik_ADC_Design_Page.html">ADC 研发</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_ADC_Database.html">
+            <span class="menu-title">ADC 数据库</span>
+            <span class="menu-desc">100 个临床项目与技术参数</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="Therasik_CART_Design_Page.html">细胞治疗</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Component_Browser.html">
+            <span class="menu-title">CAR 元件浏览器</span>
+            <span class="menu-desc">结构化 CAR-T 元件库</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="Therasik_Vaccine_Design.html">疫苗设计</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Vaccine_KB.html">
+            <span class="menu-title">疫苗设计知识库</span>
+            <span class="menu-desc">抗原、TCR 与 mRNA 规则</span>
+          </a>
+        </div>
+      </div>
+      <a href="Therasik_OurTech.html">核心技术</a>
     </nav>
   </header>
   <main class="page">
