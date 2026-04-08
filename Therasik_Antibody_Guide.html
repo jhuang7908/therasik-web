@@ -1424,7 +1424,12 @@ function renderGrid() {
 
   let html = `<div class="domain-note"><p>${dom.note}</p></div>`;
   
-  // Render cards first
+  // Append extra HTML at the TOP (e.g., for Fc selection guide) - provides immediate context
+  if (dom.extraHtml) {
+    html += dom.extraHtml();
+  }
+
+  // Render cards
   for (const [cat, cards] of Object.entries(groups)) {
     html += `<div class="cat-section">
       <div class="cat-header">
@@ -1433,11 +1438,6 @@ function renderGrid() {
       </div>
       <div class="card-grid">${cards.map(d => dom.card(d)).join('')}</div>
     </div>`;
-  }
-
-  // Append extra HTML at the BOTTOM (e.g., for Fc selection guide)
-  if (dom.extraHtml) {
-    html += dom.extraHtml();
   }
 
   gc.innerHTML = html;
