@@ -5346,22 +5346,23 @@
       <input class="search-box" id="search载荷" type="text" placeholder="Search payload name, class…">
       <select class="filter-sel" id="filterPayloadCls">
         <option value="">All Mechanisms</option>
-    <option value="Bcl-xL Inhibitor">Bcl-xL Inhibitor</option>
-    <option value="DNA Damaging Agent">DNA Damaging Agent</option>
-    <option value="Dna Damaging Agents">Dna Damaging Agents</option>
-    <option value="Ksp Inhibitors">Ksp Inhibitors</option>
-    <option value="Protein Toxins">Protein Toxins</option>
-    <option value="RNA Pol II Inhibitor">RNA Pol II Inhibitor</option>
-    <option value="Topoisomerase I Inhibitors">Topoisomerase I Inhibitors</option>
-    <option value="Tubulin Inhibitors">Tubulin Inhibitors</option>
-    <option value="Immunostimulatory Agonist">Immunostimulatory Agonist</option>
-    <option value="Spliceosome Inhibitor">Spliceosome Inhibitor</option>
-    <option value="Tubulin Inhibitor">Tubulin Inhibitor</option>
-    <option value="Topoisomerase I Inhibitor">Topoisomerase I Inhibitor</option>
-    <option value="Radionuclide">Radionuclide</option>
-    <option value="Protein Toxin">Protein Toxin</option>
-    <option value="PROTACs">PROTACs</option>
-    <option value="ISACs">ISACs</option>
+    <option value="Bcl-xL Inhibitor">Bcl-xL 抑制剂</option>
+    <option value="DNA Damaging Agent">DNA 损伤剂</option>
+    <option value="Dna Damaging Agents">DNA 损伤剂 (DDA)</option>
+    <option value="Ksp Inhibitors">KSP 抑制剂</option>
+    <option value="Protein Toxins">蛋白毒素</option>
+    <option value="RNA Pol II Inhibitor">RNA 聚合酶 II 抑制剂</option>
+    <option value="Topoisomerase I Inhibitors">拓扑异构酶 I 抑制剂</option>
+    <option value="Tubulin Inhibitors">微管蛋白抑制剂</option>
+    <option value="Immunostimulatory Agonist">免疫刺激激动剂</option>
+    <option value="Spliceosome Inhibitor">剪接体抑制剂</option>
+    <option value="Tubulin Inhibitor">微管蛋白抑制剂 (TI)</option>
+    <option value="Topoisomerase I Inhibitor">拓扑异构酶 I 抑制剂 (TOPI)</option>
+    <option value="Radionuclide">放射性核素 (Radionuclide)</option>
+    <option value="Protein Toxin">蛋白毒素 (Protein Toxin)</option>
+    <option value="PROTACs">PROTACs (降解剂)</option>
+    <option value="ISACs">ISACs (免疫激活剂)</option>
+    <option value="Oligonucleotide">核苷酸 (Oligonucleotide)</option>
       </select>
       <span class="result-count" id="count载荷"></span>
     </div>
@@ -6159,6 +6160,52 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Preclinical or investigational payload. Potency and bystander permeability are estimates. Needs expert review.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:35314666 (STING-ADC overview)</span></div>
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-cls="Oligonucleotide" data-search="siRNA oligonucleotide high gene silencing aso">
+  <div class="card-header">
+    <div class="card-title">siRNA (Oligonucleotide)</div>
+    <span class="badge badge-payload">Oligonucleotide</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: RNA Interference (RNAi) · 靶点: mRNA Silencing</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Clinical)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
+      <div class="info-row"><span class="info-label">类别</span><span class="info-value">Oligonucleotide</span></div>
+      <div class="info-row"><span class="info-label">MoA</span><span class="info-value">Small interfering RNA (siRNA). Once delivered into the cytoplasm, it is loaded into the RISC complex to guide the sequence-specific cleavage of complementary mRNA, leading to durable gene silencing.</span></div>
+      <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">High (Catalytic)</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计参数</div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">1–2</span></div>
+      <div class="info-row"><span class="info-label">挑战</span><span class="info-value">Requires efficient endosomal escape to reach the cytoplasm; high molecular weight and anionic charge require specialized conjugation/linker strategies (e.g., AOC - Antibody Oligonucleotide Conjugates).</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
+      <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Clinical stage modality (e.g., Avidity Biosciences, Dyne Therapeutics). AOCs expand the reach of RNA therapeutics to extra-hepatic tissues.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:33841260 (AOC technology overview)</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-cls="Oligonucleotide" data-search="aso antisense oligonucleotide high gene silencing">
+  <div class="card-header">
+    <div class="card-title">ASO (Antisense Oligonucleotide)</div>
+    <span class="badge badge-payload">Oligonucleotide</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: Antisense Mechanism · 靶点: mRNA Degradation/Splicing</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Investigational)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
+      <div class="info-row"><span class="info-label">类别</span><span class="info-value">Oligonucleotide</span></div>
+      <div class="info-row"><span class="info-label">MoA</span><span class="info-value">Single-stranded synthetic DNA/RNA analogs. Bind to target mRNA via Watson-Crick base pairing, inducing RNase H-mediated degradation or modulating splicing.</span></div>
+      <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">High</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计参数</div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">1–4</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:31558503</span></div>
     </div>
   </div>
 </div>
