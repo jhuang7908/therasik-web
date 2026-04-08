@@ -1154,7 +1154,7 @@ const DOMAINS = {
     showTier: true,
     filterLabel: '所有 Fc 分类',
     card: renderFcCard,
-    extraHtml: renderFcAdaStatic, // Move static analysis here
+    extraHtmlTop: renderFcSelectionGuide, // Selection guide at the TOP
   },
   dev: {
     data: DEV_DATA,
@@ -1173,6 +1173,7 @@ const DOMAINS = {
     showTier: false,
     filterLabel: '所有因素分类',
     card: renderImmunoCard,
+    extraHtmlBottom: renderFcAdaStats, // ADA stats at the BOTTOM
   },
   wet: {
     data: WET_DATA,
@@ -1204,7 +1205,7 @@ const FC_ADA_STATS = [
   {grp:'ADC（抗体偶联药物）', n:14, median:7.6, min:0.0, max:17.0, low_risk_n:8, color:'#d97706', note:'ADC 本身不影响 ADA，但载荷偶联增加免疫复合物形成风险'},
 ];
 
-function renderFcAdaStatic() {
+function renderFcAdaStats() {
   let html = `<div class="domain-note"><p><strong>Fc 工程 × 临床 ADA 影响</strong> — 基于 Therasik 138 条临床 ADA 记录按 Fc 类型的统计分析。数据来自 FDA/EMA 说明书及 PMID 核实文献，经 Tier A/B 证据分层后汇总。ADA 发生率受多重混杂因素影响（给药途径、适应症、检测代数、联用免疫抑制），此统计仅供 Fc 工程选型参考，不可替代具体分子的文献核查。</p></div>`;
   html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:28px;">`;
   FC_ADA_STATS.forEach(s => {
@@ -1218,7 +1219,7 @@ function renderFcAdaStatic() {
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px;margin-bottom:10px">
         <div style="text-align:center"><div style="font-weight:700">${s.n}</div><div style="color:#9ca3af">记录数</div></div>
         <div style="text-align:center"><div style="font-weight:700">${s.min.toFixed(1)}–${s.max.toFixed(1)}%</div><div style="color:#9ca3af">范围</div></div>
-        <div style="text-align:center"><div style="font-weight:700;color:#059669">${lowPct}%</div><div style="color:#9ca3af">低风险</div></div>
+        <div style="text-align:center"><div style="font-weight:700;color:#059669">${lowPct}%</div><div style="color:#9ca3af" title="ADA < 5% 的项目占比">低风险</div></div>
       </div>
       <div style="font-size:11px;color:#6b7280;border-top:1px solid #f3f4f6;padding-top:8px;line-height:1.5">${s.note}</div>
     </div>`;
@@ -1233,8 +1234,12 @@ function renderFcAdaStatic() {
       <li><strong>样本量限制：</strong>Fc 沉默（n=7）与 ADCC 增强（n=1）样本量过小，统计意义有限，请参考原始文献</li>
       <li><strong>因果方向：</strong>Fc 类型通过影响半衰期、效应功能与免疫激活间接调控 ADA，不是序列抗原性的直接决定因素</li>
     </ul>
-  </div>
-  <div style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:20px;font-size:13px">
+  </div>`;
+  return html;
+}
+
+function renderFcSelectionGuide() {
+  return `<div style="background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:20px;font-size:13px;margin-bottom:24px;">
     <div style="font-weight:700;margin-bottom:12px;color:#374151">📌 Fc 选型快速指南</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
       <div style="padding:14px;background:#fff;border-radius:8px;border-left:3px solid #0d9488"><div style="font-weight:700;font-size:12px;margin-bottom:4px">需要 ADCC/CDC</div><div style="font-size:12px;color:#6b7280">IgG1 野生型，或 GASDALIE（S239D/I332E）增强版；注意输液反应风险</div></div>
@@ -1243,7 +1248,6 @@ function renderFcAdaStatic() {
       <div style="padding:14px;background:#fff;border-radius:8px;border-left:3px solid #d97706"><div style="font-weight:700;font-size:12px;margin-bottom:4px">双特异性抗体</div><div style="font-size:12px;color:#6b7280">Knob-into-Hole + 二硫键优化；或 DuoBody F405L/K409R；注意异二聚体纯度</div></div>
     </div>
   </div>`;
-  return html;
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1390,7 +1394,7 @@ function renderGrid() {
   if (dom.staticHtml) {
     es.style.display = 'none';
     document.getElementById('stats-chip').textContent = '';
-    if (currentDomain === 'fcada') gc.innerHTML = renderFcAdaStatic();
+    if (currentDomain === 'fcada') gc.innerHTML = renderFcAdaStats();
     return;
   }
 
@@ -1424,9 +1428,9 @@ function renderGrid() {
 
   let html = `<div class="domain-note"><p>${dom.note}</p></div>`;
   
-  // Append extra HTML at the TOP (e.g., for Fc selection guide) - provides immediate context
-  if (dom.extraHtml) {
-    html += dom.extraHtml();
+  // Append extra HTML at the TOP (e.g., for Fc selection guide)
+  if (dom.extraHtmlTop) {
+    html += dom.extraHtmlTop();
   }
 
   // Render cards
@@ -1438,6 +1442,11 @@ function renderGrid() {
       </div>
       <div class="card-grid">${cards.map(d => dom.card(d)).join('')}</div>
     </div>`;
+  }
+
+  // Append extra HTML at the BOTTOM (e.g., for ADA stats)
+  if (dom.extraHtmlBottom) {
+    html += dom.extraHtmlBottom();
   }
 
   gc.innerHTML = html;
