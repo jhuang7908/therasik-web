@@ -6600,6 +6600,7 @@
     <option value="pH-cleavable">pH-cleavable</option>
     <option value="Disulfide-cleavable">Disulfide-cleavable</option>
     <option value="Non-cleavable">Non-cleavable</option>
+    <option value="Conditional Activation">Conditional Activation</option>
       </select>
       <span class="result-count" id="count链接子"></span>
     </div>
@@ -7368,6 +7369,94 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Classic non-cleavable thioether linker. Requires complete lysosomal degradation of the antibody to release payload (typically as Lys-SMCC-payload adduct). Very high plasma stability.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:16814772 (T-DM1 design)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label: Kadcyla</span></div>
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-ltype="Conditional Activation" data-search="tmalin medilink 宜联生物 conditional activation dual cleavage tme extracellular biontech">
+  <div class="card-header">
+    <div class="card-title">TMALIN® (宜联生物 / MediLink)</div>
+    <span class="badge badge-linker" style="background:#6f42c1;color:#fff">Conditional Activation</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#fff3cd;color:#856404;border:1px solid #ffeeba;font-size:9px">Patent: MediLink (Proprietary) — Licensed to BioNTech</span></div>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: TME胞外酶裂解 + 溶酶体胞内裂解双重触发 · DAR: 8 · 循环稳定性: &lt;2% drop-off / 21 days</div>
+    <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高 (Clinical Phase 3)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
+      <div class="info-row"><span class="info-label">机制</span><span class="info-value">Dual-cleavage: (1) Extracellular cleavage by TME-specific proteases via -VK*G-NHCH₂-O- substrate sequence; (2) Intracellular lysosomal cleavage after internalization</span></div>
+      <div class="info-row"><span class="info-label">裂解酶</span><span class="info-value">TME-expressed proteases (extracellular, internalization-independent) + lysosomal cathepsins (intracellular)</span></div>
+      <div class="info-row"><span class="info-label">专利 / FTO</span><span class="info-value">MediLink Therapeutics (苏州宜联生物) proprietary TMALIN® platform. WO2024226567A1. Licensed to BioNTech (multi-target platform deal, 2024). FTO: Blocked — requires license.</span></div>
+      <div class="info-row"><span class="info-label">血浆 t½</span><span class="info-value">&gt;21 days stability in systemic circulation; payload drop-off &lt;2% at 21 days under physiological conditions</span></div>
+      <div class="info-row"><span class="info-label">肿瘤内裂解效率</span><span class="info-value">High — dual mechanism ensures payload release regardless of antigen internalization status</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">核心创新与优势</div>
+      <div class="info-row"><span class="info-label">核心差异化</span><span class="info-value">Internalization-independent: ADC is active even if the target antigen does not internalize — dramatically expands druggable target space (e.g., VEGF, CDH17, stromal targets)</span></div>
+      <div class="info-row"><span class="info-label">旁观者效应</span><span class="info-value">Strong — TME enrichment + extracellular release enables bystander killing of antigen-negative tumor cells</span></div>
+      <div class="info-row"><span class="info-label">偶联方式</span><span class="info-value">Irreversible pyrimidine-thiol anchor (site-specific); DAR=8; coupling efficiency ≥90%; eliminates reversible maleimide Michael addition</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计兼容性</div>
+      <div class="info-row"><span class="info-label">兼容的载荷</span><span class="info-value">Camptothecin derivatives (Topo1i); optimized for DAR=8 high-payload ADCs</span></div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">DAR 8 (homogeneous, site-specific)</span></div>
+      <div class="info-row"><span class="info-label">拓展靶点范围</span><span class="info-value">B7H3 (YL201, Phase 3 SCLC), NaPi2b (Phase 1), CDH17, VEGF (first global VEGF ADC IND)</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">AACR 2024 Abstract 4702 (TMALIN dual-cleavage mechanism)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">专利</span><span class="info-value">WO2024226567A1</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-ltype="Conditional Activation" data-search="k-link kelun biotech 科伦博泰 site-specific topo1i pyrimidine thiol">
+  <div class="card-header">
+    <div class="card-title">K-Link (科伦博泰 / Kelun Biotech)</div>
+    <span class="badge badge-linker" style="background:#6f42c1;color:#fff">Conditional Activation</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#fff3cd;color:#856404;border:1px solid #ffeeba;font-size:9px">Patent: Kelun Biotech (Proprietary) — Licensed to Merck $11.8B</span></div>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: 不可逆嘧啶-硫醇位点特异性偶联 + 酶裂解 · DAR: 7–8 · 搭配: KL610015 (Topo1i)</div>
+    <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高 (Multiple Phase 2/3)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
+      <div class="info-row"><span class="info-label">机制</span><span class="info-value">Enzymatic cleavage (lysosomal protease) after internalization; site-specific conjugation via irreversible mesylate-pyrimidine thiol coupling anchor (OptiDC platform)</span></div>
+      <div class="info-row"><span class="info-label">偶联化学</span><span class="info-value">Irreversible pyrimidine-thiol anchor — eliminates retro-Michael addition seen in classic maleimide; superior plasma stability vs vc-PABC</span></div>
+      <div class="info-row"><span class="info-label">专利 / FTO</span><span class="info-value">Kelun Biotech (科伦博泰) proprietary OptiDC platform. Licensed to Merck (MSD) — 9 ADC assets, $11.8B deal (2023). FTO: Blocked — requires license.</span></div>
+      <div class="info-row"><span class="info-label">血浆稳定性</span><span class="info-value">High — irreversible coupling eliminates maleimide retro-Michael hydrolysis; superior to vc-PABC at equivalent DAR</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC 设计兼容性</div>
+      <div class="info-row"><span class="info-label">兼容的载荷</span><span class="info-value">KL610015 (proprietary Topo1i, camptothecin derivative); DAR 7–8</span></div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">DAR 7–8 (high-DAR enabled by site-specific conjugation and hydrophilic linker design)</span></div>
+      <div class="info-row"><span class="info-label">临床管线</span><span class="info-value">SKB264 (TROP-2, approved China 2024), A166 (HER2), A167 (PD-L1 ADC), plus 15+ additional assets in MSD collaboration</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:37308437 (SKB264 Phase 2 TNBC)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">合作</span><span class="info-value">Merck (MSD) $11.8B license agreement, 2023</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-ltype="Conditional Activation" data-search="probody cytomx abbvie masked antibody conditional activation tme protease epcam">
+  <div class="card-header">
+    <div class="card-title">Probody® (CytomX / AbbVie)</div>
+    <span class="badge badge-linker" style="background:#6f42c1;color:#fff">Conditional Activation</span>
+    <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#d4edda;color:#155724;border:1px solid #c3e6cb;font-size:9px">Patent: CytomX (AbbVie acquired 2024) — Proprietary</span></div>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: 掩蔽肽封闭抗体CDR → TME蛋白酶去封闭 → 靶点结合激活 · 适用: 高正常组织表达靶点</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Phase 1/2)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="background:#e8f4f8;border:1px solid #bee5eb;border-radius:4px;padding:6px 10px;font-size:11px;color:#0c5460;margin-bottom:8px">ℹ️ Probody® 是抗体工程技术，不是连接子化学。"封闭"在抗体层面，而非连接子层面。</div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">条件激活机制</div>
+      <div class="info-row"><span class="info-label">封闭层</span><span class="info-value">Masking peptide physically blocks the CDR antigen-binding domain of the antibody — not the linker</span></div>
+      <div class="info-row"><span class="info-label">激活触发</span><span class="info-value">TME-expressed proteases (e.g., uPA/urokinase, matriptase, legumain) cleave a substrate peptide tether, releasing the masking peptide and exposing CDR</span></div>
+      <div class="info-row"><span class="info-label">裂解位置</span><span class="info-value">Extracellular (TME) — no internalization required for unmasking; but internalization required for payload release</span></div>
+      <div class="info-row"><span class="info-label">专利 / FTO</span><span class="info-value">CytomX Therapeutics (acquired by AbbVie, 2024). Broad IP on masked antibody format. FTO: Blocked.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">核心价值与适用场景</div>
+      <div class="info-row"><span class="info-label">解决痛点</span><span class="info-value">Enables targeting of high normal-tissue antigens (e.g., EpCAM, EGFR) that cause on-target/off-tumor toxicity with conventional ADCs</span></div>
+      <div class="info-row"><span class="info-label">代表产品</span><span class="info-value">CX-2051 (EpCAM × Topo1i, DAR8, Phase 1); CX-801 (Conditionally activated IFN-α2b)</span></div>
+      <div class="info-row"><span class="info-label">连接子化学</span><span class="info-value">Standard protease-cleavable vc-type linker on ADC arm; the innovation is in the antibody masking layer, not linker chemistry</span></div>
+      <div class="info-row"><span class="info-label">局限性</span><span class="info-value">Complex manufacturing; masking efficiency varies; requires sufficient TME protease activity; larger molecular format may affect tumor penetration</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:27765932 (Probody concept)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">临床</span><span class="info-value">NCT05029882 (CX-2051 Phase 1)</span></div>
     </div>
   </div>
 </div>
