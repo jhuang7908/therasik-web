@@ -103,6 +103,34 @@
     .output-tag.pass { background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.25); color: #15803d; }
     .output-tag.warn { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3); color: #92400e; }
 
+    /* Tool stack section */
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0 36px; }
+    @media (max-width: 780px) { .tool-grid { grid-template-columns: 1fr; } }
+    .tool-card { background: #fff; border: 1px solid rgba(13,148,136,0.14); border-radius: 14px; padding: 20px 22px; transition: box-shadow 0.2s, border-color 0.2s; }
+    .tool-card:hover { border-color: rgba(13,148,136,0.35); box-shadow: 0 4px 18px rgba(13,148,136,0.08); }
+    .tool-card .tool-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .tool-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(13,148,136,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--primary); }
+    .tool-card .tool-name { font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 2px; font-family: monospace; }
+    .tool-card .tool-role { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+    .tool-card .tool-caps { list-style: none; padding: 0; margin: 0; }
+    .tool-card .tool-caps li { font-size: 12.5px; color: #374151; padding: 3px 0; display: flex; gap: 6px; align-items: flex-start; line-height: 1.5; }
+    .tool-card .tool-caps li::before { content: '▸'; color: var(--primary); font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+    .tool-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
+    .tool-badge.local { background: rgba(34,197,94,0.09); color: #16a34a; border: 1px solid rgba(34,197,94,0.22); }
+    .tool-badge.api { background: rgba(99,102,241,0.08); color: #4f46e5; border: 1px solid rgba(99,102,241,0.2); }
+    .tool-badge.kb { background: rgba(245,158,11,0.09); color: #b45309; border: 1px solid rgba(245,158,11,0.22); }
+    .kb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 28px; }
+    @media (max-width: 780px) { .kb-grid { grid-template-columns: 1fr 1fr; } }
+    .kb-card { background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.2); border-radius: 10px; padding: 14px 16px; }
+    .kb-card .kb-name { font-size: 13px; font-weight: 700; color: #92400e; margin: 0 0 4px; }
+    .kb-card .kb-count { font-size: 22px; font-weight: 700; color: #b45309; line-height: 1; margin-bottom: 4px; }
+    .kb-card .kb-desc { font-size: 11.5px; color: #78350f; line-height: 1.4; }
+    .pipeline-flow { display: flex; gap: 0; margin: 20px 0 28px; overflow-x: auto; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    .pf-step { flex: 1; min-width: 100px; text-align: center; position: relative; padding: 0 8px; }
+    .pf-step:not(:last-child)::after { content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); color: var(--primary); font-weight: 700; font-size: 14px; }
+    .pf-tool { font-size: 10.5px; font-family: monospace; font-weight: 700; color: var(--primary); background: rgba(13,148,136,0.08); border-radius: 4px; padding: 2px 6px; display: inline-block; margin-bottom: 4px; }
+    .pf-desc { font-size: 11px; color: #64748b; line-height: 1.3; }
+
     /* Sequence display */
     .seq-table { width: 100%; border-collapse: collapse; font-family: monospace; font-size: 12px; margin: 10px 0; }
     .seq-table th { background: #1e293b; color: #94a3b8; padding: 6px 10px; text-align: left; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -353,6 +381,10 @@
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 8h16M4 16h16"/></svg>
         多表位 mRNA
       </a>
+      <a href="#toolstack" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        计算工具平台
+      </a>
       <a href="#example" class="nav-link">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
         案例推演
@@ -400,6 +432,233 @@
       <a href="Therasik_Vaccine_KB.html#epitopes" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.16);color:#0f766e;text-decoration:none;font-size:13px;font-weight:600;">浏览验证表位 →</a>
       <a href="Therasik_Vaccine_KB.html#taa" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.16);color:#0f766e;text-decoration:none;font-size:13px;font-weight:600;">浏览肿瘤抗原库 →</a>
       <a href="Therasik_Vaccine_KB.html#tcr" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.16);color:#6d28d9;text-decoration:none;font-size:13px;font-weight:600;">浏览 TCR 配对库 →</a>
+    </p>
+
+    <h2 id="toolstack">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+      计算工具平台
+    </h2>
+
+    <p>以下是我们自主研发的 8 个核心计算模块，构成完整的疫苗设计自动化流水线。所有工具在本地服务器运行，不依赖第三方 AI API，确保数据安全与结果可复现。</p>
+
+    <!-- Pipeline flow overview -->
+    <div class="pipeline-flow">
+      <div class="pf-step">
+        <div class="pf-tool">NeoantigenScanner</div>
+        <div class="pf-desc">MHCflurry 2.2<br>MHC-I 预测</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-tool">MHC2Predictor</div>
+        <div class="pf-desc">IEDB API<br>CD4+ 表位</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-tool">EpitopePrioritizer</div>
+        <div class="pf-desc">3 层过滤<br>综合评分</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-tool">PopulationCoverage</div>
+        <div class="pf-desc">HLA 人群<br>覆盖率</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-tool">MultiEpitopeAssembler</div>
+        <div class="pf-desc">构建体组装<br>接头优化</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-tool">CodonOptimizer</div>
+        <div class="pf-desc">mRNA 序列<br>密码子优化</div>
+      </div>
+    </div>
+
+    <!-- 8 tool cards -->
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85"/></svg></div>
+          <div>
+            <div class="tool-name">NeoantigenScanner</div>
+            <div class="tool-role">MHC-I 新抗原预测引擎</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>MHCflurry 2.2（Class1PresentationPredictor）本地运行，无 API 依赖</li>
+          <li>8–11mer 滑动窗口覆盖突变位点，自动生成候选肽</li>
+          <li>输出 IC50（nM）+ 递呈评分 + 百分位数，每个 HLA 亚型独立报告</li>
+          <li>WT vs 突变型对比（DAI 差分免疫原性分析）</li>
+          <li>支持多患者批量 HLA 面板扫描</li>
+        </ul>
+        <span class="tool-badge local">● 100% 本地 · CPU-only</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div>
+            <div class="tool-name">EpitopePrioritizer</div>
+            <div class="tool-role">三层表位优先级筛选</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li><strong>Layer 1 自耐受过滤</strong>：排除与人类自身蛋白高度相似的肽段，防止自身免疫风险</li>
+          <li><strong>Layer 2 表达量加权</strong>：整合 TCGA/GTEx 肿瘤 vs 正常组织表达量数据</li>
+          <li><strong>Layer 3 覆盖率优化</strong>：贪婪集合覆盖算法，最大化目标人群 HLA 覆盖率</li>
+          <li>综合评分：presentation_score × expression_weight × DAI_bonus</li>
+        </ul>
+        <span class="tool-badge local">● 本地 · Python</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 8h16M4 16h12"/></svg></div>
+          <div>
+            <div class="tool-name">MultiEpitopeAssembler</div>
+            <div class="tool-role">多表位 mRNA 构建体设计</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>MHC-I 表位间插入 AAY 接头（蛋白酶体 C 端切割信号）</li>
+          <li>MHC-II 表位间插入 GPGPG 接头（柔性隔离，防止 MHC-I 加工干扰）</li>
+          <li>PADRE 通用 CD4 辅助表位自动插入</li>
+          <li>Junction 新表位扫描：对每个接头区域预测潜在 MHC 结合肽</li>
+          <li>Beam Search 排列优化（K=500），最小化接头新结合肽数量</li>
+          <li>tPA 信号肽 + MITD 跨膜锚定域自动融合</li>
+          <li>输出完整蛋白序列（FASTA）+ 设计日志</li>
+        </ul>
+        <span class="tool-badge local">● 本地 · Python</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="tool-name">HeterocliticDesigner</div>
+            <div class="tool-role">TAA 异克隆肽优化设计</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>自动识别 MHC-I 锚定位点（P2、P9）并设计增强突变</li>
+          <li>严格保护 TCR 接触面（P4–P8），保留交叉反应性</li>
+          <li>MHCflurry 验证突变后结合力提升（目标 IC50 降幅 ≥ 2×）</li>
+          <li>输出：野生型肽 → 异克隆优化序列 + 锚定位点注释 + IC50 对比</li>
+        </ul>
+        <span class="tool-badge local">● 本地 · MHCflurry 验证</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div>
+            <div class="tool-name">CodonOptimizer</div>
+            <div class="tool-role">mRNA 密码子优化 + 结构评分</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>人类高表达密码子使用表（HIVE 数据库），CAI 优化目标 &gt; 0.9</li>
+          <li>N1-methylpseudouridine 兼容性（消除 UU/UA 免疫激活基序）</li>
+          <li>GC 含量调控至 45–65%（LNP 递送稳定性范围）</li>
+          <li>CpG 二核苷酸去除（降低 TLR9 激活背景噪音）</li>
+          <li>同聚物 &amp; 限制性酶切位点回避</li>
+          <li>可选：调用 LinearFold 计算 mRNA 5'-UTR 折叠 MFE</li>
+          <li>输出：优化 CDS 序列（FASTA）+ CAI + GC% + 结构能</li>
+        </ul>
+        <span class="tool-badge local">● 100% 本地 · CPU-only</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div>
+            <div class="tool-name">PopulationCoverage</div>
+            <div class="tool-role">HLA 人群覆盖率计算器</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>内置 AFND 2020 HLA 等位基因频率数据（无需 IEDB 人群覆盖率 API）</li>
+          <li>支持 5 个人群：全球、欧洲、东亚、非洲、南亚</li>
+          <li>输入：HLA 等位基因列表 → 输出各人群覆盖率（0–1）</li>
+          <li>用于疫苗表位集合的 HLA 覆盖率评估与优化依据</li>
+        </ul>
+        <span class="tool-badge local">● 100% 本地 · AFND 内置数据</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <div>
+            <div class="tool-name">MHC2Predictor</div>
+            <div class="tool-role">MHC-II CD4+ 表位预测</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>封装 IEDB MHC-II 预测 API（NetMHCIIpan / SMM-align / NN-align）</li>
+          <li>13–25mer 滑动窗口，覆盖 DRB1、DRB3、DRB4、DRB5、DQ、DP</li>
+          <li>输出 9-mer 核心位点 + IC50 估算值 + 结合强度分级</li>
+          <li>含预测精度警示：MHC-II 锚定位置不固定，建议湿实验验证</li>
+        </ul>
+        <span class="tool-badge api">● IEDB API（需联网）</span>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div>
+            <div class="tool-name">IEDBSearch</div>
+            <div class="tool-role">IEDB 表位数据库实时检索</div>
+          </div>
+        </div>
+        <ul class="tool-caps">
+          <li>访问 IEDB Query API（tcell_search / bcell_search 端点）</li>
+          <li>按抗原名称、HLA 亚型、宿主物种、检测结果过滤</li>
+          <li>返回临床已验证表位序列 + T/B 细胞激活证据等级</li>
+          <li>用于疫苗设计的文献证据补充与快速先导表位筛选</li>
+        </ul>
+        <span class="tool-badge api">● IEDB API（需联网）</span>
+      </div>
+
+    </div><!-- /.tool-grid -->
+
+    <!-- Knowledge Databases -->
+    <h3 style="font-size:16px;font-weight:700;color:#111827;margin:32px 0 12px;display:flex;align-items:center;gap:8px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:rgba(245,158,11,0.1);border-radius:8px;color:#b45309;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </span>
+      内置知识库（Knowledge Databases）
+    </h3>
+    <div class="kb-grid">
+      <div class="kb-card">
+        <div class="kb-name">TAA Database</div>
+        <div class="kb-count">120+</div>
+        <div class="kb-desc">肿瘤相关抗原（TAA）条目，含 HLA 限制性、临床验证状态、TCGA 表达量</div>
+      </div>
+      <div class="kb-card">
+        <div class="kb-name">TCR Epitope DB</div>
+        <div class="kb-count">200+</div>
+        <div class="kb-desc">已发表 TCR-肽-MHC 复合物数据，含 CDR3 序列与结合亲和力</div>
+      </div>
+      <div class="kb-card">
+        <div class="kb-name">Adjuvants DB</div>
+        <div class="kb-count">30+</div>
+        <div class="kb-desc">临床级佐剂（AS01、CpG-1018、poly ICLC 等），含递送兼容性与安全记录</div>
+      </div>
+      <div class="kb-card">
+        <div class="kb-name">Vaccine Vectors DB</div>
+        <div class="kb-count">25+</div>
+        <div class="kb-desc">mRNA-LNP、腺病毒载体、VLP 等平台，含装载容量与免疫反应谱</div>
+      </div>
+      <div class="kb-card">
+        <div class="kb-name">Infectious Antigens DB</div>
+        <div class="kb-count">80+</div>
+        <div class="kb-desc">病原体保守抗原（流感、新冠、HIV、结核等），含 HLA-I 和 HLA-II 已验证表位</div>
+      </div>
+      <div class="kb-card">
+        <div class="kb-name">Autoimmune Targets DB</div>
+        <div class="kb-count">40+</div>
+        <div class="kb-desc">自身免疫疾病相关靶点，支持耐受性疫苗方向的设计参考</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:#6b7280;margin-bottom:40px;">
+      所有工具的运行均产生结构化 JSON 审计日志，确保每次计算可追溯、可复现。完整 CLI 入口：<code style="font-size:12px;background:#f1f5f9;padding:2px 6px;border-radius:4px;">scripts/run_vaccine_design.py scan|assemble|report</code>
     </p>
 
     <h2 id="neoantigen">
