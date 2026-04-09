@@ -462,6 +462,7 @@
     }
     .iedb-btn-outline:hover { background: var(--accent); }
     .iedb-results { margin-top: 18px; }
+    .iedb-result-list { display: flex; flex-direction: column; gap: 8px; }
     .iedb-result-card {
       border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px;
       background: #fff; margin-bottom: 8px; font-size: 13px;
@@ -657,19 +658,21 @@
     <section class="panel" id="panel-iedb">
       <div class="section-head">
         <h2>IEDB 表位在线查询</h2>
-        <p>实时搜索免疫表位数据库（IEDB），适用于感染性疾病、肿瘤及自身免疫表位的快速文献溯源。数据直接来自 IEDB，无需在本地维护大型数据库。</p>
+        <p>直接调用 IEDB Query API，将表位数据实时呈现在当前页面。无需跳转，结果直接按抗原名称、HLA 等位基因与 MHC 类型过滤。</p>
       </div>
       <div class="iedb-panel">
-        <h3>🔍 表位快速检索</h3>
-        <p>输入抗原名称或病原体关键词，选择 MHC 类型，点击搜索跳转至 IEDB 结果页。也可使用下方预设查询快速访问经典表位集合。</p>
+        <h3>表位快速检索</h3>
+        <p>输入关键词后点击<strong>查询</strong>，结果将显示于下方。每条记录含表位序列、HLA 限制、检测方法与 PubMed 链接。</p>
         <div class="iedb-form">
           <div>
             <label for="iedbAntigenInput">抗原 / 病原体关键词</label>
-            <input id="iedbAntigenInput" class="iedb-input" placeholder="e.g. KRAS, NY-ESO-1, SARS-CoV-2, Influenza M1" style="width:260px">
+            <input id="iedbAntigenInput" class="iedb-input" placeholder="KRAS · NY-ESO-1 · SARS-CoV-2 · Influenza M1" style="width:260px"
+              onkeydown="if(event.key==='Enter')searchIedb()">
           </div>
           <div>
             <label for="iedbHlaInput">HLA 等位基因（可选）</label>
-            <input id="iedbHlaInput" class="iedb-input" placeholder="e.g. HLA-A*02:01" style="width:170px">
+            <input id="iedbHlaInput" class="iedb-input" placeholder="HLA-A*02:01" style="width:160px"
+              onkeydown="if(event.key==='Enter')searchIedb()">
           </div>
           <div>
             <label for="iedbMhcClass">MHC 类型</label>
@@ -684,19 +687,21 @@
             <select id="iedbAssayType" class="iedb-select">
               <option value="tcell">T 细胞表位</option>
               <option value="bcell">B 细胞表位</option>
-              <option value="mhc">MHC 结合数据</option>
             </select>
           </div>
-          <div>
-            <button class="iedb-btn" onclick="openIedbSearch()">打开 IEDB ↗</button>
+          <div style="display:flex;gap:8px;align-items:flex-end">
+            <button class="iedb-btn" onclick="searchIedb()">查询</button>
+            <button class="iedb-btn-outline" onclick="clearIedbResults()">清空</button>
           </div>
         </div>
-        <div style="margin-top:18px">
-          <div style="font-size:12px;font-weight:700;color:#334155;margin-bottom:10px;">常用预设查询</div>
+        <div style="margin-top:16px">
+          <div style="font-size:12px;font-weight:700;color:#334155;margin-bottom:8px;">快速预设</div>
           <div style="display:flex;flex-wrap:wrap;gap:8px" id="iedbPresets"></div>
         </div>
-        <div class="iedb-note" style="margin-top:16px">
-          ⚠ 此查询界面将在新标签页中打开 IEDB（iedb.org）官网，不在本站传输或存储任何数据。IEDB 为公开免费数据库，无需注册。
+        <div class="iedb-results" id="iedbResultsArea"></div>
+        <div class="iedb-note" style="margin-top:12px">
+          数据实时来自 IEDB Query API（query-api.iedb.org），仅返回阳性（Positive）人源宿主记录，每次最多显示 25 条。完整数据集请访问
+          <a href="https://www.iedb.org" target="_blank" rel="noopener" style="color:var(--primary)">www.iedb.org</a>。
         </div>
       </div>
     </section>
@@ -916,45 +921,124 @@
       });
     }
 
-    // ── IEDB search ──────────────────────────────────────────────────────────
+    // ── IEDB Query API integration ────────────────────────────────────────
+    var IEDB_API = 'https://query-api.iedb.org/';
     var IEDB_PRESETS = [
-      { label: 'KRAS 突变表位', antigen: 'KRAS', mhc: 'I', type: 'tcell' },
-      { label: 'NY-ESO-1 (CTAG1B)', antigen: 'CTAG1B', mhc: 'I', type: 'tcell' },
-      { label: 'MART-1 / Melan-A', antigen: 'MART-1', mhc: 'I', type: 'tcell' },
-      { label: 'WT1 (肾母细胞瘤)', antigen: 'WT1', mhc: 'I', type: 'tcell' },
-      { label: 'SARS-CoV-2 Spike', antigen: 'SARS-CoV-2', mhc: '', type: 'tcell' },
-      { label: '流感 M1 (GILGFVFTL)', antigen: 'Influenza M1', mhc: 'I', type: 'tcell' },
-      { label: 'EBV EBNA3A', antigen: 'EBNA3A', mhc: 'I', type: 'tcell' },
-      { label: 'CMV pp65', antigen: 'pp65', mhc: 'I', type: 'tcell' },
-      { label: 'TP53 热点突变', antigen: 'TP53', mhc: 'I', type: 'tcell' },
+      { label: 'KRAS (肿瘤新抗原)',   antigen: 'KRAS',        mhc: 'I',  type: 'tcell' },
+      { label: 'NY-ESO-1 (CTAG1B)', antigen: 'CTAG1B',      mhc: 'I',  type: 'tcell' },
+      { label: 'MART-1 / Melan-A',  antigen: 'MART-1',      mhc: 'I',  type: 'tcell' },
+      { label: 'WT1',               antigen: 'WT1',          mhc: 'I',  type: 'tcell' },
+      { label: 'SARS-CoV-2 Spike',  antigen: 'SARS-CoV-2',  mhc: '',   type: 'tcell' },
+      { label: '流感 M1 (GILGFVFTL)',antigen: 'Influenza M1',mhc: 'I',  type: 'tcell' },
+      { label: 'EBV EBNA3A',        antigen: 'EBNA3A',       mhc: 'I',  type: 'tcell' },
+      { label: 'CMV pp65',          antigen: 'pp65',         mhc: 'I',  type: 'tcell' },
+      { label: 'TP53 突变',         antigen: 'TP53',         mhc: 'I',  type: 'tcell' },
     ];
 
-    // IEDB URL builder — uses result_v3.php format (current as of 2026-04)
-    function _iedbUrl(antigen, hla, mhcClass, assayType) {
+    // Build IEDB Query API URL (PostgREST format)
+    function _iedbApiUrl(antigen, hla, mhcClass, assayType) {
+      var endpoint = (assayType === 'bcell') ? 'bcell_search' : 'tcell_search';
+      var p = new URLSearchParams();
+      p.set('limit', '25');
+      p.set('select', 'linear_sequence,mhc_allele_name,mhc_class,qualitative_measure,pubmed_id,assay_names,epitope_summary');
+      p.set('host_organism_name', 'eq.Homo sapiens (human)');
+      p.set('qualitative_measure', 'ilike.*Positive*');
+      if (antigen)  p.set('epitope_summary', 'ilike.*' + antigen + '*');
+      if (hla)      p.set('mhc_allele_name', 'ilike.*' + hla.replace(/\*/g,'') + '*');
+      if (mhcClass) p.set('mhc_class', 'eq.' + mhcClass);
+      return IEDB_API + endpoint + '?' + p.toString();
+    }
+
+    // Fallback website URL when API is unavailable
+    function _iedbWebUrl(antigen, hla, mhcClass, assayType) {
       var base = 'https://www.iedb.org/result_v3.php?';
-      var typeMap = { tcell: 'T+Cell', bcell: 'B+Cell', mhc: 'MHC+Binding' };
-      var epType = typeMap[assayType] || 'T+Cell';
-      var params = 'epitope_type=' + epType + '&tab=results';
+      var typeMap = { tcell:'T+Cell', bcell:'B+Cell' };
+      var params = 'epitope_type=' + (typeMap[assayType] || 'T+Cell') + '&tab=results';
       if (antigen) params += '&antigen_name=' + encodeURIComponent(antigen);
       if (hla)     params += '&mhc_allele_name=' + encodeURIComponent(hla);
       if (mhcClass) params += '&mhc_class=' + encodeURIComponent('HLA class ' + mhcClass);
       return base + params;
     }
 
-    function openIedbSearch() {
-      var antigen = document.getElementById('iedbAntigenInput').value.trim();
-      var hla = document.getElementById('iedbHlaInput').value.trim();
-      var mhcClass = document.getElementById('iedbMhcClass').value;
-      var assayType = document.getElementById('iedbAssayType').value;
-      // Allow empty search — opens IEDB with just the data type filter
-      window.open(_iedbUrl(antigen, hla, mhcClass, assayType), '_blank', 'noopener');
+    function clearIedbResults() {
+      document.getElementById('iedbResultsArea').innerHTML = '';
     }
 
+    function searchIedb() {
+      var antigen  = document.getElementById('iedbAntigenInput').value.trim();
+      var hla      = document.getElementById('iedbHlaInput').value.trim();
+      var mhcClass = document.getElementById('iedbMhcClass').value;
+      var assayType = document.getElementById('iedbAssayType').value;
+      var area = document.getElementById('iedbResultsArea');
+      if (!antigen && !hla && !mhcClass) {
+        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">请至少输入一个查询条件（抗原关键词 · HLA · MHC 类型）。</div>';
+        return;
+      }
+      area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 正在查询 IEDB…</div>';
+      var url = _iedbApiUrl(antigen, hla, mhcClass, assayType);
+      fetch(url, { headers: { 'Accept': 'application/json' } })
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function(data) { _renderIedbResults(data, antigen, hla, mhcClass, assayType); })
+        .catch(function(err) {
+          area.innerHTML =
+            '<div class="iedb-note" style="margin-top:8px;color:#b91c1c">⚠ API 查询失败（' + err.message + '）。' +
+            '<br>请直接访问 <a href="' + _iedbWebUrl(antigen, hla, mhcClass, assayType) + '" target="_blank" rel="noopener" style="color:var(--primary)">IEDB 网站 ↗</a>。</div>';
+        });
+    }
+
+    function _renderIedbResults(data, antigen, hla, mhcClass, assayType) {
+      var area = document.getElementById('iedbResultsArea');
+      if (!data || data.length === 0) {
+        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">未找到符合条件的记录。请调整关键词或放宽 HLA 过滤。</div>';
+        return;
+      }
+      // Deduplicate by linear_sequence + mhc_allele_name
+      var seen = {}, uniq = [];
+      data.forEach(function(d) {
+        var k = d.linear_sequence + '|' + (d.mhc_allele_name || '');
+        if (!seen[k]) { seen[k] = true; uniq.push(d); }
+      });
+      var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px">' +
+        '<span style="font-size:13px;font-weight:700;color:#334155">找到 ' + uniq.length + ' 条记录（去重后）</span>' +
+        '<a class="iedb-btn-outline" href="' + _iedbWebUrl(antigen, hla, mhcClass, assayType) + '" target="_blank" rel="noopener" style="font-size:11px">查看全部结果（IEDB ↗）</a>' +
+        '</div>';
+      html += '<div class="iedb-result-list">';
+      uniq.forEach(function(d) {
+        var pmidHtml = d.pubmed_id ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + d.pubmed_id + '/" target="_blank" rel="noopener" style="color:var(--primary)">PMID:' + d.pubmed_id + '</a>' : '—';
+        var assays = (d.assay_names || '').split('|').filter(function(a) { return !/\|/.test(a); }).slice(0,2).join(', ');
+        var src = (d.epitope_summary || '').replace(d.linear_sequence, '').trim().replace(/^[\s\-·]+/, '');
+        html += '<div class="iedb-result-card">' +
+          '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">' +
+            '<code style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#0f172a">' + esc(d.linear_sequence || '—') + '</code>' +
+            '<span style="font-size:11px;background:#f0fdfa;border:1px solid rgba(13,148,136,.2);border-radius:6px;padding:2px 8px;color:#0f766e;white-space:nowrap">' + esc(d.mhc_allele_name || '—') + '</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:#475569;margin-top:4px">' + esc(src) + '</div>' +
+          '<div style="display:flex;gap:14px;margin-top:6px;font-size:11.5px;color:#64748b">' +
+            '<span><strong>MHC:</strong> ' + esc(d.mhc_class || '—') + '</span>' +
+            '<span><strong>结果:</strong> ' + esc(d.qualitative_measure || '—') + '</span>' +
+            (assays ? '<span><strong>检测:</strong> ' + esc(assays) + '</span>' : '') +
+            '<span>' + pmidHtml + '</span>' +
+          '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+      area.innerHTML = html;
+    }
+
+    // Preset quick-search buttons (trigger inline search)
     function renderIedbPresets() {
       var el = document.getElementById('iedbPresets');
       if (!el) return;
       el.innerHTML = IEDB_PRESETS.map(function(p) {
-        return `<a class="iedb-btn-outline" href="${_iedbUrl(p.antigen, '', p.mhc, p.type)}" target="_blank" rel="noopener">${esc(p.label)}</a>`;
+        return '<button class="iedb-btn-outline" onclick="' +
+          'document.getElementById(\'iedbAntigenInput\').value=' + JSON.stringify(p.antigen) + ';' +
+          'document.getElementById(\'iedbMhcClass\').value=' + JSON.stringify(p.mhc) + ';' +
+          'document.getElementById(\'iedbAssayType\').value=' + JSON.stringify(p.type) + ';' +
+          'searchIedb()' +
+          '" style="font-size:11.5px">' + esc(p.label) + '</button>';
       }).join('');
     }
 
