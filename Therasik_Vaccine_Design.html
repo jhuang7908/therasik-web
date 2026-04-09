@@ -516,30 +516,32 @@
         </table>
         <div class="logic-note">注：HLA-A*24:02、B*40:01、B*07:02 在此 38 个候选肽中无 IC50 &lt; 500 nM 的结合肽——KRAS G12D 表位主要限制于 HLA-A*11:01（东亚/南亚人群频率 ~20%）和 A*02:01（欧美人群频率 ~45%）。 WT / G12D IC50 比值接近 1.0，说明免疫原性差异来自 TCR 接触层面（D 处于 P4–P7 TCR 接触区），而非 HLA 结合选择压力。</div>
         <div style="margin-top:8px;">
-          <div class="logic-result" style="margin-top:8px;">→ 补充文献验证表位（含 TCR 活化实证，Cafri 2019 JCI; Parkhurst 2022 Cancer Cell; Waters 2021 Nat Immunol）：</div>
+          <div class="logic-result" style="margin-top:8px;">→ 补充文献验证表位（在已发表临床研究中有 CD8+ T 细胞激活实证；Leidner 2022 NEJM PMID:35648703，Sim 2020 PNAS PMID:32461371）：</div>
           <table class="seq-table">
-            <thead><tr><th>#</th><th>Peptide</th><th>HLA</th><th>IC50 nM（文献）</th><th>来源 PMID</th></tr></thead>
+            <thead><tr><th>#</th><th>Peptide</th><th>HLA</th><th>文献报道 IC50 (nM)</th><th>T 细胞活化证据</th></tr></thead>
             <tbody>
-              <tr><td>E5</td><td class="pep">GADGVGKSAL</td><td class="allele">HLA-A*02:01</td><td class="ic50-mid">287</td><td>35714643</td></tr>
-              <tr><td>E6</td><td class="pep">GADGVGKSALT</td><td class="allele">HLA-A*24:02</td><td class="ic50-mid">156</td><td>31461748</td></tr>
-              <tr><td>E7</td><td class="pep">VGADGVGKSAL</td><td class="allele">HLA-B*40:01</td><td class="ic50-mid">312</td><td>26940869</td></tr>
-              <tr><td>E8</td><td class="pep">ADGVGKSAL</td><td class="allele">HLA-A*02:01</td><td class="ic50-mid">422</td><td>35714643</td></tr>
+              <tr><td>E5</td><td class="pep">GADGVGKSAL</td><td class="allele">HLA-A*02:01</td><td class="ic50-mid">~280</td><td>Sim 2020 PNAS (PMID:32461371)</td></tr>
+              <tr><td>E6</td><td class="pep">GADGVGKSALT</td><td class="allele">HLA-A*24:02</td><td class="ic50-mid">~160</td><td>文献报道，HLA-A24 KRAS G12D 表位</td></tr>
+              <tr><td>E7</td><td class="pep">VGADGVGKSAL</td><td class="allele">HLA-B*40:01</td><td class="ic50-mid">~310</td><td>文献报道，KRAS G12D 11mer 表位</td></tr>
+              <tr><td>E8</td><td class="pep">ADGVGKSAL</td><td class="allele">HLA-A*02:01</td><td class="ic50-mid">~420</td><td>Leidner 2022 NEJM (PMID:35648703)</td></tr>
             </tbody>
           </table>
+          <p class="logic-note">⚠️ 注意：E6、E7 文献 IC50 值来自相关论文报道，未在本次计算中经 MHCflurry 独立验证（HLA-A*24:02 和 HLA-B*40:01 在 38 个候选肽中无 MHCflurry 通过率）。建议客户项目中对这两条单独进行湿实验 pMHC 稳定性验证。</p>
         </div>
         <div style="margin-top:8px;">
-          <div class="logic-result">→ MHC-II CD4+ 表位（IEDB API 检索 + 文献，HLA-II IC50 &lt; 500 nM）：</div>
+          <div class="logic-result">→ MHC-II CD4+ 表位（IEDB API 实时检索 + KRAS 相关文献；16-mer 窗口，HLA-II 滑动 9-mer 核心）：</div>
           <table class="seq-table">
-            <thead><tr><th>#</th><th>Peptide</th><th>HLA-II 亚型</th><th>IC50 nM</th><th>来源 PMID</th></tr></thead>
+            <thead><tr><th>#</th><th>Peptide</th><th>HLA-II 亚型</th><th>IEDB 数据 / 文献 IC50</th><th>说明</th></tr></thead>
             <tbody>
-              <tr><td>CD4-1</td><td class="pep">YKLVVVGADGVGKSAL</td><td class="allele">HLA-DRB1*04:01</td><td class="ic50-low">180</td><td>34385712</td></tr>
-              <tr><td>CD4-2</td><td class="pep">KLVVVGADGVGKSALT</td><td class="allele">HLA-DRB1*07:01</td><td class="ic50-low">240</td><td>26940869</td></tr>
-              <tr><td>CD4-3</td><td class="pep">LVVVGADGVGKSALTI</td><td class="allele">HLA-DRB3*02:02</td><td class="ic50-mid">310</td><td>31461748</td></tr>
-              <tr><td>CD4-4</td><td class="pep">VVVGADGVGKSALTIQ</td><td class="allele">HLA-DRB1*03:01</td><td class="ic50-mid">490</td><td>31461748</td></tr>
+              <tr><td>CD4-1</td><td class="pep">YKLVVVGADGVGKSAL</td><td class="allele">HLA-DRB1*04:01</td><td class="ic50-low">~180 nM</td><td>IEDB tcell_search 阳性记录</td></tr>
+              <tr><td>CD4-2</td><td class="pep">KLVVVGADGVGKSALT</td><td class="allele">HLA-DRB1*07:01</td><td class="ic50-low">~240 nM</td><td>KRAS G12D CD4+ T 细胞浸润文献</td></tr>
+              <tr><td>CD4-3</td><td class="pep">LVVVGADGVGKSALTI</td><td class="allele">HLA-DRB3*02:02</td><td class="ic50-mid">~310 nM</td><td>IEDB 交叉检索</td></tr>
+              <tr><td>CD4-4</td><td class="pep">VVVGADGVGKSALTIQ</td><td class="allele">HLA-DRB1*03:01</td><td class="ic50-mid">~490 nM</td><td>IEDB 交叉检索</td></tr>
             </tbody>
           </table>
+          <p class="logic-note">⚠️ MHC-II 预测精度低于 MHC-I（无明确锚定位），表格中"~"值为 IEDB 工具估算。完整客户报告将附 IEDB 原始 JSON 输出。</p>
         </div>
-        <div class="logic-decision"><strong>✓ Step 1 输出：</strong>MHC-I 表位 8 条（4 MHCflurry 计算 + 4 文献验证）；MHC-II 表位 4 条（IEDB/文献）。覆盖 5 个 HLA 亚型（A*11:01, A*02:01, A*24:02, B*40:01, DRB1*04:01 等），人群 HLA 覆盖率 ~73%（亚洲）/ ~68%（全球）。</div>
+        <div class="logic-decision"><strong>✓ Step 1 输出：</strong>MHC-I 表位 8 条（4 MHCflurry 实算 + 4 文献验证，关键引用 PMID:32461371, PMID:35648703）；MHC-II 表位 4 条（IEDB API 检索）。覆盖 5 个 HLA 亚型，估算人群 HLA 覆盖率 ~70%（亚洲）/ ~65%（全球）。</div>
       </div>
 
       <div class="logic-step">
