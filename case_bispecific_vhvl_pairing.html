@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="robots" content="noai, noimageai">
@@ -36,20 +36,32 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; padding-top: 72px; }
 
-    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; }
-    .top-header .brand a { text-decoration: none; display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; color: #111827; }
-    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; }
-    .top-header-nav { display: flex; align-items: center; gap: 6px; }
-    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.2s; }
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; white-space: nowrap; }
+    .top-header .brand a { text-decoration: none; color: #111827; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .brand .accent { color: var(--primary); font-style: italic; font-weight: 700; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
+    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s ease; font-weight: 600; }
     .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
     .nav-dropdown { position: relative; }
-    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
-    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 240px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); opacity: 0; visibility: hidden; transition: all 0.2s; z-index: 2001; }
-    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-    .dropdown-menu a { display: block; padding: 12px 14px; color: var(--text); border-radius: 8px; text-decoration: none; }
-    .dropdown-menu a:hover { background: #f9fafb; }
-    .menu-title { display: block; font-weight: 700; font-size: 14px; color: #111827; margin-bottom: 2px; }
-    .menu-desc { display: block; font-size: 12px; color: #6b7280; font-weight: 400; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
+    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 220px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); z-index: 100; margin-top: 8px; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; line-height: 1.4; border-radius: 8px; text-align: left; }
+    .nav-dropdown .dropdown-menu a:hover { background: #f8fafc; }
+    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 2px; }
+    .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
+    .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; cursor: pointer; color: var(--text); }
+    .nav-close-btn { display: none; }
+    @media (max-width: 900px) {
+      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: all; }
+      .nav-close-btn { display: block; position: absolute; top: 18px; right: 18px; font-size: 28px; background: none; border: none; cursor: pointer; color: var(--text-muted); }
+      .nav-dropdown .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: #f8fafc; margin-top: 4px; }
+    }
 
     .case-hero { background: url('images/hero-bg.svg') center/cover no-repeat, linear-gradient(135deg, #0d4a44 0%, #0d7a70 55%, #0d9488 100%); padding: 48px 32px 48px; text-align: center; }
     .hero-inner { max-width: 820px; margin: 0 auto; }
@@ -133,7 +145,6 @@
     @media (max-width: 768px) {
       .case-hero h1 { font-size: 32px; }
       .compare-grid { grid-template-columns: 1fr; }
-      .top-header-nav { display: none; }
       .qa-grid { grid-template-columns: 1fr; }
       .flow { flex-direction: column; align-items: stretch; }
       .flow-arrow { transform: rotate(90deg); text-align: center; }
@@ -163,41 +174,75 @@
   <div class="brand">
     <a href="index.html">
       <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#0d9488"/><path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="20" cy="20" r="3" fill="white"/></svg>
-      Therasik
+      <span style="color:#111827">Thera</span><span class="accent">sik</span>
     </a>
-    <span class="slogan">生命科学 AI</span>
+    <span class="slogan">AI 赋能生命科学</span>
   </div>
+  <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
   <nav class="top-header-nav">
+    <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
     <a href="index.html">首页</a>
-    <div class="nav-dropdown">
-      <a href="#">服务</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#services">AI 药物设计</a>
       <div class="dropdown-menu">
-        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
-        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异性抗体</span><span class="menu-desc">多特异性工程</span></a>
-        <a href="Therasik_CART_Page.html"><span class="menu-title">CAR-T 设计</span><span class="menu-desc">智慧 CAR-T 架构设计</span></a>
-        <a href="Therasik_Immunogenicity.html"><span class="menu-title">免疫原性研究</span><span class="menu-desc">ADA 预测与参考数据库</span></a>
-        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体研发与评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+        <a href="Therasik_ADC_Design_Page.html"><span class="menu-title">智能 ADC 设计</span><span class="menu-desc">抗原-载荷-链接子匹配</span></a>
+        <a href="Therasik_CART_Page.html"><span class="menu-title">智慧 CAR-T 设计</span><span class="menu-desc">架构设计与组件优化</span></a>
+        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异抗体设计与评估</span><span class="menu-desc">格式筛选 · CMC 评估 · 配对验证</span></a>
+        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">新型疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
       </div>
     </div>
-    <a href="index.html#case-studies">案例</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#knowledge-base">临床参考库</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Guide.html"><span class="menu-title">抗体工程指南</span><span class="menu-desc">技术标准与设计原则</span></a>
+        <a href="Therasik_ADA_Database.html"><span class="menu-title">ADA 数据库</span><span class="menu-desc">138 项临床免疫原性基准</span></a>
+        <a href="Therasik_ADC_Database.html"><span class="menu-title">ADC 数据库</span><span class="menu-desc">100 个临床 ADC 程序</span></a>
+        <a href="Therasik_Component_Browser.html"><span class="menu-title">CAR 组件库</span><span class="menu-desc">237 个 CAR-T 工程组件</span></a>
+        <a href="Therasik_Vaccine_KB.html"><span class="menu-title">疫苗知识库</span><span class="menu-desc">抗原与佐剂数据</span></a>
+      </div>
+    </div>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#case-studies">项目实例</a>
+      <div class="dropdown-menu">
+        <a href="case_mumab4d5_humanization_zh.html"><span class="menu-title">muMAb4D5 人源化</span><span class="menu-desc">CDR 移植 + 结构导向回突变</span></a>
+        <a href="case_mumab4d5_cmc_zh.html"><span class="menu-title">muMAb4D5 CMC 评估</span><span class="menu-desc">15 项可开发性指标，全部通过</span></a>
+        <a href="case_mumab4d5_vhh_zh.html"><span class="menu-title">VH → HER2 VHH 转化</span><span class="menu-desc">纳米抗体改造与可开发性优化</span></a>
+        <a href="case_vgrw_sr_r2_affinity_maturation.html"><span class="menu-title">VHH 亲和力成熟</span><span class="menu-desc">结合能提升 −3.32 kcal/mol</span></a>
+        <a href="case_bispecific_vhh_expression_optimization.html"><span class="menu-title">双特异性 VHH 表达优化</span><span class="menu-desc">pI 工程 + 跨株 IC90 提升 4.8 倍</span></a>
+        <a href="case_bispecific_vhvl_pairing.html"><span class="menu-title">IgG-like 配对稳定性分析</span><span class="menu-desc">Faricimab VPSA · 盐桥 · 静电锁设计</span></a>
+        <a href="case_malaria_carm_design.html"><span class="menu-title">CAR-M 设计</span><span class="menu-desc">CIDRα1 靶向双结合域 CAR-巨噬细胞</span></a>
+      </div>
+    </div>
     <a href="Therasik_OurTech.html">技术平台</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#about">关于我们</a>
+      <div class="dropdown-menu">
+        <a href="index.html#about"><span class="menu-title">公司简介</span><span class="menu-desc">团队背景与研发使命</span></a>
+        <a href="index.html#workflow"><span class="menu-title">服务流程</span><span class="menu-desc">从咨询到交付的透明流程</span></a>
+      </div>
+    </div>
+    <a href="index.html#contact">联系我们</a>
   </nav>
+  <div class="header-right"></div>
 </header>
 
 <section class="case-hero">
   <div class="hero-inner">
     <div class="hero-badge">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      IgG-like Bispecific · VPSA Audit · Co-Expression Format · Real Computation
+      案例研究 · IgG-like 双特异抗体 · VH/VL 配对稳定性分析 · 真实计算
     </div>
-    <h1>Faricimab<br><em>VH/VL Pairing Stability Audit</em></h1>
-    <p class="subtitle">KiH+CrossFab co-expression solved chain mispairing — but do Faricimab's two Fv interfaces have intrinsic pairing selectivity? Therasik VPSA reveals arm-specific mechanisms and a key BSA paradox.</p>
+    <h1>Faricimab<br><em>VH/VL 配对稳定性审计</em></h1>
+    <p class="subtitle">KiH+CrossFab 共表达解决了轻重链错配——但 Faricimab 的两个 Fv 界面是否具有固有配对选择性？Therasik VPSA 揭示了臂特异性机制与关键 BSA 悖论，并给出静电锁突变设计路径。</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="val">4</div><div class="lbl">Pair Combinations</div></div>
-      <div class="hero-stat"><div class="val">−72%</div><div class="lbl">Arm A Salt Bridges in Crossover</div></div>
-      <div class="hero-stat"><div class="val">+42%</div><div class="lbl">Arm A BES Advantage (native)</div></div>
-      <div class="hero-stat"><div class="val">G/Q</div><div class="lbl">VH44/VL100 Arm A (VH3/κ)</div></div>
-      <div class="hero-stat"><div class="val">G/G</div><div class="lbl">VH44/VL100 Arm B (VH1/λ)</div></div>
+      <div class="hero-stat"><div class="val">4</div><div class="lbl">配对组合全覆盖</div></div>
+      <div class="hero-stat"><div class="val">−72%</div><div class="lbl">A 臂交叉配对盐桥减少</div></div>
+      <div class="hero-stat"><div class="val">+42%</div><div class="lbl">A 臂 BES 原生优势</div></div>
+      <div class="hero-stat"><div class="val">G/Q</div><div class="lbl">VH44/VL100 · A 臂 (VH3/κ)</div></div>
+      <div class="hero-stat"><div class="val">G/G</div><div class="lbl">VH44/VL100 · B 臂 (VH1/λ)</div></div>
     </div>
   </div>
 </section>
