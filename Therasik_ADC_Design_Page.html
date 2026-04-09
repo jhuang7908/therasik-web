@@ -80,6 +80,23 @@
     .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
     .form-group textarea { min-height: 120px; resize: vertical; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,148,136,0.15); }
+    /* Logic box (case study) */
+    .logic-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; margin: 28px 0; font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+    .logic-box .logic-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 20px; }
+    .logic-box .logic-label { font-size: 11px; font-weight: 700; color: #fff; background: var(--primary); padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+    .logic-box .logic-params { font-family: monospace; color: var(--text-muted); font-size: 13px; margin-top: 8px; }
+    .logic-step { margin-bottom: 16px; }
+    .logic-step strong { color: #0f172a; font-size: 14px; }
+    .logic-step .logic-query { color: var(--text-muted); font-size: 13px; margin: 4px 0; }
+    .logic-step .logic-result { color: var(--primary); font-weight: 500; font-size: 13px; margin: 2px 0; }
+    .logic-step .logic-decision { background: rgba(13,148,136,0.1); padding: 8px 12px; border-radius: 6px; margin-top: 6px; font-size: 13px; color: var(--primary-dark); }
+    .logic-step .logic-decision strong { color: var(--primary-dark); }
+    .logic-output { background: #fff; border: 1px solid rgba(13,148,136,0.2); border-radius: 8px; padding: 16px; margin-top: 16px; }
+    .logic-output .output-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+    .output-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .output-tag { background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.2); color: var(--primary-dark); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .output-tag.warn { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3); color: #92400e; }
+
     .btn { padding: 14px 32px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(13,148,136,0.25); }
     .btn:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(13,148,136,0.35); }
     
@@ -277,6 +294,7 @@
         <a href="#overview" class="active">平台概览</a>
         <a href="#logic">设计逻辑</a>
         <a href="#workflow">项目流程</a>
+        <a href="#example">案例推演</a>
         <a href="#submit">提交咨询</a>
       </nav>
     </aside>
@@ -287,7 +305,7 @@
       <a href="index.html">首页</a><span>/</span><a href="index.html#services" class="active">AI 药物设计</a><span>/</span><span>智能 ADC 设计</span>
     </div>
     <h1>智能 ADC 设计</h1>
-    <p>基于 AI 的端到端 ADC 工程平台，整合靶点分析、链接子-载荷匹配与 CMC 可开发性评估。参考 100 个临床 ADC 项目（12 已批准 + 88 各期试验），覆盖 78 个靶抗原、32 种载荷、29 种链接子（含条件激活型）及 23 种偶联技术，系统优化偶联方案的疗效-安全性平衡，加速从靶点到候选的开发进程。</p>
+    <p>基于 AI 的端到端 ADC 工程平台，整合靶点分析、链接子-载荷匹配与 CMC 可开发性评估。参考 100 个临床 ADC 项目（12 已批准 + 88 各期试验），系统优化偶联方案的疗效-安全性平衡，加速从靶点到候选的开发进程。</p>
   </div>
 
       <p>Therasik 的智能 ADC 设计平台结合了海量临床数据与先进的计算模型，为客户提供最优化的偶联方案。我们不仅关注杀伤效力，更通过 AI 预测 ADC 的系统稳定性与脱靶风险。</p>
@@ -295,52 +313,12 @@
       <h2 id="logic"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>8 步智能推荐逻辑</h2>
       <p>我们的 ADC 决策引擎遵循严谨的科学路径，确保每一个设计提案都有据可依：</p>
       <ul>
-        <li><strong>① 靶点画像：</strong> 评估抗原表达丰度、内化速率、异质性、脱落率及正常组织交叉反应性，生成靶点综合评分。</li>
-        <li><strong>② 内化路径判定：</strong> 根据内化特性自动分流设计路径 — 经典裂解、条件激活型连接子（TME 胞外双重裂解）或掩蔽抗体策略，扩展传统 ADC 不可及的靶点空间。</li>
-        <li><strong>③ 载荷筛选：</strong> 根据肿瘤增殖特性和异质性程度匹配旁观者效应强度与细胞周期依赖性，确保载荷与疾病生物学精准适配。</li>
-        <li><strong>④ 链接子匹配：</strong> 从 5 大类 29 种链接子中，根据内化特性、TME 环境和 FTO 约束匹配最优方案，覆盖酶裂解、pH 裂解、二硫键裂解、不可裂解及条件激活全谱系。</li>
-        <li><strong>⑤ DAR 与偶联策略：</strong> 推荐定点偶联方案以确保 DAR 均一性。新一代不可逆锚点技术可安全支持高 DAR 设计，传统偶联化学在高 DAR 时自动触发聚集风险预警。</li>
-        <li><strong>⑥ FTO 专利审查：</strong> 核查每个组件的专利状态（Public Domain / Proprietary / Licensed），评估自由实施风险，规避侵权隐患。</li>
-        <li><strong>⑦ CMC 风险评估：</strong> 预测聚集风险、血浆稳定性、免疫原性及工艺可放大性，前移可开发性筛选。</li>
-        <li><strong>⑧ 失败案例对标：</strong> 匹配数据库中相同靶点/载荷组合的失败项目，标注失败根因，生成风险规避建议。</li>
+        <li><strong>靶点分析：</strong> 评估抗原内吞机制、表达丰度及脱落率。</li>
+        <li><strong>载荷筛选：</strong> 根据肿瘤异质性选择旁观者效应强度，匹配细胞周期特性。</li>
+        <li><strong>链接子匹配：</strong> 优化血浆稳定性与肿瘤微环境释放效率。</li>
+        <li><strong>偶联技术：</strong> 推荐定点偶联方案以确保 DAR 均一性。</li>
+        <li><strong>风险评估：</strong> 预测聚集风险 (LogP) 与免疫原性。</li>
       </ul>
-
-      <div style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #bbf7d0;border-radius:12px;padding:24px 28px;margin:32px 0">
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin:0 0 16px;color:#166534">决策引擎：靶点特征驱动路径选择</h3>
-        <p style="font-size:14px;color:#374151;margin-bottom:16px">决策引擎基于靶点画像自动路由至最优技术路径，而非固定采用单一策略：</p>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden">
-          <thead>
-            <tr style="background:#0d9488;color:#fff">
-              <th style="padding:10px 14px;text-align:left;font-weight:600">靶点特征</th>
-              <th style="padding:10px 14px;text-align:left;font-weight:600">传统路径局限</th>
-              <th style="padding:10px 14px;text-align:left;font-weight:600">引擎推荐路径</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid #e5e7eb">
-              <td style="padding:10px 14px;font-weight:600">内化速率低</td>
-              <td style="padding:10px 14px;color:#dc2626">载荷无法释放，疗效不足</td>
-              <td style="padding:10px 14px;color:#16a34a">条件激活型连接子 — TME 胞外释放 + 胞内双重裂解</td>
-            </tr>
-            <tr style="border-bottom:1px solid #e5e7eb">
-              <td style="padding:10px 14px;font-weight:600">正常组织高表达</td>
-              <td style="padding:10px 14px;color:#dc2626">On-target / off-tumor 毒性</td>
-              <td style="padding:10px 14px;color:#16a34a">掩蔽抗体策略 — 仅在肿瘤微环境中激活</td>
-            </tr>
-            <tr style="border-bottom:1px solid #e5e7eb">
-              <td style="padding:10px 14px;font-weight:600">需要高 DAR（≥ 8）</td>
-              <td style="padding:10px 14px;color:#dc2626">传统偶联载荷脱落 + 聚集</td>
-              <td style="padding:10px 14px;color:#16a34a">新一代不可逆位点特异性偶联 — 消除逆迈克尔加成</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px;font-weight:600">肿瘤异质性高</td>
-              <td style="padding:10px 14px;color:#dc2626">单靶点覆盖不足</td>
-              <td style="padding:10px 14px;color:#16a34a">高旁观者效应载荷 + 强膜渗透性连接子组合</td>
-            </tr>
-          </tbody>
-        </table>
-        <p style="font-size:12px;color:#6b7280;margin:12px 0 0">数据来源：ADC 临床参考数据库 29 种链接子 × 78 个靶抗原交叉分析 · <a href="Therasik_ADC_Database.html" style="color:#0d9488;text-decoration:underline">查看完整数据库 →</a></p>
-      </div>
 
       <h2 id="workflow"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>端到端开发流程</h2>
       <div class="flow-strip">
@@ -371,6 +349,87 @@
         </div>
       </div>
 
+      <h2 id="example"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>案例推演：TROP2 ADC 设计决策全过程</h2>
+      <p>以下展示我们的 ADC 决策引擎针对三阴性乳腺癌（TNBC）项目的完整 8 步推演，说明每个设计选择背后的生物学依据。</p>
+
+      <div class="logic-box">
+        <div class="logic-header">
+          <span class="logic-label">输入</span>
+          <div class="logic-params">靶点：TROP2 &nbsp;|&nbsp; 适应症：实体瘤（TNBC — 三阴性乳腺癌）&nbsp;|&nbsp; 策略：差异化首创</div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D1 — 靶点分层验证</strong>
+          <div class="logic-query">• 查询：TROP2 在临床 ADC 数据库中的验证等级？</div>
+          <div class="logic-result">→ 结果：Tier-1（Sacituzumab govitecan，已批准上市，TNBC 适应症）</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>靶点直接进入推荐流程。<em>Tier-1 靶点具有上市先例，显著降低验证风险。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D2 — 肿瘤表达验证</strong>
+          <div class="logic-query">• 查询：TROP2 在 TNBC 的表达丰度与正常组织表达？</div>
+          <div class="logic-result">→ 结果：expression_score = 8.9/10；正常乳腺低表达，TNBC 均匀高表达</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>维持高评分，无需降分。<em>高表达 + 低正常组织背景是 ADC 的理想靶点特征。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D3 — Binder 格式选择</strong>
+          <div class="logic-query">• 查询：CMC 优先级？是否已有抗体序列？</div>
+          <div class="logic-result">→ 结果：CMC 优先级 = HIGH；参考 hRS7 抗体（Sacituzumab 的结合域）</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>推荐 <strong>IgG1 格式</strong>，DAR 均一性偏向稳定位点。<em>CMC 高优先级时，成熟 IgG1 平台优于双特异性或 VHH，降低生产风险。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D4 — Linker 类型匹配</strong>
+          <div class="logic-query">• 查询：TROP2 内化率？TNBC 溶酶体活性？</div>
+          <div class="logic-result">→ 结果：内化率 HIGH；TNBC 溶酶体 Cathepsin-B 活性高</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>选用 <strong>Cleavable Linker（CL2A，pH 敏感型）</strong>。<em>高内化率配合溶酶体可裂解 linker，确保 SN-38 在胞内有效释放，与 Sacituzumab govitecan 成功逻辑一致。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D5 — Payload 类别</strong>
+          <div class="logic-query">• 查询：TNBC 肿瘤异质性？是否需要旁观者效应？</div>
+          <div class="logic-result">→ 结果：肿瘤异质性 HIGH；TROP2 表达存在亚群差异</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>选用 <strong>SN-38（拓扑异构酶 I 抑制剂）</strong>。<em>SN-38 具有旁观者效应，可杀伤 TROP2 阴性邻近细胞，弥补抗原异质性缺陷。未选 MMAE（微管抑制剂）因 TNBC 非骨髓来源，神经毒性权重更低。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D6 — 偶联方式</strong>
+          <div class="logic-query">• 查询：CMC 均一性要求？现有结合位点技术？</div>
+          <div class="logic-result">→ 结果：要求 DAR 均一性；差异化方向考虑位点特异</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>推荐 <strong>赖氨酸随机偶联（SMCC 类）→ 次选位点特异半胱氨酸偶联</strong>。<em>随机偶联符合既有上市 Sacituzumab 先例；若差异化首创则升级至位点特异（FTO 需核查）。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D7 — DAR 范围</strong>
+          <div class="logic-query">• 查询：SN-38 毒性等级？CMC 聚集风险？</div>
+          <div class="logic-result">→ 结果：SN-38 相对低毒（vs. MMAE）；LogP 中等，DAR 较高仍可接受</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>DAR 目标范围 <strong>6–8</strong>（高效载荷密度）。<em>SN-38 相对温和，允许更高 DAR 以提升效力；CMC 门控：DAR &gt; 8 标注聚集 WARN。</em></div>
+        </div>
+
+        <div class="logic-step">
+          <strong>D8 — 旁观者效应确认</strong>
+          <div class="logic-query">• 查询：抗原异质性分级？</div>
+          <div class="logic-result">→ 结果：TNBC 异质性 HIGH → 旁观者效应权重 = 正向加分</div>
+          <div class="logic-decision"><strong>💡 决策：</strong>最终方案确认旁观者效应 <strong>= TRUE</strong>。<em>SN-38 的细胞渗透性确保旁观者杀伤，是 TNBC 异质性肿瘤的关键机制优势。</em></div>
+        </div>
+
+        <div class="logic-output">
+          <div class="output-label">引擎输出 — Rank #1 推荐方案</div>
+          <div class="output-tags">
+            <span class="output-tag">靶点：TROP2 Tier-1</span>
+            <span class="output-tag">Binder：IgG1（hRS7 参考）</span>
+            <span class="output-tag">Linker：CL2A Cleavable</span>
+            <span class="output-tag">Payload：SN-38</span>
+            <span class="output-tag">偶联：赖氨酸随机 / 升级位点特异</span>
+            <span class="output-tag">DAR：6–8</span>
+            <span class="output-tag">旁观者效应：TRUE</span>
+            <span class="output-tag">综合评分：88/100</span>
+            <span class="output-tag warn">FTO 预警：TROP2+SN-38 组合与 Sacituzumab govitecan 重叠，建议位点特异或 Payload 差异化</span>
+          </div>
+        </div>
+      </div>
+
       <h2 id="submit"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>提交设计咨询</h2>
       <p>提供您的靶点或适应症信息，我们的 ADC 决策引擎将为您生成优化的链接子-载荷及偶联策略排名建议。</p>
       
@@ -395,9 +454,8 @@
             <div class="form-group full">
               <label>设计策略偏好</label>
               <div class="check-group">
-                <div class="check-item"><input type="radio" name="strategy" id="strat_fast" checked><label for="strat_fast">快速跟进 (成熟载荷 + 经典链接子)</label></div>
+                <div class="check-item"><input type="radio" name="strategy" id="strat_fast" checked><label for="strat_fast">快速跟进 (成熟载荷)</label></div>
                 <div class="check-item"><input type="radio" name="strategy" id="strat_first"><label for="strat_first">首创药物 (新型载荷如 PROTAC/ISAC)</label></div>
-                <div class="check-item"><input type="radio" name="strategy" id="strat_cond"><label for="strat_cond">条件激活型 (非内化靶点 / 高正常组织表达)</label></div>
                 <div class="check-item"><input type="radio" name="strategy" id="strat_bisp"><label for="strat_bisp">双特异性 ADC</label></div>
               </div>
             </div>

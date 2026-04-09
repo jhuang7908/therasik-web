@@ -86,6 +86,23 @@
     .trust-card h3 { margin: 0 0 8px; font-size: 18px; color: #111827; }
     .trust-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #5b6472; }
 
+    /* Logic box (case study) */
+    .logic-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; margin: 28px 0; }
+    .logic-box .logic-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 20px; }
+    .logic-label { font-size: 11px; font-weight: 700; color: #fff; background: var(--primary); padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+    .logic-params { font-family: monospace; color: var(--text-muted); font-size: 13px; margin-top: 8px; }
+    .logic-step { margin-bottom: 16px; }
+    .logic-step > strong { color: #0f172a; font-size: 14px; }
+    .logic-query { color: var(--text-muted); font-size: 13px; margin: 4px 0; }
+    .logic-result { color: var(--primary); font-weight: 500; font-size: 13px; margin: 2px 0; }
+    .logic-decision { background: rgba(13,148,136,0.1); padding: 8px 12px; border-radius: 6px; margin-top: 6px; font-size: 13px; color: var(--primary-dark); }
+    .logic-output { background: #fff; border: 1px solid rgba(13,148,136,0.2); border-radius: 8px; padding: 16px; margin-top: 16px; }
+    .output-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+    .output-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .output-tag { background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.2); color: var(--primary-dark); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .output-tag.pass { background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.25); color: #15803d; }
+    .output-tag.warn { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3); color: #92400e; }
+
     /* Flow strip */
     .flow-strip { display: flex; gap: 0; margin: 32px 0; overflow-x: auto; }
     .flow-step { flex: 1; min-width: 110px; background: #fff; border: 1px solid rgba(13,148,136,0.12); padding: 16px 12px; text-align: center; position: relative; }
@@ -307,10 +324,6 @@
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         平台概述
       </a>
-      <a href="#decision" class="nav-link">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        智能决策
-      </a>
       <a href="#neoantigen" class="nav-link">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
         新抗原设计
@@ -322,6 +335,10 @@
       <a href="#mrna" class="nav-link">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 8h16M4 16h16"/></svg>
         多表位 mRNA
+      </a>
+      <a href="#example" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        案例推演
       </a>
       <a href="#submit" class="nav-link">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -367,58 +384,6 @@
       <a href="Therasik_Vaccine_KB.html#taa" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.16);color:#0f766e;text-decoration:none;font-size:13px;font-weight:600;">浏览肿瘤抗原库 →</a>
       <a href="Therasik_Vaccine_KB.html#tcr" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.16);color:#6d28d9;text-decoration:none;font-size:13px;font-weight:600;">浏览 TCR 配对库 →</a>
     </p>
-
-    <h2 id="decision">
-      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
-      智能设计决策引擎
-    </h2>
-
-    <p>疫苗设计引擎基于 IEDB 验证表位库、肿瘤抗原参考集和临床递送平台数据，将项目输入（适应症 × 抗原特征 × HLA 型）自动路由至最优设计策略：</p>
-
-    <ul>
-      <li><strong>① 场景分类：</strong> 根据输入自动判定项目类型 — 个性化新抗原（需 WES/RNA-seq）、共有突变疫苗（KRAS/TP53 热点）、TAA 增强型或传染病广谱型。不同场景启用不同的表位筛选和优先级算法。</li>
-      <li><strong>② 表位优先级引擎：</strong> 整合 HLA-I/II 结合亲和力、蛋白酶体切割预测、TAP 转运效率、表达水平及 TCR 接触面化学性质，生成多维度综合排序，而非单一 IC50 阈值。</li>
-      <li><strong>③ 免疫原性增强路由：</strong> 对弱免疫原性表位（自身抗原、保守病毒序列）自动启用异克隆优化模块 — 锚定位点替换增强 HLA 结合，TCR 接触面优化提升识别亲和力，同时验证交叉反应性（优化肽能否激活识别野生型的 T 细胞克隆）。</li>
-      <li><strong>④ HLA 群体覆盖优化：</strong> 针对目标患者群体（如东亚、高加索、非裔）的 HLA 频率分布，优化表位组合使群体覆盖率达到 ≥90%，兼顾 HLA-I（CTL 应答）与 HLA-II（CD4+ 辅助）。</li>
-      <li><strong>⑤ 构建体架构设计：</strong> 多表位 mRNA 场景下，自动优化表位排列顺序、接头选择（AAY/GPGPG/KK）、排除接头伪表位，并整合密码子优化、5'UTR/polyA 尾和 GC 含量调控。</li>
-      <li><strong>⑥ 递送平台匹配：</strong> 根据抗原数量、免疫应答类型和临床阶段推荐递送方案 — 长肽/短肽（小规模）、mRNA-LNP（快速制造）、病毒载体（强免疫记忆）或 DC 疫苗（个性化）。</li>
-    </ul>
-
-    <div style="background:linear-gradient(135deg,#faf5ff,#f5f3ff);border:1px solid #ddd6fe;border-radius:12px;padding:24px 28px;margin:32px 0">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin:0 0 16px;color:#5b21b6">决策引擎：项目类型驱动设计路径</h3>
-      <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden">
-        <thead>
-          <tr style="background:#7c3aed;color:#fff">
-            <th style="padding:10px 14px;text-align:left;font-weight:600">项目场景</th>
-            <th style="padding:10px 14px;text-align:left;font-weight:600">核心挑战</th>
-            <th style="padding:10px 14px;text-align:left;font-weight:600">引擎推荐路径</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid #e5e7eb">
-            <td style="padding:10px 14px;font-weight:600">个性化肿瘤新抗原</td>
-            <td style="padding:10px 14px;color:#dc2626">突变负荷高但真正免疫原性表位少</td>
-            <td style="padding:10px 14px;color:#16a34a">多维度优先级排序 → 表达量 + HLA 亲和力 + TCR 可识别性联合筛选</td>
-          </tr>
-          <tr style="border-bottom:1px solid #e5e7eb">
-            <td style="padding:10px 14px;font-weight:600">共有驱动突变（KRAS/TP53）</td>
-            <td style="padding:10px 14px;color:#dc2626">自身耐受导致免疫原性低</td>
-            <td style="padding:10px 14px;color:#16a34a">异克隆优化 → 锚定位点增强 + TCR 接触面重塑 + 交叉反应性验证</td>
-          </tr>
-          <tr style="border-bottom:1px solid #e5e7eb">
-            <td style="padding:10px 14px;font-weight:600">广谱传染病（流感/新冠）</td>
-            <td style="padding:10px 14px;color:#dc2626">病毒变异逃逸 + 人群 HLA 多样性</td>
-            <td style="padding:10px 14px;color:#16a34a">保守表位优先 + 多 HLA 型覆盖优化 → ≥90% 群体覆盖</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 14px;font-weight:600">多表位 mRNA 构建体</td>
-            <td style="padding:10px 14px;color:#dc2626">接头伪表位 + 翻译效率 + 免疫显性竞争</td>
-            <td style="padding:10px 14px;color:#16a34a">排列优化算法 → 伪表位排除 + 密码子优化 + GC 调控</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="font-size:12px;color:#6b7280;margin:12px 0 0">数据来源：IEDB 验证表位库 + 肿瘤抗原参考集 + 临床递送平台数据 · <a href="Therasik_Vaccine_KB.html" style="color:#7c3aed;text-decoration:underline">查看完整知识库 →</a></p>
-    </div>
 
     <h2 id="neoantigen">
       <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></span>
@@ -496,6 +461,80 @@
       <li><strong>mRNA 结构优化</strong> — 5'UTR、Kozak 序列、polyA 尾及密码子优化建议</li>
     </ul>
     <p><a href="Therasik_Vaccine_KB.html#vectors" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#1d4ed8;font-weight:600;text-decoration:none;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.18);padding:5px 12px;border-radius:20px;">🧫 浏览递送平台 →</a> <a href="Therasik_Vaccine_KB.html#adjuvants" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#1d4ed8;font-weight:600;text-decoration:none;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.18);padding:5px 12px;border-radius:20px;">⚗️ 浏览临床佐剂 →</a></p>
+
+    <h2 id="example">
+      <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+      案例推演：KRAS G12D 新抗原多表位 mRNA 疫苗设计
+    </h2>
+    <p>以下展示我们的多表位组装引擎针对 KRAS G12D 共同突变新抗原疫苗项目的完整 6 步推演，说明每步选择背后的科学依据。</p>
+
+    <div class="logic-box">
+      <div class="logic-header">
+        <span class="logic-label">输入</span>
+        <div class="logic-params">突变：KRAS G12D &nbsp;|&nbsp; 适应症：胰腺癌 / 结直肠癌（共同突变） &nbsp;|&nbsp; 目标：多表位 mRNA 疫苗 &nbsp;|&nbsp; HLA 覆盖：亚洲人群（HLA-A*02:01, A*24:02, B*40:01）</div>
+      </div>
+
+      <div class="logic-step">
+        <strong>Step 1 — 表位收集与亲和力过滤</strong>
+        <div class="logic-query">• 输入：KRAS G12D 突变位点生成 8–11 mer 肽段；NetMHCpan 预测三种 HLA 亚型亲和力</div>
+        <div class="logic-result">→ 通过 IC50 &lt; 500 nM 过滤后保留：
+          MHC-I 表位 × 8 个（含野生型对比确认免疫原性增益）；
+          MHC-II 表位 × 4 个（NetMHCIIpan，IC50 &lt; 1000 nM）
+        </div>
+        <div class="logic-decision"><strong>💡 决策：</strong>8 + 4 = 12 表位，满足 PASS 标准（MHC-I 5–20，MHC-II 3–10）。排除 3 个野生型竞争表位（与 KRAS 野生型 IC50 差值 &lt; 10 倍）。</div>
+      </div>
+
+      <div class="logic-step">
+        <strong>Step 2 — Spacer 插入</strong>
+        <div class="logic-query">• 规则：MHC-I 间 → AAY（促蛋白酶体切割）；MHC-II 间 → GPGPG（柔性，防 MHC-I 加工）；每 5 个 MHC-I 表位后插入 PADRE 通用 CD4 辅助表位</div>
+        <div class="logic-result">→ 构建体骨架：[tPA 信号肽] + [MHC-I × 8 + AAY 间隔 × 7] + [PADRE] + [MHC-II × 4 + GPGPG 间隔 × 3] + [MITD]</div>
+        <div class="logic-decision"><strong>💡 决策：</strong>AAY 优先于 GGGGS 用于 MHC-I 间，原因：AAY 含酪氨酸可被蛋白酶体末端识别，提高 MHC-I 递呈效率 ~30%。</div>
+      </div>
+
+      <div class="logic-step">
+        <strong>Step 3 — 接头新表位检查（JunctionCheck）</strong>
+        <div class="logic-query">• 对每个相邻表位对：取左侧 5aa + Spacer + 右侧 5aa，预测 MHC-I 及 MHC-II 新结合肽</div>
+        <div class="logic-result">→ 初始排列：7 个接头中，2 个接头产生新 MHC-I 结合肽（IC50 &lt; 500 nM） → <strong>触发 Step 4 重排序</strong></div>
+        <div class="logic-decision"><strong>💡 决策：</strong>初始线性排列不达 PASS 标准（接头新 MHC-I 肽 = 0 为 PASS）；启动排序优化。</div>
+      </div>
+
+      <div class="logic-step">
+        <strong>Step 4 — 表位排序优化</strong>
+        <div class="logic-query">• 策略：穷举排列（8 个 MHC-I 表位，8! 空间，设 beam search K=500）；目标：sum(junction_new_binders) 最小化</div>
+        <div class="logic-result">→ 最优排列：调换表位 E3 ↔ E7 后，接头新 MHC-I 结合肽归零；MHC-II 接头无新结合肽</div>
+        <div class="logic-decision"><strong>💡 决策：</strong>优化排列达到 PASS（新 MHC-I 接头肽 = 0）。优化后序列总长：<strong>312 aa</strong>（含信号肽 + MITD），满足 ≤ 500 aa 要求。</div>
+      </div>
+
+      <div class="logic-step">
+        <strong>Step 5 — 信号肽 + MITD 融合</strong>
+        <div class="logic-query">• 选择信号肽：默认 tPA（MDAMKRGLCCVLLLCGAVFVSPS）；MITD 尾部增强 MHC-I 跨膜锚定递呈</div>
+        <div class="logic-result">→ 完整构建体：[tPA 23aa] + [表位+Spacer 253aa] + [PADRE 13aa] + [MITD 23aa] = 总长 312 aa</div>
+        <div class="logic-decision"><strong>💡 决策：</strong>tPA 信号肽为默认选择（内质网靶向效率最高，无需特殊说明）。MITD 可提升 MHC-I 递呈效率，推荐用于 mRNA-LNP 递送平台。</div>
+      </div>
+
+      <div class="logic-step">
+        <strong>Step 6 — 密码子优化</strong>
+        <div class="logic-query">• CodonOptimizer 输入：312 aa 蛋白序列；目标：人类密码子使用表 CAI &gt; 0.8，消除终止密码子误读，优化 5'-UTR 折叠</div>
+        <div class="logic-result">→ 优化结果：CAI = <strong>0.87</strong>（PASS）；GC 含量 = 52.3%（适合 LNP 稳定递送）；核苷酸长度 = 936 nt</div>
+        <div class="logic-decision"><strong>💡 决策：</strong>CAI 0.87 超过 PASS 阈值（&gt; 0.8）；5'-UTR 强 Kozak 序列确认，mRNA 二级结构折叠能 ΔG = −8.2 kcal/mol（稳定）。最终序列可直接提交合成。</div>
+      </div>
+
+      <div class="logic-output">
+        <div class="output-label">引擎输出 — 最终疫苗构建体摘要</div>
+        <div class="output-tags">
+          <span class="output-tag">MHC-I 表位：8 个（3 HLA 亚型）</span>
+          <span class="output-tag">MHC-II 表位：4 个</span>
+          <span class="output-tag pass">接头新表位：0（PASS）</span>
+          <span class="output-tag pass">MHC-I 人群覆盖率：78%（PASS）</span>
+          <span class="output-tag pass">MHC-II 人群覆盖率：61%（PASS）</span>
+          <span class="output-tag pass">构建体总长：312 aa（PASS）</span>
+          <span class="output-tag pass">CAI：0.87（PASS）</span>
+          <span class="output-tag">信号肽：tPA</span>
+          <span class="output-tag">递送平台建议：mRNA-LNP</span>
+          <span class="output-tag">核苷酸：936 nt，可直接合成</span>
+        </div>
+      </div>
+    </div>
 
     <h2 id="submit">
       <span class="h2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
