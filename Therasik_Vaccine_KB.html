@@ -286,6 +286,127 @@
       font-size:12px;
       font-weight:700;
     }
+    /* ── Clinical Phase Bar ─────────────────────────────────────────────── */
+    .phase-bar-wrap {
+      margin: 14px 0 4px;
+      padding: 10px 12px;
+      background: var(--soft);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .phase-bar-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+    .phase-bar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .ph-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 0 0 auto;
+    }
+    .ph-dot {
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .ph-step.ph-done .ph-dot {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .ph-step.ph-current .ph-dot {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,148,136,.22);
+    }
+    .ph-step.ph-approved-final .ph-dot {
+      background: #15803d;
+      border-color: #15803d;
+    }
+    .ph-lbl {
+      font-size: 9px;
+      font-weight: 700;
+      color: #9ca3af;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .ph-step.ph-done .ph-lbl,
+    .ph-step.ph-current .ph-lbl { color: var(--primary-dark); }
+    .ph-step.ph-approved-final .ph-lbl { color: #15803d; }
+    .ph-line {
+      flex: 1;
+      height: 2px;
+      background: #e5e7eb;
+      min-width: 20px;
+      max-width: 52px;
+      margin-bottom: 18px;
+      border-radius: 2px;
+    }
+    .ph-line.ph-done { background: var(--primary); }
+    .phase-bar-meta {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    /* ── Card Timeline (vertical, same as case study) ───────────────────── */
+    .card-timeline {
+      position: relative;
+      padding-left: 22px;
+      margin: 12px 0 4px;
+    }
+    .card-timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px; top: 4px; bottom: 4px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), rgba(13,148,136,.2));
+      border-radius: 2px;
+    }
+    .ctl-item {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .ctl-item:last-child { margin-bottom: 0; }
+    .ctl-item::before {
+      content: '';
+      position: absolute;
+      left: -17px; top: 5px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px rgba(13,148,136,.2);
+    }
+    .ctl-step {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .ctl-text {
+      font-size: 12.5px;
+      color: #334155;
+      line-height: 1.45;
+    }
+    .ctl-text strong { color: #0f172a; }
     .table-wrap {
       overflow:auto;
       border:1px solid var(--border);
@@ -720,75 +841,180 @@
       `;
     }
 
+    // ── Clinical phase bar (horizontal progress) ─────────────────────────
+    function phaseBarHtml(signal, trialsCount) {
+      var s = (signal || '').toLowerCase();
+      var idx = 0;
+      if (/approv|approved|marketed|fda|ema/.test(s)) idx = 4;
+      else if (/phase iii|ph\.? ?iii|phase 3|iii\/iv/.test(s)) idx = 3;
+      else if (/ii\/iii|2\/3|phase ii|ph\.? ?ii|phase 2/.test(s)) idx = 2;
+      else if (/i\/ii|1\/2|phase i|ph\.? ?i|phase 1/.test(s)) idx = 1;
+
+      var PHASES = ['Preclinical', 'Ph. I', 'Ph. II', 'Ph. III', 'Approved'];
+      var html = '';
+      PHASES.forEach(function(p, i) {
+        var cls = i < idx ? 'ph-done' : i === idx ? (i === 4 ? 'ph-approved-final' : 'ph-current') : '';
+        html += '<div class="ph-step ' + cls + '">' +
+                  '<div class="ph-dot"></div>' +
+                  '<div class="ph-lbl">' + p + '</div>' +
+                '</div>';
+        if (i < PHASES.length - 1) {
+          html += '<div class="ph-line' + (i < idx ? ' ph-done' : '') + '"></div>';
+        }
+      });
+      var meta = '';
+      if (trialsCount) meta += '<span>' + trialsCount + ' 项注册临床试验</span>';
+      if (signal && signal !== 'None') meta += '<span>' + esc(signal) + '</span>';
+      return '<div class="phase-bar-wrap">' +
+               '<div class="phase-bar-label">临床开发阶段</div>' +
+               '<div class="phase-bar">' + html + '</div>' +
+               (meta ? '<div class="phase-bar-meta">' + meta + '</div>' : '') +
+             '</div>';
+    }
+
+    // ── Vertical card timeline ────────────────────────────────────────────
+    function cardTimelineHtml(steps) {
+      // steps: [{step: 'Stage label', text: 'description html'}]
+      return '<div class="card-timeline">' +
+        steps.map(function(s) {
+          return '<div class="ctl-item">' +
+                   '<div class="ctl-step">' + esc(s.step) + '</div>' +
+                   '<div class="ctl-text">' + s.text + '</div>' +
+                 '</div>';
+        }).join('') +
+      '</div>';
+    }
+
     function renderTumorCards(items) {
-      return items.map((item) => detailsCard({
-        title: item.name,
-        subtitle: `${item.gene || ''} · ${TEXT.rankLabel} #${item.priority_rank || '-'}`,
-        badges: [
-          badge(item.application_track),
-          badge(item.specificity),
-          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
-        ],
-        summary: item.notes,
-        searchText: JSON.stringify(item),
-        body: `
-          <div class="kv">
-            <div><strong>${TEXT.contextLabel}</strong>${(item.disease_context || []).join(', ')}</div>
-            <div><strong>${TEXT.locationLabel}</strong>${esc(item.cellular_location || '')}</div>
-            <div><strong>${TEXT.clinicalLabel}</strong>${esc(item.clinical_signal || '')}</div>
-            <div><strong>${TEXT.reasonLabel}</strong>${(item.machine_readable_justification || []).map((j) => esc(j.label)).join(', ')}</div>
-          </div>
-          <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
-          ${sourceLink(item)}
-        `,
-      })).join('');
+      return items.map((item) => {
+        var mhcI = (item.epitopes && item.epitopes.mhc_i) ? item.epitopes.mhc_i : [];
+        var mhcII = (item.epitopes && item.epitopes.mhc_ii) ? item.epitopes.mhc_ii : [];
+        var tlSteps = [];
+        // Step 1: Antigen identification
+        tlSteps.push({
+          step: '靶点鉴定',
+          text: '<strong>' + esc(item.name) + '</strong> · ' + esc(item.specificity || '') +
+                (item.cellular_location ? ' · ' + esc(item.cellular_location) : '') +
+                (item.priority_rank ? ' · NCI 优先级 #' + item.priority_rank : '')
+        });
+        // Step 2: Epitope evidence
+        if (mhcI.length || mhcII.length) {
+          var epText = [];
+          if (mhcI.length) epText.push('<strong>' + mhcI.length + ' 个 MHC-I 表位</strong>（CD8 靶向）');
+          if (mhcII.length) epText.push('<strong>' + mhcII.length + ' 个 MHC-II 表位</strong>（CD4 辅助）');
+          tlSteps.push({ step: '表位验证', text: epText.join('，') });
+        }
+        // Step 3: Clinical signal
+        if (item.clinical_signal) {
+          tlSteps.push({
+            step: '临床进展',
+            text: esc(item.clinical_signal) +
+                  (item.clinical_trials ? ' · <strong>' + item.clinical_trials + '</strong> 项注册试验' : '')
+          });
+        }
+        return detailsCard({
+          title: item.name,
+          subtitle: (item.gene || '') + ' · ' + TEXT.rankLabel + ' #' + (item.priority_rank || '-'),
+          badges: [
+            badge(item.application_track),
+            badge(item.specificity),
+            badge(item.evidence.verification_status, 'status-' + item.evidence.verification_status.toLowerCase().replace(/_/g, '-')),
+          ],
+          summary: item.notes,
+          searchText: JSON.stringify(item),
+          body: phaseBarHtml(item.clinical_signal, item.clinical_trials) +
+                cardTimelineHtml(tlSteps) +
+                `<div class="kv" style="margin-top:10px">
+                  <div><strong>${TEXT.contextLabel}</strong>${(item.disease_context || []).join(', ')}</div>
+                  <div><strong>${TEXT.reasonLabel}</strong>${(item.machine_readable_justification || []).map((j) => esc(j.label)).join(', ')}</div>
+                </div>
+                <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
+                ${sourceLink(item)}`,
+        });
+      }).join('');
     }
 
     function renderInfectiousCards(items) {
-      return items.map((item) => detailsCard({
-        title: item.pathogen,
-        subtitle: `${item.antigen_name} · ${item.pathogen_type}`,
-        badges: [
-          badge(item.application_track),
-          badge(`${(item.approved_vaccines || []).length} ${TEXT.approvedShort}`),
-          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
-        ],
-        summary: item.notes,
-        searchText: JSON.stringify(item),
-        body: `
-          <div class="kv">
-            <div><strong>${TEXT.contextLabel}</strong>${esc(item.disease || '')}</div>
-            <div><strong>${TEXT.correlateLabel}</strong>${esc(item.immune_correlate || '')}</div>
-            <div><strong>${TEXT.burdenLabel}</strong>${esc(item.global_burden || '')}</div>
-            <div><strong>${TEXT.comparatorLabel}</strong>${(item.approved_vaccines || []).slice(0, 2).map((v) => esc(v.name)).join(' · ')}</div>
-          </div>
-          <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
-          ${sourceLink(item)}
-        `,
-      })).join('');
+      return items.map((item) => {
+        var approved = item.approved_vaccines || [];
+        var hasApproved = approved.length > 0;
+        // For infectious disease, treat approved vaccines as the "Approved" phase
+        var phaseSignal = hasApproved ? 'approved' : (item.clinical_status || '');
+        var tlSteps = [];
+        // Step 1: Pathogen / antigen characterization
+        tlSteps.push({
+          step: '病原体 & 抗原',
+          text: '<strong>' + esc(item.pathogen) + '</strong>（' + esc(item.pathogen_type || '') + '）' +
+                (item.disease ? ' · ' + esc(item.disease) : '')
+        });
+        // Step 2: Immune correlate
+        if (item.immune_correlate) {
+          tlSteps.push({ step: '免疫相关性', text: esc(item.immune_correlate) });
+        }
+        // Step 3: Approved vaccines
+        if (hasApproved) {
+          var vaxList = approved.slice(0, 3).map(function(v) {
+            return '<strong>' + esc(v.name) + '</strong>' + (v.year ? '（' + v.year + '）' : '') +
+                   (v.platform ? ' · ' + esc(v.platform) : '');
+          }).join('<br>');
+          tlSteps.push({ step: '已获批疫苗（' + approved.length + '）', text: vaxList });
+        }
+        // Step 4: Global burden
+        if (item.global_burden) {
+          tlSteps.push({ step: '全球疾病负担', text: esc(item.global_burden) });
+        }
+        return detailsCard({
+          title: item.pathogen,
+          subtitle: item.antigen_name + ' · ' + item.pathogen_type,
+          badges: [
+            badge(item.application_track),
+            badge(approved.length + ' ' + TEXT.approvedShort),
+            badge(item.evidence.verification_status, 'status-' + item.evidence.verification_status.toLowerCase().replace(/_/g, '-')),
+          ],
+          summary: item.notes,
+          searchText: JSON.stringify(item),
+          body: phaseBarHtml(phaseSignal, null) +
+                cardTimelineHtml(tlSteps) +
+                `<div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
+                ${sourceLink(item)}`,
+        });
+      }).join('');
     }
 
     function renderTolerogenicCards(items) {
-      return items.map((item) => detailsCard({
-        title: item.target_antigen,
-        subtitle: item.disease,
-        badges: [
-          badge(item.application_track),
-          badge(item.clinical_status || TEXT.translationalLabel),
-          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
-        ],
-        summary: item.notes,
-        searchText: JSON.stringify(item),
-        body: `
-          <div class="kv">
-            <div><strong>${TEXT.approachLabel}</strong>${esc(item.vaccine_approach || '')}</div>
-            <div><strong>${TEXT.hlaLabel}</strong>${(item.hla_association || []).join(', ')}</div>
-            <div><strong>${TEXT.clinicalLabel}</strong>${esc(item.key_trial || '')}</div>
-          </div>
-          <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
-          ${sourceLink(item)}
-        `,
-      })).join('');
+      return items.map((item) => {
+        var tlSteps = [];
+        // Step 1: Target antigen & disease
+        tlSteps.push({
+          step: '靶标 & 适应症',
+          text: '<strong>' + esc(item.target_antigen) + '</strong> · ' + esc(item.disease || '') +
+                (item.hla_association && item.hla_association.length
+                  ? '<br>HLA 风险背景：' + item.hla_association.join('，') : '')
+        });
+        // Step 2: Vaccine approach
+        if (item.vaccine_approach) {
+          tlSteps.push({ step: '设计策略', text: esc(item.vaccine_approach) });
+        }
+        // Step 3: Key clinical trial
+        if (item.key_trial) {
+          tlSteps.push({ step: '关键临床试验', text: esc(item.key_trial) });
+        }
+        return detailsCard({
+          title: item.target_antigen,
+          subtitle: item.disease,
+          badges: [
+            badge(item.application_track),
+            badge(item.clinical_status || TEXT.translationalLabel),
+            badge(item.evidence.verification_status, 'status-' + item.evidence.verification_status.toLowerCase().replace(/_/g, '-')),
+          ],
+          summary: item.notes,
+          searchText: JSON.stringify(item),
+          body: phaseBarHtml(item.clinical_status, null) +
+                cardTimelineHtml(tlSteps) +
+                `<div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
+                ${sourceLink(item)}`,
+        });
+      }).join('');
     }
 
     var SRC_LABEL = { tumor: '肿瘤 / TAA', viral: '病毒感染', neoantigen: '新生抗原', clinical: '临床' };
@@ -881,26 +1107,16 @@
       { label: 'TP53 热点突变', antigen: 'TP53', mhc: 'I', type: 'tcell' },
     ];
 
+    // IEDB URL builder — uses result_v3.php format (current as of 2026-04)
     function _iedbUrl(antigen, hla, mhcClass, assayType) {
-      var base = 'https://www.iedb.org/';
-      if (assayType === 'tcell') {
-        var params = 'result/tcell_search?epitope_seq=&lineage=T+cell&organism_id=&disease_id=&';
-        if (antigen) params += 'antigen_name=' + encodeURIComponent(antigen) + '&';
-        if (hla)     params += 'mhc_allele_name=' + encodeURIComponent(hla) + '&';
-        if (mhcClass) params += 'mhc_class=' + encodeURIComponent('HLA class ' + mhcClass) + '&';
-        return base + params;
-      } else if (assayType === 'bcell') {
-        var params2 = 'result/bcell_search?epitope_seq=&';
-        if (antigen) params2 += 'antigen_name=' + encodeURIComponent(antigen) + '&';
-        return base + params2;
-      } else {
-        // MHC binding
-        var params3 = 'result/mhc_search?';
-        if (antigen) params3 += 'antigen_name=' + encodeURIComponent(antigen) + '&';
-        if (hla)     params3 += 'mhc_allele_name=' + encodeURIComponent(hla) + '&';
-        if (mhcClass) params3 += 'mhc_class=' + encodeURIComponent('HLA class ' + mhcClass) + '&';
-        return base + params3;
-      }
+      var base = 'https://www.iedb.org/result_v3.php?';
+      var typeMap = { tcell: 'T+Cell', bcell: 'B+Cell', mhc: 'MHC+Binding' };
+      var epType = typeMap[assayType] || 'T+Cell';
+      var params = 'epitope_type=' + epType + '&tab=results';
+      if (antigen) params += '&antigen_name=' + encodeURIComponent(antigen);
+      if (hla)     params += '&mhc_allele_name=' + encodeURIComponent(hla);
+      if (mhcClass) params += '&mhc_class=' + encodeURIComponent('HLA class ' + mhcClass);
+      return base + params;
     }
 
     function openIedbSearch() {
@@ -908,10 +1124,7 @@
       var hla = document.getElementById('iedbHlaInput').value.trim();
       var mhcClass = document.getElementById('iedbMhcClass').value;
       var assayType = document.getElementById('iedbAssayType').value;
-      if (!antigen && !hla) {
-        alert('请输入抗原名称或 HLA 等位基因');
-        return;
-      }
+      // Allow empty search — opens IEDB with just the data type filter
       window.open(_iedbUrl(antigen, hla, mhcClass, assayType), '_blank', 'noopener');
     }
 
