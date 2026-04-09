@@ -192,22 +192,22 @@
       grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
       gap:14px;
     }
-    details.card {
+    .card {
       border:1px solid var(--border);
       border-radius:16px;
       background:#fff;
       overflow:hidden;
-    }
-    details.card[open] {
-      border-color:rgba(13,148,136,.35);
-      box-shadow:0 10px 28px rgba(15,118,110,.08);
-    }
-    details.card summary {
-      list-style:none;
       cursor:pointer;
-      padding:14px 16px;
+      transition:border-color .15s, box-shadow .15s;
     }
-    details.card summary::-webkit-details-marker { display:none; }
+    .card:hover {
+      border-color:rgba(13,148,136,.22);
+      box-shadow:0 2px 8px rgba(15,118,110,.06);
+    }
+    .card.expanded {
+      border-color:rgba(13,148,136,.38);
+      box-shadow:0 10px 28px rgba(15,118,110,.09);
+    }
     .card-title {
       font-size:16px;
       font-weight:700;
@@ -256,7 +256,6 @@
     }
     .card-body {
       padding:0 16px 16px;
-      border-top:1px solid var(--border);
     }
     .kv {
       margin-top:12px;
@@ -286,127 +285,51 @@
       font-size:12px;
       font-weight:700;
     }
-    /* ── Clinical Phase Bar ─────────────────────────────────────────────── */
-    .phase-bar-wrap {
-      margin: 14px 0 4px;
-      padding: 10px 12px;
-      background: var(--soft);
-      border-radius: 10px;
-      border: 1px solid var(--border);
+    /* ── Card expand / collapse with countdown bar ──────────────────────── */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 14px 16px 10px;
     }
-    .phase-bar-label {
+    .card-header-main { flex: 1; min-width: 0; }
+    .exp-toggle {
       font-size: 10px;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 8px;
-    }
-    .phase-bar {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      overflow-x: auto;
-    }
-    .ph-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      flex: 0 0 auto;
-    }
-    .ph-dot {
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      border: 2px solid #d1d5db;
-      background: #fff;
-      flex-shrink: 0;
-    }
-    .ph-step.ph-done .ph-dot {
-      background: var(--primary);
-      border-color: var(--primary);
-    }
-    .ph-step.ph-current .ph-dot {
-      background: var(--primary);
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(13,148,136,.22);
-    }
-    .ph-step.ph-approved-final .ph-dot {
-      background: #15803d;
-      border-color: #15803d;
-    }
-    .ph-lbl {
-      font-size: 9px;
-      font-weight: 700;
-      color: #9ca3af;
-      white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-    .ph-step.ph-done .ph-lbl,
-    .ph-step.ph-current .ph-lbl { color: var(--primary-dark); }
-    .ph-step.ph-approved-final .ph-lbl { color: #15803d; }
-    .ph-line {
-      flex: 1;
-      height: 2px;
-      background: #e5e7eb;
-      min-width: 20px;
-      max-width: 52px;
-      margin-bottom: 18px;
-      border-radius: 2px;
-    }
-    .ph-line.ph-done { background: var(--primary); }
-    .phase-bar-meta {
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    /* ── Card Timeline (vertical, same as case study) ───────────────────── */
-    .card-timeline {
-      position: relative;
-      padding-left: 22px;
-      margin: 12px 0 4px;
-    }
-    .card-timeline::before {
-      content: '';
-      position: absolute;
-      left: 5px; top: 4px; bottom: 4px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--primary), rgba(13,148,136,.2));
-      border-radius: 2px;
-    }
-    .ctl-item {
-      position: relative;
-      margin-bottom: 14px;
-    }
-    .ctl-item:last-child { margin-bottom: 0; }
-    .ctl-item::before {
-      content: '';
-      position: absolute;
-      left: -17px; top: 5px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: 2px solid #fff;
-      box-shadow: 0 0 0 2px rgba(13,148,136,.2);
-    }
-    .ctl-step {
-      font-size: 10px;
-      font-weight: 700;
       color: var(--primary);
-      letter-spacing: .06em;
+      font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 2px;
+      letter-spacing: .5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 8px;
+      margin-top: 2px;
     }
-    .ctl-text {
-      font-size: 12.5px;
-      color: #334155;
-      line-height: 1.45;
+    .card .exp-toggle::after  { content: '▼ 展开'; }
+    .card.expanded .exp-toggle::after { content: '▲ 收起'; }
+    .cc-detail {
+      display: none;
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border);
     }
-    .ctl-text strong { color: #0f172a; }
+    .card.expanded .cc-detail { display: block; }
+    .collapse-bar {
+      height: 3px;
+      background: #e5f7f5;
+      border-radius: 2px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .collapse-progress {
+      height: 100%;
+      width: 100%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: none;
+    }
+    .card.countdown .collapse-progress {
+      transition: width 5s linear;
+      width: 0% !important;
+    }
     .table-wrap {
       overflow:auto;
       border:1px solid var(--border);
@@ -828,193 +751,92 @@
     }
 
     function detailsCard({title, subtitle, badges = [], summary, body, searchText}) {
-      return `
-        <details class="card searchable" data-search="${esc(searchText).toLowerCase()}">
-          <summary>
-            <div class="card-title">${esc(title)}</div>
-            <div class="card-sub">${esc(subtitle || '')}</div>
-            <div class="badge-row">${badges.join('')}</div>
-            ${summary ? `<div class="card-sub" style="margin-top:10px;font-size:13px;color:#334155">${esc(summary)}</div>` : ''}
-          </summary>
-          <div class="card-body">${body}</div>
-        </details>
-      `;
-    }
-
-    // ── Clinical phase bar (horizontal progress) ─────────────────────────
-    function phaseBarHtml(signal, trialsCount) {
-      var s = (signal || '').toLowerCase();
-      var idx = 0;
-      if (/approv|approved|marketed|fda|ema/.test(s)) idx = 4;
-      else if (/phase iii|ph\.? ?iii|phase 3|iii\/iv/.test(s)) idx = 3;
-      else if (/ii\/iii|2\/3|phase ii|ph\.? ?ii|phase 2/.test(s)) idx = 2;
-      else if (/i\/ii|1\/2|phase i|ph\.? ?i|phase 1/.test(s)) idx = 1;
-
-      var PHASES = ['Preclinical', 'Ph. I', 'Ph. II', 'Ph. III', 'Approved'];
-      var html = '';
-      PHASES.forEach(function(p, i) {
-        var cls = i < idx ? 'ph-done' : i === idx ? (i === 4 ? 'ph-approved-final' : 'ph-current') : '';
-        html += '<div class="ph-step ' + cls + '">' +
-                  '<div class="ph-dot"></div>' +
-                  '<div class="ph-lbl">' + p + '</div>' +
-                '</div>';
-        if (i < PHASES.length - 1) {
-          html += '<div class="ph-line' + (i < idx ? ' ph-done' : '') + '"></div>';
-        }
-      });
-      var meta = '';
-      if (trialsCount) meta += '<span>' + trialsCount + ' 项注册临床试验</span>';
-      if (signal && signal !== 'None') meta += '<span>' + esc(signal) + '</span>';
-      return '<div class="phase-bar-wrap">' +
-               '<div class="phase-bar-label">临床开发阶段</div>' +
-               '<div class="phase-bar">' + html + '</div>' +
-               (meta ? '<div class="phase-bar-meta">' + meta + '</div>' : '') +
-             '</div>';
-    }
-
-    // ── Vertical card timeline ────────────────────────────────────────────
-    function cardTimelineHtml(steps) {
-      // steps: [{step: 'Stage label', text: 'description html'}]
-      return '<div class="card-timeline">' +
-        steps.map(function(s) {
-          return '<div class="ctl-item">' +
-                   '<div class="ctl-step">' + esc(s.step) + '</div>' +
-                   '<div class="ctl-text">' + s.text + '</div>' +
-                 '</div>';
-        }).join('') +
-      '</div>';
+      return `<div class="card searchable" onclick="toggleCard(this)" data-search="${esc(searchText).toLowerCase()}">
+          <div class="card-header">
+            <div class="card-header-main">
+              <div class="card-title">${esc(title)}</div>
+              <div class="card-sub">${esc(subtitle || '')}</div>
+              <div class="badge-row" style="margin-top:6px">${badges.join('')}</div>
+              ${summary ? `<div class="card-sub" style="margin-top:8px;font-size:12.5px;color:#334155">${esc(summary)}</div>` : ''}
+            </div>
+            <span class="exp-toggle"></span>
+          </div>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="card-body">${body}</div>
+          </div>
+        </div>`;
     }
 
     function renderTumorCards(items) {
-      return items.map((item) => {
-        var mhcI = (item.epitopes && item.epitopes.mhc_i) ? item.epitopes.mhc_i : [];
-        var mhcII = (item.epitopes && item.epitopes.mhc_ii) ? item.epitopes.mhc_ii : [];
-        var tlSteps = [];
-        // Step 1: Antigen identification
-        tlSteps.push({
-          step: '靶点鉴定',
-          text: '<strong>' + esc(item.name) + '</strong> · ' + esc(item.specificity || '') +
-                (item.cellular_location ? ' · ' + esc(item.cellular_location) : '') +
-                (item.priority_rank ? ' · NCI 优先级 #' + item.priority_rank : '')
-        });
-        // Step 2: Epitope evidence
-        if (mhcI.length || mhcII.length) {
-          var epText = [];
-          if (mhcI.length) epText.push('<strong>' + mhcI.length + ' 个 MHC-I 表位</strong>（CD8 靶向）');
-          if (mhcII.length) epText.push('<strong>' + mhcII.length + ' 个 MHC-II 表位</strong>（CD4 辅助）');
-          tlSteps.push({ step: '表位验证', text: epText.join('，') });
-        }
-        // Step 3: Clinical signal
-        if (item.clinical_signal) {
-          tlSteps.push({
-            step: '临床进展',
-            text: esc(item.clinical_signal) +
-                  (item.clinical_trials ? ' · <strong>' + item.clinical_trials + '</strong> 项注册试验' : '')
-          });
-        }
-        return detailsCard({
-          title: item.name,
-          subtitle: (item.gene || '') + ' · ' + TEXT.rankLabel + ' #' + (item.priority_rank || '-'),
-          badges: [
-            badge(item.application_track),
-            badge(item.specificity),
-            badge(item.evidence.verification_status, 'status-' + item.evidence.verification_status.toLowerCase().replace(/_/g, '-')),
-          ],
-          summary: item.notes,
-          searchText: JSON.stringify(item),
-          body: phaseBarHtml(item.clinical_signal, item.clinical_trials) +
-                cardTimelineHtml(tlSteps) +
-                `<div class="kv" style="margin-top:10px">
-                  <div><strong>${TEXT.contextLabel}</strong>${(item.disease_context || []).join(', ')}</div>
-                  <div><strong>${TEXT.reasonLabel}</strong>${(item.machine_readable_justification || []).map((j) => esc(j.label)).join(', ')}</div>
-                </div>
-                <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
-                ${sourceLink(item)}`,
-        });
-      }).join('');
+      return items.map((item) => detailsCard({
+        title: item.name,
+        subtitle: `${item.gene || ''} · ${TEXT.rankLabel} #${item.priority_rank || '-'}`,
+        badges: [
+          badge(item.application_track),
+          badge(item.specificity),
+          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+        ],
+        summary: item.notes,
+        searchText: JSON.stringify(item),
+        body: `
+          <div class="kv">
+            <div><strong>${TEXT.contextLabel}</strong>${(item.disease_context || []).join(', ')}</div>
+            <div><strong>${TEXT.locationLabel}</strong>${esc(item.cellular_location || '')}</div>
+            <div><strong>${TEXT.clinicalLabel}</strong>${esc(item.clinical_signal || '')}${item.clinical_trials ? ' · ' + item.clinical_trials + ' 项试验' : ''}</div>
+            <div><strong>${TEXT.reasonLabel}</strong>${(item.machine_readable_justification || []).map((j) => esc(j.label)).join(', ')}</div>
+          </div>
+          <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
+          ${sourceLink(item)}
+        `,
+      })).join('');
     }
 
     function renderInfectiousCards(items) {
-      return items.map((item) => {
-        var approved = item.approved_vaccines || [];
-        var hasApproved = approved.length > 0;
-        // For infectious disease, treat approved vaccines as the "Approved" phase
-        var phaseSignal = hasApproved ? 'approved' : (item.clinical_status || '');
-        var tlSteps = [];
-        // Step 1: Pathogen / antigen characterization
-        tlSteps.push({
-          step: '病原体 & 抗原',
-          text: '<strong>' + esc(item.pathogen) + '</strong>（' + esc(item.pathogen_type || '') + '）' +
-                (item.disease ? ' · ' + esc(item.disease) : '')
-        });
-        // Step 2: Immune correlate
-        if (item.immune_correlate) {
-          tlSteps.push({ step: '免疫相关性', text: esc(item.immune_correlate) });
-        }
-        // Step 3: Approved vaccines
-        if (hasApproved) {
-          var vaxList = approved.slice(0, 3).map(function(v) {
-            return '<strong>' + esc(v.name) + '</strong>' + (v.year ? '（' + v.year + '）' : '') +
-                   (v.platform ? ' · ' + esc(v.platform) : '');
-          }).join('<br>');
-          tlSteps.push({ step: '已获批疫苗（' + approved.length + '）', text: vaxList });
-        }
-        // Step 4: Global burden
-        if (item.global_burden) {
-          tlSteps.push({ step: '全球疾病负担', text: esc(item.global_burden) });
-        }
-        return detailsCard({
-          title: item.pathogen,
-          subtitle: item.antigen_name + ' · ' + item.pathogen_type,
-          badges: [
-            badge(item.application_track),
-            badge(approved.length + ' ' + TEXT.approvedShort),
-            badge(item.evidence.verification_status, 'status-' + item.evidence.verification_status.toLowerCase().replace(/_/g, '-')),
-          ],
-          summary: item.notes,
-          searchText: JSON.stringify(item),
-          body: phaseBarHtml(phaseSignal, null) +
-                cardTimelineHtml(tlSteps) +
-                `<div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
-                ${sourceLink(item)}`,
-        });
-      }).join('');
+      return items.map((item) => detailsCard({
+        title: item.pathogen,
+        subtitle: `${item.antigen_name} · ${item.pathogen_type}`,
+        badges: [
+          badge(item.application_track),
+          badge(`${(item.approved_vaccines || []).length} ${TEXT.approvedShort}`),
+          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+        ],
+        summary: item.notes,
+        searchText: JSON.stringify(item),
+        body: `
+          <div class="kv">
+            <div><strong>${TEXT.contextLabel}</strong>${esc(item.disease || '')}</div>
+            <div><strong>${TEXT.correlateLabel}</strong>${esc(item.immune_correlate || '')}</div>
+            <div><strong>${TEXT.burdenLabel}</strong>${esc(item.global_burden || '')}</div>
+            <div><strong>${TEXT.comparatorLabel}</strong>${(item.approved_vaccines || []).slice(0, 2).map((v) => esc(v.name)).join(' · ')}</div>
+          </div>
+          <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
+          ${sourceLink(item)}
+        `,
+      })).join('');
     }
 
     function renderTolerogenicCards(items) {
-      return items.map((item) => {
-        var tlSteps = [];
-        // Step 1: Target antigen & disease
-        tlSteps.push({
-          step: '靶标 & 适应症',
-          text: '<strong>' + esc(item.target_antigen) + '</strong> · ' + esc(item.disease || '') +
-                (item.hla_association && item.hla_association.length
-                  ? '<br>HLA 风险背景：' + item.hla_association.join('，') : '')
-        });
-        // Step 2: Vaccine approach
-        if (item.vaccine_approach) {
-          tlSteps.push({ step: '设计策略', text: esc(item.vaccine_approach) });
-        }
-        // Step 3: Key clinical trial
-        if (item.key_trial) {
-          tlSteps.push({ step: '关键临床试验', text: esc(item.key_trial) });
-        }
-        return detailsCard({
-          title: item.target_antigen,
-          subtitle: item.disease,
-          badges: [
-            badge(item.application_track),
-            badge(item.clinical_status || TEXT.translationalLabel),
-            badge(item.evidence.verification_status, 'status-' + item.evidence.verification_status.toLowerCase().replace(/_/g, '-')),
-          ],
-          summary: item.notes,
-          searchText: JSON.stringify(item),
-          body: phaseBarHtml(item.clinical_status, null) +
-                cardTimelineHtml(tlSteps) +
-                `<div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
-                ${sourceLink(item)}`,
-        });
-      }).join('');
+      return items.map((item) => detailsCard({
+        title: item.target_antigen,
+        subtitle: item.disease,
+        badges: [
+          badge(item.application_track),
+          badge(item.clinical_status || TEXT.translationalLabel),
+          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+        ],
+        summary: item.notes,
+        searchText: JSON.stringify(item),
+        body: `
+          <div class="kv">
+            <div><strong>${TEXT.hlaLabel}</strong>${(item.hla_association || []).join(', ') || '—'}</div>
+            <div><strong>设计策略：</strong>${esc(item.vaccine_approach || '')}</div>
+            <div><strong>关键临床试验：</strong>${esc(item.key_trial || '')}</div>
+          </div>
+          <div class="chip-row" style="margin-top:12px">${epitopeChips(item)}</div>
+          ${sourceLink(item)}
+        `,
+      })).join('');
     }
 
     var SRC_LABEL = { tumor: '肿瘤 / TAA', viral: '病毒感染', neoantigen: '新生抗原', clinical: '临床' };
@@ -1302,6 +1124,52 @@
     }
 
     init();
+
+    // ── Card toggle + countdown bar (same as ADC Database) ───────────────
+    function toggleCard(card) {
+      var wasExpanded = card.classList.contains('expanded');
+      card.classList.toggle('expanded');
+      clearCountdown(card);
+      if (wasExpanded) {
+        card.classList.remove('countdown');
+        var bar = card.querySelector('.collapse-progress');
+        if (bar) bar.style.width = '100%';
+      }
+    }
+
+    function clearCountdown(card) {
+      if (card._collapseTimer) { clearTimeout(card._collapseTimer); card._collapseTimer = null; }
+      card.classList.remove('countdown');
+      var bar = card.querySelector('.collapse-progress');
+      if (bar) { bar.style.transition = 'none'; bar.style.width = '100%'; }
+    }
+
+    function startCountdown(card) {
+      if (!card.classList.contains('expanded')) return;
+      clearCountdown(card);
+      var bar = card.querySelector('.collapse-progress');
+      if (bar) {
+        bar.style.transition = 'none';
+        bar.style.width = '100%';
+        bar.offsetHeight; /* force reflow */
+        bar.style.transition = '';
+        bar.style.width = '';
+        card.classList.add('countdown');
+      }
+      card._collapseTimer = setTimeout(function() {
+        card.classList.remove('expanded', 'countdown');
+        if (bar) { bar.style.transition = 'none'; bar.style.width = '100%'; }
+      }, 5000);
+    }
+
+    document.addEventListener('mouseover', function(e) {
+      var card = e.target.closest('.card.expanded');
+      if (card) clearCountdown(card);
+    });
+    document.addEventListener('mouseout', function(e) {
+      var card = e.target.closest('.card.expanded');
+      if (card && !card.contains(e.relatedTarget)) startCountdown(card);
+    });
   </script>
 </body>
 </html>
