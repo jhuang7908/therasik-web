@@ -356,7 +356,7 @@
   </div>
 
   <!-- ═══ PROGRAMS ═══ -->
-  <div class="tab-panel active" id="panel-programs">
+  <div class="tab-panel active" id="panel-programs" style="display:none;">
     <h2 class="section-title">Clinical ADC Programs</h2>
     <p class="section-desc">Approved 和 late-stage clinical ADC programs with target, payload, linker, DAR, conjugation technology, 和 trial references. Includes failure analysis for discontinued programs.</p>
     <div class="ctrl-row">
@@ -2709,7 +2709,7 @@
   </div>
 
   <!-- ═══ ANTIGENS ═══ -->
-  <div class="tab-panel" id="panel-antigens">
+  <div class="tab-panel" id="panel-antigens" class="active">
     <h2 class="section-title">Target Antigen Profiles</h2>
     <p class="section-desc">Detailed mapping of expression density, internalization rates, heterogeneity, 和 normal tissue expression for 78 ADC-relevant targets.</p>
     <div class="ctrl-row">
@@ -8517,16 +8517,34 @@ id="panel-个链接子">
 </div>
 
 <script>
-// Security: Anti-copy, Anti-right-click, Anti-print
+// Security: Anti-copy, Anti-crawling, Anti-debugging
 (function() {
+  // Disable right-click, text selection, and copy
   document.addEventListener('contextmenu', e => e.preventDefault());
   document.addEventListener('selectstart', e => e.preventDefault());
   document.addEventListener('copy', e => e.preventDefault());
+  
+  // Block common devtool shortcuts
   document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u' || e.key === 'i' || e.key === 'j')) {
       e.preventDefault();
     }
+    if (e.key === 'F12') e.preventDefault();
   });
+
+  // Anti-debugging: detect DevTools opening
+  setInterval(() => {
+    const start = Date.now();
+    debugger;
+    if (Date.now() - start > 100) {
+      document.body.innerHTML = '<div style="padding:50px;text-align:center;font-family:sans-serif;"><h2>Security Alert</h2><p>Unauthorized access detected. This database is protected.</p></div>';
+    }
+  }, 1000);
+
+  // Anti-crawling: detect rapid requests or headless browsers
+  if (navigator.webdriver) {
+    document.body.innerHTML = '<h1>Access Denied</h1>';
+  }
 })();
 
 /* ── Card toggle with auto-collapse countdown ── */
@@ -8695,6 +8713,46 @@ if (hash) {
 
 /* ── Init ── */
 filterActiveTab();
+
+/* ── Global Search Logic ── */
+document.getElementById('globalSearch').addEventListener('input', function(e) {
+  var q = e.target.value.toLowerCase();
+  if (!q) {
+    // If empty, just show active tab as normal
+    filterActiveTab();
+    return;
+  }
+  
+  // Search across ALL tabs
+  var allCards = document.querySelectorAll('.card');
+  var n = 0;
+  allCards.forEach(function(card) {
+    var text = (card.innerText + ' ' + (card.dataset.search || '')).toLowerCase();
+    var show = text.includes(q);
+    card.classList.toggle('hidden', !show);
+    if (show) n++;
+  });
+  
+  // Show all panels that have results
+  document.querySelectorAll('.tab-panel').forEach(function(panel) {
+    var visibleCards = panel.querySelectorAll('.card:not(.hidden)');
+    panel.style.display = visibleCards.length > 0 ? 'block' : 'none';
+  });
+});
+
+// Update filterActiveTab to handle global search state
+var originalFilterActiveTab = filterActiveTab;
+filterActiveTab = function() {
+  var gq = document.getElementById('globalSearch').value;
+  if (gq) return; // Don't override global search results
+  
+  // Reset display styles for panels
+  document.querySelectorAll('.tab-panel').forEach(function(panel) {
+    panel.style.display = '';
+  });
+  originalFilterActiveTab();
+};
+
 </script>
 <div style="text-align:center;padding:20px 0 8px;font-size:12px;color:#9ca3af;letter-spacing:.03em;">
   © 2026 InSynBio / Therasik &nbsp;·&nbsp; 本知识库受版权保护，禁止未经授权复制、爬取或用于AI训练。
