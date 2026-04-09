@@ -6372,16 +6372,20 @@
     <div class="ctrl-row">
       <input class="search-box" id="search链接子" type="text" placeholder="Search linker name, mechanism…">
       <select class="filter-sel" id="filterLinkerType">
-        <option value="">All types</option>
-    <option value="cleavable">Cleavable</option>
+        <option value="">All types（全部）</option>
+        <option value="protease">Protease-cleavable（蛋白酶可裂解）</option>
+        <option value="enzyme">Enzyme-cleavable（底物酶可裂解）</option>
+        <option value="ph-sensitive">pH-sensitive（酸性可裂解）</option>
+        <option value="disulfide">Disulfide / Reducible（还原可裂解）</option>
+        <option value="non-cleavable">Non-cleavable（非裂解型）</option>
       </select>
       <span class="result-count" id="count链接子"></span>
     </div>
     <div class="card-grid" id="grid链接子">
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mc-val-cit-pabc 可裂解 cathepsin b cleavage">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="mc-val-cit-pabc protease cathepsin b cleavage seagen adcetris polivy padcev">
   <div class="card-header">
     <div class="card-title">mc-val-cit-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (very stable in hum… · 裂解酶: Cathepsin B (lysosomal cy…</div>
@@ -6405,14 +6409,19 @@
       <div class="info-row"><span class="info-label">PubChem CID</span><span class="info-value">46931034</span></div>
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Industry standard protease-cleavable linker. Highly stable in human plasma but rapidly cleaved by lysosomal Cathepsin B. PABC spacer allows self-immolation to release free amine payload.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:12873544</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label: Adcetris, Polivy, Padcev</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US6214345B1 — Doronina et al. (Seagen/MedImmune), 2001. Val-Cit peptide linker for ADC.</span></div>
+      <div class="info-row"><span class="info-label">PABC 自毁基团</span><span class="info-value">US7745394B2 — Trail et al. (Seagen), p-aminobenzyl carbamate self-immolative spacer.</span></div>
+      <div class="info-row"><span class="info-label">PEG 修饰变体</span><span class="info-value">US8703714B2 — Senter et al. (Seagen), PEGylated vc-PABC for improved solubility.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US6214345B1 expired (filed 1999, US exp. ~2019). vc-PABC chemistry broadly available; specific ADC compositions may carry product patents.</span></div>
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">O=C(N[C@H](C(=O)N[C@H](C(=O)Nc1ccc(COC(=O)O)cc1)CCCNC(=O)N)C(C)C)CCCCC(=O)N2CCC(=O)C2</span></div>
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="ggfg 可裂解 cathepsin cleavage">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="ggfg protease cathepsin cleavage">
   <div class="card-header">
     <div class="card-title">GGFG</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB/L)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (highly stable in h… · 裂解酶: Lysosomal cathepsins (B, …</div>
@@ -6437,13 +6446,17 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Tetrapeptide linker used in Daiichi Sankyo DXd platform. Cleaved by lysosomal cathepsins (upregulated in tumor cells). Highly stable in circulation. Lacks PABC self-immolative group; relies on direct cleavage to release DXd.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:26058450</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label: Enhertu, Dato-DXd</span></div>
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">O=C(NCC(=O)N[C@@H](Cc1ccccc1)C(=O)NCC(=O)O)C</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US9808537B2 — Nakada et al. (Daiichi Sankyo), GGFG tetrapeptide linker for DXd ADC platform. Filed 2014.</span></div>
+      <div class="info-row"><span class="info-label">DXd 平台专利</span><span class="info-value">US10906974B2 — Daiichi Sankyo Co., Anti-HER2 ADC (T-DXd/DS-8201a). Covers GGFG+DXd combination.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Active. US9808537B2 expires ~2034. GGFG+DXd combination is proprietary Daiichi Sankyo platform; licensing required for use.</span></div>
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="glucuronide-mmae 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="enzyme" data-search="glucuronide-mmae 可裂解 various">
   <div class="card-header">
     <div class="card-title">Glucuronide-MMAE</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Enzyme-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (beta-glucuronidase… · 裂解酶: β-Glucuronidase (lysosoma…</div>
@@ -6471,10 +6484,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="peg4-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="peg4-vc-pabc protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">PEG4-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6502,10 +6515,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="va-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="va-pabc protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">VA-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (similar stability … · 裂解酶: Cathepsin B (slightly fas…</div>
@@ -6533,10 +6546,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="pyrophosphate-diester 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="enzyme" data-search="pyrophosphate-diester 可裂解 various">
   <div class="card-header">
     <div class="card-title">Pyrophosphate-diester</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Enzyme-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Moderate (hours to days; hydro… · 裂解酶: Phosphodiesterase (intrac…</div>
@@ -6564,10 +6577,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="legumain-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="enzyme" data-search="legumain-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Legumain-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Enzyme-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (legumain not prese… · 裂解酶: Legumain (Asn-specific cy…</div>
@@ -6595,10 +6608,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="beta-galactoside-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="enzyme" data-search="beta-galactoside-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">beta-galactoside-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Enzyme-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (beta-galactosidase… · 裂解酶: β-Galactosidase (lysosoma…</div>
@@ -6626,10 +6639,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="sulfatase-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="enzyme" data-search="sulfatase-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Sulfatase-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Enzyme-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Sulfatase (lysosomal aryl…</div>
@@ -6657,10 +6670,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="phosphatase-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="enzyme" data-search="phosphatase-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Phosphatase-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Enzyme-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Short (hours) — phosphatases p… · 裂解酶: Alkaline/acid phosphatase…</div>
@@ -6688,10 +6701,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mal-peg2-v-cit-pab 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="mal-peg2-v-cit protease-pab 可裂解 various">
   <div class="card-header">
     <div class="card-title">Mal-PEG2-V-Cit-PAB</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6719,10 +6732,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="fmoc-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="fmoc-vc-pabc protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">Fmoc-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Unknown — Fmoc is base-labile;… · 裂解酶: Cathepsin B (after Fmoc d…</div>
@@ -6750,10 +6763,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="dde-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="dde-vc-pabc protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">Dde-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Unknown — Dde is hydrazine-lab… · 裂解酶: Cathepsin B (after Dde de…</div>
@@ -6781,10 +6794,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="hydrazone-disulfide 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="ph-sensitive" data-search="hydrazone-disulfide 可裂解 various">
   <div class="card-header">
     <div class="card-title">Hydrazone-disulfide</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-approved">pH-Sensitive</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Short (hours) — hydrazone is a… · 裂解酶: pH-dependent hydrolysis (…</div>
@@ -6809,13 +6822,17 @@
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">General structural class. Specific plasma stability and cleavage kinetics depend on exact conjugate context. Needs expert review.</span></div>
       
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">腙键专利</span><span class="info-value">US5877296A — Chari et al. (ImmunoGen), 1999. Acid-labile hydrazone linker for maytansinoid-antibody conjugates. Key pH-sensitive ADC patent.</span></div>
+      <div class="info-row"><span class="info-label">Mylotarg 腙键</span><span class="info-value">US6630579B2 — Hamann et al. (Wyeth/Pfizer). Calicheamicin-antibody via AcBut hydrazone. Core Mylotarg/Besylomab patent.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US5877296A expired (~2016). Hydrazone chemistry broadly available; specific ADC combinations (Mylotarg) retain composition-of-matter protection until ~2027.</span></div>
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="thioether-cleavable 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="disulfide" data-search="thioether-cleavable 可裂解 various">
   <div class="card-header">
     <div class="card-title">Thioether-cleavable</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-payload">Disulfide/Reducible</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: Variable · 裂解酶: Intracellular thiol (GSH-…</div>
@@ -6843,10 +6860,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="peptide-mmaf 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="peptide-mmaf protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">Peptide-MMAF</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B or other lyso…</div>
@@ -6874,10 +6891,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="peg8-vc-pabc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="peg8-vc-pabc protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">PEG8-vc-PABC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6905,10 +6922,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="val-cit-pab-oh 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="val-cit-pab-oh protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">Val-Cit-PAB-OH</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6936,10 +6953,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mc-val-cit-pab-pnp 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="mc-val-cit-pab-pnp protease 可裂解 various">
   <div class="card-header">
     <div class="card-title">mc-Val-Cit-PAB-PNP</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-linker">Protease (CatB)</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days · 裂解酶: Cathepsin B</div>
@@ -6967,10 +6984,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="mal-peg4-nhs 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="non-cleavable" data-search="mal-peg4-nhs 可裂解 various">
   <div class="card-header">
     <div class="card-title">Mal-PEG4-NHS</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-phase3">Non-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (non-cleavable cros… · 裂解酶: None (non-cleavable space…</div>
@@ -6998,10 +7015,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="smpeg24 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="non-cleavable" data-search="smpeg24 可裂解 various">
   <div class="card-header">
     <div class="card-title">SMPEG24</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-phase3">Non-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;7 days (non-cleavable) · 裂解酶: None (non-cleavable PEG-m…</div>
@@ -7029,10 +7046,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="可裂解" data-search="sulfo-smcc 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="non-cleavable" data-patent="US5208020B1" data-search="sulfo-smcc non-cleavable thioether kadcyla t-dm1 immunogen 可裂解 various">
   <div class="card-header">
     <div class="card-title">Sulfo-SMCC</div>
-    <span class="badge badge-linker">Cleavable</span>
+    <span class="badge badge-phase3">Non-Cleavable</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">血浆 t½: &gt;10 days (non-cleavable thi… · 裂解酶: None — non-cleavable. Req…</div>
@@ -7055,7 +7072,12 @@
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
       
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Classic non-cleavable thioether linker. Requires complete lysosomal degradation of the antibody to release payload (typically as Lys-SMCC-payload adduct). Very high plasma stability.</span></div>
-      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:16814772 (T-DM1 design)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label: Kadcyla</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:16814772 (T-DM1 design)</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US5208020A — Chari et al. (ImmunoGen), 1993. Maytansinoid-antibody conjugates via SMCC-type thioether bond. Pioneer ADC patent.</span></div>
+      <div class="info-row"><span class="info-label">T-DM1 核心专利</span><span class="info-value">US7371376B2 — Phillips et al. (Genentech/ImmunoGen). Trastuzumab-DM1 via SMCC. Core Kadcyla patent, expires ~2024.</span></div>
+      <div class="info-row"><span class="info-label">SMCC 试剂</span><span class="info-value">Sulfo-SMCC (商品化异双功能交联剂，Thermo Fisher Scientific)；不受专利保护，可自由使用于新抗体-毒素偶联。</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">SMCC linker chemistry itself is off-patent. T-DM1+SMCC specific combination (Kadcyla) — composition patent US7371376B2 may have expired. Non-cleavable thioether strategy broadly applicable.</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label: Kadcyla</span></div>
       <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A</span></div>
     </div>
   </div>
@@ -8103,3 +8125,6 @@ filterActiveTab();
 </div>
 </body>
 </html>
+
+
+
