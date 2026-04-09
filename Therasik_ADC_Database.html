@@ -7728,4 +7728,357 @@
   <div class="card-header">
     <div>
       <div class="card-title">Ajicap</div><div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#d4edda;color:#155724;border:1px solid #c3e6cb;font-size:9px">Patent: Check FTO</span></div>
-      <div class="card-subtitle" style="font-size:11px;color:var(--primary)">AJ
+      <div class="card-subtitle" style="font-size:11px;color:var(--primary)">AJICAP® (Affinity-Peptide Mediated) — Ajinomoto</div>
+    </div>
+    <span class="badge badge-conj">High</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">DAR: 2.0 · Affinity peptide-directed site-specific conjugation at Fc Lys248</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
+      <div class="info-row"><span class="info-label">描述</span><span class="info-value">Affinity peptide-directed site-specific conjugation at Fc Lys248</span></div>
+      <div class="info-row"><span class="info-label">典型 DAR</span><span class="info-value">2.0</span></div>
+      <div class="info-row"><span class="info-label">均一性</span><span class="info-value">High</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">CMC 与专利</div>
+      <div class="info-row"><span class="info-label">CMC 复杂度</span><span class="info-value">moderate</span></div>
+      <div class="info-row"><span class="info-label">CMC 细节</span><span class="info-value">Uses Fc-binding peptide to direct conjugation selectively to Lys248. No protein engineering required. Site-selectivity driven by peptide-Fc affinity, not sequence modification.</span></div>
+      <div class="info-row"><span class="info-label">专利 / FTO</span><span class="info-value">Ajinomoto patents</span></div>
+      <div class="info-row"><span class="info-label">FTO 细节</span><span class="info-value">Proprietary Ajinomoto technology; licensing required for commercial use.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">参考文献</div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:31243977</span></div>
+    </div>
+  </div>
+</div>
+
+    </div><!-- /gridConj -->
+  </div><!-- /panel-conjugation -->
+
+  <!-- ═══ EXPERIMENTS ═══ -->
+  <div class="tab-panel" id="panel-experiments">
+    <h2 class="section-title">验证分析 · Validation Assays</h2>
+    <p class="section-desc">ADC 开发关键验证实验方法概要：内化效率、旁观者效应、血浆稳定性、体内药效与毒理评估。</p>
+    <div class="ctrl-row">
+      <input class="search-box" id="searchExp" type="text" placeholder="Search assay name…">
+      <span class="result-count" id="countExp"></span>
+    </div>
+    <div class="card-grid" id="gridExp">
+
+      <div class="card" onclick="toggleCard(this)" data-search="internalization flow cytometry confocal adcp">
+        <div class="card-header"><div><div class="card-title">内化效率检测</div><div class="card-subtitle">Flow Cytometry / Confocal Imaging</div></div><span class="badge badge-phase3">核心</span></div>
+        <div class="card-body">
+          <div class="cc-brief">定量抗体-抗原复合物内化速率与内化程度；区分快速内化靶点（如 HER2、CD22）与慢速内化靶点</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">抗体标记荧光（pHrodo 或 pH 敏感染料）+ 流式细胞术；或共聚焦显微镜追踪溶酶体共定位</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">内化率（%）、T½、溶酶体共定位率（%）</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">内化率低（&lt;30%）→ 优先考虑非内化型 Linker（pH 敏感）或旁观者效应 Payload</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="bystander effect tumor heterogeneity killing">
+        <div class="card-header"><div><div class="card-title">旁观者效应评估</div><div class="card-subtitle">Co-culture Kill Assay</div></div><span class="badge badge-phase3">核心</span></div>
+        <div class="card-body">
+          <div class="cc-brief">检测 ADC 对抗原阴性邻近肿瘤细胞的杀伤能力，评估 Payload 细胞渗透性与旁观者贡献比例</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">抗原阳性 + 阴性细胞混合共培养，分别标记荧光，ADC 处理后流式分析各群存活率</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">旁观者杀伤率（%）、Bystander EC50</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">高肿瘤异质性靶点（如 TROP-2 TNBC）→ 旁观者效应是必要设计指标</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="plasma stability serum half life linker cleavage">
+        <div class="card-header"><div><div class="card-title">血浆稳定性</div><div class="card-subtitle">Plasma Stability / DAR Analysis</div></div><span class="badge badge-phase3">核心</span></div>
+        <div class="card-body">
+          <div class="cc-brief">模拟生理条件下 Linker 稳定性，检测提前释放 Payload 的比例；直接影响治疗窗口与系统毒性</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">人血浆 37°C 孵育 7 天；质谱 (HIC-MS) 检测 DAR 变化；游离 Payload 定量 (LC-MS/MS)</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">DAR 保留率（%/天）、游离 Payload 浓度（nM）</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">7 天 DAR 保留率 &lt; 80% → Linker 设计需优化；考虑 SPDB → 更稳定二硫键</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="cytotoxicity in vitro cell killing ic50 ec50">
+        <div class="card-header"><div><div class="card-title">体外细胞毒性</div><div class="card-subtitle">Cytotoxicity Assay (IC50)</div></div><span class="badge badge-phase3">核心</span></div>
+        <div class="card-body">
+          <div class="cc-brief">测定 ADC 对靶点阳性与阴性肿瘤细胞系的 IC50，建立抗原表达量与杀伤效力的相关性</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">CellTiter-Glo 或 MTT；72-96h 孵育；剂量响应曲线拟合</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">IC50（nM）、选择性指数（阳性/阴性 IC50 比值）</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">选择性指数 &lt;10 → 需优化 Binder 亲和力或换用 Cleavable Linker</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="pk pharmacokinetics mouse rat nca noncompartmental">
+        <div class="card-header"><div><div class="card-title">体内 PK 评估</div><div class="card-subtitle">In vivo Pharmacokinetics</div></div><span class="badge badge-phase2">推荐</span></div>
+        <div class="card-body">
+          <div class="cc-brief">小鼠单次静注 ADC，分析抗体浓度-时间曲线；分别测量总抗体（TAb）与偶联抗体（cAb）的 PK 参数</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">ELISA（TAb）+ 质谱（DAR 动态追踪）；BALB/c 小鼠 IV 给药</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">AUC、T½、CL、Vss；cAb/TAb 比值变化趋势</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">cAb/TAb 比值快速下降 → Linker 不稳定；T½ &lt; 2 天 → FcRn 结合受损，检查 Fc 区修饰</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="efficacy tumor xenograft pdx cdx mouse model">
+        <div class="card-header"><div><div class="card-title">体内药效（异种移植）</div><div class="card-subtitle">CDX / PDX Efficacy Model</div></div><span class="badge badge-phase2">推荐</span></div>
+        <div class="card-body">
+          <div class="cc-brief">人源肿瘤细胞（CDX）或患者来源肿瘤（PDX）小鼠模型验证 ADC 体内抗肿瘤效力，支持 IND 前研究</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">裸鼠 / NSG 小鼠皮下或原位种植；每周测量肿瘤体积；单次或多次给药</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">TGI（%）、CR 率、给药耐受剂量</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">TGI &lt; 60% at MTD → 重新评估 DAR 或换用更高效 Payload</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="dar dar distribution hic mass spec homogeneity">
+        <div class="card-header"><div><div class="card-title">DAR 分布分析</div><div class="card-subtitle">HIC / MS Characterization</div></div><span class="badge badge-phase3">核心</span></div>
+        <div class="card-body">
+          <div class="cc-brief">通过疏水相互作用色谱（HIC）和质谱（MS）表征 ADC 的 DAR 分布，确认偶联均一性</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">HIC（DAR 分布峰面积）+ LC-MS/MS（精确质量分析）</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">平均 DAR、DAR 0/2/4/6/8 各组分比例、DAR &gt; 8 比例</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">DAR &gt; 8 比例 &gt; 10% → 聚集风险高，需优化偶联条件或换用位点特异偶联</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="immunogenicity ada anti-drug antibody adp t cell">
+        <div class="card-header"><div><div class="card-title">免疫原性评估</div><div class="card-subtitle">ADA / T Cell Epitope Analysis</div></div><span class="badge badge-phase1">IND 前</span></div>
+        <div class="card-body">
+          <div class="cc-brief">Payload 修饰可能引入新的 T 细胞表位；体外免疫原性评估（PBMC 增殖实验）辅助规避高风险表位</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">EpiScreen™ 或 PBMC 增殖实验（多 donor HLA 覆盖）；NetMHCII 表位预测</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">刺激指数（SI）、高风险表位数、HLA-DR 覆盖率</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">SI &gt; 2 且多 donor 一致 → 需要表位置换或 Binder 人源化优化</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)" data-search="toxicology gmp safety rat monkey ind enabling">
+        <div class="card-header"><div><div class="card-title">GLP 毒理预研</div><div class="card-subtitle">IND-Enabling Safety Study</div></div><span class="badge badge-phase1">IND 前</span></div>
+        <div class="card-body">
+          <div class="cc-brief">大鼠 / 食蟹猴单次递增剂量毒理，确定 HNSTD 和 NOAEL，支持 FIH 起始剂量计算</div>
+          <span class="expand-toggle"></span>
+          <div class="cc-detail">
+            <div class="collapse-bar"><div class="collapse-progress"></div></div>
+            <div class="info-row"><span class="info-label">方法</span><span class="info-value">GLP 大鼠 + 食蟹猴；IV 给药；28 天恢复期；血液学 + 病理</span></div>
+            <div class="info-row"><span class="info-label">关键指标</span><span class="info-value">HNSTD（mg/kg）、NOAEL、血液毒性（中性粒细胞减少）、肝毒性（ALT/AST）</span></div>
+            <div class="info-row"><span class="info-label">决策用途</span><span class="info-value">FIH 起始剂量 = 1/10 HNSTD（猴）或 1/6 NOAEL（大鼠），取最保守值</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /gridExp -->
+  </div><!-- /panel-experiments -->
+
+</div><!-- /page -->
+</main>
+
+<footer style="background:var(--bg-alt);padding:32px 0;border-top:1px solid var(--border);margin-top:0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;text-align:center;color:var(--text-muted);font-size:13px">
+    &copy; 2026 Therasik &nbsp;·&nbsp; 保留所有权利 &nbsp;·&nbsp; <a href="index.html" style="color:var(--primary);text-decoration:none">返回首页</a>
+  </div>
+</footer>
+
+<script>
+// ── Security ──────────────────────────────────────────────────────────────────
+(function(){
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('selectstart', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey||e.metaKey) && ['c','p','s','u'].includes(e.key)) e.preventDefault();
+  });
+})();
+
+// ── Tab switching ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const target = this.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    const panel = document.getElementById('panel-' + target);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+// ── Card toggle (expand / collapse) ──────────────────────────────────────────
+const _collapseTimers = {};
+
+function toggleCard(el) {
+  // Ignore clicks on links/buttons inside the card
+  const evt = window.event;
+  if (evt && evt.target && typeof evt.target.closest === 'function') {
+    if (evt.target.closest('a, button, input, select, textarea')) return;
+  }
+  const wasExpanded = el.classList.contains('expanded');
+  el.classList.toggle('expanded');
+  const isExpanded = el.classList.contains('expanded');
+  const progress = el.querySelector('.collapse-progress');
+  const cardId = el.dataset.search ? el.dataset.search.substring(0,20) : Math.random();
+
+  if (isExpanded) {
+    if (progress) { progress.style.transition = 'none'; progress.style.width = '100%'; }
+    if (!el._hoverBound) {
+      el._hoverBound = true;
+      el.addEventListener('mouseenter', () => {
+        if (!el.classList.contains('expanded')) return;
+        if (_collapseTimers[cardId]) { clearTimeout(_collapseTimers[cardId]); _collapseTimers[cardId] = null; }
+        if (progress) { progress.style.transition = 'none'; progress.style.width = '100%'; }
+      });
+      el.addEventListener('mouseleave', () => {
+        if (!el.classList.contains('expanded')) return;
+        const dur = 5000;
+        if (progress) { void progress.offsetWidth; progress.style.transition = `width ${dur}ms linear`; progress.style.width = '0%'; }
+        _collapseTimers[cardId] = setTimeout(() => {
+          el.classList.remove('expanded');
+          if (progress) { progress.style.transition = 'none'; progress.style.width = '100%'; }
+        }, dur);
+      });
+    }
+  } else {
+    if (_collapseTimers[cardId]) { clearTimeout(_collapseTimers[cardId]); _collapseTimers[cardId] = null; }
+    if (progress) { progress.style.transition = 'none'; progress.style.width = '100%'; }
+  }
+}
+
+// ── Generic filter helper ─────────────────────────────────────────────────────
+function filterGrid(gridId, countId, query, filters) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+  const cards = grid.querySelectorAll('.card');
+  let visible = 0;
+  cards.forEach(card => {
+    const search = (card.dataset.search || '').toLowerCase();
+    const matchQ = !query || search.includes(query);
+    const matchF = filters.every(f => !f.value || (card.dataset[f.attr] || '').toLowerCase() === f.value.toLowerCase());
+    const show = matchQ && matchF;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  const countEl = document.getElementById(countId);
+  if (countEl) countEl.textContent = visible + ' 项';
+}
+
+// ── Programs tab ──────────────────────────────────────────────────────────────
+function filterPrograms() {
+  const q = document.getElementById('searchPrograms').value.trim().toLowerCase();
+  const stage = document.getElementById('filterStage').value;
+  const target = document.getElementById('filterTarget').value;
+  filterGrid('gridPrograms', 'countPrograms', q, [
+    { attr: 'stage', value: stage },
+    { attr: 'target', value: target },
+  ]);
+}
+['searchPrograms','filterStage','filterTarget'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', filterPrograms);
+});
+
+// ── Antigens tab ──────────────────────────────────────────────────────────────
+function filterAntigens() {
+  const q = document.getElementById('searchAntigens').value.trim().toLowerCase();
+  const tier  = document.getElementById('filterAgTier').value;
+  const expr  = document.getElementById('filterAgExpr').value;
+  const intern= document.getElementById('filterAgIntern').value;
+  const het   = document.getElementById('filterAgHet').value;
+  const dens  = document.getElementById('filterAgDensity').value;
+  const risk  = document.getElementById('filterAgRisk').value;
+  filterGrid('gridAntigens', 'countAntigens', q, [
+    { attr: 'tier',    value: tier },
+    { attr: 'expr',    value: expr },
+    { attr: 'intern',  value: intern },
+    { attr: 'het',     value: het },
+    { attr: 'density', value: dens },
+    { attr: 'risk',    value: risk },
+  ]);
+}
+['searchAntigens','filterAgTier','filterAgExpr','filterAgIntern','filterAgHet','filterAgDensity','filterAgRisk'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', filterAntigens);
+});
+
+// ── Payloads tab ──────────────────────────────────────────────────────────────
+function filterPayloads() {
+  const q   = document.getElementById('search载荷').value.trim().toLowerCase();
+  const cls = document.getElementById('filterPayloadCls').value;
+  filterGrid('grid载荷', 'count载荷', q, [{ attr: 'cls', value: cls }]);
+}
+['search载荷','filterPayloadCls'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', filterPayloads);
+});
+
+// ── Linkers tab ───────────────────────────────────────────────────────────────
+function filterLinkers() {
+  const q    = document.getElementById('search链接子').value.trim().toLowerCase();
+  const type = document.getElementById('filterLinkerType').value;
+  filterGrid('grid链接子', 'count链接子', q, [{ attr: 'ltype', value: type }]);
+}
+['search链接子','filterLinkerType'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', filterLinkers);
+});
+
+// ── Conjugation tab ───────────────────────────────────────────────────────────
+function filterConj() {
+  const q    = document.getElementById('searchConj').value.trim().toLowerCase();
+  const homo = document.getElementById('filterConjHomo').value;
+  filterGrid('gridConj', 'countConj', q, [{ attr: 'homo', value: homo }]);
+}
+['searchConj','filterConjHomo'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', filterConj);
+});
+
+// ── Experiments tab ───────────────────────────────────────────────────────────
+function filterExp() {
+  const q = (document.getElementById('searchExp') || {value:''}).value.trim().toLowerCase();
+  filterGrid('gridExp', 'countExp', q, []);
+}
+const expSearch = document.getElementById('searchExp');
+if (expSearch) expSearch.addEventListener('input', filterExp);
+
+// ── Init counts ───────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  filterPrograms();
+  filterAntigens();
+  filterPayloads();
+  filterLinkers();
+  filterConj();
+  filterExp();
+});
+
+// ── Mobile nav ────────────────────────────────────────────────────────────────
+document.querySelectorAll('.top-header-nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.top-header-nav').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
