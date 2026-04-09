@@ -488,24 +488,223 @@
   </div>
 </section>
 
-<!-- 05 VPSA Workflow -->
+<!-- 05 CMC & Immunogenicity Impact -->
+<section class="section" id="cmc-impact">
+  <div class="section-label">05 · CMC &amp; Immunogenicity Impact</div>
+  <h2 class="section-title">What Low Fv Selectivity <span>Actually Costs</span></h2>
+  <p class="section-intro">Insufficient VH/VL pairing selectivity is not just a structural curiosity — it has direct, quantifiable consequences for manufacturing, stability, and patient safety.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0;">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">CMC Consequences</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="background:#fff;border:1px solid #e5e7eb;border-left:3px solid var(--danger);border-radius:8px;padding:12px 14px;">
+          <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:3px;">Product Heterogeneity</div>
+          <div style="font-size:12px;color:#6b7280;">Crossover pairs (H1L2, H2L1) appear as additional SEC/IEX peaks → purity specification failure risk</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-left:3px solid var(--warn);border-radius:8px;padding:12px 14px;">
+          <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:3px;">Aggregation Risk ↑</div>
+          <div style="font-size:12px;color:#6b7280;">Mismatched Fv interface exposes hydrophobic core → SAP score elevation · DLS HMW% increase</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-left:3px solid var(--warn);border-radius:8px;padding:12px 14px;">
+          <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:3px;">Thermal Stability ↓</div>
+          <div style="font-size:12px;color:#6b7280;">Crossover Fv Tm typically 4–12°C below native pair → shelf life risk · cold-chain dependency</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-left:3px solid #6b7280;border-radius:8px;padding:12px 14px;">
+          <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:3px;">Purification Difficulty</div>
+          <div style="font-size:12px;color:#6b7280;">Multiple species co-elute from Protein A → IEX polishing burden increases · yield loss</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Immunogenicity Consequences</div>
+      <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:12px;padding:18px 20px;">
+        <div style="font-size:13px;color:#374151;line-height:1.9;">
+          <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="color:#7c3aed;font-weight:700;">①</span><span>Crossover pairs expose <strong>buried interface residues</strong> → novel T-cell epitope sequences (TEPITOPE/NetMHCpan positive)</span></div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="color:#7c3aed;font-weight:700;">②</span><span><strong>Aggregated protein</strong> is the primary ADA trigger — any Fv mismatch that promotes aggregation is an immunogenicity escalation event</span></div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="color:#7c3aed;font-weight:700;">③</span><span>CDR geometry deviation in crossover pairs → <strong>hydrophobic patches</strong> normally masked by correct VH-VL packing become surface-accessible</span></div>
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e9d5ff;font-size:12px;color:#6b7280;">
+            ⚠️ <strong>Critical in chronic dosing regimens</strong> — ADA incidence is cumulative across injection cycles. Even minor crossover fractions become significant immunogenic stimulus over 6–12 months.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Electrostatic Steering Mutation Design -->
+<section class="section" id="mutation-design">
+  <div class="section-label">06 · V-Region Mutation Design</div>
+  <h2 class="section-title">VH44/VL100 <span>Electrostatic Steering</span></h2>
+  <p class="section-intro">When VPSA identifies INSUFFICIENT selectivity — or when defense-in-depth is required — InSynBio designs Lewis charge pairs at VH44/VL100 to introduce a directed electrostatic lock at the buried Fv interface hub.</p>
+
+  <div class="card info-card" style="margin-bottom:24px;">
+    <p style="font-size:14px;line-height:1.65;"><strong>Defense-in-Depth Principle:</strong> Even when CrossFab is already deployed, adding VH44/VL100 mutations provides a second independent selectivity layer. CrossFab addresses LC-level mispairing (C-domain gate); VH44/VL100 charge pairs address Fv-level selectivity (V-domain gate). Mispairing then requires simultaneous failure of <em>both</em> layers — dramatically less probable, and especially critical when CrossFab is partially compromised by reduction or degradation during manufacturing.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text);margin:0 0 16px;">Target Positions — Why VH44 and VL100</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+    <div class="card" style="margin:0;background:#f0fdfa;">
+      <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">VH Kabat 44</div>
+      <ul style="font-size:13px;color:#475569;padding-left:16px;line-height:1.8;margin:0;">
+        <li>Located in FR2, buried at VH-VL interface</li>
+        <li>SASA &lt; 10 Ų in properly folded Fv</li>
+        <li>Not in any CDR loop — mutation does not affect antigen binding</li>
+        <li>Faricimab: both arms G (neutral) — no engineered steering</li>
+      </ul>
+    </div>
+    <div class="card" style="margin:0;background:#f0fdfa;">
+      <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">VL Kabat 100</div>
+      <ul style="font-size:13px;color:#475569;padding-left:16px;line-height:1.8;margin:0;">
+        <li>Located in FR4 region, packed against VH44</li>
+        <li>SASA &lt; 10 Ų — buried, tolerated for charge mutation</li>
+        <li>Not in CDR3 L (boundary is Kabat 89–97)</li>
+        <li>Faricimab Arm A: Q (neutral); Arm B: G (neutral)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text);margin:0 0 16px;">Lewis Charge Pair Strategies</h3>
+  <div class="table-wrap" style="margin-bottom:24px;">
+    <table>
+      <thead>
+        <tr><th>Strategy</th><th>VH44</th><th>VL100</th><th>Native Pair Interaction</th><th>Crossover Pair</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lewis+ (standard)</strong></td>
+          <td>→ E (Glu, −)</td><td>K (Lys, +)</td>
+          <td><span class="badge pass">E–K attraction (−/+)</span></td>
+          <td><span class="badge fail">E + non-K VL → no attraction</span></td>
+          <td>Single-arm reinforcement; different isotype arms</td>
+        </tr>
+        <tr>
+          <td><strong>Lewis× (reverse)</strong></td>
+          <td>→ K (Lys, +)</td><td>→ E (Glu, −)</td>
+          <td><span class="badge pass">K–E attraction (+/−)</span></td>
+          <td><span class="badge fail">K + non-E VL → no attraction</span></td>
+          <td>Arm-specific; combines with Lewis+ for orthogonality</td>
+        </tr>
+        <tr style="background:#fff9f0;">
+          <td><strong>Dual Orthogonal ⭐</strong></td>
+          <td>Arm A: → E<br>Arm B: → K</td>
+          <td>Arm A VL: K<br>Arm B VL: → E</td>
+          <td><span class="badge pass">A: E–K attracts · B: K–E attracts</span></td>
+          <td><span class="badge fail">A-VH(E) + B-VL(E) → repels<br>B-VH(K) + A-VL(K) → repels</span></td>
+          <td><strong>Same-isotype arms (κ/κ or λ/λ) — GOLD STANDARD</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Visual: dual orthogonal diagram -->
+  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:24px 28px;margin-bottom:24px;">
+    <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:16px;">Dual Orthogonal Lewis Pairs — Electrostatic Logic</div>
+    <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block;font-family:Inter,sans-serif;">
+      <!-- Arm A native pair -->
+      <rect x="20" y="20" width="100" height="40" rx="8" fill="#0d9488" opacity="0.9"/>
+      <text x="70" y="38" text-anchor="middle" font-size="11" fill="white" font-weight="700">VH-A (E)</text>
+      <text x="70" y="53" text-anchor="middle" font-size="10" fill="#a7f3d0">Arm A heavy</text>
+      <rect x="130" y="20" width="100" height="40" rx="8" fill="#0d9488" opacity="0.7"/>
+      <text x="180" y="38" text-anchor="middle" font-size="11" fill="white" font-weight="700">VL-A (K)</text>
+      <text x="180" y="53" text-anchor="middle" font-size="10" fill="#a7f3d0">Arm A light</text>
+      <line x1="120" y1="40" x2="130" y2="40" stroke="#0d9488" stroke-width="2.5"/>
+      <text x="125" y="35" text-anchor="middle" font-size="14" fill="#059669">⚡</text>
+      <text x="125" y="72" text-anchor="middle" font-size="10" fill="#059669" font-weight="700">E–K attract ✓</text>
+
+      <!-- Arm B native pair -->
+      <rect x="20" y="110" width="100" height="40" rx="8" fill="#7c3aed" opacity="0.9"/>
+      <text x="70" y="128" text-anchor="middle" font-size="11" fill="white" font-weight="700">VH-B (K)</text>
+      <text x="70" y="143" text-anchor="middle" font-size="10" fill="#ddd6fe">Arm B heavy</text>
+      <rect x="130" y="110" width="100" height="40" rx="8" fill="#7c3aed" opacity="0.7"/>
+      <text x="180" y="128" text-anchor="middle" font-size="11" fill="white" font-weight="700">VL-B (E)</text>
+      <text x="180" y="143" text-anchor="middle" font-size="10" fill="#ddd6fe">Arm B light</text>
+      <line x1="120" y1="130" x2="130" y2="130" stroke="#7c3aed" stroke-width="2.5"/>
+      <text x="125" y="125" text-anchor="middle" font-size="14" fill="#7c3aed">⚡</text>
+      <text x="125" y="162" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="700">K–E attract ✓</text>
+
+      <!-- Divider -->
+      <line x1="260" y1="10" x2="260" y2="190" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="263" y="100" font-size="9" fill="#9ca3af">Crossover pairs →</text>
+
+      <!-- Crossover A-VH + B-VL (E + E = repel) -->
+      <rect x="290" y="20" width="100" height="40" rx="8" fill="#0d9488" opacity="0.7"/>
+      <text x="340" y="38" text-anchor="middle" font-size="11" fill="white" font-weight="700">VH-A (E)</text>
+      <rect x="400" y="20" width="100" height="40" rx="8" fill="#7c3aed" opacity="0.7"/>
+      <text x="450" y="38" text-anchor="middle" font-size="11" fill="white" font-weight="700">VL-B (E)</text>
+      <line x1="390" y1="40" x2="400" y2="40" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="4,2"/>
+      <text x="395" y="35" text-anchor="middle" font-size="14" fill="#dc2626">✗</text>
+      <text x="395" y="72" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="700">E–E repels ✗</text>
+
+      <!-- Crossover B-VH + A-VL (K + K = repel) -->
+      <rect x="290" y="110" width="100" height="40" rx="8" fill="#7c3aed" opacity="0.7"/>
+      <text x="340" y="128" text-anchor="middle" font-size="11" fill="white" font-weight="700">VH-B (K)</text>
+      <rect x="400" y="110" width="100" height="40" rx="8" fill="#0d9488" opacity="0.7"/>
+      <text x="450" y="128" text-anchor="middle" font-size="11" fill="white" font-weight="700">VL-A (K)</text>
+      <line x1="390" y1="130" x2="400" y2="130" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="4,2"/>
+      <text x="395" y="125" text-anchor="middle" font-size="14" fill="#dc2626">✗</text>
+      <text x="395" y="162" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="700">K–K repels ✗</text>
+
+      <!-- Legend -->
+      <text x="510" y="80" text-anchor="middle" font-size="11" fill="#059669" font-weight="700">Native pairs</text>
+      <text x="510" y="95" text-anchor="middle" font-size="11" fill="#059669">attract ✓</text>
+      <text x="510" y="120" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="700">Crossover pairs</text>
+      <text x="510" y="135" text-anchor="middle" font-size="11" fill="#dc2626">repel ✗</text>
+    </svg>
+    <div class="method-note" style="margin-top:12px;">Dual orthogonal design: Arm A carries VH44E + VL100K; Arm B carries VH44K + VL100E. Both native pairs are electrostatically favored (opposite charges attract). Both crossover combinations experience same-charge repulsion — thermodynamically disfavored at the Fv level independent of C-domain architecture.</div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text);margin:0 0 14px;">6-Step Mutation Validation Pipeline</h3>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+    <div style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;">
+      <div style="min-width:28px;height:28px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0;">1</div>
+      <div><strong style="font-size:13px;">SASA Check</strong> <span style="font-size:12px;color:#6b7280;">— Verify VH44 and VL100 both SASA &lt; 15 Ų in native structure. If SASA &gt; 20 Ų: consider alternative positions.</span></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;">
+      <div style="min-width:28px;height:28px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0;">2</div>
+      <div><strong style="font-size:13px;">EvoEF2 ΔΔG</strong> <span style="font-size:12px;color:#6b7280;">— Single-point mutation ΔΔG at VH44/VL100. Acceptable: ΔΔG &lt; +2.5 kcal/mol. Buried charge pairs compensate via partner attraction.</span></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;">
+      <div style="min-width:28px;height:28px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0;">3</div>
+      <div><strong style="font-size:13px;">BES Proxy Recalculation</strong> <span style="font-size:12px;color:#6b7280;">— Recompute salt bridge count and BES for all 4 pairs after in silico mutation. Confirm native pair SB increase ≥ 20; crossover SB stable or decreased.</span></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;">
+      <div style="min-width:28px;height:28px;background:#d97706;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0;">4</div>
+      <div><strong style="font-size:13px;">Immunogenicity Rescan</strong> <span style="font-size:12px;color:#6b7280;">— NetMHCpan / IEDB API scan of 9-mers and 15-mers containing mutated positions across top 6 HLA alleles. Flag any new binding score &lt; 0.5% rank.</span></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;">
+      <div style="min-width:28px;height:28px;background:#d97706;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0;">5</div>
+      <div><strong style="font-size:13px;">AF2 Multimer Validation</strong> <span style="font-size:12px;color:#6b7280;">— Full bispecific structure after mutation. Confirm VH-VL packing angle ± 5° vs. parent; CDR3 Cα RMSD &lt; 0.5 Å; no new interface clashes.</span></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 16px;">
+      <div style="min-width:28px;height:28px;background:#6b7280;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0;">6</div>
+      <div><strong style="font-size:13px;">Experimental Validation Plan</strong> <span style="font-size:12px;color:#6b7280;">— DSF thermal shift with competing VL (confirm selectivity gain); SEC (no new aggregation peak); SPR/BLI antigen Kd within 3-fold of parent.</span></div>
+    </div>
+  </div>
+
+  <div class="card warn-card">
+    <p style="font-size:14px;line-height:1.65;"><strong>Faricimab Application:</strong> Arm B (VH1/Vλ, 63 SB) has MODERATE Fv selectivity. For a hypothetical KiH-only redesign of ANG-2 Arm B with same-isotype kappa arms — no CrossFab protection — the recommended fix would be Arm B VH44K + VL100E paired with Arm A VH44E + VL100K (dual orthogonal). This converts Arm B from reliance on CrossFab to having independent Fv-level selectivity. The 6-step validation pipeline above would confirm whether the charge pair introduces ≥ 20 additional SB in the native pairing and &lt; 0.5% rank immunogenic peptides.</p>
+  </div>
+</section>
+
+<!-- 07 VPSA Workflow -->
 <section class="section" id="workflow">
-  <div class="section-label">05 · Therasik VPSA Module</div>
+  <div class="section-label">07 · Therasik VPSA Module</div>
   <h2 class="section-title">Integrated <span>Assessment Workflow</span></h2>
-  <p class="section-intro">VPSA is a standardized structural audit applied to all IgG-like bispecific sequences submitted to Therasik, complementing HC/LC mispairing analysis.</p>
+  <p class="section-intro">VPSA is a standardized structural audit applied to all IgG-like bispecific sequences submitted to Therasik, complementing HC/LC mispairing analysis. When VPSA flags INSUFFICIENT selectivity, the Electrostatic Steering module activates automatically.</p>
 
   <div class="flow">
     <div class="flow-step"><div class="icon">🧬</div><div class="label">Sequences</div><div class="sub">4 variable domain sequences</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="icon">🏗️</div><div class="label">Structure Models</div><div class="sub">IgFold / ABodyBuilder2 for all 4 pairs</div></div>
+    <div class="flow-step"><div class="icon">🏗️</div><div class="label">Structure Models</div><div class="sub">ABodyBuilder2 / IgFold · all 4 pairs</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="icon">📐</div><div class="label">BSA Analysis</div><div class="sub">FreeSASA, Fv-only</div></div>
+    <div class="flow-step"><div class="icon">📐</div><div class="label">4-Metric VPSA</div><div class="sub">BSA · H-bonds · SB · BES</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="icon">⚡</div><div class="label">VH44/VL100</div><div class="sub">Kabat positions; electrostatic check</div></div>
+    <div class="flow-step"><div class="icon">⚡</div><div class="label">VH44/VL100</div><div class="sub">Charge state · selectivity class</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="icon">🎯</div><div class="label">Risk Score</div><div class="sub">BSA differential per arm</div></div>
+    <div class="flow-step" style="border-color:rgba(220,38,38,0.3);background:rgba(220,38,38,0.05);"><div class="icon">🔧</div><div class="label" style="color:#dc2626;">Mutation Design</div><div class="sub">If INSUF: Lewis pairs</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="icon">📄</div><div class="label">Report</div><div class="sub">With design fix if needed</div></div>
+    <div class="flow-step"><div class="icon">📄</div><div class="label">Report</div><div class="sub">CMC + immuno impact + fix</div></div>
   </div>
 
   <div class="card" style="background:#f9fafb;border:1px solid #e5e7eb;">
@@ -515,25 +714,27 @@
         <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">What VPSA Measures</div>
         <ul style="font-size:13.5px;color:var(--text-muted);padding-left:16px;line-height:1.8;">
           <li>Interface BSA (FreeSASA, Fv-only)</li>
-          <li>Interface H-bond and contact counts</li>
-          <li>VH44 / VL100 Kabat residue identity</li>
-          <li>BSA selectivity margin (native vs. crossover)</li>
+          <li>Interface H-bond and salt bridge counts</li>
+          <li>BES proxy (weighted energy estimate)</li>
+          <li>VH44 / VL100 Kabat residue identity and charge</li>
+          <li>Selectivity classification (STRONG / MODERATE / INSUFFICIENT)</li>
+          <li>CMC and immunogenicity impact assessment</li>
         </ul>
       </div>
       <div>
         <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">Limitations (current version)</div>
         <ul style="font-size:13.5px;color:var(--text-muted);padding-left:16px;line-height:1.8;">
-          <li>BES proxy ≠ thermodynamic ΔΔG (EvoEF2/Rosetta required for quantitative ΔΔG)</li>
-          <li>Packing angle (PCA-based) differs from classical β-sheet axis method</li>
-          <li>Structures are predicted (IgFold), not experimentally determined</li>
-          <li>Assembly kinetics not modeled</li>
+          <li>BES proxy ≠ thermodynamic ΔΔG (EvoEF2 required for quantitative ΔΔG)</li>
+          <li>Structures are predicted (IgFold/ABodyBuilder2), not experimentally determined</li>
+          <li>Assembly kinetics not modeled (thermodynamics only)</li>
+          <li>Lewis pair efficacy depends on local electrostatic environment — validate per case</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 06 CTA -->
+<!-- 08 CTA -->
 <section class="section" id="cta" style="border-top:none;padding-top:0;">
   <div class="cta-block">
     <h3>Run VPSA on Your Bispecific Candidate</h3>
