@@ -120,8 +120,8 @@
     .comp-card:hover{border-color:rgba(13,148,136,.4);box-shadow:0 4px 16px rgba(13,148,136,.08);transform:translateY(-1px);}
     .comp-card.expanded{border-color:var(--primary);box-shadow:0 4px 20px rgba(13,148,136,.12);}
     .cc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
-    .cc-name{font-size:14px;font-weight:700;color:#111827;line-height:1.35;flex:1;min-width:0;word-break:normal;overflow-wrap:break-word;hyphens:none;}
-    .cc-alias{font-size:11px;color:#9ca3af;font-weight:400;font-family:'Consolas',monospace;word-break:break-all;}
+    .cc-name{font-size:14px;font-weight:700;color:#111827;line-height:1.35;flex:1;min-width:0;word-break:normal;overflow-wrap:anywhere;}
+    .cc-alias{font-size:11px;color:#9ca3af;font-weight:400;font-family:'Consolas',monospace;word-break:normal;overflow-wrap:anywhere;}
     .cc-meta{display:flex;gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap;}
     .cc-brief{font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:all .3s ease;}
     .comp-card.expanded .cc-brief{display:block;-webkit-line-clamp:unset;overflow:visible;}
@@ -1150,7 +1150,7 @@ function renderFcCard(d) {
   return `
     <div class="comp-card" id="card-${d.id}" onclick="toggleCard(event, '${d.id}')" onmouseleave="handleMouseLeave('${d.id}')">
       <div class="cc-top">
-        <div class="cc-name">${hl(d.name)}<br><span class="cc-alias">${hl(d.alias)}</span></div>
+        <div class="cc-name">${hl(d.name)}</div>
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">${ipc ? ipBadge : ''}<span class="tier tier-${d.tier}">${TIER_LABEL[d.tier]}</span><span class="expand-toggle"></span></div>
       </div>
       <div class="cc-meta">
@@ -1175,7 +1175,7 @@ function renderDevCard(d) {
   return `
     <div class="comp-card" id="card-${d.id}" onclick="toggleCard(event, '${d.id}')" onmouseleave="handleMouseLeave('${d.id}')">
       <div class="cc-top">
-        <div class="cc-name">${hl(d.name)}<br><span class="cc-alias" style="font-family:inherit;">${hl(d.alias)}</span></div>
+        <div class="cc-name">${hl(d.name)}</div>
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;"><span class="risk-badge ${RISK_CLASS[d.risk]}">${RISK_LABEL[d.risk]}</span><span class="expand-toggle"></span></div>
       </div>
       <div class="cc-meta">
@@ -1199,7 +1199,7 @@ function renderImmunoCard(d) {
   return `
     <div class="comp-card" id="card-${d.id}" onclick="toggleCard(event, '${d.id}')" onmouseleave="handleMouseLeave('${d.id}')">
       <div class="cc-top">
-        <div class="cc-name">${hl(d.name)}<br><span class="cc-alias" style="font-family:inherit;">${hl(d.alias)}</span></div>
+        <div class="cc-name">${hl(d.name)}</div>
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;"><span class="risk-badge ${RISK_CLASS[d.risk]}">${RISK_LABEL[d.risk]}</span><span class="expand-toggle"></span></div>
       </div>
       <div class="cc-meta">
@@ -1222,7 +1222,7 @@ function renderWetCard(d) {
   return `
     <div class="comp-card" id="card-${d.id}" onclick="toggleCard(event, '${d.id}')" onmouseleave="handleMouseLeave('${d.id}')">
       <div class="cc-top">
-        <div class="cc-name">${hl(d.name)}<br><span class="cc-alias">${hl(d.alias)}</span></div>
+        <div class="cc-name">${hl(d.name)}</div>
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;"><span class="expand-toggle"></span></div>
       </div>
       <div class="cc-meta">
