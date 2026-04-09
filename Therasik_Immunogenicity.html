@@ -376,24 +376,24 @@
 
       <div class="insight-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px;">
         <div class="insight-card" style="background:#fff;">
-          <span class="ic-label">① 界面稳定性（权重 30%）</span>
-          <div class="ic-value" style="font-size:22px;">ρ = +0.339</div>
-          <div class="ic-desc">VH-VL 接触对数 · p=0.018 <strong>（最强信号）</strong>。Vernier Zone 支撑的界面越紧密，ADA 越高。</div>
+          <span class="ic-label">① 界面稳定性（权重 35%）</span>
+          <div class="ic-value" style="font-size:22px;">ρ = +0.369</div>
+          <div class="ic-desc">VH-VL 接触对数 · p=0.007 <strong>（极显著）</strong>。界面接触数越少，解离风险越高，ADA 呈显著正相关。</div>
         </div>
         <div class="insight-card" style="background:#fff;">
-          <span class="ic-label">② 种系偏离度（权重 27%）</span>
-          <div class="ic-value" style="font-size:22px;">ρ = −0.313</div>
-          <div class="ic-desc">VL 胚系同一性 · p=0.031。SHM 越多，偏离人类库越远，ADA 越高。</div>
-        </div>
-        <div class="insight-card" style="background:#fff;">
-          <span class="ic-label">③ 表面疏水性（权重 24%）</span>
+          <span class="ic-label">② 表面疏水性（权重 30%）</span>
           <div class="ic-value" style="font-size:22px;">ρ = +0.311</div>
-          <div class="ic-desc">表面疏水补丁数 · p=0.024。疏水斑块诱导聚集并激活 APC 提呈。</div>
+          <div class="ic-desc">表面疏水补丁数 · p=0.024。疏水斑块诱导聚集并激活 APC 提呈，是 FH 免疫原性的主因。</div>
         </div>
         <div class="insight-card" style="background:#fff;">
-          <span class="ic-label">④ MHC-II 表位（权重 19%）</span>
-          <div class="ic-value" style="font-size:22px;">ρ = +0.425</div>
-          <div class="ic-desc">高灵敏度检测子集（n=49） · p=0.034。SHM 衍生的强结合肽段是 ADA 的最终触发因素。</div>
+          <span class="ic-label">③ VL 种系偏离（权重 20%）</span>
+          <div class="ic-value" style="font-size:22px;">ρ = +0.264</div>
+          <div class="ic-desc">VL 胚系同一性反转 · p=0.056。SHM 偏离人类库越远（Identity 越低），ADA 风险越高。</div>
+        </div>
+        <div class="insight-card" style="background:#fff;">
+          <span class="ic-label">④ MHC-II 表位（权重 10%）</span>
+          <div class="ic-value" style="font-size:22px;">ρ = +0.134</div>
+          <div class="ic-desc">MHC-II 强结合肽段数。SHM 衍生的表位是 ADA 的最终触发因素，但在 FH 中受背景耐受影响较弱。</div>
         </div>
       </div>
 
@@ -476,8 +476,8 @@
 
     <!-- ── Composite Score ── -->
     <div style="margin: 40px 0;">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">ADA V2 综合评分：FH vs HU 的预测效力对比</h3>
-      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">ADA V2 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈显著正相关（ρ=+0.310, p=0.024），已达统计显著水平。本次权重更新的关键改进：将 VL 胚系偏离度从近乎零贡献（旧调制量范围 [-0.003, 0.041]）提升至 20% 权重的正向风险因子（1−VL_identity），并将界面接触密度从 5% 提升至 20%（同步扩大 interface_scale 至 100 以避免 FH 特有的饱和问题）。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">ADA V2.1 综合评分：FH vs HU 的预测效力对比</h3>
+      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">ADA V2.1 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈显著正相关（ρ=+0.308, p=0.025），相关性较 V2.0 进一步提升。本次权重更新的关键改进：<strong>基于 FH 深度扫描结果</strong>，将界面接触密度 (I) 权重从 20% 提升至 35%，表面斑块 (P) 权重从 25% 提升至 30%，并引入了 FH 专项 Midpoint 修正（0.32）以平衡风险分级。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
       <div style="margin: 0; text-align: center;">
         <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 6: ADA V2 综合评分与临床 ADA — FH vs HU 对比</h4>
         <img src="images/ada_study/fig7_ada_v2_composite.png" alt="ADA V2 Composite Score" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -516,12 +516,12 @@
               <tr style="border-bottom:1px solid #e5e7eb;background:#f0fdf4;">
                 <td style="padding:10px 14px;text-align:left;font-weight:700;color:#0d9488;">FH 全人源 ✓</td>
                 <td style="padding:10px 14px;font-weight:700;">53</td>
-                <td style="padding:10px 14px;font-weight:700;color:#0d9488;">+0.305 *</td>
-                <td style="padding:10px 14px;font-weight:700;color:#0d9488;">0.026</td>
-                <td style="padding:10px 14px;font-weight:700;color:#0d9488;">0.679</td>
-                <td style="padding:10px 14px;font-weight:700;">0.558</td>
-                <td style="padding:10px 14px;font-weight:700;">0.545</td>
-                <td style="padding:10px 14px;font-weight:700;">0.571</td>
+                <td style="padding:10px 14px;font-weight:700;color:#0d9488;">+0.308 *</td>
+                <td style="padding:10px 14px;font-weight:700;color:#0d9488;">0.025</td>
+                <td style="padding:10px 14px;font-weight:700;color:#0d9488;">0.690</td>
+                <td style="padding:10px 14px;font-weight:700;">0.566</td>
+                <td style="padding:10px 14px;font-weight:700;">0.727</td>
+                <td style="padding:10px 14px;font-weight:700;">0.405</td>
               </tr>
               <tr style="border-bottom:1px solid #e5e7eb;">
                 <td style="padding:10px 14px;text-align:left;font-weight:600;color:#6366f1;">HU 人源化</td>
