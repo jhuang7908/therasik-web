@@ -923,42 +923,47 @@
 
     // ── IEDB Query API integration ────────────────────────────────────────
     var IEDB_API = 'https://query-api.iedb.org/';
+
+    // Presets store the exact IEDB field values (protein = parent_source_antigen_name keyword,
+    // organism = source_organism_name keyword). Labels are user-friendly; search terms match IEDB naming.
     var IEDB_PRESETS = [
-      { label: 'KRAS (肿瘤新抗原)',   antigen: 'KRAS',        mhc: 'I',  type: 'tcell' },
-      { label: 'NY-ESO-1 (CTAG1B)', antigen: 'CTAG1B',      mhc: 'I',  type: 'tcell' },
-      { label: 'MART-1 / Melan-A',  antigen: 'MART-1',      mhc: 'I',  type: 'tcell' },
-      { label: 'WT1',               antigen: 'WT1',          mhc: 'I',  type: 'tcell' },
-      { label: 'SARS-CoV-2 Spike',  antigen: 'SARS-CoV-2',  mhc: '',   type: 'tcell' },
-      { label: '流感 M1 (GILGFVFTL)',antigen: 'Influenza M1',mhc: 'I',  type: 'tcell' },
-      { label: 'EBV EBNA3A',        antigen: 'EBNA3A',       mhc: 'I',  type: 'tcell' },
-      { label: 'CMV pp65',          antigen: 'pp65',         mhc: 'I',  type: 'tcell' },
-      { label: 'TP53 突变',         antigen: 'TP53',         mhc: 'I',  type: 'tcell' },
+      { label: 'KRAS G12 突变',      protein: 'KRas',                  organism: null,              mhc: 'I', type: 'tcell' },
+      { label: 'NY-ESO-1',           protein: 'testis antigen 1',       organism: null,              mhc: 'I', type: 'tcell' },
+      { label: 'MART-1 / Melan-A',   protein: 'Melan',                  organism: null,              mhc: 'I', type: 'tcell' },
+      { label: 'WT1',                protein: 'Wilms tumor',             organism: null,              mhc: 'I', type: 'tcell' },
+      { label: 'TP53 突变',           protein: 'tumor antigen p53',      organism: null,              mhc: 'I', type: 'tcell' },
+      { label: 'SARS-CoV-2',         protein: null,                     organism: 'SARS',            mhc: '',  type: 'tcell' },
+      { label: '流感 M1',             protein: 'Matrix protein 1',       organism: 'Influenza',       mhc: 'I', type: 'tcell' },
+      { label: 'EBV EBNA',           protein: 'EBNA',                   organism: 'Epstein',         mhc: 'I', type: 'tcell' },
+      { label: 'CMV pp65',           protein: '65 kDa phosphoprotein',  organism: 'cytomegalovirus', mhc: 'I', type: 'tcell' },
     ];
 
-    // Build IEDB Query API URL (PostgREST format)
-    // IMPORTANT: use encodeURIComponent (spaces → %20) NOT URLSearchParams (spaces → +).
-    // PostgREST decodes %20 correctly; "+" in filter values causes silent filter failure.
-    function _iedbApiUrl(antigen, hla, mhcClass, assayType) {
+    // Build IEDB Query API URL.
+    // protein  = filter on parent_source_antigen_name
+    // organism = filter on source_organism_name  (can be set independently from protein)
+    // Both use encodeURIComponent to ensure %20 spacing (URLSearchParams uses + which PostgREST misreads).
+    // HLA: keep the * in "HLA-A*02:01" — PostgREST ilike treats * as wildcard, so it correctly matches the literal * in the data.
+    function _iedbApiUrl(protein, organism, hla, mhcClass, assayType) {
       var endpoint = (assayType === 'bcell') ? 'bcell_search' : 'tcell_search';
       var parts = [
-        'limit=25',
+        'limit=50',
         'select=' + encodeURIComponent('linear_sequence,mhc_allele_name,mhc_class,qualitative_measure,pubmed_id,assay_names,parent_source_antigen_name,source_organism_name'),
-        // Filter: human host only  
         'host_organism_name=ilike.' + encodeURIComponent('*Homo sapiens*'),
-        // Filter: positive assay results only
         'qualitative_measure=ilike.' + encodeURIComponent('*Positive*'),
+        'order=qualitative_measure.asc',
       ];
-      if (antigen) {
-        // PostgREST OR filter: search protein name AND organism name
-        // This covers both protein-specific (KRAS → "GTPase KRas") and organism-level ("SARS-CoV-2") queries
-        var a = antigen.replace(/[(),]/g, '').trim(); // sanitize for OR syntax
-        parts.push('or=' + encodeURIComponent(
-          '(parent_source_antigen_name.ilike.*' + a + '*,source_organism_name.ilike.*' + a + '*)'
-        ));
+      if (protein && organism) {
+        // Both specified: AND condition (both must match)
+        parts.push('parent_source_antigen_name=ilike.' + encodeURIComponent('*' + protein + '*'));
+        parts.push('source_organism_name=ilike.' + encodeURIComponent('*' + organism + '*'));
+      } else if (protein) {
+        parts.push('parent_source_antigen_name=ilike.' + encodeURIComponent('*' + protein + '*'));
+      } else if (organism) {
+        parts.push('source_organism_name=ilike.' + encodeURIComponent('*' + organism + '*'));
       }
       if (hla) {
-        var hlaClean = hla.replace(/\*/g, '').trim();
-        parts.push('mhc_allele_name=ilike.' + encodeURIComponent('*' + hlaClean + '*'));
+        // Keep * in HLA (e.g. HLA-A*02:01) — works as ilike wildcard to match the literal * in IEDB data
+        parts.push('mhc_allele_name=ilike.' + encodeURIComponent('*' + hla.trim() + '*'));
       }
       if (mhcClass) parts.push('mhc_class=eq.' + mhcClass);
       return IEDB_API + endpoint + '?' + parts.join('&');
@@ -979,46 +984,60 @@
       document.getElementById('iedbResultsArea').innerHTML = '';
     }
 
+    // Manual search: treat the antigen text input as protein keyword;
+    // try source_organism_name as fallback if protein returns 0 results.
     function searchIedb() {
-      var antigen  = document.getElementById('iedbAntigenInput').value.trim();
+      var antigenText = document.getElementById('iedbAntigenInput').value.trim();
       var hla      = document.getElementById('iedbHlaInput').value.trim();
       var mhcClass = document.getElementById('iedbMhcClass').value;
       var assayType = document.getElementById('iedbAssayType').value;
       var area = document.getElementById('iedbResultsArea');
-      if (!antigen && !hla && !mhcClass) {
-        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">请至少输入一个查询条件（抗原关键词 · HLA · MHC 类型）。</div>';
+      if (!antigenText && !hla && !mhcClass) {
+        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">请至少输入一个查询条件。<br><small style="color:#9ca3af">提示：请使用 IEDB 蛋白名称关键词，如 KRas、Melan、p53、EBNA、Influenza、SARS</small></div>';
         return;
       }
       area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 正在查询 IEDB…</div>';
-      var url = _iedbApiUrl(antigen, hla, mhcClass, assayType);
+      _fetchAndRender(antigenText, null, hla, mhcClass, assayType, function(count) {
+        // If protein search returns nothing, retry as organism search
+        if (count === 0 && antigenText) {
+          area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 按蛋白名称无结果，改为搜索来源物种…</div>';
+          _fetchAndRender(null, antigenText, hla, mhcClass, assayType, null);
+        }
+      });
+    }
+
+    function _fetchAndRender(protein, organism, hla, mhcClass, assayType, onCount) {
+      var area = document.getElementById('iedbResultsArea');
+      var url = _iedbApiUrl(protein, organism, hla, mhcClass, assayType);
       fetch(url, { headers: { 'Accept': 'application/json' } })
-        .then(function(r) {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.json();
+        .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function(data) {
+          var count = _renderIedbResults(data, protein || organism, hla, mhcClass, assayType);
+          if (onCount) onCount(count);
         })
-        .then(function(data) { _renderIedbResults(data, antigen, hla, mhcClass, assayType); })
         .catch(function(err) {
           area.innerHTML =
             '<div class="iedb-note" style="margin-top:8px;color:#b91c1c">⚠ API 查询失败（' + err.message + '）。' +
-            '<br>请直接访问 <a href="' + _iedbWebUrl(antigen, hla, mhcClass, assayType) + '" target="_blank" rel="noopener" style="color:var(--primary)">IEDB 网站 ↗</a>。</div>';
+            '<br>请直接访问 <a href="' + _iedbWebUrl(protein || organism || '', hla, mhcClass, assayType) + '" target="_blank" rel="noopener" style="color:var(--primary)">IEDB 网站 ↗</a>。</div>';
         });
     }
 
-    function _renderIedbResults(data, antigen, hla, mhcClass, assayType) {
+    // Returns count of unique results (used by searchIedb fallback logic)
+    function _renderIedbResults(data, keyword, hla, mhcClass, assayType) {
       var area = document.getElementById('iedbResultsArea');
       if (!data || data.length === 0) {
-        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">未找到符合条件的记录。请调整关键词或放宽 HLA 过滤。</div>';
-        return;
+        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">未找到符合条件的记录。<br><small style="color:#9ca3af">建议：使用 IEDB 蛋白名称中的关键词，如 KRas · Melan · p53 · EBNA · Influenza · SARS</small></div>';
+        return 0;
       }
       // Deduplicate by linear_sequence + mhc_allele_name
       var seen = {}, uniq = [];
       data.forEach(function(d) {
-        var k = d.linear_sequence + '|' + (d.mhc_allele_name || '');
+        var k = (d.linear_sequence || '') + '|' + (d.mhc_allele_name || '');
         if (!seen[k]) { seen[k] = true; uniq.push(d); }
       });
       var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px">' +
         '<span style="font-size:13px;font-weight:700;color:#334155">找到 ' + uniq.length + ' 条记录（去重后）</span>' +
-        '<a class="iedb-btn-outline" href="' + _iedbWebUrl(antigen, hla, mhcClass, assayType) + '" target="_blank" rel="noopener" style="font-size:11px">查看全部结果（IEDB ↗）</a>' +
+        '<a class="iedb-btn-outline" href="' + _iedbWebUrl(keyword || '', hla, mhcClass, assayType) + '" target="_blank" rel="noopener" style="font-size:11px">IEDB 查看更多 ↗</a>' +
         '</div>';
       html += '<div class="iedb-result-list">';
       uniq.forEach(function(d) {
@@ -1043,24 +1062,28 @@
       });
       html += '</div>';
       area.innerHTML = html;
+      return uniq.length;
     }
 
-    // Preset quick-search: fill form fields then fire search
-    function presetSearch(antigen, mhc, type) {
-      document.getElementById('iedbAntigenInput').value = antigen;
-      document.getElementById('iedbMhcClass').value = mhc;
-      document.getElementById('iedbAssayType').value = type;
+    // Preset quick-search: uses verified IEDB protein/organism keywords directly (bypasses form text input)
+    function presetSearch(idx) {
+      var p = IEDB_PRESETS[idx];
+      if (!p) return;
+      // Update form fields for visibility
+      document.getElementById('iedbAntigenInput').value = p.protein || p.organism || '';
+      document.getElementById('iedbMhcClass').value = p.mhc;
+      document.getElementById('iedbAssayType').value = p.type;
       document.getElementById('iedbHlaInput').value = '';
-      searchIedb();
+      var area = document.getElementById('iedbResultsArea');
+      area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 正在查询 IEDB…</div>';
+      _fetchAndRender(p.protein || null, p.organism || null, '', p.mhc, p.type, null);
     }
 
     function renderIedbPresets() {
       var el = document.getElementById('iedbPresets');
       if (!el) return;
-      el.innerHTML = IEDB_PRESETS.map(function(p) {
-        // Single-quote safe: antigen/mhc/type values contain no single quotes
-        return '<button class="iedb-btn-outline" style="font-size:11.5px" ' +
-          'onclick="presetSearch(\'' + p.antigen.replace(/'/g, "\\'") + '\',\'' + p.mhc + '\',\'' + p.type + '\')">' +
+      el.innerHTML = IEDB_PRESETS.map(function(p, i) {
+        return '<button class="iedb-btn-outline" style="font-size:11.5px" onclick="presetSearch(' + i + ')">' +
           esc(p.label) + '</button>';
       }).join('');
     }
