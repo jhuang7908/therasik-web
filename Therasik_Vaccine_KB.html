@@ -666,7 +666,7 @@
         <div class="iedb-form">
           <div>
             <label for="iedbAntigenInput">抗原 / 病原体关键词</label>
-            <input id="iedbAntigenInput" class="iedb-input" placeholder="KRAS · NY-ESO-1 · SARS-CoV-2 · Influenza M1" style="width:260px"
+            <input id="iedbAntigenInput" class="iedb-input" placeholder="pp65 · CTAG1B · COVID · MART-1 · p53 · HBV…" style="width:260px"
               onkeydown="if(event.key==='Enter')searchIedb()">
           </div>
           <div>
@@ -924,6 +924,102 @@
     // ── IEDB Query API integration ────────────────────────────────────────
     var IEDB_API = 'https://query-api.iedb.org/';
 
+    // Alias map: maps user-friendly / common names → IEDB internal field values.
+    // Keys are lowercase; matching is case-insensitive substring.
+    // protein  → parent_source_antigen_name keyword
+    // organism → source_organism_name keyword
+    var IEDB_ALIASES = {
+      // ── Tumor antigens ───────────────────────────────────────────────────
+      'kras':       { protein: 'KRas',                         organism: null },
+      'k-ras':      { protein: 'KRas',                         organism: null },
+      'ny-eso':     { protein: 'testis antigen 1',             organism: null },
+      'ny-eso-1':   { protein: 'testis antigen 1',             organism: null },
+      'nyeso':      { protein: 'testis antigen 1',             organism: null },
+      'ctag1':      { protein: 'testis antigen 1',             organism: null },
+      'ctag1b':     { protein: 'testis antigen 1',             organism: null },
+      'mart-1':     { protein: 'Melan',                        organism: null },
+      'mart1':      { protein: 'Melan',                        organism: null },
+      'melan-a':    { protein: 'Melan',                        organism: null },
+      'melana':     { protein: 'Melan',                        organism: null },
+      'wt1':        { protein: 'Wilms tumor',                  organism: null },
+      'tp53':       { protein: 'tumor antigen p53',            organism: null },
+      'p53':        { protein: 'tumor antigen p53',            organism: null },
+      'her2':       { protein: 'erbB-2',                       organism: null },
+      'her-2':      { protein: 'erbB-2',                       organism: null },
+      'erbb2':      { protein: 'erbB-2',                       organism: null },
+      'egfr':       { protein: 'Epidermal growth factor receptor', organism: null },
+      'mage':       { protein: 'Melanoma-associated antigen',  organism: null },
+      'mage-a1':    { protein: 'Melanoma-associated antigen 1',organism: null },
+      'gp100':      { protein: 'Melanocyte protein PMEL',      organism: null },
+      'pmel':       { protein: 'Melanocyte protein PMEL',      organism: null },
+      'survivin':   { protein: 'Baculoviral IAP repeat',       organism: null },
+      'muc1':       { protein: 'Mucin-1',                      organism: null },
+      'cea':        { protein: 'Carcinoembryonic antigen',     organism: null },
+      'psa':        { protein: 'Prostate-specific antigen',    organism: null },
+      'psma':       { protein: 'Glutamate carboxypeptidase',   organism: null },
+      'afp':        { protein: 'Alpha-fetoprotein',            organism: null },
+      'msln':       { protein: 'Mesothelin',                   organism: null },
+      'mesothelin': { protein: 'Mesothelin',                   organism: null },
+      'epcam':      { protein: 'Epithelial cell adhesion',     organism: null },
+      'tyrosinase': { protein: 'Tyrosinase',                   organism: null },
+      // ── Infectious disease pathogens ─────────────────────────────────────
+      'sars-cov-2': { protein: null, organism: 'SARS' },
+      'sars':       { protein: null, organism: 'SARS' },
+      'covid':      { protein: null, organism: 'SARS' },
+      'covid-19':   { protein: null, organism: 'SARS' },
+      'spike':      { protein: 'Spike',                        organism: 'SARS' },
+      'influenza':  { protein: null, organism: 'Influenza' },
+      'flu':        { protein: null, organism: 'Influenza' },
+      'h1n1':       { protein: null, organism: 'Influenza' },
+      'h3n2':       { protein: null, organism: 'Influenza' },
+      'm1':         { protein: 'Matrix protein 1',             organism: 'Influenza' },
+      'influenza m1':{ protein: 'Matrix protein 1',            organism: 'Influenza' },
+      'ebv':        { protein: 'EBNA',                         organism: 'Epstein' },
+      'epstein-barr':{ protein: null,                          organism: 'Epstein' },
+      'ebna':       { protein: 'EBNA',                         organism: 'Epstein' },
+      'ebna3a':     { protein: 'EBNA-3A',                      organism: 'Epstein' },
+      'lmp1':       { protein: 'LMP1',                         organism: 'Epstein' },
+      'cmv':        { protein: '65 kDa phosphoprotein',        organism: 'cytomegalovirus' },
+      'pp65':       { protein: '65 kDa phosphoprotein',        organism: 'cytomegalovirus' },
+      'cytomegalovirus': { protein: null,                      organism: 'cytomegalovirus' },
+      'hiv':        { protein: null, organism: 'Human immunodeficiency virus' },
+      'hiv-1':      { protein: null, organism: 'Human immunodeficiency virus' },
+      'hbv':        { protein: null, organism: 'Hepatitis B' },
+      'hepatitis b':{ protein: null, organism: 'Hepatitis B' },
+      'hcv':        { protein: null, organism: 'Hepatitis C' },
+      'hepatitis c':{ protein: null, organism: 'Hepatitis C' },
+      'hpv':        { protein: null, organism: 'Papillomavirus' },
+      'hpv16':      { protein: null, organism: 'Papillomavirus' },
+      'rsv':        { protein: null, organism: 'Respiratory syncytial' },
+      'tb':         { protein: null, organism: 'tuberculosis' },
+      'tuberculosis':{ protein: null, organism: 'tuberculosis' },
+      'mtb':        { protein: null, organism: 'tuberculosis' },
+      'malaria':    { protein: null, organism: 'Plasmodium' },
+      'dengue':     { protein: null, organism: 'Dengue' },
+      'zika':       { protein: null, organism: 'Zika' },
+      'hiv gag':    { protein: 'Gag',                          organism: 'Human immunodeficiency virus' },
+      'gag':        { protein: 'Gag polyprotein',              organism: null },
+    };
+
+    // Resolve user input → { protein, organism } using alias table.
+    // 1. Exact match (lowercased)
+    // 2. Substring match (input contains an alias key or alias key contains input)
+    // 3. No match → use raw input as protein keyword (fallback with auto-retry as organism)
+    function _resolveAlias(input) {
+      var key = input.toLowerCase().trim();
+      if (IEDB_ALIASES[key]) return IEDB_ALIASES[key];
+      // Substring match — find alias whose key is contained in or contains the input
+      var best = null;
+      Object.keys(IEDB_ALIASES).forEach(function(k) {
+        if (key.indexOf(k) !== -1 || k.indexOf(key) !== -1) {
+          // Prefer longer (more specific) match
+          if (!best || k.length > best.length) best = k;
+        }
+      });
+      if (best) return IEDB_ALIASES[best];
+      return null; // no alias found — use raw input
+    }
+
     // Presets store the exact IEDB field values (protein = parent_source_antigen_name keyword,
     // organism = source_organism_name keyword). Labels are user-friendly; search terms match IEDB naming.
     var IEDB_PRESETS = [
@@ -984,8 +1080,7 @@
       document.getElementById('iedbResultsArea').innerHTML = '';
     }
 
-    // Manual search: treat the antigen text input as protein keyword;
-    // try source_organism_name as fallback if protein returns 0 results.
+    // Manual search: resolve input via alias table first, then fall back to raw keyword search.
     function searchIedb() {
       var antigenText = document.getElementById('iedbAntigenInput').value.trim();
       var hla      = document.getElementById('iedbHlaInput').value.trim();
@@ -993,17 +1088,31 @@
       var assayType = document.getElementById('iedbAssayType').value;
       var area = document.getElementById('iedbResultsArea');
       if (!antigenText && !hla && !mhcClass) {
-        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">请至少输入一个查询条件。<br><small style="color:#9ca3af">提示：请使用 IEDB 蛋白名称关键词，如 KRas、Melan、p53、EBNA、Influenza、SARS</small></div>';
+        area.innerHTML = '<div class="iedb-note" style="margin-top:8px">请输入抗原名称、病原体或别名（如 pp65、COVID、CTAG1B、MART-1、p53、HBV…）。</div>';
         return;
       }
       area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 正在查询 IEDB…</div>';
-      _fetchAndRender(antigenText, null, hla, mhcClass, assayType, function(count) {
-        // If protein search returns nothing, retry as organism search
-        if (count === 0 && antigenText) {
-          area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 按蛋白名称无结果，改为搜索来源物种…</div>';
-          _fetchAndRender(null, antigenText, hla, mhcClass, assayType, null);
+      if (antigenText) {
+        var resolved = _resolveAlias(antigenText);
+        if (resolved) {
+          // Alias matched — use mapped protein/organism directly
+          var hint = ' <small style="color:#9ca3af">（识别为：' +
+            (resolved.protein || '') + (resolved.protein && resolved.organism ? ' · ' : '') +
+            (resolved.organism || '') + '）</small>';
+          area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 查询中' + hint + '</div>';
+          _fetchAndRender(resolved.protein, resolved.organism, hla, mhcClass, assayType, null);
+        } else {
+          // No alias — try protein name first, auto-retry as organism if 0 results
+          _fetchAndRender(antigenText, null, hla, mhcClass, assayType, function(count) {
+            if (count === 0) {
+              area.innerHTML = '<div class="iedb-note" style="margin-top:12px;font-size:13px;color:#0f766e">⏳ 改为搜索来源物种…</div>';
+              _fetchAndRender(null, antigenText, hla, mhcClass, assayType, null);
+            }
+          });
         }
-      });
+      } else {
+        _fetchAndRender(null, null, hla, mhcClass, assayType, null);
+      }
     }
 
     function _fetchAndRender(protein, organism, hla, mhcClass, assayType, onCount) {
