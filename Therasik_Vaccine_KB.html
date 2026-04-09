@@ -22,78 +22,47 @@
       --warning:#fff7ed;
     }
     * { box-sizing:border-box; }
-    body {
-      margin:0;
-      font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color:var(--text);
-      background:#fff;
-      line-height:1.55;
-      padding-top:68px;
+    body { margin:0; font-family:'Noto Sans SC','Inter',-apple-system,sans-serif; font-size:15px; line-height:1.6; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased; padding-top:62px; }
+
+    /* ── Top nav — matches ADC Database / Antibody Guide ── */
+    .top-header { display:flex; align-items:center; justify-content:space-between; padding:12px 32px; background:rgba(255,255,255,0.95); backdrop-filter:blur(12px); border-bottom:2px solid rgba(13,148,136,0.1); position:fixed; width:100%; top:0; z-index:2000; gap:12px; }
+    .top-header .brand { font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:26px; letter-spacing:-0.03em; display:flex; align-items:center; flex-wrap:nowrap; min-width:max-content; white-space:nowrap; }
+    .top-header .brand a { text-decoration:none; color:#111827; display:flex; align-items:center; gap:10px; white-space:nowrap; }
+    .top-header .brand .accent { color:var(--primary); font-style:italic; font-weight:700; }
+    .top-header .slogan { font-size:14px; color:var(--text-muted); padding-left:14px; border-left:1px solid var(--border); margin-left:14px; font-weight:600; white-space:nowrap; }
+    .mobile-menu-btn { display:none; background:none; border:1px solid var(--border); border-radius:8px; padding:6px 8px; cursor:pointer; color:var(--text); line-height:0; }
+    .nav-close-btn { display:none; }
+    .top-header-nav { display:flex; align-items:center; gap:4px; flex:1; justify-content:center; }
+    .top-header-nav a { padding:7px 14px; font-size:13px; font-weight:600; color:var(--text-muted); text-decoration:none; border-radius:20px; transition:all 0.2s; }
+    .top-header-nav a:hover, .top-header-nav a.active { color:var(--primary); background:rgba(13,148,136,0.06); }
+    .nav-dropdown { position:relative; display:inline-block; }
+    .dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(10px); background:white; min-width:240px; box-shadow:0 10px 25px rgba(0,0,0,0.1); border-radius:12px; padding:8px; opacity:0; visibility:hidden; transition:all 0.2s; border:1px solid var(--border); }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+    .dropdown-menu a { display:block; padding:10px 16px; border-radius:8px; text-align:left; transition:background 0.2s; }
+    .dropdown-menu a:hover { background:var(--bg-alt); }
+    .menu-title { display:block; font-size:14px; font-weight:700; color:var(--text); }
+    .menu-desc { display:block; font-size:11px; color:var(--text-muted); margin-top:2px; }
+    @media (max-width:768px) {
+      .mobile-menu-btn { display:block; }
+      .top-header { padding:10px 16px; flex-wrap:nowrap; }
+      .top-header-nav { position:fixed; top:0; left:0; width:100vw; height:100vh; background:#fff; flex-direction:column; justify-content:center; align-items:center; gap:4px; z-index:9999; opacity:0; pointer-events:none; transition:opacity 0.25s; padding:24px; overflow-y:auto; display:flex !important; }
+      .top-header-nav.open { opacity:1; pointer-events:auto; }
+      .top-header-nav a { font-size:18px; padding:12px 24px; }
+      .nav-close-btn { display:block; position:absolute; top:16px; right:20px; background:none; border:none; font-size:32px; color:var(--text); cursor:pointer; }
+      .nav-dropdown .dropdown-menu { position:static; transform:none; opacity:1; visibility:visible; box-shadow:none; border:none; padding:0; width:100%; text-align:center; }
+      .top-header .slogan { display:none; }
     }
-    .topbar {
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      height:68px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 24px;
-      background:rgba(255,255,255,.94);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(13,148,136,.14);
-      z-index:20;
-    }
-    .brand {
-      font-family:Georgia, "Times New Roman", serif;
-      font-size:28px;
-      font-weight:700;
-      color:#1f2937;
-      text-decoration:none;
-      letter-spacing:-.03em;
-    }
-    .brand .accent { color:var(--primary); }
-    .topnav { display:flex; gap:10px; align-items:center; }
-    .topnav a {
-      text-decoration:none;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:600;
-      padding:8px 14px;
-      border-radius:999px;
-    }
-    .topnav a.primary {
-      color:var(--primary-dark);
-      background:rgba(13,148,136,.08);
-      border:1px solid rgba(13,148,136,.18);
-    }
-    .page {
-      max-width:1240px;
-      margin:0 auto;
-      padding:32px 22px 72px;
-    }
-    .hero {
-      background:linear-gradient(135deg, #e6faf7 0%, #f8fffd 58%, #f3f8ff 100%);
-      border:1px solid rgba(13,148,136,.14);
-      border-radius:24px;
-      padding:28px 28px 24px;
-      margin-bottom:22px;
-    }
-    .hero h1 {
-      margin:0 0 10px;
-      font-size:38px;
-      letter-spacing:-.03em;
-      line-height:1.1;
-      font-family:Georgia, "Times New Roman", serif;
-      color:#0f172a;
-    }
-    .hero p {
-      margin:0;
-      max-width:880px;
-      font-size:16px;
-      color:#244b45;
-    }
+
+    /* ── Page header — full-width band, matches ADC Database / Antibody Guide ── */
+    .page-header { background:repeating-linear-gradient(135deg, transparent, transparent 14px, rgba(13,148,136,0.055) 14px, rgba(13,148,136,0.055) 15px), linear-gradient(135deg, #e6faf7 0%, #d4f3ed 45%, #eaf7f3 100%); border-top:4px solid #0d9488; border-bottom:1px solid rgba(13,148,136,0.18); padding:36px 40px 28px; }
+    .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:700; margin:0 0 10px; letter-spacing:-0.02em; color:#0d4a43; }
+    .page-header p { color:#2d6a61; font-size:15px; max-width:720px; line-height:1.65; margin:0 0 16px; }
+    .back-link { font-size:13px; color:#0f766e; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:5px; margin-bottom:14px; opacity:0.85; }
+    .back-link:hover { opacity:1; color:#0d9488; }
+    @media (max-width:768px) { .page-header { padding:24px 20px 20px; } }
+
+    /* ── Content wrapper ── */
+    .page { max-width:1200px; margin:0 auto; padding:32px 32px 80px; }
     .integrity {
       margin-top:16px;
       padding:12px 14px;
@@ -508,19 +477,60 @@
   })();
   </script>
   <script>window.PAGE_TEXT = {"statTumor": "Tumor", "statInfectious": "Infectious", "statTolerogenic": "Tolerogenic", "statDelivery": "Delivery", "statTcr": "TCR", "statBenchmarks": "Benchmarks", "sourceLabel": "Primary source", "questionsLabel": "Priority questions", "modulesLabel": "Recommended modules", "rankLabel": "Rank", "contextLabel": "Context", "locationLabel": "Location", "clinicalLabel": "Clinical signal", "reasonLabel": "Decision flags", "correlateLabel": "Immune correlate", "burdenLabel": "Burden", "comparatorLabel": "Comparators", "approachLabel": "Approach", "hlaLabel": "HLA", "translationalLabel": "Translational", "ifLabel": "If", "thenLabel": "Then", "clonotypesLabel": "clonotypes", "frequencyLabel": "Frequency", "manufacturingLabel": "Manufacturing", "coldChainLabel": "Cold chain", "compareLabel": "Comparators", "mechanismLabel": "Mechanism", "defaultLabel": "Default / parameters", "triggerLabel": "Trigger / required when", "logicLabel": "Core logic", "bestForLabel": "Best for", "inputsLabel": "inputs", "readoutsLabel": "readouts", "summaryLabel": "Summary", "implicationLabel": "Design implication", "resultsLabel": "results", "approvedShort": "approved", "lang": "zh", "title": "疫苗设计知识库 | Therasik", "meta_description": "涵盖肿瘤、感染性疾病与自身免疫三大方向的疫苗设计知识库，整合抗原靶点、TCR 配对、递送平台与设计规则。", "brand_prefix": "Thera", "brand_accent": "sik", "home_href": "index.html", "back_href": "Therasik_Vaccine_Design.html", "back_label": "疫苗设计服务", "home_label": "首页", "hero_title": "疫苗设计知识库", "hero_subtitle": "涵盖肿瘤、感染性疾病与自身免疫三大方向，整合抗原靶点证据、TCR 配对数据、递送平台选择、mRNA 设计规则与人群 HLA 覆盖分析。每条记录附有临床文献来源与验证状态，支持从靶点筛选到构建决策的全流程参考。", "integrity_note": "所有数据均来源于公开同行评审文献、临床试验报告与经验证的数据库（PDB、IEDB、UniProt）。证据等级与验证状态随每条记录显示。", "search_placeholder": "搜索抗原、TCR、平台、方法规则或预测痛点", "tab_tumor": "肿瘤", "tab_infectious": "传染病", "tab_tolerogenic": "耐受性", "tab_tcr": "TCR", "tab_delivery": "递送与佐剂", "tab_methods": "方法逻辑", "tab_benchmarks": "Benchmark", "tumor_title": "肿瘤抗原靶点", "tumor_desc": "收录肿瘤相关抗原（TAA）与肿瘤特异性抗原（TSA），涵盖表达模式、MHC-I/II 表位、HLA 限制性及代表性临床试验数据，支持靶点优先级评估与多表位疫苗设计。", "infectious_title": "感染性疾病抗原", "infectious_desc": "覆盖主要病毒与细菌病原体的关键保护性抗原，附带临床已批准疫苗参考、免疫相关性指标及变体更新策略，适用于预防性与治疗性疫苗项目。", "tolerogenic_title": "自身免疫 / 耐受性靶点", "tolerogenic_desc": "汇总自身免疫疾病的关键自身抗原，包括 HLA 风险背景、耐受性疫苗临床状态及设计策略，为逆向疫苗与免疫耐受诱导提供参考。", "tcr_title": "TCR-pMHC 数据库", "tcr_desc": "精选临床相关 TCR 克隆，包含完整的 TCR α/β 链基因、CDR3 序列、表位、HLA 限制及 PDB 结构信息，覆盖肿瘤、病毒感染与新生抗原三类应用场景。", "tcr_clones_title": "经验证 TCR 克隆", "tcr_clones_desc": "每条记录均可追溯至 PDB 晶体结构或经同行评审的文献（PMID），附临床应用背景及亲和力数据。", "tcr_rules_title": "TCR 选择规则", "tcr_rules_desc": "指导 TCR 克隆在疫苗免疫监测、过继性 T 细胞治疗及交叉反应性风险评估中的选用原则。", "tcr_motif_title": "公共 TCR Motif", "tcr_motif_desc": "在多名供者中共同观察到的高频 TCR 克隆型，可用于人群级免疫应答预测与疫苗免疫原性评估。", "delivery_title": "递送平台与佐剂", "delivery_desc": "收录 mRNA、病毒载体、蛋白亚单位等主流疫苗递送平台及佐剂系统，附制造工艺要点、冷链要求、免疫偏向特征及临床应用先例，支持平台选型决策。", "platform_title": "递送平台", "platform_desc": "主流疫苗递送平台的临床应用数据、工艺复杂度与冷链要求对比，辅助项目立项阶段的技术路线选择。", "adjuvant_title": "佐剂系统", "adjuvant_desc": "常用佐剂（铝盐、MF59、AS01/AS04、CpG、poly I:C 等）的作用机制、免疫偏向（Th1/Th2/Th17）及已批准产品配方参考。", "helper_epitope_title": "通用 CD4 Helper 表位", "helper_epitope_desc": "跨 HLA 广谱激活 CD4⁺ T 细胞的 Helper 表位（如 PADRE），用于增强多表位疫苗的 CD4 辅助信号，提升整体免疫应答。", "methods_title": "设计方法参考", "methods_desc": "汇总多表位疫苗设计规则、mRNA 构建参数、实验验证关口及疫苗设计流程模板，支持从序列到构建体的系统化设计决策。", "mrna_rules_title": "mRNA 多表位设计规则", "mrna_rules_desc": "涵盖表位连接子选择（AAY、GPGPG）、信号肽与 MITD 融合策略、接头处新表位质量检查及密码子优化要点。", "playbooks_title": "项目设计流程", "playbooks_desc": "针对肿瘤疫苗、感染病疫苗与 TCR 引导设计等典型场景的标准化流程，明确关键决策节点与放行标准。", "assay_title": "实验验证关口", "assay_desc": "免疫原性评估所需的核心实验读数（ELISPOT、四聚体染色、ICS、MSD 细胞因子等）及各阶段放行标准参考。", "private_title": "项目反馈记录", "private_desc": "记录已完成项目的设计决策、实验结果与经验教训，持续优化设计规则与预测模型参数。", "benchmarks_title": "预测工具 Benchmark", "benchmarks_desc": "汇总 MHC-I/II 预测工具的公开 benchmark 数据，包括 AUC、灵敏度与特异度指标，帮助合理解读预测分数、设定验证优先级。", "footer_note": "本知识库数据来源于公开同行评审文献与经验证数据库。如需定制疫苗设计方案，请联系 InSynBio / Therasik 专业团队。"};</script>
-  <header class="topbar">
-    <a class="brand" href="index.html">Thera<span class="accent">sik</span></a>
-    <nav class="topnav">
-      <a class="primary" href="Therasik_Vaccine_Design.html">疫苗设计服务</a>
+  <header class="top-header">
+    <div class="brand">
+      <a href="index.html"><span style="color:#111827">Thera</span><span class="accent">sik</span></a>
+      <span class="slogan">AI 赋能生命科学</span>
+    </div>
+    <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="top-header-nav">
+      <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
       <a href="index.html">首页</a>
+      <div class="nav-dropdown" tabindex="0">
+        <a href="index.html#services">AI 药物设计</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体研发与评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+          <a href="Therasik_ADC_Design_Page.html"><span class="menu-title">智能 ADC 设计</span><span class="menu-desc">抗原-载荷-链接子匹配</span></a>
+          <a href="Therasik_CART_Page.html"><span class="menu-title">智慧 CAR-T 设计</span><span class="menu-desc">架构设计与组件优化</span></a>
+          <a href="Therasik_Vaccine_Design.html"><span class="menu-title">新型疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown" tabindex="0">
+        <a href="index.html#knowledge-base" class="active">临床参考库</a>
+        <div class="dropdown-menu">
+          <a href="Therasik_Antibody_Guide.html"><span class="menu-title">抗体工程指南</span><span class="menu-desc">技术标准与设计原则</span></a>
+          <a href="Therasik_ADA_Database.html"><span class="menu-title">ADA 数据库</span><span class="menu-desc">138 项临床免疫原性基准</span></a>
+          <a href="Therasik_ADC_Database.html"><span class="menu-title">ADC 数据库</span><span class="menu-desc">100 个临床 ADC 程序</span></a>
+          <a href="Therasik_Component_Browser.html"><span class="menu-title">CAR 组件库</span><span class="menu-desc">237 个 CAR-T 工程组件</span></a>
+          <a href="Therasik_Vaccine_KB.html"><span class="menu-title">疫苗知识库</span><span class="menu-desc">抗原与佐剂数据</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown" tabindex="0">
+        <a href="index.html#case-studies">项目实例</a>
+        <div class="dropdown-menu">
+          <a href="case_mumab4d5_humanization_zh.html"><span class="menu-title">muMAb4D5 人源化</span><span class="menu-desc">CDR 移植 + 结构导向回突变</span></a>
+          <a href="case_malaria_carm_design.html"><span class="menu-title">CAR-M 设计</span><span class="menu-desc">CIDRα1 靶向双结合域 CAR-巨噬细胞</span></a>
+        </div>
+      </div>
+      <a href="Therasik_OurTech.html">技术平台</a>
+      <a href="index.html#contact">联系我们</a>
     </nav>
+    <div class="header-right"></div>
   </header>
+
+  <div class="page-header">
+    <a href="Therasik_Vaccine_Design.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      疫苗设计服务
+    </a>
+    <h1>疫苗设计知识库</h1>
+    <p>涵盖肿瘤、感染性疾病与自身免疫三大方向，整合抗原靶点证据、TCR 配对数据、递送平台选择、mRNA 设计规则与人群 HLA 覆盖分析。每条记录附有临床文献来源与验证状态，支持从靶点筛选到构建决策的全流程参考。</p>
+    <div class="integrity" style="max-width:720px;margin-top:0">所有数据均来源于公开同行评审文献、临床试验报告与经验证的数据库（PDB、IEDB、UniProt）。证据等级与验证状态随每条记录显示。</div>
+  </div>
+
   <main class="page">
-    <section class="hero">
-      <h1>疫苗设计知识库</h1>
-      <p>涵盖肿瘤、感染性疾病与自身免疫三大方向，整合抗原靶点证据、TCR 配对数据、递送平台选择、mRNA 设计规则与人群 HLA 覆盖分析。每条记录附有临床文献来源与验证状态，支持从靶点筛选到构建决策的全流程参考。</p>
-      <div class="integrity">所有数据均来源于公开同行评审文献、临床试验报告与经验证的数据库（PDB、IEDB、UniProt）。证据等级与验证状态随每条记录显示。</div>
-    </section>
 
     <section class="stats" id="stats"></section>
 
