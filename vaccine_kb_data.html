@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="以证据为中心的疫苗设计知识库，覆盖肿瘤、传染病、耐受性疫苗，以及 TCR、平台、mRNA 规则与 benchmark 模块。">
+  <meta name="description" content="Comprehensive vaccine design knowledge base covering cancer, infectious diseases, and autoimmunity. Integrates antigen evidence, TCR pairs, delivery platforms, and mRNA design rules.">
   <meta name="robots" content="noai, noimageai, noindex">
   <meta name="AI-Training" content="opt-out">
   <meta name="copyright" content="© 2026 InSynBio / Therasik. All rights reserved. Unauthorized reproduction prohibited.">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>疫苗设计知识库 | Therasik</title>
+  <title>Vaccine Design Knowledge Base | InSynBio</title>
   <style>
     :root {
       --primary:#0d9488;
@@ -352,7 +352,7 @@
     }
     @media print {
       body::before {
-        content: "© 2026 InSynBio / Therasik — 本知识库受版权保护，禁止打印与复制。";
+        content: "© 2026 InSynBio / Therasik — This knowledge base is protected by copyright. Printing and copying are prohibited.";
         display: block; padding: 60px; font-size: 18px; text-align: center;
         border: 3px solid #0d9488; border-radius: 12px; margin: 40px;
       }
@@ -395,44 +395,14 @@
     .tcr-link { font-size: 11px; font-weight: 700; color: var(--primary-dark); text-decoration: none;
                 padding: 3px 10px; border: 1px solid rgba(13,148,136,.25); border-radius: 999px; }
     .tcr-link:hover { background: var(--accent); }
-    /* IEDB search panel */
-    .iedb-panel {
-      background: linear-gradient(135deg, #f0fdfa 0%, #f8fffd 100%);
-      border: 1px solid rgba(13,148,136,.2); border-radius: 20px; padding: 24px;
-    }
-    .iedb-panel h3 { margin: 0 0 6px; font-size: 20px; font-family: Georgia, serif; color: #0f172a; }
-    .iedb-panel p { margin: 0 0 16px; font-size: 13px; color: var(--muted); max-width: 680px; }
-    .iedb-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
-    .iedb-form label { font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px; }
-    .iedb-input { border: 1px solid var(--border); border-radius: 10px; padding: 9px 13px; font-size: 13px; min-width: 180px; background: #fff; }
-    .iedb-select { border: 1px solid var(--border); border-radius: 10px; padding: 9px 11px; font-size: 13px; background: #fff; }
-    .iedb-btn {
-      background: var(--primary); color: #fff; border: none; border-radius: 10px;
-      padding: 10px 22px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s;
-    }
-    .iedb-btn:hover { background: var(--primary-dark); }
-    .iedb-btn-outline {
-      background: #fff; color: var(--primary-dark); border: 1px solid rgba(13,148,136,.35);
-      border-radius: 10px; padding: 9px 18px; font-size: 13px; font-weight: 700;
-      cursor: pointer; text-decoration: none; display: inline-block;
-    }
-    .iedb-btn-outline:hover { background: var(--accent); }
-    .iedb-results { margin-top: 18px; }
-    .iedb-result-card {
-      border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px;
-      background: #fff; margin-bottom: 8px; font-size: 13px;
-    }
-    .iedb-result-card strong { color: #0f172a; }
-    .iedb-note { font-size: 11px; color: #9ca3af; margin-top: 6px; }
   </style>
-  <!-- Anti-crawler honeypot (human-invisible, bot-visible) -->
+  <!-- Anti-crawler honeypot -->
   <a href="/do-not-crawl/kb-bot-trap" aria-hidden="true" tabindex="-1"
      style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"
      rel="nofollow noindex">bot-trap</a>
 </head>
 <body>
   <script>
-  /* ── Content protection ─────────────────────────────────────────────────── */
   (function(){
     var _prot = function(e){
       if(e.target && e.target.closest && e.target.closest('.kb-protected')){
@@ -445,14 +415,9 @@
     document.addEventListener('dragstart', _prot, true);
     document.addEventListener('keydown', function(e){
       var ctrl = e.ctrlKey || e.metaKey;
-      /* block Ctrl+S, Ctrl+U, Ctrl+P, Ctrl+Shift+I, F12 */
-      if(ctrl && ['s','u','p'].indexOf(e.key.toLowerCase()) > -1){
-        e.preventDefault();
-      }
+      if(ctrl && ['s','u','p'].indexOf(e.key.toLowerCase()) > -1){ e.preventDefault(); }
       if(e.key === 'F12'){ e.preventDefault(); }
-      if(ctrl && e.shiftKey && ['i','j','c'].indexOf(e.key.toLowerCase()) > -1){
-        e.preventDefault();
-      }
+      if(ctrl && e.shiftKey && ['i','j','c'].indexOf(e.key.toLowerCase()) > -1){ e.preventDefault(); }
     });
     window.addEventListener('beforeprint', function(){
       document.querySelector('.page') && (document.querySelector('.page').style.display = 'none');
@@ -462,88 +427,87 @@
     });
   })();
   </script>
-  <script>window.PAGE_TEXT = {"statTumor": "Tumor", "statInfectious": "Infectious", "statTolerogenic": "Tolerogenic", "statDelivery": "Delivery", "statTcr": "TCR", "statBenchmarks": "Benchmarks", "sourceLabel": "Primary source", "questionsLabel": "Priority questions", "modulesLabel": "Recommended modules", "rankLabel": "Rank", "contextLabel": "Context", "locationLabel": "Location", "clinicalLabel": "Clinical signal", "reasonLabel": "Decision flags", "correlateLabel": "Immune correlate", "burdenLabel": "Burden", "comparatorLabel": "Comparators", "approachLabel": "Approach", "hlaLabel": "HLA", "translationalLabel": "Translational", "ifLabel": "If", "thenLabel": "Then", "clonotypesLabel": "clonotypes", "frequencyLabel": "Frequency", "manufacturingLabel": "Manufacturing", "coldChainLabel": "Cold chain", "compareLabel": "Comparators", "mechanismLabel": "Mechanism", "defaultLabel": "Default / parameters", "triggerLabel": "Trigger / required when", "logicLabel": "Core logic", "bestForLabel": "Best for", "inputsLabel": "inputs", "readoutsLabel": "readouts", "summaryLabel": "Summary", "implicationLabel": "Design implication", "resultsLabel": "results", "approvedShort": "approved", "lang": "zh", "title": "疫苗设计知识库 | Therasik", "meta_description": "涵盖肿瘤、感染性疾病与自身免疫三大方向的疫苗设计知识库，整合抗原靶点、TCR 配对、递送平台与设计规则。", "brand_prefix": "Thera", "brand_accent": "sik", "home_href": "index.html", "back_href": "Therasik_Vaccine_Design.html", "back_label": "疫苗设计服务", "home_label": "首页", "hero_title": "疫苗设计知识库", "hero_subtitle": "涵盖肿瘤、感染性疾病与自身免疫三大方向，整合抗原靶点证据、TCR 配对数据、递送平台选择、mRNA 设计规则与人群 HLA 覆盖分析。每条记录附有临床文献来源与验证状态，支持从靶点筛选到构建决策的全流程参考。", "integrity_note": "所有数据均来源于公开同行评审文献、临床试验报告与经验证的数据库（PDB、IEDB、UniProt）。证据等级与验证状态随每条记录显示。", "search_placeholder": "搜索抗原、TCR、平台、方法规则或预测痛点", "tab_tumor": "肿瘤", "tab_infectious": "传染病", "tab_tolerogenic": "耐受性", "tab_tcr": "TCR", "tab_delivery": "递送与佐剂", "tab_methods": "方法逻辑", "tab_benchmarks": "Benchmark", "tumor_title": "肿瘤抗原靶点", "tumor_desc": "收录肿瘤相关抗原（TAA）与肿瘤特异性抗原（TSA），涵盖表达模式、MHC-I/II 表位、HLA 限制性及代表性临床试验数据，支持靶点优先级评估与多表位疫苗设计。", "infectious_title": "感染性疾病抗原", "infectious_desc": "覆盖主要病毒与细菌病原体的关键保护性抗原，附带临床已批准疫苗参考、免疫相关性指标及变体更新策略，适用于预防性与治疗性疫苗项目。", "tolerogenic_title": "自身免疫 / 耐受性靶点", "tolerogenic_desc": "汇总自身免疫疾病的关键自身抗原，包括 HLA 风险背景、耐受性疫苗临床状态及设计策略，为逆向疫苗与免疫耐受诱导提供参考。", "tcr_title": "TCR-pMHC 数据库", "tcr_desc": "精选临床相关 TCR 克隆，包含完整的 TCR α/β 链基因、CDR3 序列、表位、HLA 限制及 PDB 结构信息，覆盖肿瘤、病毒感染与新生抗原三类应用场景。", "tcr_clones_title": "经验证 TCR 克隆", "tcr_clones_desc": "每条记录均可追溯至 PDB 晶体结构或经同行评审的文献（PMID），附临床应用背景及亲和力数据。", "tcr_rules_title": "TCR 选择规则", "tcr_rules_desc": "指导 TCR 克隆在疫苗免疫监测、过继性 T 细胞治疗及交叉反应性风险评估中的选用原则。", "tcr_motif_title": "公共 TCR Motif", "tcr_motif_desc": "在多名供者中共同观察到的高频 TCR 克隆型，可用于人群级免疫应答预测与疫苗免疫原性评估。", "delivery_title": "递送平台与佐剂", "delivery_desc": "收录 mRNA、病毒载体、蛋白亚单位等主流疫苗递送平台及佐剂系统，附制造工艺要点、冷链要求、免疫偏向特征及临床应用先例，支持平台选型决策。", "platform_title": "递送平台", "platform_desc": "主流疫苗递送平台的临床应用数据、工艺复杂度与冷链要求对比，辅助项目立项阶段的技术路线选择。", "adjuvant_title": "佐剂系统", "adjuvant_desc": "常用佐剂（铝盐、MF59、AS01/AS04、CpG、poly I:C 等）的作用机制、免疫偏向（Th1/Th2/Th17）及已批准产品配方参考。", "helper_epitope_title": "通用 CD4 Helper 表位", "helper_epitope_desc": "跨 HLA 广谱激活 CD4⁺ T 细胞的 Helper 表位（如 PADRE），用于增强多表位疫苗的 CD4 辅助信号，提升整体免疫应答。", "methods_title": "设计方法参考", "methods_desc": "汇总多表位疫苗设计规则、mRNA 构建参数、实验验证关口及疫苗设计流程模板，支持从序列到构建体的系统化设计决策。", "mrna_rules_title": "mRNA 多表位设计规则", "mrna_rules_desc": "涵盖表位连接子选择（AAY、GPGPG）、信号肽与 MITD 融合策略、接头处新表位质量检查及密码子优化要点。", "playbooks_title": "项目设计流程", "playbooks_desc": "针对肿瘤疫苗、感染病疫苗与 TCR 引导设计等典型场景的标准化流程，明确关键决策节点与放行标准。", "assay_title": "实验验证关口", "assay_desc": "免疫原性评估所需的核心实验读数（ELISPOT、四聚体染色、ICS、MSD 细胞因子等）及各阶段放行标准参考。", "private_title": "项目反馈记录", "private_desc": "记录已完成项目的设计决策、实验结果与经验教训，持续优化设计规则与预测模型参数。", "benchmarks_title": "预测工具 Benchmark", "benchmarks_desc": "汇总 MHC-I/II 预测工具的公开 benchmark 数据，包括 AUC、灵敏度与特异度指标，帮助合理解读预测分数、设定验证优先级。", "footer_note": "本知识库数据来源于公开同行评审文献与经验证数据库。如需定制疫苗设计方案，请联系 InSynBio / Therasik 专业团队。"};</script>
+  <script>window.PAGE_TEXT = {"statTumor": "Tumor", "statInfectious": "Infectious", "statTolerogenic": "Tolerogenic", "statDelivery": "Delivery", "statTcr": "TCR", "statBenchmarks": "Benchmarks", "sourceLabel": "Primary source", "questionsLabel": "Priority questions", "modulesLabel": "Recommended modules", "rankLabel": "Rank", "contextLabel": "Context", "locationLabel": "Location", "clinicalLabel": "Clinical signal", "reasonLabel": "Decision flags", "correlateLabel": "Immune correlate", "burdenLabel": "Burden", "comparatorLabel": "Comparators", "approachLabel": "Approach", "hlaLabel": "HLA", "translationalLabel": "Translational", "ifLabel": "If", "thenLabel": "Then", "clonotypesLabel": "clonotypes", "frequencyLabel": "Frequency", "manufacturingLabel": "Manufacturing", "coldChainLabel": "Cold chain", "compareLabel": "Comparators", "mechanismLabel": "Mechanism", "defaultLabel": "Default / parameters", "triggerLabel": "Trigger / required when", "logicLabel": "Core logic", "bestForLabel": "Best for", "inputsLabel": "inputs", "readoutsLabel": "readouts", "summaryLabel": "Summary", "implicationLabel": "Design implication", "resultsLabel": "results", "approvedShort": "approved", "lang": "en", "title": "Vaccine Design Knowledge Base | InSynBio", "meta_description": "Comprehensive vaccine design knowledge base covering cancer, infectious diseases, and autoimmunity. Integrates antigen evidence, TCR pairs, delivery platforms, and mRNA design rules.", "brand_prefix": "InSyn", "brand_accent": "Bio", "home_href": "index.html", "back_href": "vaccine_design.html", "back_label": "Vaccine Design", "home_label": "Home", "hero_title": "Vaccine Design Knowledge Base", "hero_subtitle": "A centralized evidence base for vaccine engineering. Covering tumor antigens, infectious pathogens, and tolerogenic targets with clinical-grade TCR data, delivery platform insights, and mRNA construct rules.", "integrity_note": "All data is sourced from peer-reviewed literature, clinical trial reports, and verified databases (PDB, IEDB, UniProt). Evidence tiers and verification status are provided for each record.", "search_placeholder": "Search antigens, TCRs, platforms, or design rules...", "tab_tumor": "Tumor", "tab_infectious": "Infectious", "tab_tolerogenic": "Tolerogenic", "tab_tcr": "TCR", "tab_delivery": "Delivery & Adjuvants", "tab_methods": "Design Methods", "tab_benchmarks": "Benchmarks", "tumor_title": "Tumor Antigen Targets", "tumor_desc": "Curated TAA and TSA database covering expression patterns, MHC-I/II epitopes, HLA restriction, and clinical status to support target prioritization and multi-epitope design.", "infectious_title": "Infectious Disease Antigens", "infectious_desc": "Key protective antigens from major viral and bacterial pathogens, including approved vaccine references, immune correlates, and variant update strategies.", "tolerogenic_title": "Autoimmunity / Tolerogenic Targets", "tolerogenic_desc": "Self-antigens involved in autoimmune diseases, including HLA risk associations, clinical status of tolerogenic vaccines, and immune tolerance induction strategies.", "tcr_title": "TCR-pMHC Database", "tcr_desc": "Clinically relevant TCR clones with full α/β chain sequences, CDR3 motifs, and structural data covering cancer, viral, and neoantigen scenarios.", "tcr_clones_title": "Verified TCR Clones", "tcr_clones_desc": "Records traceable to PDB structures or peer-reviewed literature (PMID), including affinity data and clinical context.", "tcr_rules_title": "TCR Selection Rules", "tcr_rules_desc": "Principles for selecting TCR clones for immune monitoring, adoptive cell therapy, and cross-reactivity risk assessment.", "tcr_motif_title": "Public TCR Motifs", "tcr_motif_desc": "High-frequency TCR clonotypes observed across multiple donors, useful for population-level immune response prediction.", "delivery_title": "Delivery Platforms & Adjuvants", "delivery_desc": "Insights into mRNA, viral vectors, and subunit platforms, including manufacturing notes, cold chain requirements, and immune bias profiles.", "platform_title": "Delivery Platforms", "platform_desc": "Comparison of major vaccine delivery technologies based on clinical validation, process complexity, and logistical requirements.", "adjuvant_title": "Adjuvant Systems", "adjuvant_desc": "Mechanism of action, immune bias (Th1/Th2/Th17), and approved product references for common vaccine adjuvants.", "helper_epitope_title": "Universal CD4 Helper Epitopes", "helper_epitope_desc": "Broadly reactive CD4⁺ T cell epitopes (e.g., PADRE) used to enhance immune help and overall vaccine immunogenicity.", "methods_title": "Design Methodologies", "methods_desc": "Consolidated rules for multi-epitope construct design, mRNA parameters, and experimental validation gates to support systematic design decisions.", "mrna_rules_title": "mRNA Construct Rules", "mrna_rules_desc": "Guidelines for epitope linkers (AAY, GPGPG), signal peptides, MITD fusion, and junctional neoepitope quality control.", "playbooks_title": "Design Playbooks", "playbooks_desc": "Standardized workflows for tumor, infectious, and TCR-guided vaccine projects with clear decision nodes and exit criteria.", "assay_title": "Experimental Gates", "assay_desc": "Core experimental readouts (ELISPOT, Multimer, ICS, etc.) and stage-gate criteria for immunogenicity validation.", "private_title": "Project Feedback", "private_desc": "Internal repository of design decisions and experimental outcomes to continuously refine design rules and model parameters.", "benchmarks_title": "Tool Benchmarks", "benchmarks_desc": "Public benchmark data for MHC-I/II prediction tools (AUC, sensitivity, specificity) to help set rational thresholds for validation.", "footer_note": "This knowledge base is powered by peer-reviewed evidence and verified data sources. For custom vaccine design services, please contact the InSynBio / Therasik team."};</script>
   <header class="topbar">
-    <a class="brand" href="index.html">Thera<span class="accent">sik</span></a>
+    <a class="brand" href="index.html">In<span class="accent">SynBio</span></a>
     <nav class="topnav">
-      <a class="primary" href="Therasik_Vaccine_Design.html">疫苗设计服务</a>
-      <a href="index.html">首页</a>
+      <a class="primary" href="vaccine_design.html">Vaccine Design</a>
+      <a href="index.html">Home</a>
     </nav>
   </header>
   <main class="page">
     <section class="hero">
-      <h1>疫苗设计知识库</h1>
-      <p>涵盖肿瘤、感染性疾病与自身免疫三大方向，整合抗原靶点证据、TCR 配对数据、递送平台选择、mRNA 设计规则与人群 HLA 覆盖分析。每条记录附有临床文献来源与验证状态，支持从靶点筛选到构建决策的全流程参考。</p>
-      <div class="integrity">所有数据均来源于公开同行评审文献、临床试验报告与经验证的数据库（PDB、IEDB、UniProt）。证据等级与验证状态随每条记录显示。</div>
+      <h1>Vaccine Design Knowledge Base</h1>
+      <p>A centralized evidence base for vaccine engineering. Covering tumor antigens, infectious pathogens, and tolerogenic targets with clinical-grade TCR data, delivery platform insights, and mRNA construct rules.</p>
+      <div class="integrity">All data is sourced from peer-reviewed literature, clinical trial reports, and verified databases (PDB, IEDB, UniProt). Evidence tiers and verification status are provided for each record.</div>
     </section>
 
     <section class="stats" id="stats"></section>
 
     <section class="search-row">
-      <input id="globalSearch" type="text" placeholder="搜索抗原、TCR、平台、方法规则或预测痛点">
+      <input id="globalSearch" type="text" placeholder="Search antigens, TCRs, platforms, or design rules...">
       <div class="count" id="resultCount"></div>
     </section>
 
     <section class="tabs">
-      <button class="tab active" data-panel="tumor">肿瘤</button>
-      <button class="tab" data-panel="infectious">传染病</button>
-      <button class="tab" data-panel="tolerogenic">耐受性</button>
+      <button class="tab active" data-panel="tumor">Tumor</button>
+      <button class="tab" data-panel="infectious">Infectious</button>
+      <button class="tab" data-panel="tolerogenic">Tolerogenic</button>
       <button class="tab" data-panel="tcr">TCR</button>
-      <button class="tab" data-panel="delivery">递送与佐剂</button>
-      <button class="tab" data-panel="methods">方法逻辑</button>
-      <button class="tab" data-panel="benchmarks">Benchmark</button>
-      <button class="tab" data-panel="iedb">IEDB 查询</button>
+      <button class="tab" data-panel="delivery">Delivery</button>
+      <button class="tab" data-panel="methods">Methods</button>
+      <button class="tab" data-panel="benchmarks">Benchmarks</button>
     </section>
 
     <section class="panel active" id="panel-tumor">
       <div class="section-head">
-        <h2>肿瘤抗原靶点</h2>
-        <p>收录肿瘤相关抗原（TAA）与肿瘤特异性抗原（TSA），涵盖表达模式、MHC-I/II 表位、HLA 限制性及代表性临床试验数据，支持靶点优先级评估与多表位疫苗设计。</p>
+        <h2>Tumor Antigen Targets</h2>
+        <p>Curated TAA and TSA database covering expression patterns, MHC-I/II epitopes, HLA restriction, and clinical status to support target prioritization and multi-epitope design.</p>
       </div>
       <div class="grid searchable-group kb-protected" id="tumorGrid"></div>
     </section>
 
     <section class="panel" id="panel-infectious">
       <div class="section-head">
-        <h2>感染性疾病抗原</h2>
-        <p>覆盖主要病毒与细菌病原体的关键保护性抗原，附带临床已批准疫苗参考、免疫相关性指标及变体更新策略，适用于预防性与治疗性疫苗项目。</p>
+        <h2>Infectious Disease Antigens</h2>
+        <p>Key protective antigens from major viral and bacterial pathogens, including approved vaccine references, immune correlates, and variant update strategies.</p>
       </div>
       <div class="grid searchable-group kb-protected" id="infectiousGrid"></div>
     </section>
 
     <section class="panel" id="panel-tolerogenic">
       <div class="section-head">
-        <h2>自身免疫 / 耐受性靶点</h2>
-        <p>汇总自身免疫疾病的关键自身抗原，包括 HLA 风险背景、耐受性疫苗临床状态及设计策略，为逆向疫苗与免疫耐受诱导项目提供数据参考。</p>
+        <h2>Autoimmunity / Tolerogenic Targets</h2>
+        <p>Self-antigens involved in autoimmune diseases, including HLA risk associations, clinical status of tolerogenic vaccines, and immune tolerance induction strategies.</p>
       </div>
       <div class="grid searchable-group kb-protected" id="tolerogenicGrid"></div>
     </section>
 
     <section class="panel" id="panel-tcr">
       <div class="section-head">
-        <h2>TCR-pMHC 数据库</h2>
-        <p>精选临床相关 TCR 克隆，包含完整 TCR α/β 链基因、CDR3 序列、HLA 限制性及 PDB 结构信息，覆盖肿瘤抗原、病毒感染与新生抗原三大应用场景，支持疫苗免疫监测与 TCR 引导的表位优化。</p>
+        <h2>TCR-pMHC Database</h2>
+        <p>Clinically relevant TCR clones with full α/β chain sequences, CDR3 motifs, and structural data covering cancer, viral, and neoantigen scenarios.</p>
       </div>
       <div class="stack">
         <div class="subsection">
-          <h3>经验证 TCR 克隆 <span id="tcrCount" style="font-size:13px;font-weight:400;color:var(--muted);margin-left:6px;"></span></h3>
-          <p>每条记录均可追溯至 PDB 晶体结构或经同行评审文献（PMID），附临床应用背景及亲和力数据。点击卡片展开完整序列信息。</p>
+          <h3>Verified TCR Clones <span id="tcrCount" style="font-size:13px;font-weight:400;color:var(--muted);margin-left:6px;"></span></h3>
+          <p>Records traceable to PDB structures or peer-reviewed literature (PMID), including affinity data and clinical context. Click card to expand sequence details.</p>
           <div class="tcr-filter-row">
-            <button class="tcr-filter on" data-tcr-filter="all">全部</button>
-            <button class="tcr-filter" data-tcr-filter="tumor">肿瘤 / TAA</button>
-            <button class="tcr-filter" data-tcr-filter="viral">病毒感染</button>
-            <button class="tcr-filter" data-tcr-filter="neoantigen">新生抗原</button>
+            <button class="tcr-filter on" data-tcr-filter="all">All</button>
+            <button class="tcr-filter" data-tcr-filter="tumor">Tumor / TAA</button>
+            <button class="tcr-filter" data-tcr-filter="viral">Viral Infection</button>
+            <button class="tcr-filter" data-tcr-filter="neoantigen">Neoantigen</button>
           </div>
           <div class="grid searchable-group kb-protected" id="tcrCardGrid"></div>
         </div>
         <div class="subsection">
-          <h3>TCR 选择规则</h3>
-          <p>指导 TCR 克隆在疫苗免疫监测、过继性 T 细胞治疗及交叉反应性风险评估中的选用原则与注意事项。</p>
+          <h3>TCR Selection Rules</h3>
+          <p>Principles for selecting TCR clones for immune monitoring, adoptive cell therapy, and cross-reactivity risk assessment.</p>
           <div class="grid searchable-group kb-protected" id="tcrRuleGrid"></div>
         </div>
         <div class="subsection">
-          <h3>公共 TCR Motif</h3>
-          <p>在多名供者中共同观察到的高频克隆型，可用于人群级免疫应答预测与疫苗免疫原性评估。</p>
+          <h3>Public TCR Motifs</h3>
+          <p>High-frequency TCR clonotypes observed across multiple donors, useful for population-level immune response prediction.</p>
           <div class="grid searchable-group kb-protected" id="tcrMotifGrid"></div>
         </div>
       </div>
@@ -551,23 +515,23 @@
 
     <section class="panel" id="panel-delivery">
       <div class="section-head">
-        <h2>递送平台与佐剂</h2>
-        <p>收录 mRNA、病毒载体、蛋白亚单位等主流疫苗递送平台及佐剂系统，附制造工艺要点、冷链要求、免疫偏向特征及临床应用先例，支持平台选型决策。</p>
+        <h2>Delivery Platforms & Adjuvants</h2>
+        <p>Insights into mRNA, viral vectors, and subunit platforms, including manufacturing notes, cold chain requirements, and immune bias profiles.</p>
       </div>
       <div class="stack">
         <div class="subsection">
-          <h3>递送平台</h3>
-          <p>主流疫苗递送平台的临床应用数据、工艺复杂度与冷链要求对比，辅助项目立项阶段的技术路线选择。</p>
+          <h3>Delivery Platforms</h3>
+          <p>Comparison of major vaccine delivery technologies based on clinical validation, process complexity, and logistical requirements.</p>
           <div class="grid searchable-group kb-protected" id="platformGrid"></div>
         </div>
         <div class="subsection">
-          <h3>佐剂系统</h3>
-          <p>常用佐剂的作用机制、免疫偏向（Th1/Th2/Th17）及已批准产品配方参考，为佐剂选型提供依据。</p>
+          <h3>Adjuvant Systems</h3>
+          <p>Mechanism of action, immune bias (Th1/Th2/Th17), and approved product references for common vaccine adjuvants.</p>
           <div class="grid searchable-group kb-protected" id="adjuvantGrid"></div>
         </div>
         <div class="subsection">
-          <h3>通用 CD4 Helper 表位</h3>
-          <p>跨 HLA 广谱激活 CD4⁺ T 细胞的 Helper 表位（如 PADRE），用于增强多表位疫苗的 CD4 辅助信号，提升整体免疫应答。</p>
+          <h3>Universal CD4 Helper Epitopes</h3>
+          <p>Broadly reactive CD4⁺ T cell epitopes (e.g., PADRE) used to enhance immune help and overall vaccine immunogenicity.</p>
           <div class="grid searchable-group kb-protected" id="helperGrid"></div>
         </div>
       </div>
@@ -575,28 +539,28 @@
 
     <section class="panel" id="panel-methods">
       <div class="section-head">
-        <h2>设计方法参考</h2>
-        <p>汇总多表位疫苗设计规则、mRNA 构建参数、实验验证关口及标准化项目流程，支持从候选表位筛选到构建体定稿的系统化设计决策。</p>
+        <h2>Design Methodologies</h2>
+        <p>Consolidated rules for multi-epitope construct design, mRNA parameters, and experimental validation gates to support systematic design decisions.</p>
       </div>
       <div class="stack">
         <div class="subsection">
-          <h3>项目设计流程</h3>
-          <p>针对肿瘤疫苗、感染病疫苗与 TCR 引导设计等典型场景的标准化流程，明确关键决策节点、所需数据输入与各阶段放行标准。</p>
+          <h3>Design Playbooks</h3>
+          <p>Standardized workflows for tumor, infectious, and TCR-guided vaccine projects with clear decision nodes and exit criteria.</p>
           <div class="grid searchable-group kb-protected" id="playbookGrid"></div>
         </div>
         <div class="subsection">
-          <h3>mRNA 多表位构建规则</h3>
-          <p>涵盖表位连接子选择（AAY、GPGPG）、信号肽与 MITD 融合策略、接头处新表位风险检查及密码子优化要点，确保构建体免疫原性与安全性。</p>
+          <h3>mRNA Construct Rules</h3>
+          <p>Guidelines for epitope linkers (AAY, GPGPG), signal peptides, MITD fusion, and junctional neoepitope quality control.</p>
           <div class="grid searchable-group kb-protected" id="mrnaRuleGrid"></div>
         </div>
         <div class="subsection">
-          <h3>实验验证关口</h3>
-          <p>免疫原性评估所需的核心实验读数（ELISPOT、四聚体染色、ICS、细胞因子检测等）及各阶段放行标准参考，指导从体外筛选到临床前验证的实验规划。</p>
+          <h3>Experimental Gates</h3>
+          <p>Core experimental readouts (ELISPOT, Multimer, ICS, etc.) and stage-gate criteria for immunogenicity validation.</p>
           <div class="grid searchable-group kb-protected" id="assayGrid"></div>
         </div>
         <div class="subsection">
-          <h3>项目反馈记录</h3>
-          <p>记录已完成疫苗设计项目的决策依据、实验读数与迭代经验，持续优化设计规则与参数阈值（仅展示匿名化摘要，原始数据保密）。</p>
+          <h3>Project Feedback</h3>
+          <p>Internal repository of design decisions and experimental outcomes to continuously refine design rules and model parameters.</p>
           <div class="grid searchable-group kb-protected" id="feedbackGrid"></div>
         </div>
       </div>
@@ -604,63 +568,15 @@
 
     <section class="panel" id="panel-benchmarks">
       <div class="section-head">
-        <h2>预测工具 Benchmark</h2>
-        <p>汇总 MHC-I/II 预测工具（MHCflurry、IEDB 等）的公开 benchmark 数据，包括 AUC、灵敏度与特异度指标，帮助合理设置预测分数阈值与实验验证优先级。</p>
+        <h2>Tool Benchmarks</h2>
+        <p>Public benchmark data for MHC-I/II prediction tools (AUC, sensitivity, specificity) to help set rational thresholds for validation.</p>
       </div>
       <div class="grid searchable-group kb-protected" id="benchmarkGrid"></div>
     </section>
 
-    <section class="panel" id="panel-iedb">
-      <div class="section-head">
-        <h2>IEDB 表位在线查询</h2>
-        <p>实时搜索免疫表位数据库（IEDB），适用于感染性疾病、肿瘤及自身免疫表位的快速文献溯源。数据直接来自 IEDB，无需在本地维护大型数据库。</p>
-      </div>
-      <div class="iedb-panel">
-        <h3>🔍 表位快速检索</h3>
-        <p>输入抗原名称或病原体关键词，选择 MHC 类型，点击搜索跳转至 IEDB 结果页。也可使用下方预设查询快速访问经典表位集合。</p>
-        <div class="iedb-form">
-          <div>
-            <label for="iedbAntigenInput">抗原 / 病原体关键词</label>
-            <input id="iedbAntigenInput" class="iedb-input" placeholder="e.g. KRAS, NY-ESO-1, SARS-CoV-2, Influenza M1" style="width:260px">
-          </div>
-          <div>
-            <label for="iedbHlaInput">HLA 等位基因（可选）</label>
-            <input id="iedbHlaInput" class="iedb-input" placeholder="e.g. HLA-A*02:01" style="width:170px">
-          </div>
-          <div>
-            <label for="iedbMhcClass">MHC 类型</label>
-            <select id="iedbMhcClass" class="iedb-select">
-              <option value="">全部</option>
-              <option value="I">MHC-I (CD8)</option>
-              <option value="II">MHC-II (CD4)</option>
-            </select>
-          </div>
-          <div>
-            <label for="iedbAssayType">数据类型</label>
-            <select id="iedbAssayType" class="iedb-select">
-              <option value="tcell">T 细胞表位</option>
-              <option value="bcell">B 细胞表位</option>
-              <option value="mhc">MHC 结合数据</option>
-            </select>
-          </div>
-          <div>
-            <button class="iedb-btn" onclick="openIedbSearch()">打开 IEDB ↗</button>
-          </div>
-        </div>
-        <div style="margin-top:18px">
-          <div style="font-size:12px;font-weight:700;color:#334155;margin-bottom:10px;">常用预设查询</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px" id="iedbPresets"></div>
-        </div>
-        <div class="iedb-note" style="margin-top:16px">
-          ⚠ 此查询界面将在新标签页中打开 IEDB（iedb.org）官网，不在本站传输或存储任何数据。IEDB 为公开免费数据库，无需注册。
-        </div>
-      </div>
-    </section>
-
-    <div class="footer-note">本知识库数据来源于公开同行评审文献与经验证数据库。如需定制疫苗设计方案，请联系 InSynBio / Therasik 专业团队。</div>
+    <div class="footer-note">This knowledge base is powered by peer-reviewed evidence and verified data sources. For custom vaccine design services, please contact the InSynBio / Therasik team.</div>
     <div style="text-align:center;padding:20px 0 8px;font-size:12px;color:#9ca3af;letter-spacing:.03em;">
-      © 2026 InSynBio / Therasik &nbsp;·&nbsp; 本知识库受版权保护，禁止未经授权复制、爬取或用于AI训练。
-      All rights reserved. Unauthorized reproduction, scraping, or AI training use strictly prohibited.
+      © 2026 InSynBio / Therasik &nbsp;·&nbsp; This knowledge base is protected by copyright. Unauthorized reproduction, scraping, or AI training use strictly prohibited.
     </div>
   </main>
 
@@ -668,42 +584,24 @@
     const TEXT = window.PAGE_TEXT;
     let DB = null;
 
-    const esc = (value) => String(value ?? '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-
-    function badge(value, statusClass='') {
-      return `<span class="badge ${statusClass}">${esc(value)}</span>`;
+    function esc(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    function sourceLink(record) {
-      const url = record?.evidence?.primary_source_url;
-      return url ? `<a class="source-link" href="${url}" target="_blank">${TEXT.sourceLabel}</a>` : '';
+    function badge(text, cls = '') {
+      if (!text) return '';
+      return `<span class="badge ${cls}">${esc(text)}</span>`;
     }
 
-    function epitopeChips(record) {
-      const bundles = record.epitopes || {};
-      const all = []
-        .concat(bundles.mhc_i || [])
-        .concat(bundles.mhc_ii || [])
-        .concat(bundles.mixed || []);
-      return all.slice(0, 4).map((ep) => `<span class="chip">${esc(ep.peptide)} · ${esc(ep.hla)}</span>`).join('');
+    function sourceLink(item) {
+      if (!item.evidence || !item.evidence.source_urls || !item.evidence.source_urls.length) return '';
+      return `<a href="${item.evidence.source_urls[0]}" class="source-link" target="_blank" rel="noopener">${TEXT.sourceLabel} ↗</a>`;
     }
 
-    function renderStatCards(meta) {
-      const cards = [
-        [meta.module_counts.tumor_antigens, TEXT.statTumor],
-        [meta.module_counts.infectious_antigens, TEXT.statInfectious],
-        [meta.module_counts.tolerogenic_targets, TEXT.statTolerogenic],
-        [meta.module_counts.platforms + meta.module_counts.adjuvants, TEXT.statDelivery],
-        [meta.module_counts.tcr_clones + meta.module_counts.tcr_public_motifs, TEXT.statTcr],
-        [meta.module_counts.neoantigen_benchmarks, TEXT.statBenchmarks],
-      ];
-      document.getElementById('stats').innerHTML = cards.map(([value, label]) =>
-        `<div class="stat"><div class="value">${value}</div><div class="label">${label}</div></div>`
-      ).join('');
+    function epitopeChips(item) {
+      const epitopes = item.representative_epitopes || item.epitopes || [];
+      return epitopes.slice(0, 5).map((e) => `<span class="chip">${esc(e.sequence || e)}</span>`).join('');
     }
 
     function detailsCard({title, subtitle, badges = [], summary, body, searchText}) {
@@ -720,6 +618,24 @@
       `;
     }
 
+    function renderStatCards(meta) {
+      const counts = meta.module_counts || {};
+      const stats = [
+        { label: TEXT.statTumor, value: counts.tumor_antigens },
+        { label: TEXT.statInfectious, value: counts.infectious_antigens },
+        { label: TEXT.statTolerogenic, value: counts.tolerogenic_targets },
+        { label: TEXT.statDelivery, value: counts.platforms + counts.adjuvants },
+        { label: TEXT.statTcr, value: counts.tcr_clones },
+        { label: TEXT.statBenchmarks, value: counts.neoantigen_benchmarks },
+      ];
+      document.getElementById('stats').innerHTML = stats.map((s) => `
+        <div class="stat">
+          <div class="value">${s.value || 0}</div>
+          <div class="label">${s.label}</div>
+        </div>
+      `).join('');
+    }
+
     function renderTumorCards(items) {
       return items.map((item) => detailsCard({
         title: item.name,
@@ -727,7 +643,7 @@
         badges: [
           badge(item.application_track),
           badge(item.specificity),
-          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/g, '-')}`),
         ],
         summary: item.notes,
         searchText: JSON.stringify(item),
@@ -751,7 +667,7 @@
         badges: [
           badge(item.application_track),
           badge(`${(item.approved_vaccines || []).length} ${TEXT.approvedShort}`),
-          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/g, '-')}`),
         ],
         summary: item.notes,
         searchText: JSON.stringify(item),
@@ -775,7 +691,7 @@
         badges: [
           badge(item.application_track),
           badge(item.clinical_status || TEXT.translationalLabel),
-          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+          badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/g, '-')}`),
         ],
         summary: item.notes,
         searchText: JSON.stringify(item),
@@ -791,11 +707,11 @@
       })).join('');
     }
 
-    var SRC_LABEL = { tumor: '肿瘤 / TAA', viral: '病毒感染', neoantigen: '新生抗原', clinical: '临床' };
+    var SRC_LABEL = { tumor: 'Tumor / TAA', viral: 'Viral Infection', neoantigen: 'Neoantigen', clinical: 'Clinical' };
     var SRC_CLS   = { tumor: 'src-tumor', viral: 'src-viral', neoantigen: 'src-neoantigen', clinical: 'src-clinical' };
 
     function renderTcrCards(items) {
-      document.getElementById('tcrCount').textContent = '(' + items.length + ' 条记录)';
+      document.getElementById('tcrCount').textContent = '(' + items.length + ' records)';
       return items.map((item) => {
         var src = item.antigen_source || 'clinical';
         var pdbLinks = '';
@@ -863,64 +779,9 @@
             card.style.display = show ? '' : 'none';
             if(show) vis++;
           });
-          document.getElementById('tcrCount').textContent = '(' + vis + ' 条记录)';
+          document.getElementById('tcrCount').textContent = '(' + vis + ' records)';
         });
       });
-    }
-
-    // ── IEDB search ──────────────────────────────────────────────────────────
-    var IEDB_PRESETS = [
-      { label: 'KRAS 突变表位', antigen: 'KRAS', mhc: 'I', type: 'tcell' },
-      { label: 'NY-ESO-1 (CTAG1B)', antigen: 'CTAG1B', mhc: 'I', type: 'tcell' },
-      { label: 'MART-1 / Melan-A', antigen: 'MART-1', mhc: 'I', type: 'tcell' },
-      { label: 'WT1 (肾母细胞瘤)', antigen: 'WT1', mhc: 'I', type: 'tcell' },
-      { label: 'SARS-CoV-2 Spike', antigen: 'SARS-CoV-2', mhc: '', type: 'tcell' },
-      { label: '流感 M1 (GILGFVFTL)', antigen: 'Influenza M1', mhc: 'I', type: 'tcell' },
-      { label: 'EBV EBNA3A', antigen: 'EBNA3A', mhc: 'I', type: 'tcell' },
-      { label: 'CMV pp65', antigen: 'pp65', mhc: 'I', type: 'tcell' },
-      { label: 'TP53 热点突变', antigen: 'TP53', mhc: 'I', type: 'tcell' },
-    ];
-
-    function _iedbUrl(antigen, hla, mhcClass, assayType) {
-      var base = 'https://www.iedb.org/';
-      if (assayType === 'tcell') {
-        var params = 'result/tcell_search?epitope_seq=&lineage=T+cell&organism_id=&disease_id=&';
-        if (antigen) params += 'antigen_name=' + encodeURIComponent(antigen) + '&';
-        if (hla)     params += 'mhc_allele_name=' + encodeURIComponent(hla) + '&';
-        if (mhcClass) params += 'mhc_class=' + encodeURIComponent('HLA class ' + mhcClass) + '&';
-        return base + params;
-      } else if (assayType === 'bcell') {
-        var params2 = 'result/bcell_search?epitope_seq=&';
-        if (antigen) params2 += 'antigen_name=' + encodeURIComponent(antigen) + '&';
-        return base + params2;
-      } else {
-        // MHC binding
-        var params3 = 'result/mhc_search?';
-        if (antigen) params3 += 'antigen_name=' + encodeURIComponent(antigen) + '&';
-        if (hla)     params3 += 'mhc_allele_name=' + encodeURIComponent(hla) + '&';
-        if (mhcClass) params3 += 'mhc_class=' + encodeURIComponent('HLA class ' + mhcClass) + '&';
-        return base + params3;
-      }
-    }
-
-    function openIedbSearch() {
-      var antigen = document.getElementById('iedbAntigenInput').value.trim();
-      var hla = document.getElementById('iedbHlaInput').value.trim();
-      var mhcClass = document.getElementById('iedbMhcClass').value;
-      var assayType = document.getElementById('iedbAssayType').value;
-      if (!antigen && !hla) {
-        alert('请输入抗原名称或 HLA 等位基因');
-        return;
-      }
-      window.open(_iedbUrl(antigen, hla, mhcClass, assayType), '_blank', 'noopener');
-    }
-
-    function renderIedbPresets() {
-      var el = document.getElementById('iedbPresets');
-      if (!el) return;
-      el.innerHTML = IEDB_PRESETS.map(function(p) {
-        return `<a class="iedb-btn-outline" href="${_iedbUrl(p.antigen, '', p.mhc, p.type)}" target="_blank" rel="noopener">${esc(p.label)}</a>`;
-      }).join('');
     }
 
     function renderRuleCards(items) {
@@ -969,7 +830,7 @@
           subtitle,
           badges: [
             badge(item.evidence.evidence_tier),
-            badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`),
+            badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/g, '-')}`),
           ],
           summary,
           searchText: JSON.stringify(item),
@@ -994,7 +855,7 @@
       return items.map((item) => detailsCard({
         title: item.title || item.name,
         subtitle: item.rule_type || item.entity_type,
-        badges: [badge(item.evidence.evidence_tier), badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/_/g, '-')}`)],
+        badges: [badge(item.evidence.evidence_tier), badge(item.evidence.verification_status, `status-${item.evidence.verification_status.toLowerCase().replace(/g, '-')}`)],
         summary: item.why || item.summary || item.when_required || item.name || item.title,
         searchText: JSON.stringify(item),
         body: `
@@ -1084,7 +945,6 @@
       document.querySelectorAll('.tab').forEach((button) => button.addEventListener('click', () => activateTab(button.dataset.panel)));
       document.getElementById('globalSearch').addEventListener('input', applySearch);
       initTcrFilter();
-      renderIedbPresets();
       applySearch();
     }
 
