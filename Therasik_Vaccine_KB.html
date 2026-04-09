@@ -936,17 +936,32 @@
     ];
 
     // Build IEDB Query API URL (PostgREST format)
+    // IMPORTANT: use encodeURIComponent (spaces → %20) NOT URLSearchParams (spaces → +).
+    // PostgREST decodes %20 correctly; "+" in filter values causes silent filter failure.
     function _iedbApiUrl(antigen, hla, mhcClass, assayType) {
       var endpoint = (assayType === 'bcell') ? 'bcell_search' : 'tcell_search';
-      var p = new URLSearchParams();
-      p.set('limit', '25');
-      p.set('select', 'linear_sequence,mhc_allele_name,mhc_class,qualitative_measure,pubmed_id,assay_names,epitope_summary');
-      p.set('host_organism_name', 'eq.Homo sapiens (human)');
-      p.set('qualitative_measure', 'ilike.*Positive*');
-      if (antigen)  p.set('epitope_summary', 'ilike.*' + antigen + '*');
-      if (hla)      p.set('mhc_allele_name', 'ilike.*' + hla.replace(/\*/g,'') + '*');
-      if (mhcClass) p.set('mhc_class', 'eq.' + mhcClass);
-      return IEDB_API + endpoint + '?' + p.toString();
+      var parts = [
+        'limit=25',
+        'select=' + encodeURIComponent('linear_sequence,mhc_allele_name,mhc_class,qualitative_measure,pubmed_id,assay_names,parent_source_antigen_name,source_organism_name'),
+        // Filter: human host only  
+        'host_organism_name=ilike.' + encodeURIComponent('*Homo sapiens*'),
+        // Filter: positive assay results only
+        'qualitative_measure=ilike.' + encodeURIComponent('*Positive*'),
+      ];
+      if (antigen) {
+        // PostgREST OR filter: search protein name AND organism name
+        // This covers both protein-specific (KRAS → "GTPase KRas") and organism-level ("SARS-CoV-2") queries
+        var a = antigen.replace(/[(),]/g, '').trim(); // sanitize for OR syntax
+        parts.push('or=' + encodeURIComponent(
+          '(parent_source_antigen_name.ilike.*' + a + '*,source_organism_name.ilike.*' + a + '*)'
+        ));
+      }
+      if (hla) {
+        var hlaClean = hla.replace(/\*/g, '').trim();
+        parts.push('mhc_allele_name=ilike.' + encodeURIComponent('*' + hlaClean + '*'));
+      }
+      if (mhcClass) parts.push('mhc_class=eq.' + mhcClass);
+      return IEDB_API + endpoint + '?' + parts.join('&');
     }
 
     // Fallback website URL when API is unavailable
@@ -1008,8 +1023,10 @@
       html += '<div class="iedb-result-list">';
       uniq.forEach(function(d) {
         var pmidHtml = d.pubmed_id ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + d.pubmed_id + '/" target="_blank" rel="noopener" style="color:var(--primary)">PMID:' + d.pubmed_id + '</a>' : '—';
-        var assays = (d.assay_names || '').split('|').filter(function(a) { return !/\|/.test(a); }).slice(0,2).join(', ');
-        var src = (d.epitope_summary || '').replace(d.linear_sequence, '').trim().replace(/^[\s\-·]+/, '');
+        var assays = (d.assay_names || '').split('|').slice(0, 2).join(', ');
+        var antigenLabel = d.parent_source_antigen_name || '';
+        var orgLabel = d.source_organism_name || '';
+        var src = antigenLabel + (orgLabel ? ' · ' + orgLabel : '');
         html += '<div class="iedb-result-card">' +
           '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">' +
             '<code style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#0f172a">' + esc(d.linear_sequence || '—') + '</code>' +
@@ -1028,17 +1045,23 @@
       area.innerHTML = html;
     }
 
-    // Preset quick-search buttons (trigger inline search)
+    // Preset quick-search: fill form fields then fire search
+    function presetSearch(antigen, mhc, type) {
+      document.getElementById('iedbAntigenInput').value = antigen;
+      document.getElementById('iedbMhcClass').value = mhc;
+      document.getElementById('iedbAssayType').value = type;
+      document.getElementById('iedbHlaInput').value = '';
+      searchIedb();
+    }
+
     function renderIedbPresets() {
       var el = document.getElementById('iedbPresets');
       if (!el) return;
       el.innerHTML = IEDB_PRESETS.map(function(p) {
-        return '<button class="iedb-btn-outline" onclick="' +
-          'document.getElementById(\'iedbAntigenInput\').value=' + JSON.stringify(p.antigen) + ';' +
-          'document.getElementById(\'iedbMhcClass\').value=' + JSON.stringify(p.mhc) + ';' +
-          'document.getElementById(\'iedbAssayType\').value=' + JSON.stringify(p.type) + ';' +
-          'searchIedb()' +
-          '" style="font-size:11.5px">' + esc(p.label) + '</button>';
+        // Single-quote safe: antigen/mhc/type values contain no single quotes
+        return '<button class="iedb-btn-outline" style="font-size:11.5px" ' +
+          'onclick="presetSearch(\'' + p.antigen.replace(/'/g, "\\'") + '\',\'' + p.mhc + '\',\'' + p.type + '\')">' +
+          esc(p.label) + '</button>';
       }).join('');
     }
 
