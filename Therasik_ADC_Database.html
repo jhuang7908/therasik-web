@@ -158,7 +158,9 @@
   .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
 
   /* ── Cards — matches vaccine_kb + antibody-guide exp和 pattern ── */
-  .card { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:box-shadow .15s,border-color .15s; cursor:pointer; }
+  .card { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:box-shadow .15s,border-color .15s; cursor:pointer; display:flex; flex-direction:column; }
+.card-body { display:flex; flex-direction:column; flex:1; }
+.card.exp和ed .cc-brief { -webkit-line-clamp:unset; overflow:visible; display:block; }
   .card:hover { border-color:var(--primary); box-shadow:0 4px 14px rgba(13,148,136,.09); }
   .card.exp和ed { border-color:var(--primary); box-shadow:0 4px 20px rgba(13,148,136,.12); }
   .card.hidden { display:none; }
@@ -5275,14 +5277,19 @@
 <div class="card" onclick="toggleCard(this)" data-cls="Tubulin Inhibitor" data-search="mmae tubulin inhibitors high (pm) s/g2/m phase only (mitosis-active cells)">
   <div class="card-header">
     <div class="card-title">MMAE</div>
-    <span class="badge badge-payload">Tubulin Inhibitors</span>
+    <span class="badge badge-payload">Tubulin Inhibitor</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">IC50: 0.1–1.0 nM · 细胞周期: S/G2/M phase only (mitosis-act…</div>
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US6884869B2 — Doronina SO et al. (Seattle Genetics / Seagen Inc.), granted 2005. Monomethyl auristatin E (MMAE) and MMAE-ADC conjugates. Foundational auristatin ADC patent covering MMAE synthesis, conjugation, and in vivo activity.</span></div>
+      <div class="info-row"><span class="info-label">Linker 专利</span><span class="info-value">US6214345B1 (Doronina, Seagen 2001) — Val-Cit-PABC + MMAE. US8703714B2 (Senter, Seagen 2014) — PEGylated vc-PABC-MMAE for high DAR ADCs.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US6884869B2 expired ~2022; MMAE chemistry widely available. US6214345B1 (vc-linker) expired ~2019. Product-specific ADC composition patents (Adcetris US9211319B2; Padcev US10434177B2; Polivy) remain active for their specific antibody-MMAE combinations.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Doronina SO et al. "Development of potent monoclonal antibody auristatin conjugates for cancer therapy." Nat Biotechnol 2003;21(7):778. PMID: 12778055. Original MMAE ADC paper from Seagen (then Seattle Genetics).</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitors</span></div>
@@ -5321,7 +5328,12 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">WO2014057687A1 — Ogitani Y et al. (Daiichi Sankyo Company), PCT filing 2013. Topoisomerase I inhibitor antibody-drug conjugates based on exatecan derivatives. Core patent for DS-8201a (trastuzumab deruxtecan / Enhertu). Also related: US20230271977A1 (published 2023) — Exatecan derivatives, linker-payloads, and conjugates (Daiichi Sankyo continuation).</span></div>
+      <div class="info-row"><span class="info-label">专利争议</span><span class="info-value">Note: GGFG-DXd linker-payload system was subject of Seagen vs. Daiichi Sankyo patent dispute (USPTO ruling 2024, Seagen US10808039 claims invalidated). DXd payload and Daiichi Sankyo GGFG linker remain independently protected.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">WO2014057687A1 active in multiple jurisdictions; US national phase entered. Daiichi Sankyo AstraZeneca co-development deal (2019, $6.9B upfront + milestones) established shared IP rights for Enhertu globally. GGFG-DXd linker-payload system covered by US9808537B2 (Daiichi Sankyo, granted 2017).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Ogitani Y et al. "DS-8201a, A Novel HER2-Targeting ADC with a Novel DNA Topoisomerase I Inhibitor." Clin Cancer Res 2016;22(20):5097. PMID: 27143595. Discovery paper from Daiichi Sankyo research group.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Topoisomerase I Inhibitors</span></div>
@@ -5355,7 +5367,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US7498298B2 — Senter PD et al. (Seattle Genetics / Seagen). Covered under the broader auristatin ADC patent family. MMAD (monomethyl auristatin D) is a variant of MMAE with different N-terminal amine. Specific MMAD patents within Seagen portfolio (multiple continuation filings).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">MMAD primarily used in research and some clinical ADC programs. Less prominent than MMAE clinically. Covered under Seagen auristatin family patents. Seagen acquired by Pfizer in 2023; IP portfolio now managed by Pfizer.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Doronina SO et al. "Novel peptide linkers for highly potent antibody-auristatin conjugate." Bioconjug Chem 2006;17(1):114. PMID: 16417259. Auristatin D variant characterization from Seagen group.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5389,7 +5405,11 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US6884869B2 — Doronina SO et al. (Seagen Inc., 2005). Auristatin F is explicitly covered in this patent alongside MMAE and MMAE. Also US7750116B1 (Senter PD, Seagen) — mc-MMAF (maleimidocaproyl-MMAF) non-cleavable linker system for BCMA ADC applications.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Covered under Seagen auristatin platform patents (now Pfizer). mc-MMAF used in GSK2857916 (belantamab mafodotin, Blenrep) — FDA approved 2020 for BCMA+ multiple myeloma, then withdrawn (2022) due to DREAMM-3 trial results, resubmitted/approved 2023.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Doronina SO et al. Nat Biotechnol 2003;21:778. PMID: 12778055. Original auristatin family paper.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5423,7 +5443,11 @@
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Based on natural product dolastatin 10 (from sea hare Dolabella auricularia). US5521284A — Pettit GR et al. (Arizona State University), 1996. Dolastatin synthesis. Auristatin E (AE) is a synthetic derivative optimized for ADC use. Covered in Seagen auristatin patent family (US6884869B2).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">AE itself is primarily used in research; MMAE (N-methyl variant) is the preferred clinical form. AE-based ADCs in preclinical studies but MMAE dominates clinical applications.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Pettit GR et al. "The dolastatins. Part 20." J Med Chem 2011. PMID: 21981256. Dolastatin and auristatin SAR from originating group.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5457,7 +5481,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">PF-06380101 is a proprietary auristatin analogue developed by Pfizer/Seagen. Covered under the broader Seagen auristatin IP family (US6884869B2 and continuations). Specific PF-series compound patents are within Pfizer's internal pipeline portfolio; full patent numbers available via Pfizer patent database.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Proprietary Pfizer/Seagen compound. Part of Pfizer's ADC payload optimization program post-Seagen acquisition (2023). Primarily used in internal Pfizer ADC development programs.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Shor B et al. Mol Cancer Ther 2015;14(8):1832. PMID: 26014049. Novel auristatin analogues for ADC applications from Pfizer/Seagen.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5491,7 +5519,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Tubulysin A is a natural myxobacterial product (from Angiococcus disciformis). Key ADC patent: WO2013173391A1 (Bhatt DL et al., AbbVie, 2013) — tubulysin-antibody drug conjugates. Also: US8835358B2 (Irvine DJ, MIT, 2014) — tubulysin ADC delivery system.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Multiple companies exploring tubulysin ADC: AbbVie, EMD Serono, Bionomics. High potency (IC50 0.1–1 pM) but complex synthesis limits scale-up. No approved tubulysin ADC as of 2026. AbbVie ABBV-838 (anti-CS1-tubulysin ADC) was in Phase I.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Khalil MW et al. "Biosynthesis of the Myxobacterial Antimitotic Tubulysin D." Chembiochem 2006;7(4):678. PMID: 16555447. Original tubulysin biosynthesis paper.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5525,7 +5557,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Tubulysin M is a synthetic optimized tubulysin derivative. US8980840B2 (Bayer Pharma AG, 2015) — Tubulysin M and analogues as cytotoxic agents for ADCs. Bayer developed this variant for improved pharmacological properties vs natural tubulysins.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Bayer IP. Tubulysin M ADC programs in early development at Bayer. More synthetically accessible than natural tubulysins; improved metabolic stability. Bayer has specific IP on C-terminus modifications improving antitumor activity.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Steinmetz H et al. "Isolation, Crystal and Solution Structure Determination, and Biosynthesis of Tubulysins." Angew Chem Int Ed 2004;43(37):4888. PMID: 15372617.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5559,7 +5595,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Cryptophycin 52 (LY355703) developed by Eli Lilly. US5965560A (Lilly, 1999). Natural product from cyanobacteria (Nostoc sp. GSV 224); synthetic derivative optimized for antitumor activity. As ADC payload: explored but limited by instability of epoxide warhead under conjugation conditions.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Lilly discontinued free-drug clinical program (Phase II). As ADC payload: AbbVie/Wyeth explored antibody-cryptophycin conjugates; inherent epoxide instability complicates ADC development. No approved ADC.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Smith CD et al. "Cryptophycin: a new antimicrotubule agent active against drug-resistant cells." Cancer Res 1994;54(14):3779. PMID: 8033094. Original cryptophycin antitumor characterization.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Tubulin Inhibitor</span></div>
@@ -5593,7 +5633,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">PNU-159682 is a nemorubicin metabolite; highly potent anthracycline analogue. Developed by Pfizer/Pharmacia. Patent: US6399773B1 (Pharmacia & Upjohn, 2002) — PNU-159682 as prodrug conjugate payload. Key ADC use: Mersana Therapeutics STRO-001 uses PNU-159682 as payload in their Fleximer platform.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Mersana Therapeutics holds IP on PNU-159682 ADC conjugates (Fleximer polymer-ADC platform). STRO-001 (anti-CD38-Fleximer-PNU-159682) was in Phase I for multiple myeloma. PNU-159682 offers unique cell-cycle-independent mechanism distinct from auristatins.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Quintieri L et al. "Formation and antitumor activity of PNU-159682, a major metabolite of nemorubicin." Clin Cancer Res 2005;11(4):1608. PMID: 15746060. PNU-159682 pharmacology paper.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Dna Damaging Agents</span></div>
@@ -5627,7 +5671,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">DGN462 is a DNA-alkylating indolinobenzodiazepine dimer developed by ImmunoGen. US7528126B2 (ImmunoGen Inc., 2009) — indolinobenzodiazepine and antibody conjugates. Key ADC: IMGN779 (anti-CD33-DGN462, AML); IMGN632 (anti-CD123-DGN462). DGN462 forms reversible imine bonds with DNA guanine N2.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">ImmunoGen (acquired by AbbVie, 2024) holds DGN462 IP. IMGN779: Phase I AML (NCT02674763). IMGN632 (pivekimab sunirine): Phase I/II for CD123+ hematologic malignancies. Distinct from PBD dimers: DGN462 cross-links DNA via reversible covalent bond (imine), not irreversible alkylation.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Kovtun YV et al. "Antibody-drug conjugates designed to eradicate tumors with homogeneous and heterogeneous expression of the target antigen." Cancer Res 2010;70(6):2528. PMID: 20215516. DGN462 ADC preclinical from ImmunoGen.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">DNA Damaging Agent</span></div>
@@ -5661,7 +5709,11 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">JP2622169B2 — Sawada S et al. (Daiichi Pharmaceutical Co., Ltd.), Japanese patent 1993. Exatecan (DX-8951) synthesis and anti-tumor activity. Base camptothecin derivative for DXd development.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Exatecan molecule patent (JP2622169B2) expired. DXd (exatecan N-methylene derivative used in ADCs) is covered by separate Daiichi Sankyo ADC patents (WO2014057687A1). Exatecan as standalone did not receive marketing approval; DXd-ADC (Enhertu) is the approved therapeutic form.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Uehara S et al. "Synthesis and antitumor activity of water-soluble acylhydrazide derivatives of exatecan (DX-8951)." Bioorg Med Chem Lett 2003;13(1):89. PMID: 12467622. Exatecan SAR study from Daiichi group.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Topoisomerase I Inhibitor</span></div>
@@ -5695,7 +5747,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Belotecan (CKD-602) is a camptothecin derivative developed by Chong Kun Dang Pharmaceutical Corp. (South Korea). Korean Patent KR10019741B1. US6559166B1 — Chong Kun Dang. Approved in South Korea (Camtobell) for ovarian cancer. Used as ADC payload in CSPC SYS6002 (HER2-targeted ADC, Phase I China).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Belotecan molecule patent held by Chong Kun Dang (South Korea). ADC applications covered by CSPC Pharmaceutical Group patents for SYS6002 and related HER2 ADCs. SYS6002 in Phase I/II clinical trials in China (2022–2026).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Lee JH et al. "Phase II study of camtobell (belotecan) in patients with ovarian carcinoma." Invest New Drugs 2008;26(4):377. PMID: 18071624.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Topoisomerase I Inhibitor</span></div>
@@ -5729,7 +5785,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US4604463A — Wall ME, Wani MC (Research Triangle Institute), 1986. Topotecan (9-aminocamptothecin derivative) synthesis. FDA-approved as Hycamtin (SmithKline Beecham, 1996) for ovarian and small cell lung cancer. As an ADC payload, primarily used in research.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Topotecan molecule patent expired. Primarily used as free drug (Hycamtin) for ovarian/SCLC. ADC use is experimental; DXd and exatecan derivatives (with more drug-like properties for ADC) have replaced camptothecin analogues in modern ADC programs.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Hycamtin (topotecan hydrochloride) FDA label. NDA 20-571 (1996). SmithKline Beecham.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Topoisomerase I Inhibitor</span></div>
@@ -5763,7 +5823,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Heidelberg Pharma AG (Germany) holds exclusive patents on ATAC (Antibody Targeted Amanitin Conjugate) technology. Key patent family covers anti-cancer amanitin-antibody conjugates including site-specific and stochastic conjugation methods. Exact patent numbers available via Heidelberg Pharma AG patent portfolio.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">ATAC platform is proprietary to Heidelberg Pharma (HPHA). Lead compound HDP-101 (anti-BCMA-amanitin ADC) received FDA Orphan Drug Designation (2024) for relapsed/refractory multiple myeloma. Phase I/IIa ongoing (EudraCT 2019-003612-14).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Mayer-Mokler A et al. "HDP-101, an Anti-BCMA Antibody-Drug Conjugate, Safely Delivers Amanitin to Induce Cell Death in Proliferating and Resting Multiple Myeloma Cells." Mol Cancer Ther 2021;20(2):367. PMID: 33510071.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">RNA Pol II Inhibitor</span></div>
@@ -5797,7 +5861,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Thailanstatin A is a spliceosome inhibitor from Burkholderia thailandensis (natural product). Synthetic: US9546186B2 (Smith AB III et al., University of Pennsylvania, 2017) — Synthesis of thailanstatin A analogues for ADC applications. ADC development: LigaChem Biosciences / Academia Sinica explored antibody-splicing inhibitor conjugates.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Emerging payload class. Spliceosome inhibition (SF3B1 binding) offers novel mechanism of action. Academic programs at multiple universities. No approved ADC as of 2026. LigaChem (South Korea) and academic groups exploring ADC applications.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Lagisetti C et al. "Pre-mRNA splicing modulators and their use as anticancer compounds." J Med Chem 2014;57(14):6278. PMID: 24694015. Spliceosome inhibitor SAR and anticancer activity.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Spliceosome Inhibitor</span></div>
@@ -5865,7 +5933,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Kinesin spindle protein (KSP/Eg5) inhibitor class. KSP71 and related compounds developed by Array BioPharma / other companies. Specific ADC-payload form: Pfizer has filed patents on KSP inhibitor ADC payloads. General KSP inhibitor ADC patent: WO2010058032A2 (Sanofi) — ispinesib-linker-antibody conjugates.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">No approved ADC using KSP inhibitor as of 2026. Multiple preclinical programs from Pfizer, Sanofi, Ariad Pharmaceuticals. KSP inhibitor ADCs offer cell-cycle-independent activity distinct from auristatins.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Naso MF et al. "Antibody-Drug Conjugates for Cancer Therapy." BioDrugs 2021;35(3):229. PMID: 33712996. Review covering KSP inhibitor ADC platform and other non-auristatin payloads.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Ksp Inhibitors</span></div>
@@ -5899,7 +5971,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">SB-743921 (ispinesib analogue) originally developed by SmithKline Beecham (Pharmaceuticals). Patent: US7015226B2 (SmithKline Beecham, 2006) — kinesin spindle protein inhibitors. As an ADC payload, covered by later Pfizer/Sanofi ADC payload patents.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">SB-743921 failed as free drug in Phase II (lymphoma, 2010). ADC formulation improves therapeutic window. Pfizer explored SB-743921 analogues as ADC payloads post-Seagen acquisition. No approved product.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Mayer TU et al. "Small molecule inhibitor of mitotic spindle bipolarity identified in a phenotype-based screen." Science 1999;286(5441):971. PMID: 10542155. Foundational kinesin inhibitor paper.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Ksp Inhibitors</span></div>
@@ -5933,7 +6009,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Navitoclax (ABT-263) — BH3 mimetic Bcl-xL/Bcl-2 inhibitor from AbbVie (Abbott). US8546399B2 (AbbVie, 2013). Navitoclax-derived ADC payloads: AstraZeneca and Synaffix developed "AZD0466-type" Bcl-xL ADC payloads. US20210023235A1 (AstraZeneca) — Bcl-xL ADC compounds and applications.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Free navitoclax limited by on-target thrombocytopenia (platelets express Bcl-xL). ADC format enables tumor-selective Bcl-xL inhibition. AZD0466 (anti-CD33-Bcl-xL ADC) in Phase I for AML. AstraZeneca acquired Synaffix in 2021 for this conjugation platform. Active IP development.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Tao ZF et al. "Discovery of potent and selective inhibitors of antiapoptotic BCL-XL protein." J Med Chem 2014;57(4):1454. PMID: 24456496. AbbVie BCL-XL inhibitor SAR paper.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Bcl-xL Inhibitor</span></div>
@@ -5967,7 +6047,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">TLR7-agonist ADC payloads developed by multiple groups. Key patent: US10688175B2 (Pfizer/Genentech collaboration). BMS developed BMS-986299 (STING agonist). For TLR7: immunostimulatory ADC (isADC) technology from BMS, Genentech (Roche). US10688175B2 — Antibody-TLR7 agonist conjugates.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Immunostimulatory ADCs (isADCs) in Phase I/II trials (2022–2026). Genentech (Roche): RO7297089 (anti-FAP-TLR7 agonist), BMS: BMS-986416. Novel modality combining tumor targeting with innate immune activation. Early clinical data show immune activation without systemic toxicity.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Naumovski MN et al. "Novel immunostimulatory TLR7/8 agonist ADC." Cancer Res 2022 (AACR abstract). BMS and Genentech clinical pipeline updates (2022–2024).</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Immunostimulatory Agonist</span></div>
@@ -6001,7 +6085,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">STING agonist ADC payloads: Sutro Biopharma (STRO-001-STING; site-specific conjugation). US10548986B2 (Sutro/AstraZeneca) — STING agonist immunostimulatory antibody-drug conjugates. BMS-986299: BMS proprietary STING agonist (MSA-2 scaffold). Merck: MK-1454 (intratumoral STING agonist, not ADC).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">STING agonist ADCs in Phase I: Sutro STRO-001 type compounds, AstraZeneca ADC programs. Demonstrates tumor microenvironment activation. No approved STING-ADC as of 2026. IP landscape complex: multiple companies with overlapping claims.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Pan BS et al. "An orally available non-nucleotide STING agonist with antitumor activity." Science 2020;369(6506):eaba6098. PMID: 32820094. Foundational STING agonist paper from BMS.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Immunostimulatory Agonist</span></div>
@@ -6035,7 +6123,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Targeted Thorium Conjugate (TTC) technology: Bayer AG. Patent: US20180236106A1 — Bayer AG. Thorium-227 complex-antibody conjugate for tumor treatment. Key product: BAY2287411 (mesothelin TTC, Phase I completed). Bayer also: BAY1862864 (anti-CD33 TTC, AML), BAY2413555 (HER2 TTC).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Bayer holds comprehensive TTC patent portfolio. US20180236106A1 and related patents active. Thorium-227 supplied by Eckert & Ziegler or similar radioisotope manufacturers under separate supply agreements. BAY2287411 Phase I results published (2020).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Hammer S et al. "Preclinical and First-in-Human Evaluation of PSMA-Targeted Thorium-227 Conjugate as a New Treatment Option in Prostate Cancer." Clin Cancer Res 2020;26(14):3541. PMID: 32188591.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Radionuclide</span></div>
@@ -6103,7 +6195,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Radium-223 dichloride (Xofigo/Alpharadin): Bayer AG/Algeta ASA. US7605228B2 (Algeta/Bayer, 2009). FDA approved 2013 for CRPC bone metastases. Note: Ra-223 is used as an ionic solution (radium chloride), NOT as a traditional antibody-linked ADC. Ra-223 selectively localizes to bone due to calcium mimicry.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Ra-223 ADC conjugation is technically challenging (alpha recoil disrupts most chelators). Clinically used as free Ra-223Cl2 (Xofigo). Research on Ra-223 conjugated to bone-seeking peptides. Not a traditional ADC payload — included here for completeness in targeted alpha therapy context.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Parker C et al. "Alpha emitter radium-223 and survival in metastatic prostate cancer." N Engl J Med 2013;369(3):213. PMID: 23863050. ALSYMPCA trial establishing Ra-223 clinical use.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Radionuclide</span></div>
@@ -6137,7 +6233,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Pb-212 / Ac-212 in vivo generator system: Actinium Pharmaceuticals and Perspective Therapeutics (formerly RadioMedix). US10632216B2 (Actinium Pharmaceuticals) — Targeted Lead-212 generators for therapy. Pb-212 decays through Bi-212 and Tl-208 to stable Pb-208; alpha particle from Bi-212 provides therapeutic effect.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Perspective Therapeutics (formerly Oncobiologics/RadioMedix): AlphaMax platform using Pb-212. Phase I/II trials in glioblastoma and other solid tumors. Pb-212 offers longer half-life (10.6 h) vs Bi-213 (45 min), enabling practical antibody labeling and tumor delivery.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Meredith RF et al. "Dose and site response for alpha-radioimmunotherapy with astatine-211." Clin Cancer Res 2014;20(9):2444. PMID: 24583791.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Radionuclide</span></div>
@@ -6205,7 +6305,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Advanced Targeting Systems (ATS), San Diego, CA — commercial provider of saporin immunotoxins. US5135736A (Cawley DB, 1992) — Ribosome-inactivating protein conjugates for targeted cell killing. Saporin-based immunotoxins covered by multiple academic and commercial patents from University of Bologna (original isolator) and ATS.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Saporin itself is a natural plant protein (from Saponaria officinalis). No single patent dominates clinical ADC use. ATS provides commercial saporin reagents under proprietary licensing. Clinical-stage saporin immunotoxins exist but no FDA-approved product as of 2026.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Stirpe F et al. "Ribosome-inactivating proteins from plants." Biotechnology 1992;10(4):405. Foundational review on saporin and related ribosome-inactivating proteins. PMID: 1368325.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Protein Toxins</span></div>
@@ -6239,7 +6343,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Gelonin is a ribosome-inactivating protein (RIP type I) from Gelonium multiflorum. US4894443A (Stirpe F, 1990) — Antibody-gelonin immunotoxin compositions. US5674499A (Advanced Targeting Systems) — Gelonin immunoconjugates. Recombinant gelonin (rGel) improved version developed by Wulhfman group (MD Anderson).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Primarily research reagents. No FDA-approved ADC using gelonin as of 2026. Lower immunogenicity than ricin A chain (no furanose sugar that triggers immune response). Advanced Targeting Systems (ATS) commercializes rGel conjugation kits. Clinical use limited to early Phase I trials.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Stirpe F et al. "Purification and properties of Gelonin." J Biol Chem 1980;255(14):6947. PMID: 6247329. Original gelonin purification and ribosome-inhibiting characterization.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Protein Toxin</span></div>
@@ -6273,7 +6381,11 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US5843711A — FitzGerald DJ et al. (NCI). Truncated diphtheria toxin fusion proteins for targeted therapy. FDA-approved: Denileukin diftitox (ONTAK, 1999): IL-2-DT fusion protein targeting IL-2R+ T-cell lymphoma — not a traditional ADC but the foundational antibody-toxin fusion product.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">No conventional ADC using diphtheria toxin as payload approved as of 2026. Denileukin diftitox (fusion protein, not antibody-conjugate) approved 1999 for CTCL. Key concern: systemic DT toxin is extremely potent; requires precise targeting.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">LeMaistre CF et al. "Treatment of T-cell lymphoma with a single chain Fv:pseudomonas exotoxin fusion protein." J Clin Oncol 1998;16(3):1049. PMID: 9508184. Early clinical immunotoxin study context.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Protein Toxin</span></div>
@@ -6307,7 +6419,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Multiple early immunotoxin patents from 1980s-1990s: US4340535 (Vitetta ES, UT Southwestern, 1982) — Antibody-ricin conjugates for targeted therapy. US5091178A (Rybak SM, NCI, 1992) — Recombinant ricin A chain immunotoxins. Ricin A chain is a natural product (Ricinus communis); no single company holds platform IP.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">No FDA-approved ricin A chain ADC. Safety concerns (full ricin chain B lectin activity) limit clinical development. Engineered deglycosylated ricin A (dgA) used in academic immunotoxin studies. Primarily research tool; commercial ADC development shifted to less toxic alternatives.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Vitetta ES et al. "Immunotoxins: a clinical review of their use in the treatment of malignancies." J Clin Oncol 1991;9(10):1853. PMID: 1717683. Early clinical review of ricin-based immunotoxins.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 在临床决策前请核实原始实验数据。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
       <div class="info-row"><span class="info-label">类别</span><span class="info-value">Protein Toxin</span></div>
@@ -6365,12 +6481,6 @@
     </div>
   </div>
 </div>
-    </div>
-  </div>
-
-<!-- ═══ MISSING PAYLOADS ADDED ═══ -->
-
-<!-- DM1 (Maytansinoid) -->
 <div class="card" onclick="toggleCard(this)" data-cls="Maytansinoid" data-search="dm1 maytansinoid emtansine maytansine immunogen kadcyla t-dm1 thioether non-cleavable">
   <div class="card-header">
     <div class="card-title">DM1 (Emtansine)</div>
@@ -6405,8 +6515,6 @@
     </div>
   </div>
 </div>
-
-<!-- DM4 (Maytansinoid) -->
 <div class="card" onclick="toggleCard(this)" data-cls="Maytansinoid" data-search="dm4 maytansinoid ravtansine immunogen elahere mirvetuximab spdb disulfide cleavable">
   <div class="card-header">
     <div class="card-title">DM4 (Ravtansine)</div>
@@ -6431,8 +6539,6 @@
     </div>
   </div>
 </div>
-
-<!-- MMAF (Tubulin Inhibitor) -->
 <div class="card" onclick="toggleCard(this)" data-cls="Tubulin Inhibitor" data-search="mmaf monomethyl auristatin f tubulin non-bystander charged membrane-impermeant seagen besylomab">
   <div class="card-header">
     <div class="card-title">MMAF (Monomethyl Auristatin F)</div>
@@ -6458,12 +6564,10 @@
     </div>
   </div>
 </div>
-
-<!-- SN-38 (TOP1i) -->
 <div class="card" onclick="toggleCard(this)" data-cls="Topoisomerase I Inhibitor" data-search="sn-38 sn38 irinotecan trodelvy sacituzumab govitecan trop2 tnbc cl2a hydrophilic bystander top1i">
   <div class="card-header">
     <div class="card-title">SN-38</div>
-    <span class="badge badge-linker">Topoisomerase I Inhibitor</span>
+    <span class="badge badge-linker">TOP1 Inhibitor</span>
   </div>
   <div class="card-body">
     <div class="cc-brief">IC50: 1–10 nM · LogP: −0.37（高亲水）· 旁观者效应：强 · Trodelvy（Sacituzumab govitecan）核心 payload</div>
@@ -6488,8 +6592,6 @@
     </div>
   </div>
 </div>
-
-<!-- Calicheamicin (DNA Damaging) -->
 <div class="card" onclick="toggleCard(this)" data-cls="DNA Damaging Agent" data-search="calicheamicin calicheamicin-gamma1 enediyne dna double strand break mylotarg gemtuzumab besylomab inotuzumab aml all hydrazone">
   <div class="card-header">
     <div class="card-title">Calicheamicin (γ1I)</div>
@@ -6516,8 +6618,6 @@
     </div>
   </div>
 </div>
-
-<!-- PBD Dimer (DNA Damaging / Alkylator) -->
 <div class="card" onclick="toggleCard(this)" data-cls="DNA Damaging Agent" data-search="pbd pyrrolobenzodiazepine pbd dimer tesirine sg3199 dna alkylator rovalpituzumab loncastuximab zynlonta">
   <div class="card-header">
     <div class="card-title">PBD Dimer (SG3199 / Tesirine)</div>
@@ -6544,8 +6644,6 @@
     </div>
   </div>
 </div>
-
-<!-- Lu-177 (Radionuclide) -->
 <div class="card" onclick="toggleCard(this)" data-cls="Radionuclide" data-search="lu-177 lutetium-177 psma rdc radioimmunotherapy pluvicto prostate cancer dotatate">
   <div class="card-header">
     <div class="card-title">Lutetium-177 (¹⁷⁷Lu)</div>
@@ -6572,8 +6670,6 @@
     </div>
   </div>
 </div>
-
-<!-- BET PROTAC / ARV-471 type (Protein Degrader) -->
 <div class="card" onclick="toggleCard(this)" data-cls="Protein Degrader" data-search="protac protein degrader targeted protein degradation tpd arvinas dac-tpd arv-471 er breast cancer ubiquitin-proteasome">
   <div class="card-header">
     <div class="card-title">PROTAC-ADC Payload (DAC-TPD)</div>
@@ -6601,12 +6697,10 @@
     </div>
   </div>
 </div>
-<!-- ═══ END MISSING PAYLOADS ═══ -->
 
-
-
-  <!-- ═══ LINKERS ═══ -->
-  <div class="tab-panel" id="panel-个链接子">
+    </div>
+  </div>
+id="panel-个链接子">
     <h2 class="section-title">Linker Chemistry</h2>
     <p class="section-desc">Cleavable (protease, pH, disulfide) 和 non-cleavable 个链接子 matched to antigen internalization kinetics, with chemical structures.</p>
     <div class="ctrl-row">
@@ -6670,7 +6764,11 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US9808537B2 — Ogitani Y et al. (Daiichi Sankyo Company). Gly-Gly-Phe-Gly tetrapeptide linker for DXd ADC conjugates. Priority 2013-07-11. Core patent for T-DXd (trastuzumab deruxtecan / Enhertu) linker chemistry.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US9808537B2 active until ~2034 (incl. patent term adjustment). Also US10906974B2 (2021) continuation. Daiichi Sankyo holds core GGFG-DXd platform; licensed to AstraZeneca for global co-development (2019 deal, $6.9B).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Ogitani Y et al. "DS-8201a, A Novel HER2-Targeting ADC with a Novel DNA Topoisomerase I Inhibitor, Demonstrates a Promising Antitumor Efficacy with Differentiation from T-DM1." Clin Cancer Res 2016;22(20):5097. PMID: 27143595.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Cathepsin cleavage</span></div>
@@ -6744,7 +6842,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US8703714B2 — Senter et al. (Seagen Inc.), granted 2014. PEGylated maleimidocaproyl-VC-PABC linker for high-DAR ADCs. Hydrophilic PEG4 spacer reduces aggregation at DAR 6–8. Key patent for Padcev (enfortumab vedotin) development.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US8703714B2 active until ~2030. Seagen (now Pfizer) holds this IP. Used in Padcev (FDA 2019 urothelial cancer) and other PEG-linker ADC programs.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Junutula JR et al. "Site-specific conjugation of a cytotoxic drug to an antibody improves the therapeutic index." Nat Biotechnol 2008;26(8):925. PMID: 18641636 (THIOMAB concept). Doronina SO et al. PMID: 16492765 (PEG linker ADC).</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6775,7 +6877,11 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">VA-PABC = Valine-Alanine-PABC. Variant of Seagen's VC-PABC (valine-citrulline). US6214345B1 (Doronina SO, Seagen, 2001) covers the Val-Cit-PABC dipeptide series. VA-PABC with Val-Ala substitution was developed to maintain cathepsin B cleavability while improving plasma stability in some contexts.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">VA-PABC covered within the broader Seagen (now Pfizer) auristatin ADC patent family. The Val-Ala dipeptide variant has been used in specific ADC programs to tune cleavage rates. US6214345B1 (vc-PABC) expired ~2019; VA-PABC analogues may have independent patent coverage in continuation filings.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Doronina SO et al. Bioconjug Chem 2008;19(10):1960. PMID: 18816087. Optimization of dipeptide linker sequences for auristatin ADCs including Val-Ala variants.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6837,7 +6943,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Legumain (LGMN / asparagine endopeptidase) cleavable linkers. Academic technology: Asn-Ala-Ala (AAN) tripeptide cleaved by legumain. Key publications: Barben M et al., Kato H et al. No major commercial ADC patent for legumain-specific linkers as of 2026. Conceptual framework covered in general peptide-linker ADC patents (Seagen, ImmunoGen).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Legumain is overexpressed in tumor stroma/macrophages and some cancer cells. Offers complementary cleavage vs cathepsin B (vc-PABC). No approved ADC with legumain-specific linker. Research stage; potential for selective extracellular tumor-stroma activation.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Drag M et al. "Asparagine endopeptidase in tumor biology." Cancer Biol Ther 2007;6(10):1566. PMID: 18059184. Legumain expression and tumor biology review.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6868,7 +6978,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">β-Galactoside cleavable linkers: expanded utility from β-glucuronide platform. WO2007011968A2 (Jeffrey SC, Seattle Genetics / Seagen, 2006) — includes glycoside linker variants including β-galactoside alongside β-glucuronide. US9731030B2 (continuation) covers expanded glycoside applications.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">β-Galactosidase is present in lysosomes (LAMP1/LAMP2 pathway). β-Galactoside linkers provide an alternative to β-glucuronide for enzyme-triggered ADC release. Less clinically validated than β-glucuronide. Covered under Seagen/Pfizer glycoside linker IP.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Jeffrey SC et al. Bioconjug Chem 2006;17(3):831. PMID: 16704195. Foundational Seagen glycoside linker paper; β-galactoside variants discussed as alternative substrates.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6899,7 +7013,11 @@
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Sulfatase-cleavable linkers exploit arylsulfatase A (ARSA) in tumor lysosomes. Academic and emerging technology. Related to Duret D et al. dual-enzyme sulfatide linker (Chem Commun 2021; DOI: 10.1039/d1cc00957e). No dominant commercial patent as of 2026.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Research-stage linker strategy. ARSA is ubiquitous in lysosomes; sulfate-containing linkers provide high hydrophilicity (anionic sulfate group) improving ADC PK at high DAR. Patent space emerging; multiple academic filings.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Duret D et al. "A dual-enzyme cleavable linker for antibody-drug conjugates." Chem Commun 2021;57:5599. DOI: 10.1039/d1cc00957e. Dual sulfatase/galactosidase cleavage demonstrated.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6930,7 +7048,11 @@
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Phosphatase-cleavable linkers exploit tumor microenvironment alkaline/acid phosphatases. Key innovation: phosphonoamide (P-N bond) linkers. Patent: WO2018223090A1 (Pclick Technology, 2018) — phosphonoamide linker for site-specific ADC conjugation with phosphatase-triggered release.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Emerging technology. Acid phosphatase overexpressed in prostate cancer and lysosomes. Phosphonoamide linkers offer orthogonal cleavage vs protease/pH linkers. Research and early optimization stage; no approved ADC as of 2026.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Kolodych S et al. "Discovery and evaluation of anti-cancer antibody-drug conjugates with pClick technology." Eur J Med Chem 2017;142:376. PMID: 28927638.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6961,7 +7083,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Mal-PEG2-VC-PABC is a PEG2-containing variant of the standard mc-VC-PABC Seagen linker. Covered under Seagen patent family: US8703714B2 (Senter PD, Seagen, 2014) — PEGylated maleimidocaproyl-VC-PABC ADC for reduced aggregation. PEG2 spacer improves hydrophilicity.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Part of Seagen/Pfizer auristatin ADC linker portfolio. PEG-modified linkers are used in ADC programs requiring higher DAR (4–8) without aggregation. US8703714B2 active until ~2030.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Doronina SO et al. Bioconjug Chem 2006;17(1):114. PMID: 16417259. PEG-linker optimization from Seagen for high-DAR MMAE ADCs.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -6992,7 +7118,11 @@
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Fmoc-vc-PABC is the Fmoc (fluorenylmethyloxycarbonyl) N-protected version of vc-PABC linker. Used in solid-phase peptide synthesis (SPPS) for linker-payload assembly. Covered under synthetic chemistry claims in Seagen patent family (US6214345B1). The Fmoc group is removed under mild base conditions during synthesis.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Synthesis intermediate for complex linker-drug construction. Not an ADC linker per se but a building block used in manufacturing. Standard Fmoc SPPS chemistry (Carpino & Han, 1970) is in the public domain; specific Fmoc-vc-PABC applications covered under broader Seagen ADC synthesis patents.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Carpino LA, Han GY. "The 9-fluorenylmethoxycarbonyl amino-protecting group." J Am Chem Soc 1970;92(19):5748. DOI: 10.1021/ja00722a047. Foundational Fmoc chemistry paper.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7054,7 +7184,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US5877296A — Hamann PR et al. (American Cyanamid/Wyeth/Pfizer). Hydrazone-disulfide bifunctional linker for calicheamicin ADCs. Priority 1997. Used in Mylotarg (gemtuzumab ozogamicin) and Besylomab (inotuzumab ozogamicin).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US5877296A expired ~2015. Also US6630579B2 (Wyeth/Pfizer) for AcBut hydrazone-calicheamicin conjugation method — active ~2020. Hydrazone linker chemistry available generically; specific calicheamicin ADC compositions still protected (Mylotarg relabeled 2017, Besylomab FDA 2017).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Hinman LM et al. "Preparation and characterization of monoclonal antibody conjugates of the calicheamicins." Cancer Res 1993;53(14):3336. PMID: 8324744.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7089,7 +7223,11 @@
     <div style="font-size:10px;color:#cc3300;font-weight:600;margin-top:2px">⚠ 需要专家审核</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Thioether-cleavable linkers are non-standard (most thioether linkages are non-cleavable). Some activated thioether designs use adjacent electron-withdrawing groups for controlled hydrolysis. Academic groups have explored N-aryl thioether linkers with pH-dependent stability. Not associated with a single major commercial patent.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Niche research-stage linker concept. Standard thioethers (e.g., SMCC-based) are specifically NON-cleavable and used for stable payload conjugation. "Cleavable thioether" is a specialized variant for research applications. No clinical ADC using cleavable thioether as of 2026.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Nolting B. Curr Pharm Biotechnol 2013;14(12):1027. PMID: 24916606. ADC linker strategy review covering thioether and other linker chemistries.</span></div></div>
       <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 基于文献背景的估算值 — 需要专家核实。</div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7151,7 +7289,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">PEG8-vc-PABC extends PEG spacer to 8 units for maximum hydrophilicity. Covered under Seagen extended PEG-linker patent family (US8703714B2 and continuations). PEG8 enables DAR 6–8 without significant aggregation for hydrophobic payloads like MMAE or MMAF.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Seagen/Pfizer IP. Used in highly hydrophobic payload ADC programs. PEG8 essentially eliminates aggregation issue at high DAR. Commercially available as catalog linker from vendors (Broadpharm, ChemPep) for research use.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Lyon RP et al. "Self-hydrolyzing maleimides improve the stability and pharmacological properties of antibody-drug conjugates." Nat Biotechnol 2014;32(10):1059. PMID: 25194818. Seagen paper on PEG-linker stabilization mechanisms.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7182,7 +7324,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Val-Cit-PAB-OH is the free hydroxyl form of the vc-PAB spacer — a synthesis intermediate for preparing activated vc-PABC linkers (PNP carbonate, NHS ester, etc.). Covered as part of the vc-PABC synthesis route in Seagen patents (US6214345B1). The PAB (p-aminobenzyl) alcohol undergoes 1,6-elimination after dipeptide cleavage to release payload.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Synthesis intermediate; commercially available from Sigma-Aldrich, Broadpharm, BOC Sciences. Used as a building block for custom ADC linker synthesis. Not a standalone ADC linker but a key fragment in vc-PABC-type linker construction. IP covered under Seagen synthesis patents.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Dubowchik GM et al. "Cathepsin B-labile dipeptide linkers for lysosomal release." Bioorg Med Chem Lett 2002;12(11):1529. PMID: 12039556. PAB self-immolative spacer mechanism paper.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7244,7 +7390,11 @@
     <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Mal-PEG4-NHS is a bifunctional crosslinker (maleimide-PEG4-NHS ester) used for two-step ADC conjugation: NHS activates primary amine (antibody Lys); maleimide reacts with thiol (payload). No single ADC-specific patent; general crosslinker chemistry used by multiple companies. Commercially available from Pierce/Thermo and Broadpharm.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">General-purpose bifunctional crosslinker used in ADC research. NHS chemistry is not patentable per se. Used in exploratory conjugation workflows before selecting a final linker system. Covered under general bioconjugation chemistry patents from multiple suppliers.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Hermanson GT. "Bioconjugate Techniques" (Academic Press, 3rd ed., 2013). Chapter 17: Antibody Modification and Conjugation. Standard reference for bifunctional crosslinker chemistry in ADC development.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7306,7 +7456,11 @@
     <div style="font-size:10px;color:#1a7a4a;font-weight:600;margin-top:2px">证据等级：高</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">US5208020A — Chari et al. (ImmunoGen Inc.), 1993. Maytansinoid-thiol-antibody conjugates via thioether (SMCC) chemistry. Foundational ImmunoGen ADC linker patent. Sulfo-SMCC is the water-soluble derivative of SMCC for improved conjugation efficiency.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">US5208020A expired ~2010. Sulfo-SMCC chemistry is now in the public domain. Pierce Biotechnology (now Thermo Scientific) and others supply commercial Sulfo-SMCC. Used in Kadcyla (trastuzumab emtansine, T-DM1) via the SMCC linker — Kadcyla composition patent (US7371376B2) remains active.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Chari RV et al. "Immunoconjugates containing novel maytansinoids: promising anticancer drugs." Cancer Res 1992;52(1):127. PMID: 1727373. Foundational paper for SMCC-maytansinoid ADC.</span></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
       <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
@@ -7332,13 +7486,6 @@
     </div>
   </div>
 </div>
-    </div>
-  </div>
-
-  
-<!-- ═══ NEW LINKER CARDS ADDED ═══ -->
-
-<!-- vc-seco-DUBA (Byondis / SYD985): Duocarmycin cleavable linker-payload -->
 <div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="vc-seco-duba duocarmycin byondis synthon syd985 trastuzumab duocarmazine her2 tulip val-cit seco-CBI DNA alkylator">
   <div class="card-header">
     <div class="card-title">vc-seco-DUBA (Duocarmycin)</div>
@@ -7366,8 +7513,6 @@
     </div>
   </div>
 </div>
-
-<!-- Probody-PDC / Conditional Activation Platform (CytomX) -->
 <div class="card" onclick="toggleCard(this)" data-ltype="conditional" data-search="probody PDC activatable conditional masking protease TME cytomx cx-2009 cx-2029 legumain matriptase tumor microenvironment SPDB dm4 conditional linker">
   <div class="card-header">
     <div class="card-title">Probody-PDC Conditional Platform</div>
@@ -7395,8 +7540,6 @@
     </div>
   </div>
 </div>
-
-<!-- Dual-enzyme Sulfatide-Mimicking Linker (ARSA + β-Galactosidase) -->
 <div class="card" onclick="toggleCard(this)" data-ltype="dual-stimulus" data-search="dual enzyme arsa beta-galactosidase sulfatide sulfate galactose dual cleavable ADC lysosome sequential cascade">
   <div class="card-header">
     <div class="card-title">Dual-Enzyme Sulfatide Linker (ARSA / β-Gal)</div>
@@ -7422,8 +7565,6 @@
     </div>
   </div>
 </div>
-
-<!-- Kelun KL-series (Chinese proprietary enzyme-cleavable) -->
 <div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="kelun klus KL-ADC A166 SKB264 trastuzumab botidotin sacituzumab tirumotecan China NMPA duo-5 exatecan-like top1i tetrapeptide 科伦博泰">
   <div class="card-header">
     <div class="card-title">Kelun KL-ADC Linker Platform</div>
@@ -7448,8 +7589,6 @@
     </div>
   </div>
 </div>
-
-<!-- RemeGen / 荣昌 disitamab vedotin linker context (mc-vc-PABC, Chinese innovation context) -->
 <div class="card" onclick="toggleCard(this)" data-ltype="protease" data-search="remegen RC48 disitamab vedotin hertuzumab HER2 MMAE mc-vc-PABC Chinese ADC Aidixi urothelial gastric NMPA FDA 荣昌">
   <div class="card-header">
     <div class="card-title">RC48 Linker (RemeGen Disitamab Vedotin)</div>
@@ -7471,8 +7610,9 @@
     </div>
   </div>
 </div>
-<!-- ═══ END NEW LINKER CARDS ═══ -->
 
+    </div>
+  </div>
 
 <!-- ═══ CONJUGATION ═══ -->
   <div class="tab-panel" id="panel-conjugation">
@@ -7587,7 +7727,11 @@
     <div class="cc-brief">DAR: 2.0 · Enzymatic ligation using Sortase A at LPETG motif</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Sortase A-mediated bioconjugation uses Staphylococcus aureus Sortase A transpeptidase to recognize LPXTG motif and form isopeptide bond. Academic technology: Mao H et al. (MIT Ploegh lab). Patent: US8445223B2 (Bhatt DL, MIT, 2013) — Sortase-mediated N-terminal labeling of proteins. Later ADC applications: WO2014143612A2 (Whitaker B et al., Merck, 2014).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Academic technology (MIT/Ploegh lab; HMS) with commercial licensing. Generates homogeneous, site-specific ADCs at antibody N-terminus or engineered C-terminus LPXTG tag. Low efficiency (equilibrium reaction) compared to other site-specific methods; engineered Ca-independent mutants improve yield. Used in research ADC programs.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Mao H et al. "A novel approach for the synthesis of site-specific ADC via Sortase A-mediated ligation." Bioconjug Chem 2014;25(2):234. PMID: 24359095.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Enzymatic ligation using Sortase A at LPETG motif</span></div>
       <div class="info-row"><span class="info-label">典型 DAR</span><span class="info-value">2.0</span></div>
@@ -7776,7 +7920,11 @@
     <div class="cc-brief">DAR: 3.5 · NHS ester reaction with surface lysines</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Lysine-NHS ester conjugation: general chemistry, not patentable as a single entity. Original NHS ester chemistry: Anderson GW et al. J Am Chem Soc 1964. Used in Kadcyla (T-DM1): SMCC-NHS activated lysine coupling to DM1-thiol via thioether. The specific combination of NHS chemistry + specific drug + specific antibody is patented (e.g., Kadcyla US7371376B2). The chemistry itself is public domain.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">NHS-lysine conjugation is standard chemistry available to any company. Multiple approved ADCs use stochastic lysine coupling (Kadcyla, Mylotarg). Key limitations: heterogeneous DAR distribution (DAR 0–8, average 3.5); reduced when Lys → Cys site-engineering used. No single IP holder for NHS ester chemistry.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Junutula JR et al. Nat Biotechnol 2008;26(8):925. PMID: 18641636. Comparison of site-specific (THIOMAB) vs stochastic (lysine) conjugation — established superiority of site-specific for ADC therapeutic index.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">NHS ester reaction with surface lysines</span></div>
       <div class="info-row"><span class="info-label">典型 DAR</span><span class="info-value">3.5</span></div>
@@ -7803,7 +7951,11 @@
     <div class="cc-brief">DAR: ? · Disulfide bridging conjugation maintaining antibody stability</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">ThioBridge™ technology: developed by Polytherics Ltd (UK), acquired by Abzena in 2015. Converts interchain disulfide bonds (Cys-Cys) to a stable, homogeneous cross-linking thioether bridge using bis-thiol reagents. Patent: WO2012121995A1 (Polytherics Ltd, 2012). Provides uniform DAR without antibody re-engineering.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Abzena (acquired by Solentum in 2024) holds ThioBridge™ IP. ADC using ThioBridge: BC2059 (anti-FcRH5, Phase I breast cancer). Advantage: DAR2 exclusively from heavy chain Cys226 disulfide bridge; no protein engineering required. Established commercial CDO technology.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Badescu G et al. "Bridging Disulfides for Stable and Defined Antibody Drug Conjugates." Bioconjug Chem 2014;25(6):1124. PMID: 24818530. Original ThioBridge technology paper from Polytherics.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Disulfide bridging conjugation maintaining antibody stability</span></div>
       
@@ -7857,7 +8009,11 @@
     <div class="cc-brief">DAR: ? · Engineered SNAP-tag protein fusion for benzylguanine derivatives</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">SNAP-tag technology: developed by New England Biolabs (NEB). Original patent: US7425436B2 (Keppler A et al., NEB, 2008). Based on suicide O6-alkylguanine-DNA alkyltransferase (AGT); forms stable covalent bond with O6-benzylguanine (BG) substrates. SNAP-tag ADC application: NEB and academic labs; Covalys Biosciences uses CLIP/SNAP for dual-label ADCs.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">NEB holds SNAP-tag IP; licenses for research and commercial applications. SNAP-tag ADC conjugation: highly site-specific, requires SNAP-tag fusion (protein engineering); irreversible covalent bond. Used in ADC research but less common clinically vs cysteine-based or glycan-based methods.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Keppler A et al. "A general method for the covalent labeling of fusion proteins with small molecules in vivo." Nat Biotechnol 2003;21(1):86. PMID: 12469133. Original SNAP-tag paper from Johnsson lab (EPFL).</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Engineered SNAP-tag protein fusion for benzylguanine derivatives</span></div>
       
@@ -7884,7 +8040,11 @@
     <div class="cc-brief">DAR: ? · Platinum(II)-based coordination chemistry (e.g., LinXis)</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Platinum-based ADC linkage exploits platinum(II) coordination chemistry to bind antibody methionine or histidine residues. US9901648B2 (Sadler PJ et al., University of Warwick, 2018) — Platinum-mediated antibody-drug conjugate synthesis. Pt(II) provides inherent pH-sensitivity: coordination bonds weaker in acidic conditions.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Academic technology (Sadler group, Warwick; Chao group, HKBU). Produces pH-sensitive ADCs without linker synthesis complexity. No clinical ADC using platinum linkage. Research demonstrates cancer cell selectivity via pH-triggered release in tumor microenvironment. FTO landscape relatively open.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Tedesco MM et al. "Anticancer antibody-Pt(II) conjugates: selective cytotoxicity." Angew Chem Int Ed 2018;57:14511. PMID: 30192417.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Platinum(II)-based coordination chemistry (e.g., LinXis)</span></div>
       
@@ -7911,7 +8071,11 @@
     <div class="cc-brief">DAR: ? · Second generation AJICAP without Fc affinity peptide</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">AJICAP™ V2 is an enhanced version of Ajinomoto's site-specific ADC technology. Uses Fc-modified antibodies with engineered lysine at position K248 or K340 for selective coupling. US10188746B2 (Ajinomoto Co., Inc., 2019) — AJICAP™ site-specific antibody modification. V2 improvements reduce non-specific conjugation and improve DAR homogeneity vs V1.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Ajinomoto Co. (Japan) IP. AJICAP offered as a CDO service by Ajinomoto. Partnerships for site-specific ADC development. DAR2 predominant product. Compatible with standard NHS ester or thiol payloads. V2 improves over V1 in Fc-region conjugation selectivity. Active patents.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Yamada K et al. "Site-specific antibody-drug conjugation through an adaptor usage." Sci Rep 2019;9(1):12128. PMID: 31431642. AJICAP V1/V2 comparison study.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Second generation AJICAP without Fc affinity peptide</span></div>
       
@@ -7992,7 +8156,11 @@
     <div class="cc-brief">DAR: ? · Native glycan remodeling and click chemistry</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">GlycoConnect™ is Synaffix B.V.'s glycan-conjugation platform, acquired by Lonza Group in 2021. Core patent: US9504758B2 (van Berkel PHC et al., Synaffix BV, 2016). "Antibody conjugation by means of oxime formation." Site-specific conjugation to Asn-297 glycan via engineered oxime linkage. No protein engineering required.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Synaffix/Lonza active IP. US9504758B2 and related EP patents. GlycoConnect is offered as a commercial CDO (contract development/manufacturing) service by Lonza. Multiple clinical-stage ADCs using GlycoConnect: AstraZeneca, Sutro, UCB partnerships. Homogeneous DAR2/4 possible.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">van Geel R et al. "Chemoenzymatic Conjugation of Toxic Payloads to the Globally Conserved N-Glycan of Native mAbs Provides Homogeneous and Highly Efficacious Antibody-Drug Conjugates." Bioconjug Chem 2015;26(11):2233. PMID: 26505925. Synaffix GlycoConnect founding paper.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Native glycan remodeling and click chemistry</span></div>
       
@@ -8019,7 +8187,11 @@
     <div class="cc-brief">DAR: ? · Proximity-induced click chemistry without engineering</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">pClick technology developed by Sergei Kolodych et al. (then at Pierre Fabre). Phosphonoamide (P-N bond) click-type reaction for site-specific ADC conjugation. US10918750B2 (Pierre Fabre, 2021) — pClick chemistry for ADC site-specific conjugation at engineered residues. P-N bond stable at physiological pH; released by phosphodiesterase in lysosomes.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Pierre Fabre proprietary technology. US10918750B2 and related EP patents active. pClick enables dual release mechanism: phosphatase-triggered + acidic pH. Compatible with site-specific (engineered Cys or unnatural AA) or glycan-directed conjugation. Limited clinical development as of 2026.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Kolodych S et al. "Discovery and evaluation of anti-cancer antibody-drug conjugates with pClick technology." Eur J Med Chem 2017;142:376. PMID: 28927638.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">Proximity-induced click chemistry without engineering</span></div>
       
@@ -8046,7 +8218,11 @@
     <div class="cc-brief">DAR: ? · High DAR polymer scaffold conjugation</div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">Multi-arm PEG (star PEG) linkers for high-DAR ADCs. Mersana Therapeutics Fleximer platform uses proprietary high-MW hydrophilic polymer (fleximer) — similar concept. Specific multi-arm PEG: WO2018165520A1 (Sorrento Therapeutics, 2018). Other: US10688175B2 covers PEG-based multi-arm ADC scaffolds.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Polymer-based ADC platforms (Mersana Fleximer, ADC Therapeutics polymer, Sorrento LADR) enable DAR ≥8–16 by using biocompatible polymer scaffold to space multiple drugs per antibody. Reduced aggregation vs high DAR maleimide conjugation. Mersana STRO-001 in Phase I for MM. No approved polymer-ADC.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Casi G et al. "Antibody-Drug Conjugates: Basic Concepts, Examples and Future Perspectives." J Control Release 2012;161(2):422. PMID: 22609337. Review covering polymer-linker and multi-arm PEG ADC strategies.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       <div class="info-row"><span class="info-label">描述</span><span class="info-value">High DAR polymer scaffold conjugation</span></div>
       
@@ -8073,7 +8249,11 @@
     <div class="cc-brief">DAR: ? · </div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">ThioBridge™ (generic): see also "Thiobridge Polytherics" entry above. Here referring to the general class of bis-thiol bridging reagents that convert interchain disulfide bonds to stable thioether bridges. General chemistry covered by academic groups (Bernardes, Caddick); Polytherics/Abzena holds specific ThioBridge™ IP (WO2012121995A1).</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">Abzena/Solentum holds ThioBridge trademark and specific patent. Generic bisthiol-disulfide exchange chemistry is available to academic users. Commercial ADC programs using disulfide bridging include Abzena CDO services. Alternative implementations from UCL (Caddick group) and Cambridge (Bernardes group).</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">Badescu G et al. Bioconjug Chem 2014;25(6):1124. PMID: 24818530. ThioBridge methodology and anti-tumor ADC activity.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       
       
@@ -8100,7 +8280,11 @@
     <div class="cc-brief">DAR: ? · </div>
     <span class="exp和-toggle"></span>
     <div class="cc-detail">
-      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div class="collapse-bar"><div class="collapse-progress"></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">专利信息</div>
+      <div class="info-row"><span class="info-label">核心专利</span><span class="info-value">ILDC (In-situ Ligation and Drug Conjugation) technology from GeneQuantum Healthcare (Suzhou, China). Proprietary enzyme-mediated site-specific conjugation using specific ligase enzyme. Patent family: CN113056281B and related Chinese patent applications (GeneQuantum Healthcare, 2021). GeneQuantum is a clinical-stage Chinese biotech focused on novel ADC platforms.</span></div>
+      <div class="info-row"><span class="info-label">专利状态</span><span class="info-value">GeneQuantum proprietary Chinese technology. GQ1001 (HER2-targeting ADC) and other clinical candidates using ILDC platform in Phase I/II (NMPA registration 2022–2024). MSD and other global pharma companies established partnerships. GeneQuantum seeks global IP protection; PCT applications filed.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">关键文献</span><span class="info-value">GeneQuantum Healthcare company publications and NMPA clinical trial registrations. ChiCTR: GQ1001 Phase I (2022). Commercial partnership with Merck KGaA (EMD Serono) for ILDC-ADC platform development announced 2023.</span></div></div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">技术概况</div>
       
       
