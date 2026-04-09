@@ -340,6 +340,10 @@
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
           平台
         </a>
+        <a href="#format-select" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          格式选择
+        </a>
         <a href="#nano-convert" class="nav-link">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l-6 6"/><path d="M4 4l5 5"/></svg>
           Nano-Convert™
@@ -359,6 +363,10 @@
         <a href="#full-report" class="nav-link">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           完整报告
+        </a>
+        <a href="#case-studies" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          实际案例
         </a>
         <a href="#submit" class="nav-link">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -389,8 +397,7 @@
         </div>
       </div>
       <p style="margin:-10px 0 28px;display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="case_bispecific_vhh_expression_optimization.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0f766e;font-weight:600;text-decoration:none;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.18);padding:6px 12px;border-radius:20px;">📘 VHH 双抗表达优化案例 →</a>
-        <a href="case_bispecific_vhvl_pairing.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7c3aed;font-weight:600;text-decoration:none;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.18);padding:6px 12px;border-radius:20px;">📘 IgG-like 配对稳定性案例 →</a>
+        <a href="#case-studies" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0f766e;font-weight:600;text-decoration:none;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.18);padding:6px 12px;border-radius:20px;">📘 查看实际案例 ↓</a>
       </p>
 
       <div class="trust-grid">
@@ -427,6 +434,83 @@
         <li><strong>结构基准 (84+)</strong> — 包含 84 款验证过的 Linker 几何（scFv 及 IgG-scFv 融合）的专有数据集，防止构象塌陷。</li>
         <li><strong>CMC 基准 (75+)</strong> — 来自 75 种 IgG-like 架构（50 个四臂 + 23 个通用轻链 + 2 个 VHH-IgG）的深度结构指标，用于预测错配风险。</li>
       </ul>
+      <h2 id="format-select"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>双特异性格式选择</h2>
+      <p>尽管双特异性抗体架构繁多，临床批准集中于少数几种格式。核心决策不是选择哪种"大框架"，而是在 IgG-like 框架内选择最适合您靶点配对、轻链兼容性与生产平台的异二聚化策略。</p>
+      <div class="table-wrap">
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        <thead>
+          <tr>
+            <th style="width:18%">格式技术</th>
+            <th style="width:14%">临床状态</th>
+            <th style="width:42%">核心特点与约束</th>
+            <th style="width:26%">批准案例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Knob-into-Hole (KiH)</strong><br><span style="font-size:11px;color:#6b7280">Genentech/Roche</span></td>
+            <td><span style="color:#059669;font-weight:600">✓ 多项批准</span></td>
+            <td>T366W / T366S/L368A/Y407V 空间位阻重链异二聚化。解决 HC 错配；通常与 Common LC 或 CrossFab 联用以同时解决 LC 错配。稳健、特征明确、广泛授权。</td>
+            <td>Mosunetuzumab<br>Glofitamab<br>Faricimab</td>
+          </tr>
+          <tr>
+            <td><strong>DuoBody® / DEKK</strong><br><span style="font-size:11px;color:#6b7280">Genmab (Fab-arm exchange)</span></td>
+            <td><span style="color:#059669;font-weight:600">✓ 多项批准</span></td>
+            <td>静电引导（K409R / F405L 匹配交换）实现高效一步再二聚化。需要匹配 LC 或 Common LC。近均一异二聚体产物。已广泛对外授权。</td>
+            <td>Teclistamab<br>Talquetamab<br>Epcoritamab<br>Linvoseltamab</td>
+          </tr>
+          <tr>
+            <td><strong>Common Light Chain</strong><br><span style="font-size:11px;color:#6b7280">J&J / Merus</span></td>
+            <td><span style="color:#059669;font-weight:600">✓ 批准</span></td>
+            <td>双臂共用同一条轻链序列，无需结构域交叉即可消除 LC 错配。约束：共用 LC 须对两个靶点均保持可接受亲和力——限制从头设计自由度。</td>
+            <td>Amivantamab<br><span style="font-size:11px">(EGFR×MET)</span></td>
+          </tr>
+          <tr>
+            <td><strong>CrossMab / CrossFab</strong><br><span style="font-size:11px;color:#6b7280">Roche — 结构域交叉</span></td>
+            <td><span style="color:#059669;font-weight:600">✓ 批准</span></td>
+            <td>一臂进行 CH1/CL 或 VH/VL 结构域互换，通过结构不相容性阻止 LC 错配。与 KiH 联用实现 HC 异二聚化。支持"2+1"格式（一臂双拷贝）以调节亲合力。</td>
+            <td>Glofitamab (2+1)<br>Faricimab<br><span style="font-size:11px">(VEGF-A×ANG-2)</span></td>
+          </tr>
+          <tr>
+            <td><strong>BiTE (串联 scFv)</strong><br><span style="font-size:11px;color:#6b7280">无 Fc</span></td>
+            <td><span style="color:#d97706;font-weight:600">⚠ 仅1项批准</span></td>
+            <td>串联抗CD3+抗肿瘤 scFv。无 Fc：无 FcRn 回收 → t½ 极短（数小时），需持续静脉输注。低剂量即存在严重 CRS 风险。新项目强烈倾向 IgG-like 替代格式。</td>
+            <td>Blinatumomab<br><span style="font-size:11px">(CD3×CD19)</span></td>
+          </tr>
+          <tr>
+            <td><strong>VHH-Fc 融合</strong><br><span style="font-size:11px;color:#6b7280">纳米抗体基础</span></td>
+            <td><span style="color:#6b7280;font-weight:600">有限先例</span></td>
+            <td>串联 VHH 或 VHH-Fc 融合。无轻重链错配风险；体积小巧可进入隐蔽表位。需 VHH 骆驼化与人源化。临床批准仅限日本（Ozoralizumab）。CNS/吸入给药兴趣增长。</td>
+            <td>Ozoralizumab<br><span style="font-size:11px">(TNF-α, 日本 2022)</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="font-size:12px;color:#6b7280;margin-top:6px;">InSynBio 134+ 临床数据库覆盖上述全部格式。完整设计报告中包含格式推荐依据。</p>
+
+      <h2 id="target-pairing"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>靶点配对策略</h2>
+      <p>靶点对的生物学特性决定格式、Fc 工程方案及预期临床风险。InSynBio 在推荐架构前，会将每对靶点与临床先例数据库进行比对。</p>
+      <div class="trust-grid" style="margin-bottom:20px;">
+        <div class="trust-card">
+          <span class="eyebrow">T细胞重定向</span>
+          <h3>抗CD3 × 肿瘤抗原</h3>
+          <p>独立于 TCR 特异性激活细胞毒 T 细胞。需精细调控 CD3 臂亲和力以降低 CRS 风险。</p>
+          <p style="font-size:11px;color:#059669;font-weight:600;margin-top:8px;">低亲和力 CD3 臂为优 · CRS 监控至关重要</p>
+        </div>
+        <div class="trust-card">
+          <span class="eyebrow">双通路共阻断</span>
+          <h3>双检查点 / 生长因子</h3>
+          <p>同时阻断两条非冗余免疫或肿瘤信号通路。靶向调节性检查点时需效应沉默 Fc。</p>
+          <p style="font-size:11px;color:#059669;font-weight:600;margin-top:8px;">LALA / N297A Fc · 需验证协同效应</p>
+        </div>
+        <div class="trust-card">
+          <span class="eyebrow">酶促桥联</span>
+          <h3>辅因子 / 受体对</h3>
+          <p>物理桥联两种蛋白以模拟丢失的凝血或信号功能。几何关键——连接子长度与臂角度决定活性。结构建模为必须。</p>
+          <p style="font-size:11px;color:#059669;font-weight:600;margin-top:8px;">SmartLink™ 必用 · AF2 Multimer 验证</p>
+        </div>
+      </div>
+
       <h2 id="nano-convert"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l-6 6"/><path d="M4 4l5 5"/></svg></span>Nano-Convert™ (VH 转 VHH)</h2>
       <p >利用现有抗体资产解锁纳米抗体的潜力。无需羊驼免疫。</p>
       <div class="table-wrap">
@@ -494,6 +578,67 @@
         <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>可开发性检查</strong> — 聚集倾向、pI、热稳定性预测、CMC 风险标记</div></li>
         <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>VH→VHH 转化方案</strong>（选项）— 骆驼化改造位点、稳定性验证</div></li>
       </ul>
+
+      <h2 id="case-studies"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>实际案例</h2>
+      <p>真实工程问题的计算求解——匿名化数据，全流程方法透明。</p>
+
+      <!-- Case 1: VHH Bispecific -->
+      <div style="border:1px solid #e2e8f0;border-radius:12px;padding:24px 28px;margin-bottom:20px;background:#fafcff;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;color:#0f766e;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.2);padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:0.05em;">VHH 双抗 · 表达优化</span>
+        </div>
+        <h3 style="margin:0 0 8px;font-size:17px;color:#0f172a;">Engineering a High-Expression Bispecific Coronavirus Nanobody</h3>
+        <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">一个靶向双冠状病毒刺突蛋白的 VHH-GS-VHH 双特异性融合蛋白在酵母中表达量持续偏低。SmartLink™ + VirtualCMC 流程诊断出 pI 驱动的内质网静电滞留为根本原因——通过臂交换 + 带电连接子工程将 pI 降低 1.09 个单位，同时将跨冠状病毒 IC90 提升 4.8×。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+          <div style="text-align:center;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 16px;min-width:100px;">
+            <div style="font-size:20px;font-weight:700;color:#059669;">↓1.09</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">pI 降低</div>
+          </div>
+          <div style="text-align:center;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 16px;min-width:100px;">
+            <div style="font-size:20px;font-weight:700;color:#059669;">↓4.0</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">净电荷单位</div>
+          </div>
+          <div style="text-align:center;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 16px;min-width:100px;">
+            <div style="font-size:20px;font-weight:700;color:#059669;">4.8×</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">跨冠活性↑</div>
+          </div>
+          <div style="text-align:center;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 16px;min-width:100px;">
+            <div style="font-size:20px;font-weight:700;color:#2563eb;">12</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">VHH 变体分析</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#64748b;background:#f8fafc;border-radius:6px;padding:8px 12px;margin-bottom:16px;">
+          <strong>关键发现：</strong>Whitlow 连接子被拒——其赖氨酸残基实际上将融合 pI 升高至 8.93（比标准 G₄S 基线更差）。(G₄S)₃+3E 为最优方案：pI 7.85，净电荷 +1.0。
+        </div>
+        <a href="case_bispecific_vhh_expression_optimization.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0f766e;font-weight:600;text-decoration:none;background:rgba(13,148,136,0.07);border:1px solid rgba(13,148,136,0.2);padding:7px 14px;border-radius:20px;">阅读完整案例 →</a>
+      </div>
+
+      <!-- Case 2: IgG-like VH/VL pairing -->
+      <div style="border:1px solid #e2e8f0;border-radius:12px;padding:24px 28px;margin-bottom:20px;background:#fafcff;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.07);border:1px solid rgba(124,58,237,0.2);padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:0.05em;">IgG-like 双抗 · VH/VL 配对稳定性</span>
+        </div>
+        <h3 style="margin:0 0 8px;font-size:17px;color:#0f172a;">Faricimab VPSA：KiH+CrossFab 共表达中的臂特异性配对选择性</h3>
+        <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">CrossFab 解决的是 LC 层面的错配——但 Fv 可变结构域界面是独立的一层。InSynBio 对 Faricimab (VEGF-A×ANG-2, FDA 2022) 的 VPSA 分析揭示：A 臂具有强固有 Fv 选择性（156 个原生盐桥 → 错配后仅 43 个，−72%），B 臂则主要依赖 CrossFab C 域架构。仅凭 BSA 会得出相反结论——证明多维度 VPSA 的必要性。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+          <div style="text-align:center;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px 16px;min-width:120px;">
+            <div style="font-size:16px;font-weight:700;color:#7c3aed;">156 → 43 SB</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">A 臂盐桥（错配后 −72%）</div>
+          </div>
+          <div style="text-align:center;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px 16px;min-width:100px;">
+            <div style="font-size:20px;font-weight:700;color:#7c3aed;">4</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">结构指标维度</div>
+          </div>
+          <div style="text-align:center;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px 16px;min-width:100px;">
+            <div style="font-size:16px;font-weight:700;color:#7c3aed;">真实计算</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:2px;">非模拟数据</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#64748b;background:#f8fafc;border-radius:6px;padding:8px 12px;margin-bottom:16px;">
+          <strong>平台能力：</strong>VH/VL 配对稳定性分析（VPSA）= BSA + 盐桥计数 + 电荷互补性 + packing angle。单独使用 BSA 会误导结论。
+        </div>
+        <a href="case_bispecific_vhvl_pairing.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7c3aed;font-weight:600;text-decoration:none;background:rgba(124,58,237,0.07);border:1px solid rgba(124,58,237,0.2);padding:7px 14px;border-radius:20px;">阅读完整案例 →</a>
+      </div>
 
       <h2 id="faq-bs"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>常见问题</h2>
       <div class="faq-list">
