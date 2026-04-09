@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 78 个目标抗原, 32 个载荷, 29 个链接子（含条件激活型）, 23 个偶联技术。">
+<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 78 个目标抗原, 38 个载荷, 29 个链接子（含条件激活型）, 23 个偶联技术。">
 <meta name="robots" content="noai, noimageai">
 <meta name="AI-Training" content="opt-out">
 <link rel="canonical" href="https://www.therasik.com/Therasik_ADC_Database.html">
@@ -210,7 +210,7 @@
     智能 ADC 设计
   </a>
       <h1>ADC 临床参考数据库</h1>
-  <p>综合参考数据库，收录 <strong>100</strong> 个临床 ADC 项目，涵盖 <strong>78</strong> 个靶抗原、<strong>32</strong> 种载荷（<strong>11</strong> 类作用机制）、<strong>29</strong> 种链接子及 <strong>23</strong> 种偶联技术，覆盖从 I 期临床到已上市产品的完整开发历程。每条记录包含化学结构、药物-抗体比（DAR）、专利状态及失败案例分析，帮助研究人员系统了解 ADC 领域的设计规律与风险因素。为 ADC 开发的靶点选择、载荷适配、链接子优化及偶联工艺决策提供循证数据支撑。</p>
+  <p>综合参考数据库，收录 <strong>100</strong> 个临床 ADC 项目，涵盖 <strong>78</strong> 个靶抗原、<strong>38</strong> 种载荷（<strong>11</strong> 类作用机制）、<strong>29</strong> 种链接子及 <strong>23</strong> 种偶联技术，覆盖从 I 期临床到已上市产品的完整开发历程。每条记录包含化学结构、药物-抗体比（DAR）、专利状态及失败案例分析，帮助研究人员系统了解 ADC 领域的设计规律与风险因素。为 ADC 开发的靶点选择、载荷适配、链接子优化及偶联工艺决策提供循证数据支撑。</p>
   </div>
 
 <div class="page">
@@ -218,7 +218,7 @@
   <div class="tabs-bar">
     <button class="tab-btn active" data-tab="programs">临床项目 (100)</button>
     <button class="tab-btn" data-tab="antigens">目标抗原 (78)</button>
-    <button class="tab-btn" data-tab="payloads">载荷 (32)</button>
+    <button class="tab-btn" data-tab="payloads">载荷 (38)</button>
     <button class="tab-btn" data-tab="linkers">链接子 (29)</button>
     <button class="tab-btn" data-tab="conjugation">偶联技术 (23)</button>
     <button class="tab-btn" data-tab="experiments">验证分析 (9)</button>
@@ -5341,7 +5341,7 @@
 <!-- ═══ PAYLOADS ═══ -->
   <div class="tab-panel" id="panel-payloads">
     <h2 class="section-title">Payload Molecules</h2>
-    <p class="section-desc">From classic cytotoxins (MMAE, DXd) to emerging modalities (PROTACs, Radionuclides, ISACs). Includes SMILES structures 和 PubChem links.</p>
+    <p class="section-desc">From classic cytotoxins (MMAE, DXd) to emerging modalities (PROTACs, Radionuclides, Protein Toxins, ISACs). Includes SMILES structures 和 PubChem links.</p>
     <div class="ctrl-row">
       <input class="search-box" id="search载荷" type="text" placeholder="Search payload name, class…">
       <select class="filter-sel" id="filterPayloadCls">
@@ -5414,6 +5414,64 @@
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
       <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Clinical stage modality (e.g., Bolt Biotherapeutics, Silverback). Focuses on converting 'cold' tumors to 'hot' tumors.</span></div>
       <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:33168569 (ISAC technology review)</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-cls="Radionuclide" data-search="actinium-225 dota radionuclide alpha emitter very high targeted radiotherapy">
+  <div class="card-header">
+    <div class="card-title">Actinium-225 Chelate  <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#d4edda;color:#155724;border:1px solid #c3e6cb;font-size:9px">Patent: Platform-specific / Mixed IP</span></div>
+    </div>
+    <span class="badge badge-payload">Radionuclide</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">类型: α-emitter · 机制: targeted radiotherapy via high-LET DNA double-strand breaks</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Emerging / RPT-ADC crossover)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
+      <div class="info-row"><span class="info-label">类别</span><span class="info-value">Radionuclide</span></div>
+      <div class="info-row"><span class="info-label">MoA</span><span class="info-value">Alpha-particle emitter delivered by chelator-antibody conjugate. Causes dense ionization tracks and irreparable DNA double-strand breaks independent of cell-cycle phase.</span></div>
+      <div class="info-row"><span class="info-label">半衰期</span><span class="info-value">~10 days (225Ac physical half-life)</span></div>
+      <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">Very High (single-digit decays can kill a cell)</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC / ARC 设计参数</div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">Chelator loading typically 1–4 per antibody</span></div>
+      <div class="info-row"><span class="info-label">兼容的链接子化学</span><span class="info-value">Chelator-based conjugation (DOTA, macropa, crown). No self-immolative payload release required.</span></div>
+      <div class="info-row"><span class="info-label">关键风险</span><span class="info-value">Daughter nuclide recoil, marrow toxicity, hepatic uptake, and radionuclide handling / CMC complexity.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
+      <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Represents antibody-radionuclide conjugate (ARC) payload logic rather than classic small-molecule cytotoxin. Included because radionuclide payloads now appear in targeted antibody delivery pipelines.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:34012024 (225Ac targeted alpha therapy review)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:36870013 (alpha-emitter conjugate design)</span></div>
+      <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A - radiometal payload represented as chelator-metal complex</span></div>
+    </div>
+  </div>
+</div>
+<div class="card" onclick="toggleCard(this)" data-cls="Protein Toxin" data-search="pseudomonas exotoxin a protein toxin ribosome inactivation ultra high immunotoxin">
+  <div class="card-header">
+    <div class="card-title">Pseudomonas Exotoxin A Fragment (PE38)  <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#d4edda;color:#155724;border:1px solid #c3e6cb;font-size:9px">Patent: Mixed legacy IP / format-dependent</span></div>
+    </div>
+    <span class="badge badge-payload">Protein Toxin</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">机制: ribosome inactivation via eEF2 ADP-ribosylation · 类型: recombinant protein toxin payload</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中 (Immunotoxin lineage)</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">作用机制与效力</div>
+      <div class="info-row"><span class="info-label">类别</span><span class="info-value">Protein Toxin</span></div>
+      <div class="info-row"><span class="info-label">MoA</span><span class="info-value">Catalytic protein toxin fragment. After internalization and cytosolic escape, ADP-ribosylates elongation factor 2 (eEF2), irreversibly shutting down protein synthesis.</span></div>
+      <div class="info-row"><span class="info-label">效力等级</span><span class="info-value">Ultra High (catalytic)</span></div>
+      <div class="info-row"><span class="info-label">细胞周期依赖性</span><span class="info-value">Cell-cycle independent</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">ADC / Immunotoxin 设计参数</div>
+      <div class="info-row"><span class="info-label">最佳 DAR 范围</span><span class="info-value">Not classic DAR-driven; usually 1 toxin domain per binding scaffold</span></div>
+      <div class="info-row"><span class="info-label">兼容的链接子化学</span><span class="info-value">Usually recombinant fusion or site-specific protein conjugation rather than small-molecule cleavable linkers</span></div>
+      <div class="info-row"><span class="info-label">关键风险</span><span class="info-value">High immunogenicity, vascular leak syndrome, and trafficking dependence on endosomal escape.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">结构与参考文献</div>
+      <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">Protein toxin payloads are more common in immunotoxin architectures than in mainstream clinical ADCs, but they remain a distinct antibody-delivered payload class and should not be left empty in the payload taxonomy.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">PMID:29880439 (immunotoxin review)</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">FDA label / lineage example: Moxetumomab pasudotox</span></div>
+      <div class="info-row" style="flex-direction:column"><span class="info-label">SMILES</span><span class="info-value" style="font-family:monospace;font-size:11px;word-break:break-all;background:#f3f4f6;padding:4px 6px;border-radius:4px;margin-top:3px">N/A - recombinant protein payload</span></div>
     </div>
   </div>
 </div>
@@ -6597,6 +6655,7 @@
       <select class="filter-sel" id="filterLinkerType">
         <option value="">All types</option>
     <option value="Protease-cleavable">Protease-cleavable</option>
+    <option value="Glucuronidase-cleavable">Glucuronidase-cleavable</option>
     <option value="pH-cleavable">pH-cleavable</option>
     <option value="Disulfide-cleavable">Disulfide-cleavable</option>
     <option value="Non-cleavable">Non-cleavable</option>
@@ -6671,10 +6730,10 @@
     </div>
   </div>
 </div>
-<div class="card" onclick="toggleCard(this)" data-ltype="Protease-cleavable" data-search="glucuronide-mmae 可裂解 various">
+<div class="card" onclick="toggleCard(this)" data-ltype="Glucuronidase-cleavable" data-search="glucuronide-mmae glucuronidase-cleavable beta-glucuronidase 葡萄糖醛酸酶裂解">
   <div class="card-header">
     <div class="card-title">Glucuronide-MMAE</div>
-    <span class="badge badge-linker">Protease-cleavable</span>
+    <span class="badge badge-linker">Glucuronidase-cleavable</span>
     <div style="display:flex;gap:5px;align-items:center;margin-top:4px"><span class="badge" style="background:#f3f4f6;color:#666;border:1px solid #ddd;font-size:9px">Patent: Public Domain</span></div>
   </div>
   <div class="card-body">
@@ -6685,7 +6744,7 @@
       <div class="collapse-bar"><div class="collapse-progress"></div></div>
       
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">裂解机制与稳定性</div>
-      <div class="info-row"><span class="info-label">机制</span><span class="info-value">Various</span></div>
+      <div class="info-row"><span class="info-label">机制</span><span class="info-value">β-Glucuronidase cleavage</span></div>
       <div class="info-row"><span class="info-label">裂解酶</span><span class="info-value">β-Glucuronidase (lysosomal UGP; also secreted extracellularly in necrotic tumor regions)</span></div>
       <div class="info-row"><span class="info-label">血浆 t½</span><span class="info-value">&amp;gt;7 days (beta-glucuronidase not present in blood)</span></div>
       <div class="info-row"><span class="info-label">肿瘤内裂解效率</span><span class="info-value">High in lysosome; also effective in tumor stroma (extracellular β-glucuronidase from necrotic cells promotes bystander killing)</span></div>
@@ -8026,7 +8085,32 @@ function filterAntigens() {
 function filterPayloads() {
   const q   = document.getElementById('search载荷').value.trim().toLowerCase();
   const cls = document.getElementById('filterPayloadCls').value;
-  filterGrid('grid载荷', 'count载荷', q, [{ attr: 'cls', value: cls }]);
+  const aliasMap = {
+    'Protein Toxins': ['Protein Toxins', 'Protein Toxin', '蛋白质毒素'],
+    'Protein Toxin': ['Protein Toxins', 'Protein Toxin', '蛋白质毒素'],
+    'Tubulin Inhibitors': ['Tubulin Inhibitors', 'Tubulin Inhibitor'],
+    'Tubulin Inhibitor': ['Tubulin Inhibitors', 'Tubulin Inhibitor'],
+    'Topoisomerase I Inhibitors': ['Topoisomerase I Inhibitors', 'Topoisomerase I Inhibitor'],
+    'Topoisomerase I Inhibitor': ['Topoisomerase I Inhibitors', 'Topoisomerase I Inhibitor'],
+    'DNA Damaging Agent': ['DNA Damaging Agent', 'Dna Damaging Agents'],
+    'Dna Damaging Agents': ['DNA Damaging Agent', 'Dna Damaging Agents'],
+  };
+  const accepted = new Set((aliasMap[cls] || [cls]).map(v => v.toLowerCase()));
+  const grid = document.getElementById('grid载荷');
+  if (!grid) return;
+  const cards = grid.querySelectorAll('.card');
+  let visible = 0;
+  cards.forEach(card => {
+    const search = (card.dataset.search || '').toLowerCase();
+    const cardCls = (card.dataset.cls || '').toLowerCase();
+    const matchQ = !q || search.includes(q);
+    const matchCls = !cls || accepted.has(cardCls);
+    const show = matchQ && matchCls;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  const countEl = document.getElementById('count载荷');
+  if (countEl) countEl.textContent = visible + ' 项';
 }
 ['search载荷','filterPayloadCls'].forEach(id => {
   const el = document.getElementById(id);
