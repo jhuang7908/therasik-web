@@ -5346,23 +5346,19 @@
       <input class="search-box" id="search载荷" type="text" placeholder="Search payload name, class…">
       <select class="filter-sel" id="filterPayloadCls">
         <option value="">All Mechanisms</option>
-    <option value="Bcl-xL Inhibitor">Bcl-xL Inhibitor</option>
-    <option value="DNA Damaging Agent">DNA Damaging Agent</option>
-    <option value="Dna Damaging Agents">DNA Damaging Agent (DDA)</option>
-    <option value="Ksp Inhibitors">KSP Inhibitor</option>
-    <option value="Protein Toxins">Protein Toxin</option>
-    <option value="RNA Pol II Inhibitor">RNA Pol II Inhibitor</option>
-    <option value="Topoisomerase I Inhibitors">Topoisomerase I Inhibitor</option>
-    <option value="Tubulin Inhibitors">Tubulin Inhibitor</option>
-    <option value="Immunostimulatory Agonist">Immunostimulatory Agonist</option>
-    <option value="Spliceosome Inhibitor">Spliceosome Inhibitor</option>
-    <option value="Tubulin Inhibitor">Tubulin Inhibitor (TI)</option>
-    <option value="Topoisomerase I Inhibitor">Topoisomerase I Inhibitor (TOPI)</option>
-    <option value="Radionuclide">Radionuclide</option>
-    <option value="Protein Toxin">Protein Toxin</option>
-    <option value="PROTACs">PROTACs</option>
-    <option value="ISACs">ISACs</option>
-    <option value="Oligonucleotide">Oligonucleotide</option>
+        <option value="Tubulin Inhibitor">Tubulin Inhibitor</option>
+        <option value="Topoisomerase I Inhibitor">Topoisomerase I Inhibitor</option>
+        <option value="DNA Damaging Agent">DNA Damaging Agent</option>
+        <option value="Bcl-xL Inhibitor">Bcl-xL Inhibitor</option>
+        <option value="KSP Inhibitor">KSP Inhibitor</option>
+        <option value="RNA Pol II Inhibitor">RNA Pol II Inhibitor</option>
+        <option value="Spliceosome Inhibitor">Spliceosome Inhibitor</option>
+        <option value="Immunostimulatory Agonist">Immunostimulatory Agonist</option>
+        <option value="ISACs">ISACs</option>
+        <option value="PROTACs">PROTACs</option>
+        <option value="Oligonucleotide">Oligonucleotide</option>
+        <option value="Radionuclide">Radionuclide</option>
+        <option value="Protein Toxin">Protein Toxin</option>
       </select>
       <span class="result-count" id="count载荷"></span>
     </div>
@@ -8094,6 +8090,10 @@ function filterPayloads() {
     'Topoisomerase I Inhibitor': ['Topoisomerase I Inhibitors', 'Topoisomerase I Inhibitor'],
     'DNA Damaging Agent': ['DNA Damaging Agent', 'Dna Damaging Agents'],
     'Dna Damaging Agents': ['DNA Damaging Agent', 'Dna Damaging Agents'],
+    'Radionuclide': ['Radionuclide', '放射性核素'],
+    '放射性核素': ['Radionuclide', '放射性核素'],
+    'KSP Inhibitor': ['KSP Inhibitor', 'Ksp Inhibitors'],
+    'Ksp Inhibitors': ['KSP Inhibitor', 'Ksp Inhibitors'],
   };
   const accepted = new Set((aliasMap[cls] || [cls]).map(v => v.toLowerCase()));
   const grid = document.getElementById('grid载荷');
