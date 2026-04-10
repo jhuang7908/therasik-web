@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noai, noimageai">
+  <meta name="AI-Training" content="opt-out">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: PD-L1 双克隆双表位结构分析与应用分型 | Therasik</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0S2HLBZ0B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F0S2HLBZ0B');
+  </script>
+  <meta name="description" content="客户委托项目：对两株抗 PD-L1 抗体克隆进行 AF2 结构建模与表位精细定位，证明不同结合构型决定阻断型（免疫检查点）与非阻断型（ADC 候选）的功能分型，并验证人/猴跨种属结合位点相似性。">
+  <link rel="canonical" href="https://www.therasik.com/case_pdl1_epitope_analysis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.therasik.com/case_pdl1_epitope_analysis.html">
+  <meta property="og:title" content="PD-L1 双克隆表位结构分析 | Therasik">
+  <meta property="og:description" content="AF2 结构建模揭示两株 PD-L1 抗体的不同结合构型，阐明阻断型与非阻断型机制差异，为 ADC 和免疫检查点两条开发路径提供结构依据。">
+  <meta property="og:image" content="https://www.therasik.com/images/case-pdl1-panel.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --primary: #0d9488; --primary-dark: #0f766e; --primary-light: #5eead4;
+      --amber: #d97706; --violet: #7c3aed;
+      --text: #111827; --text-muted: #4b5563; --border: #e5e7eb;
+      --bg-white: #ffffff; --bg-light: #f9fafb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; padding-top: 72px; }
+
+    /* ─── NAV ─── */
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; white-space: nowrap; }
+    .top-header .brand a { text-decoration: none; color: #111827; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .brand .accent { color: var(--primary); font-style: italic; font-weight: 700; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+    .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
+    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s ease; font-weight: 600; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
+    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 220px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); z-index: 100; margin-top: 8px; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; line-height: 1.4; border-radius: 8px; text-align: left; }
+    .nav-dropdown .dropdown-menu a:hover { background: #f8fafc; }
+    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 2px; }
+    .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
+    .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+
+    /* ─── HERO ─── */
+    .case-hero { background: url('images/hero-bg.svg') center/cover no-repeat, linear-gradient(135deg, #1e1b4b 0%, #4c1d95 55%, #7c3aed 100%); padding: 48px 24px; text-align: center; }
+    .hero-inner { max-width: 1000px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #ddd6fe; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 14px; }
+    .hero-badge-conf { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.35); color: #fde68a; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-left: 8px; }
+    .case-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,4.5vw,46px); color: #fff; line-height: 1.12; margin-bottom: 10px; font-weight: 700; }
+    .case-hero h1 em { font-style: italic; color: #c4b5fd; }
+    .subtitle { font-size: 17px; color: #ddd6fe; max-width: 720px; margin: 0 auto 20px; line-height: 1.55; }
+    .hero-stats { display: flex; justify-content: center; flex-wrap: nowrap; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 14px 8px; max-width: 900px; margin: 0 auto; overflow-x: auto; }
+    .hero-stat { flex: 1; min-width: 0; padding: 6px 10px; border-right: 1px solid rgba(255,255,255,0.12); text-align: center; }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat .val { font-size: clamp(18px,2.2vw,26px); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 3px; white-space: nowrap; }
+    .hero-stat .lbl { font-size: 9.5px; color: #c4b5fd; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.3; margin-bottom: 5px; }
+    .hero-stat .eval { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
+    .eval-green { background: rgba(16,185,129,0.25); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.35); }
+    .eval-violet { background: rgba(124,58,237,0.3); color: #ddd6fe; border: 1px solid rgba(124,58,237,0.5); }
+    .eval-amber { background: rgba(245,158,11,0.25); color: #fde68a; border: 1px solid rgba(245,158,11,0.35); }
+
+    /* ─── BODY ─── */
+    .page-body { padding: 64px 20px 80px; }
+    .container { max-width: 1020px; margin: 0 auto; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; margin-bottom: 28px; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .section-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--violet); margin-bottom: 4px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px,3vw,30px); font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.2; }
+    .section-title span { color: var(--violet); }
+    .section-intro { font-size: 14px; color: var(--text-muted); max-width: 720px; margin-bottom: 14px; line-height: 1.6; }
+
+    /* ─── CARD GRID ─── */
+    .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; }
+    .card h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── ADVANTAGE CARDS ─── */
+    .adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .adv-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; border-top: 3px solid; }
+    .adv-card.purple { border-top-color: var(--violet); }
+    .adv-card.teal   { border-top-color: var(--primary); }
+    .adv-card.amber  { border-top-color: var(--amber); }
+    .adv-card h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .adv-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ─── COMPARE GRID ─── */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .compare-col { padding: 20px 18px; }
+    .compare-col.ab1 { background: #faf5ff; border-right: 1px solid var(--border); }
+    .compare-col.ab2 { background: #f0fdf4; }
+    .compare-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .compare-col.ab1 h4 { color: #6d28d9; }
+    .compare-col.ab2 h4 { color: #065f46; }
+    .compare-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 13px; gap: 8px; }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row .ck { color: var(--text-muted); font-size: 12px; }
+    .compare-row .cv { font-weight: 700; color: var(--text); }
+    .compare-row .cv.violet { color: #7c3aed; }
+    .compare-row .cv.green { color: #065f46; }
+
+    /* ─── PATHWAY CARDS ─── */
+    .pathway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pathway-card { border-radius: 14px; padding: 22px 20px; border: 2px solid; }
+    .pathway-card.adc { background: linear-gradient(135deg, #faf5ff, #ede9fe); border-color: #c4b5fd; }
+    .pathway-card.ici { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #86efac; }
+    .pathway-card .path-tag { font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .pathway-card.adc .path-tag { color: #7c3aed; }
+    .pathway-card.ici .path-tag { color: #065f46; }
+    .pathway-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .pathway-card.adc h3 { color: #4c1d95; }
+    .pathway-card.ici h3 { color: #064e3b; }
+    .pathway-card .path-sub { font-size: 12px; font-weight: 600; margin-bottom: 12px; }
+    .pathway-card.adc .path-sub { color: #8b5cf6; }
+    .pathway-card.ici .path-sub { color: #059669; }
+    .pathway-card ul { list-style: none; padding: 0; }
+    .pathway-card ul li { font-size: 12.5px; color: var(--text-muted); padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; gap: 8px; }
+    .pathway-card ul li:last-child { border-bottom: none; }
+    .pathway-card ul li::before { content: '›'; font-weight: 800; margin-top: 1px; flex-shrink: 0; }
+    .pathway-card.adc ul li::before { color: #7c3aed; }
+    .pathway-card.ici ul li::before { color: #059669; }
+
+    /* ─── METRICS GRID ─── */
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .metric-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; border-top: 3px solid var(--violet); }
+    .metric-card.green { border-top-color: #16a34a; }
+    .metric-value { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--violet); line-height: 1; margin-bottom: 3px; }
+    .metric-card.green .metric-value { color: #16a34a; }
+    .metric-label { font-size: 11.5px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .metric-sub { font-size: 10.5px; color: #9ca3af; }
+
+    /* ─── DATA TABLE ─── */
+    .data-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px var(--border); font-size: 13.5px; }
+    .data-table th { background: #4c1d95; color: #fff; font-weight: 700; padding: 10px 14px; text-align: left; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .data-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #fafafa; }
+    .data-table tbody tr:hover td { background: #f5f3ff !important; }
+    .data-table td.ab1 { color: #6d28d9; font-weight: 700; }
+    .data-table td.ab2 { color: #065f46; font-weight: 700; }
+
+    /* ─── BADGES ─── */
+    .badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid; }
+    .badge.pass    { background: #dcfce7; color: #065f46; border-color: #a7f3d0; }
+    .badge.best    { background: #ede9fe; color: #4c1d95; border-color: #c4b5fd; }
+    .badge.neutral { background: #f3f4f6; color: #4b5563; border-color: #d1d5db; }
+    .badge.warn    { background: #fef3c7; color: #78350f; border-color: #fde68a; }
+
+    /* ─── CHART ─── */
+    .chart-wrap { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 16px 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .chart-title { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 700; color: #4c1d95; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .chart-canvas-wrap { position: relative; height: 200px; }
+    .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* ─── INFO BOXES ─── */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .info-box { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .info-box h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .info-box ul { list-style: none; padding: 0; }
+    .info-box ul li { font-size: 12.5px; color: var(--text-muted); padding: 4px 0; border-bottom: 1px solid #f3f4f6; line-height: 1.45; }
+    .info-box ul li:last-child { border-bottom: none; }
+
+    /* ─── SPECIES PANEL ─── */
+    .species-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .species-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; border-left: 4px solid; }
+    .species-card.human { border-left-color: #7c3aed; }
+    .species-card.monkey { border-left-color: #0d9488; }
+    .species-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+    .species-card.human h4 { color: #7c3aed; }
+    .species-card.monkey h4 { color: var(--primary); }
+    .species-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── EPITOPE MAP ─── */
+    .epitope-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; }
+    .ep-item { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-muted); }
+    .ep-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+    /* ─── CONFIDENTIAL NOTICE ─── */
+    .conf-notice { background: linear-gradient(135deg, #fffbeb, #fff7ed); border: 1.5px solid #fde68a; border-radius: 10px; padding: 12px 16px; font-size: 12.5px; color: #78350f; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+
+    /* ─── RESULT BANNER ─── */
+    .result-banner { background: linear-gradient(135deg, #1e1b4b, #4c1d95); border-radius: 14px; padding: 28px; text-align: center; color: white; }
+    .result-banner .score { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 4px; color: #c4b5fd; }
+    .result-banner .score-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .result-banner .score-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a5b4fc; margin-bottom: 14px; }
+    .result-banner p { font-size: 13.5px; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto 20px; line-height: 1.65; }
+    .banner-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; background: #fff; color: #4c1d95; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+    .btn-primary:hover { background: #ede9fe; }
+    .btn-secondary { display: inline-block; background: transparent; color: #fff; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.4); text-decoration: none; transition: all 0.2s; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); }
+
+    /* ─── FOOTER ─── */
+    .site-footer { background: #111827; padding: 40px 24px; text-align: center; }
+    .site-footer p { color: #6b7280; font-size: 14px; }
+    .site-footer a { color: #9ca3af; text-decoration: none; }
+    .site-footer a:hover { color: #c4b5fd; }
+
+    @media (max-width: 768px) {
+      .hero-stats { flex-wrap: wrap; }
+      .hero-stat { flex: 0 0 calc(50% - 1px); border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .adv-grid, .info-grid, .pathway-grid, .species-grid, .chart-grid { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .compare-col.ab1 { border-right: none; border-bottom: 1px solid var(--border); }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .top-header .slogan { display: none; }
+    }
+    @media (max-width: 600px) {
+      .mobile-menu-btn { display: block; }
+      .top-header { padding: 10px 16px; flex-wrap: nowrap; }
+      .top-header-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 4px; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s; padding: 24px; overflow-y: auto; }
+      .top-header-nav.open { opacity: 1; pointer-events: auto; }
+      .top-header-nav a { font-size: 18px; padding: 12px 24px; }
+      .nav-close-btn { display: block; position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; line-height: 1; padding: 4px 8px; }
+      .header-right { display: none; }
+      .metrics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="top-header">
+  <div class="brand">
+    <a href="index.html">
+      <span style="color:#111827">Thera</span><span class="accent">sik</span>
+    </a>
+    <span class="slogan">AI 赋能生命科学</span>
+  </div>
+  <button class="mobile-menu-btn" aria-label="打开菜单" onclick="document.querySelector('.top-header-nav').classList.add('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="top-header-nav">
+    <button class="nav-close-btn" aria-label="关闭菜单" onclick="this.parentElement.classList.remove('open')">&times;</button>
+    <a href="index.html">首页</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#services">AI 药物设计</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体研发与评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+        <a href="Therasik_ADC_Design_Page.html"><span class="menu-title">智能 ADC 设计</span><span class="menu-desc">抗原-载荷-链接子匹配</span></a>
+        <a href="Therasik_CART_Page.html"><span class="menu-title">智慧 CAR-T 设计</span><span class="menu-desc">架构设计与组件优化</span></a>
+        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异抗体设计与评估</span><span class="menu-desc">格式筛选 · CMC 评估 · 配对验证</span></a>
+        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">新型疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+      </div>
+    </div>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#knowledge-base">临床参考库</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Guide.html"><span class="menu-title">抗体工程指南</span><span class="menu-desc">技术标准与设计原则</span></a>
+        <a href="Therasik_ADA_Database.html"><span class="menu-title">ADA 数据库</span><span class="menu-desc">138 项临床免疫原性基准</span></a>
+        <a href="Therasik_ADC_Database.html"><span class="menu-title">ADC 数据库</span><span class="menu-desc">100 个临床 ADC 程序</span></a>
+        <a href="Therasik_Component_Browser.html"><span class="menu-title">CAR 组件库</span><span class="menu-desc">237 个 CAR-T 工程组件</span></a>
+        <a href="Therasik_Vaccine_KB.html"><span class="menu-title">疫苗知识库</span><span class="menu-desc">抗原与佐剂数据</span></a>
+      </div>
+    </div>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#case-studies">项目实例</a>
+      <div class="dropdown-menu">
+        <a href="case_mumab4d5_humanization_zh.html"><span class="menu-title">muMAb4D5 人源化</span><span class="menu-desc">CDR 移植 + 结构导向回突变</span></a>
+        <a href="case_mumab4d5_cmc_zh.html"><span class="menu-title">muMAb4D5 CMC 评估</span><span class="menu-desc">15 项可开发性指标，全部通过</span></a>
+        <a href="case_mumab4d5_vhh_zh.html"><span class="menu-title">VH → HER2 VHH 转化</span><span class="menu-desc">纳米抗体改造与可开发性优化</span></a>
+        <a href="case_vgrw_sr_r2_affinity_maturation.html"><span class="menu-title">VHH 亲和力成熟</span><span class="menu-desc">结合能提升 −3.32 kcal/mol</span></a>
+        <a href="case_bispecific_vhh_expression_optimization.html"><span class="menu-title">双特异性 VHH 表达优化</span><span class="menu-desc">pI 工程 + 跨株 IC90 提升 4.8 倍</span></a>
+        <a href="case_malaria_carm_design.html"><span class="menu-title">CAR-M 设计</span><span class="menu-desc">CIDRα1 靶向双结合域 CAR-巨噬细胞</span></a>
+        <a href="case_fentanyl_hapten_vam.html"><span class="menu-title">芬太尼半抗原 VAM</span><span class="menu-desc">虚拟亲和力成熟 −5.53 kcal/mol</span></a>
+        <a href="case_pdl1_epitope_analysis.html"><span class="menu-title">PD-L1 双克隆表位分析</span><span class="menu-desc">结构证明阻断与非阻断表位分型</span></a>
+      </div>
+    </div>
+    <a href="Therasik_OurTech.html">技术平台</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#about">关于我们</a>
+      <div class="dropdown-menu">
+        <a href="index.html#about"><span class="menu-title">公司简介</span><span class="menu-desc">团队背景与研发使命</span></a>
+        <a href="index.html#workflow"><span class="menu-title">服务流程</span><span class="menu-desc">从咨询到交付的透明流程</span></a>
+      </div>
+    </div>
+    <a href="index.html#contact">联系我们</a>
+  </nav>
+  <div class="header-right"></div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="case-hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <i data-lucide="layers" style="width:14px;height:14px"></i>
+      案例研究 · PD-L1 抗体表位结构分析 · ISB-EPT-2026-001
+      <span class="hero-badge-conf">🔒 客户委托项目</span>
+    </div>
+    <h1>PD-L1 <em>双克隆双表位</em><br>结构分析与应用分型</h1>
+    <p class="subtitle">通过 AF2 结构建模精细定位两株客户抗体的 PD-L1 结合表位，阐明侧面结合（非阻断）与正面竞争（阻断）的构型差异，并验证人/猴跨种属结合位点相似性，为 ADC 与免疫检查点两条开发路径提供结构依据。</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="val">2</div>
+        <div class="lbl">抗体克隆</div>
+        <span class="eval eval-violet">不同表位构型</span>
+      </div>
+      <div class="hero-stat">
+        <div class="val">14</div>
+        <div class="lbl">共同表位残基</div>
+        <span class="eval eval-violet">核心 PD-1 结合区</span>
+      </div>
+      <div class="hero-stat">
+        <div class="val">2</div>
+        <div class="lbl">物种验证</div>
+        <span class="eval eval-green">✓ 人 + 猴</span>
+      </div>
+      <div class="hero-stat">
+        <div class="val">1941 Å²</div>
+        <div class="lbl">Ab1 界面面积</div>
+        <span class="eval eval-violet">侧面延伸结合</span>
+      </div>
+      <div class="hero-stat">
+        <div class="val">2</div>
+        <div class="lbl">开发路径</div>
+        <span class="eval eval-green">ADC + 检查点</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BODY ─── -->
+<div class="page-body">
+<div class="container">
+
+  <!-- 保密声明 -->
+  <div class="conf-notice reveal" style="margin-bottom: 28px;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <span>本案例为客户委托项目，抗体序列、克隆编号及靶向适应症均已匿名处理。结构图和计算数值均来自 AF2-Multimer 预测建模，仅用于方法论展示，不披露任何专有信息。</span>
+  </div>
+
+  <!-- ─── EXECUTIVE SUMMARY ─── -->
+  <section class="section reveal" style="border-top:none; padding-top:0;">
+    <span class="section-label">执行摘要</span>
+    <h2 class="section-title">同一靶点，<span>两种结合构型，两条开发路径</span></h2>
+    <p class="section-intro">客户提供的两株抗 PD-L1 抗体克隆具有不同的体外阻断活性——一株几乎不阻断 PD-1/PD-L1 互作，另一株表现出显著的竞争性抑制。通过结构建模揭示背后的分子机制，并验证跨种属适用性。</p>
+    <div class="card-grid">
+      <div class="card" style="border-left: 4px solid #ef4444;">
+        <h3>挑战</h3>
+        <p>客户拥有两株已通过结合验证的抗 PD-L1 抗体克隆，实验显示其 PD-1 阻断活性差异显著，但分子机制未知。需要在序列级别无法判别的情况下，从结构层面解释功能差异，并为两条开发路径提供科学依据。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--violet);">
+        <h3>设计方案</h3>
+        <p>使用 <strong>AF2-Multimer</strong> 分别建模两株抗体与人 PD-L1 及猕猴 PD-L1 的复合物结构，精细计算结合界面参数（BSA、形状互补性、氢键、盐桥），精确定位表位残基，分析与 PD-1 竞争性结合位点的重叠度及空间构型。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #16a34a;">
+        <h3>核心成果</h3>
+        <p>结构揭示 <strong>Ab1 侧面结合 PD-L1 IgC 域延伸区</strong>，不直接遮蔽 PD-1 结合面——适合 ADC 开发，肿瘤靶向性强、免疫相关副作用少。<strong>Ab2 正面嵌入 IgV 核心区</strong>，直接竞争 PD-1 结合——适合免疫检查点抗体开发。人/猴跨种属结合位点高度相似，支持猴实验。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BACKGROUND ─── -->
+  <div class="reveal">
+    <div class="section-label">项目背景</div>
+    <h2 class="section-title">PD-L1 的<span>双重治疗角色</span></h2>
+    <p class="section-intro">PD-L1 是肿瘤免疫逃逸的核心分子，在肿瘤细胞表面高表达，同时也是 ADC 和免疫检查点抑制剂的重要靶点。两种开发路径对抗体的结合位点有截然不同的要求。</p>
+    <div class="adv-grid">
+      <div class="adv-card purple">
+        <h4>🎯 ADC 靶点路径</h4>
+        <p>非阻断型抗体结合 PD-L1 的非 PD-1 竞争区域，不干扰免疫调控，将细胞毒性载荷精准递送至 PD-L1 高表达肿瘤细胞。相较阻断型 ADC，免疫相关不良事件（irAE）风险更低，安全窗更宽。</p>
+      </div>
+      <div class="adv-card teal">
+        <h4>🛡 免疫检查点路径</h4>
+        <p>阻断型抗体直接占据 PD-L1 的 PD-1 结合界面，解除肿瘤细胞对 T 细胞活化的抑制，重激活免疫系统对肿瘤的杀伤。Atezolizumab、Durvalumab 均为此路径的获批抗体。</p>
+      </div>
+      <div class="adv-card amber">
+        <h4>🔬 结构定义功能</h4>
+        <p>区分两种路径的关键是表位位置与结合构型——而非结合亲和力高低。AF2 结构建模提供了在实验验证前即可判别的结构级依据，大幅缩短开发决策周期。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STRUCTURAL ANALYSIS ─── -->
+  <div class="reveal">
+    <div class="section-label">结构分析</div>
+    <h2 class="section-title">界面参数：<span>两株抗体的结合差异</span></h2>
+    <p class="section-intro">基于 AF2-Multimer 预测结构的全面界面分析。Ab1 具有更大的总体界面但延伸至 IgC 域外周；Ab2 界面更紧凑、集中于 IgV 核心区。</p>
+    <div class="metrics-grid" style="margin-bottom: 14px;">
+      <div class="metric-card">
+        <div class="metric-value">1941</div>
+        <div class="metric-label">Ab1 界面面积 (Å²)</div>
+        <div class="metric-sub">侧面延伸结合</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">1795</div>
+        <div class="metric-label">Ab2 界面面积 (Å²)</div>
+        <div class="metric-sub">IgV 核心集中</div>
+      </div>
+      <div class="metric-card green">
+        <div class="metric-value">14</div>
+        <div class="metric-label">共同表位残基数</div>
+        <div class="metric-sub">PD-1 核心覆盖区</div>
+      </div>
+      <div class="metric-card green">
+        <div class="metric-value">0.749/0.768</div>
+        <div class="metric-label">形状互补性 SC</div>
+        <div class="metric-sub">Ab1 / Ab2，均优质</div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>界面指标</th>
+          <th>Ab1（非阻断型）</th>
+          <th>Ab2（阻断型）</th>
+          <th>功能意义</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>埋藏表面积 BSA</td><td class="ab1">1941.5 Å²</td><td class="ab2">1795.2 Å²</td><td>Ab1 总体界面更大</td></tr>
+        <tr><td>形状互补性 SC</td><td class="ab1">0.749</td><td class="ab2">0.768</td><td>两者匹配度均良好</td></tr>
+        <tr><td>VH 链贡献</td><td class="ab1">22 残基（71%）</td><td class="ab2">15 残基（62.5%）</td><td>Ab1 更依赖重链</td></tr>
+        <tr><td>VL 链贡献</td><td class="ab1">9 残基（29%）</td><td class="ab2">9 残基（37.5%）</td><td>轻链贡献相当</td></tr>
+        <tr><td>氢键数</td><td class="ab1">32 对</td><td class="ab2">20 对</td><td>Ab1 极性接触更密</td></tr>
+        <tr><td>盐桥数</td><td class="ab1">2 对</td><td class="ab2">5 对</td><td>Ab2 静电作用更强</td></tr>
+        <tr><td>疏水接触</td><td class="ab1">6</td><td class="ab2">11</td><td>Ab2 疏水驱动更显著</td></tr>
+        <tr><td>界面原子接触总数</td><td class="ab1">755</td><td class="ab2">455</td><td>Ab1 接触更广但分散</td></tr>
+        <tr><td>表位残基数</td><td class="ab1">26 个</td><td class="ab2">23 个</td><td>Ab1 表位更宽</td></tr>
+        <tr><td>结合区域</td><td class="ab1">IgV + IgC 延伸</td><td class="ab2">IgV 核心区</td><td><strong>关键差异</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─── EPITOPE DIFFERENTIATION ─── -->
+  <div class="reveal">
+    <div class="section-label">表位分型</div>
+    <h2 class="section-title">表位重叠与<span>差异区域定位</span></h2>
+    <p class="section-intro">两株抗体共享 PD-L1 IgV 核心区的 14 个残基（覆盖 PD-1 结合关键位点），但各自独有的接触区域决定了截然不同的功能。Ab1 额外延伸至 IgC 域侧面，Ab2 则深入 N 端 IgV 凹槽。</p>
+
+    <div class="epitope-legend">
+      <div class="ep-item"><div class="ep-dot" style="background:#d4a017;"></div><span>共同接触（14 个）：38TYR, 40GLU, 42GLU, 43ASP, 45ASN, 48GLN, 58VAL, 95ARG, 97MET, 103ALA, 104ASP, 105TYR, 106LYS, 107ARG</span></div>
+      <div class="ep-item"><div class="ep-dot" style="background:#ef4444;"></div><span>Ab1 独有（12 个）：延伸至 IgC — 91ALA, 92GLY, 93VAL, 94TYR, 108–111, 171LYS 等</span></div>
+      <div class="ep-item"><div class="ep-dot" style="background:#3b82f6;"></div><span>Ab2 独有（9 个）：IgV N 端凹槽 — 1PHE, 36ILE, 50VAL, 51HIS, 53GLU, 55ASP 等</span></div>
+    </div>
+
+    <div class="chart-grid" style="margin-bottom: 14px;">
+      <div class="chart-wrap">
+        <div class="chart-title"><i data-lucide="bar-chart-3" style="width:16px;height:16px"></i> 界面参数对比</div>
+        <div class="chart-canvas-wrap"><canvas id="interfaceChart"></canvas></div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title"><i data-lucide="pie-chart" style="width:16px;height:16px"></i> 表位分布</div>
+        <div class="chart-canvas-wrap"><canvas id="epitopeChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h4 style="color:#7c3aed;">Ab1 — 侧面结合构型（非阻断）</h4>
+        <ul>
+          <li>表位延伸至 IgC 域侧面（91–111, 171），远离 PD-1 结合面</li>
+          <li>大量氢键（32 对）维持广泛但相对平坦的接触网络</li>
+          <li>结合角度来自 PD-L1 分子侧方，不遮蔽 PD-1 结合凹槽</li>
+          <li>与 PD-1 的空间竞争性低 → 非阻断或弱阻断特征</li>
+          <li><strong>推荐开发方向：ADC</strong>（精准靶向，副作用少）</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4 style="color:#065f46;">Ab2 — 正面嵌入构型（阻断型）</h4>
+        <ul>
+          <li>表位集中于 IgV 核心区，含 N 端凹槽（1PHE, 36ILE）</li>
+          <li>5 个盐桥 + 11 个疏水接触提供强定向结合力</li>
+          <li>结合角度正面覆盖 PD-1 结合界面（CC′环 + FG 环）</li>
+          <li>直接竞争 PD-1 关键残基（R113, M115, D122 对应位点）</li>
+          <li><strong>推荐开发方向：免疫检查点抗体</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CROSS-SPECIES ─── -->
+  <div class="reveal">
+    <div class="section-label">跨种属验证</div>
+    <h2 class="section-title">人 / 猕猴 PD-L1<span>结合位点相似性</span></h2>
+    <p class="section-intro">新药临床前研究通常需要非人灵长类（NHP）毒理学数据。AF2 建模分别验证了两株抗体与人 PD-L1 和猕猴 PD-L1 的结合，为猴实验设计提供结构依据。</p>
+    <div class="species-grid">
+      <div class="species-card human">
+        <h4>🧬 人 PD-L1（Homo sapiens）</h4>
+        <p>AF2 建模复合物结构，Ab1 与 Ab2 均显示高置信度结合界面（ipTM > 0.70）。核心表位残基 38TYR、40GLU、95ARG、97MET、104–107 区段完全覆盖，形状互补性优良。</p>
+      </div>
+      <div class="species-card monkey">
+        <h4>🐒 猕猴 PD-L1（Macaca fascicularis）</h4>
+        <p>猕猴 PD-L1 与人 PD-L1 在关键表位区段（IgV 域 38–107）序列同源性高。AF2 建模显示两株抗体与猕猴 PD-L1 的结合姿态与人 PD-L1 高度相似，结合位点保守，支持猴毒理及药效学实验方案。</p>
+      </div>
+    </div>
+    <div style="background: #f0fdf4; border: 1px solid #a7f3d0; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 13px; color: #065f46; line-height: 1.6;">
+      <strong>跨种属结论：</strong>两株抗体与人和猴 PD-L1 的结合表位高度保守，结构预测支持在猕猴模型中开展药效、毒理和安全性评估，满足 IND 申报的种属相关性要求。
+    </div>
+  </div>
+
+  <!-- ─── APPLICATION PATHWAYS ─── -->
+  <div class="reveal">
+    <div class="section-label">开发策略</div>
+    <h2 class="section-title">结构定义的<span>双路径开发方案</span></h2>
+    <p class="section-intro">基于结构分析，两株抗体分别进入不同的开发路径，各自发挥最大临床价值。</p>
+    <div class="pathway-grid">
+      <div class="pathway-card adc">
+        <div class="path-tag">路径 A · 非阻断型</div>
+        <h3>Ab1 → PD-L1 ADC</h3>
+        <p class="path-sub">侧面表位 · 不竞争 PD-1 · 低 irAE 风险</p>
+        <ul>
+          <li>结合 PD-L1 IgC 侧面区，不阻断 PD-1/PD-L1 信号通路</li>
+          <li>精准靶向 PD-L1 高表达肿瘤细胞，细胞毒性载荷内化</li>
+          <li>避免全身性 T 细胞激活，免疫相关不良事件（irAE）预计更少</li>
+          <li>与现有免疫检查点抑制剂联用潜力大（机制互补）</li>
+          <li>适合非小细胞肺癌、三阴乳腺癌等 PD-L1 高表达适应症</li>
+        </ul>
+      </div>
+      <div class="pathway-card ici">
+        <div class="path-tag">路径 B · 阻断型</div>
+        <h3>Ab2 → 免疫检查点抑制剂</h3>
+        <p class="path-sub">IgV 核心表位 · 直接竞争 PD-1 · 经典免疫激活</p>
+        <ul>
+          <li>正面覆盖 PD-1 结合界面，竞争性阻断 PD-1/PD-L1 互作</li>
+          <li>解除肿瘤对 T 细胞活化的抑制，重激活抗肿瘤免疫</li>
+          <li>机制类似 Atezolizumab（Tecentriq）、Durvalumab（Imfinzi）</li>
+          <li>IgV 核心区结合，跨亚克隆表位保守性高</li>
+          <li>可开发为单抗或双特异性抗体（与 CTLA-4、LAG3 等联合）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── METHODOLOGY ─── -->
+  <div class="reveal">
+    <div class="section-label">方法与局限</div>
+    <h2 class="section-title">预测可靠性<span>与实验验证建议</span></h2>
+    <p class="section-intro">AF2 结构分析提供高质量的方向性参考，但所有关键决策前须进行实验验证。</p>
+    <div class="info-grid">
+      <div class="info-box">
+        <h4><i data-lucide="bar-chart-3" style="width:16px;height:16px;color:var(--violet)"></i> AF2 建模可靠性</h4>
+        <ul>
+          <li>Ab2 复合物 ipTM = 0.720，pTM = 0.770，界面预测高可信</li>
+          <li>两株抗体 VH/VL pLDDT > 91，结构预测极高置信度</li>
+          <li>BSA、形状互补性（SC）对界面整体特征描述稳健</li>
+          <li>5 Å 接触阈值偏宽松，边缘残基（如 IgC 尾部）可能含假阳性</li>
+          <li>建议以 IgV 域（1–127）内表位为主解读，IgC 延伸区作参考</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4><i data-lucide="flask-conical" style="width:16px;height:16px;color:var(--primary)"></i> 推荐实验验证方案</h4>
+        <ul>
+          <li>竞争 ELISA：PD-1-Fc 与两株抗体分别竞争 PD-L1 结合，定量阻断率</li>
+          <li>BLI / SPR：测定结合动力学（kon、koff、KD）与 PD-1 竞争性</li>
+          <li>Epitope Binning：确认两株抗体表位是否独立（不竞争）</li>
+          <li>跨种属：人 / 猴 PD-L1-ECD 分别检测结合亲和力</li>
+          <li>功能验证：混合淋巴细胞反应（MLR）确认阻断型的 T 细胞活化</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── RESULT BANNER ─── -->
+  <div class="reveal">
+    <div class="result-banner">
+      <div class="score">2 × 路径</div>
+      <div class="score-sub">一个靶点 · 两株克隆 · 两种表位构型 · 两条开发赛道</div>
+      <div class="score-label">结构导向 · 表位精定位 · 跨种属验证 · 开发路径明确</div>
+      <p>AF2 结构建模精确定位两株 PD-L1 抗体的不同结合构型，阐明侧面非阻断（ADC）与正面阻断（免疫检查点）的分子基础；跨种属结合位点高度保守，支持后续猴实验方案。同一靶点的两株抗体最终进入两条价值互补的开发路径。</p>
+      <div class="banner-cta">
+        <a href="Therasik_ADC_Design_Page.html" class="btn-primary">ADC 设计服务</a>
+        <a href="Therasik_Antibody_Page.html" class="btn-secondary">抗体设计与评估</a>
+        <a href="case_fentanyl_hapten_vam.html" class="btn-secondary">芬太尼 VAM 案例</a>
+        <a href="index.html#contact" class="btn-secondary">咨询您的项目</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer class="site-footer">
+  <p>© 2026 <a href="index.html">Therasik</a> · AI 驱动抗体工程 · 计算设计平台 · 报告编号 ISB-EPT-2026-001 · <a href="index.html#contact">联系我们</a></p>
+  <p style="margin-top: 8px; font-size: 12px;">免责声明：本案例所有分析均基于计算预测，结构图和流程内容均已匿名处理，不披露客户序列信息。临床决策前须进行实验验证。</p>
+</footer>
+
+<script>
+  /* Reveal on scroll */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  lucide.createIcons();
+
+  /* Interface comparison chart */
+  new Chart(document.getElementById('interfaceChart'), {
+    type: 'bar',
+    data: {
+      labels: ['BSA (Å²/10)', 'H-键 (对)', '盐桥', '疏水接触', '原子接触/100'],
+      datasets: [
+        {
+          label: 'Ab1（非阻断型）',
+          data: [194.15, 32, 2, 6, 7.55],
+          backgroundColor: 'rgba(124,58,237,0.65)',
+          borderColor: '#7c3aed', borderWidth: 1.5, borderRadius: 5
+        },
+        {
+          label: 'Ab2（阻断型）',
+          data: [179.52, 20, 5, 11, 4.55],
+          backgroundColor: 'rgba(5,150,105,0.65)',
+          borderColor: '#059669', borderWidth: 1.5, borderRadius: 5
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { font: { family: 'Inter', size: 11 }, boxWidth: 12 } },
+        tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.y}` } }
+      },
+      scales: {
+        y: { ticks: { font: { family: 'Inter', size: 10 } }, grid: { color: '#f3f4f6' } },
+        x: { ticks: { font: { family: 'Inter', size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+
+  /* Epitope distribution pie chart */
+  new Chart(document.getElementById('epitopeChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['共同表位（14）', 'Ab1 独有（12）', 'Ab2 独有（9）'],
+      datasets: [{
+        data: [14, 12, 9],
+        backgroundColor: ['rgba(212,160,23,0.75)', 'rgba(239,68,68,0.70)', 'rgba(59,130,246,0.70)'],
+        borderColor: ['#d4a017', '#ef4444', '#3b82f6'],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'Inter', size: 10 }, boxWidth: 12, padding: 8 } },
+        tooltip: { callbacks: { label: c => ` ${c.label}: ${c.parsed} 个残基` } }
+      },
+      cutout: '55%'
+    }
+  });
+</script>
+</body>
+</html>
