@@ -102,16 +102,18 @@
     .adv-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
 
     /* ─── COMPARE GRID ─── */
-    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-    .compare-col { padding: 20px 18px; }
-    .compare-col.ab1 { background: #faf5ff; border-right: 1px solid var(--border); }
+    .compare-grid { display: grid; grid-template-columns: 1fr; gap: 24px; border: none; }
+    .compare-col { padding: 24px; border-radius: 16px; border: 1px solid var(--border); }
+    .compare-col.ab1 { background: #faf5ff; }
     .compare-col.ab2 { background: #f0fdf4; }
-    .compare-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .compare-col h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
     .compare-col.ab1 h4 { color: #6d28d9; }
     .compare-col.ab2 h4 { color: #065f46; }
-    .compare-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 13px; gap: 8px; }
+    .compare-img-wrap { background:#fff; border-radius:12px; padding:16px; margin-bottom:20px; border:1px solid #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .compare-img-wrap img { width:100%; max-width: 800px; margin: 0 auto; border-radius:8px; display:block; }
+    .compare-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 14px; gap: 12px; }
     .compare-row:last-child { border-bottom: none; }
-    .compare-row .ck { color: var(--text-muted); font-size: 12px; }
+    .compare-row .ck { color: var(--text-muted); font-size: 13px; font-weight: 500; }
     .compare-row .cv { font-weight: 700; color: var(--text); }
     .compare-row .cv.violet { color: #7c3aed; }
     .compare-row .cv.green { color: #065f46; }
@@ -395,32 +397,37 @@
     <h2 class="section-title">结合构型对比：<span>正面嵌入 vs. 侧面结合</span></h2>
     <p class="section-intro">通过 AF2-Multimer 预测的复合物结构，可以清晰观察到两株抗体在 PD-L1 上的结合姿态差异。这种几何构型的不同直接决定了它们的阻断活性和应用方向。</p>
     
-    <div class="compare-grid" style="margin-bottom: 24px;">
+    <div class="compare-grid" style="margin-bottom: 32px;">
       <div class="compare-col ab1">
-        <h4 style="color:#7c3aed; display:flex; align-items:center; gap:8px;">
-          <i data-lucide="layout-side-panel" style="width:18px;height:18px"></i>
+        <h4 style="display:flex; align-items:center; gap:10px;">
+          <i data-lucide="layout-side-panel" style="width:22px;height:22px"></i>
           Ab1 (非阻断型 / ADC 候选)
         </h4>
-        <div style="background:#fff; border-radius:10px; padding:10px; margin-bottom:12px; border:1px solid #e5e7eb;">
-          <img src="images/case-pdl1-ab1.jpg" alt="Ab1 侧面结合构型" style="width:100%; border-radius:6px; display:block;">
-          <p style="font-size:11px; color:#6b7280; margin-top:8px; text-align:center;">Ab1 结合于 PD-L1 IgV 侧面并延伸至 IgC 域，不遮蔽 PD-1 结合核心</p>
+        <div class="compare-img-wrap">
+          <img src="images/case-pdl1-ab1.jpg" alt="Ab1 侧面结合构型">
+          <p style="font-size:13px; color:#6b7280; margin-top:12px; text-align:center; font-weight:500;">Ab1 结合于 PD-L1 IgV 侧面并延伸至 IgC 域，不遮蔽 PD-1 结合核心</p>
         </div>
-        <div class="compare-row"><span class="ck">结合构型</span><span class="cv violet">侧面延伸 (Lateral)</span></div>
-        <div class="compare-row"><span class="ck">PD-1 竞争</span><span class="cv">极低空间位阻</span></div>
-        <div class="compare-row"><span class="ck">主要优势</span><span class="cv">肿瘤靶向而不干扰免疫</span></div>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="compare-row"><span class="ck">结合构型</span><span class="cv violet">侧面延伸 (Lateral)</span></div>
+          <div class="compare-row"><span class="ck">PD-1 竞争</span><span class="cv">极低空间位阻</span></div>
+          <div class="compare-row"><span class="ck">主要优势</span><span class="cv">肿瘤靶向而不干扰免疫</span></div>
+        </div>
       </div>
+      
       <div class="compare-col ab2">
-        <h4 style="color:#065f46; display:flex; align-items:center; gap:8px;">
-          <i data-lucide="layout-maximize" style="width:18px;height:18px"></i>
+        <h4 style="display:flex; align-items:center; gap:10px;">
+          <i data-lucide="layout-maximize" style="width:22px;height:22px"></i>
           Ab2 (阻断型 / 免疫检查点)
         </h4>
-        <div style="background:#fff; border-radius:10px; padding:10px; margin-bottom:12px; border:1px solid #e5e7eb;">
-          <img src="images/case-pdl1-ab2.jpg" alt="Ab2 正面嵌入构型" style="width:100%; border-radius:6px; display:block;">
-          <p style="font-size:11px; color:#6b7280; margin-top:8px; text-align:center;">Ab2 正面嵌入 PD-L1 IgV 核心区，直接占据 PD-1 结合界面</p>
+        <div class="compare-img-wrap">
+          <img src="images/case-pdl1-ab2.jpg" alt="Ab2 正面嵌入构型">
+          <p style="font-size:13px; color:#6b7280; margin-top:12px; text-align:center; font-weight:500;">Ab2 正面嵌入 PD-L1 IgV 核心区，直接占据 PD-1 结合界面</p>
         </div>
-        <div class="compare-row"><span class="ck">结合构型</span><span class="cv green">正面嵌入 (Frontal)</span></div>
-        <div class="compare-row"><span class="ck">PD-1 竞争</span><span class="cv">强竞争性抑制</span></div>
-        <div class="compare-row"><span class="ck">主要优势</span><span class="cv">直接解除免疫抑制</span></div>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="compare-row"><span class="ck">结合构型</span><span class="cv green">正面嵌入 (Frontal)</span></div>
+          <div class="compare-row"><span class="ck">PD-1 竞争</span><span class="cv">强竞争性抑制</span></div>
+          <div class="compare-row"><span class="ck">主要优势</span><span class="cv">直接解除免疫抑制</span></div>
+        </div>
       </div>
     </div>
 
