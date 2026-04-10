@@ -769,8 +769,8 @@
       return `<div class="card searchable" onclick="toggleCard(this)" data-search="${esc(searchText).toLowerCase()}">
           <div class="card-header">
             <div class="card-header-main">
-              <div class="card-title">${esc(title)}</div>
-              <div class="card-sub">${esc(subtitle || '')}</div>
+            <div class="card-title">${esc(title)}</div>
+            <div class="card-sub">${esc(subtitle || '')}</div>
               <div class="badge-row" style="margin-top:6px">${badges.join('')}</div>
               ${summary ? `<div class="card-sub" style="margin-top:8px;font-size:12.5px;color:#334155">${esc(summary)}</div>` : ''}
             </div>
@@ -778,7 +778,7 @@
           </div>
           <div class="cc-detail">
             <div class="collapse-bar"><div class="collapse-progress"></div></div>
-            <div class="card-body">${body}</div>
+          <div class="card-body">${body}</div>
           </div>
         </div>`;
     }
