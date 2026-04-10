@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 78 个目标抗原, 38 个载荷, 29 个链接子（含条件激活型）, 23 个偶联技术。">
+<meta name="description" content="Therasik ADC 知识库 — 100 个临床 ADC 项目, 79 个目标抗原, 38 个载荷, 29 个链接子（含条件激活型）, 23 个偶联技术。">
 <meta name="robots" content="noai, noimageai">
 <meta name="AI-Training" content="opt-out">
 <link rel="canonical" href="https://www.therasik.com/Therasik_ADC_Database.html">
@@ -210,14 +210,14 @@
     智能 ADC 设计
   </a>
       <h1>ADC 临床参考数据库</h1>
-  <p>综合参考数据库，收录 <strong>100</strong> 个临床 ADC 项目，涵盖 <strong>78</strong> 个靶抗原、<strong>38</strong> 种载荷（<strong>11</strong> 类作用机制）、<strong>29</strong> 种链接子及 <strong>23</strong> 种偶联技术，覆盖从 I 期临床到已上市产品的完整开发历程。每条记录包含化学结构、药物-抗体比（DAR）、专利状态及失败案例分析，帮助研究人员系统了解 ADC 领域的设计规律与风险因素。为 ADC 开发的靶点选择、载荷适配、链接子优化及偶联工艺决策提供循证数据支撑。</p>
+  <p>综合参考数据库，收录 <strong>100</strong> 个临床 ADC 项目，涵盖 <strong>79</strong> 个靶抗原、<strong>38</strong> 种载荷（<strong>11</strong> 类作用机制）、<strong>29</strong> 种链接子及 <strong>23</strong> 种偶联技术，覆盖从 I 期临床到已上市产品的完整开发历程。每条记录包含化学结构、药物-抗体比（DAR）、专利状态及失败案例分析，帮助研究人员系统了解 ADC 领域的设计规律与风险因素。为 ADC 开发的靶点选择、载荷适配、链接子优化及偶联工艺决策提供循证数据支撑。</p>
   </div>
 
 <div class="page">
 <!-- Tab bar — horizontal underline, same as vaccine_kb -->
   <div class="tabs-bar">
     <button class="tab-btn active" data-tab="programs">临床项目 (100)</button>
-    <button class="tab-btn" data-tab="antigens">目标抗原 (78)</button>
+    <button class="tab-btn" data-tab="antigens">目标抗原 (79)</button>
     <button class="tab-btn" data-tab="payloads">载荷 (38)</button>
     <button class="tab-btn" data-tab="linkers">链接子 (29)</button>
     <button class="tab-btn" data-tab="conjugation">偶联技术 (23)</button>
@@ -2582,7 +2582,7 @@
 <!-- ═══ ANTIGENS ═══ -->
   <div class="tab-panel" id="panel-antigens">
     <h2 class="section-title">Target Antigen Profiles</h2>
-    <p class="section-desc">Detailed mapping of expression density, internalization rates, heterogeneity, 和 normal tissue expression for 78 ADC-relevant targets.</p>
+    <p class="section-desc">Detailed mapping of expression density, internalization rates, heterogeneity, 和 normal tissue expression for 79 ADC-relevant targets.</p>
     <div class="ctrl-row">
       <input class="search-box" id="searchAntigens" type="text" placeholder="Search antigen name, disease type…">
       <select class="filter-sel" id="filterAgTier">
@@ -3058,6 +3058,38 @@
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
       <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
         <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 2 (Active)] Based on Inferred (I) high density and Inferred (I) moderate internalization. Internalized via Moderate — clathrin-mediated endocytosis (I).</span>
+      </div></div>
+  </div></div>
+<div class="card" data-tier="Tier 4 (Emerging)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="moderate" data-het="high" data-density="moderate" data-risk="high" data-search="tier 4 (emerging) pd-l1 pdl1 solid_tumor moderate high moderate [tier 4 (emerging)] based on inferred (i) moderate inducible density and translational (c) evidence of moderate internalization with lysosomal trafficking in pd-l1 antibody-drug conjugate programs. internalized via antibody-induced endocytosis followed by lysosomal delivery; expression is highly dynamic under ifn-gamma signaling.">
+  <div class="card-header">
+    <div class="card-title">PD-L1 <span class="badge badge-disc" style="margin-left:auto">Tier 4 (Emerging)</span></div>
+    <span class="badge badge-target">Solid Tumor</span>
+  </div>
+  <div class="card-body">
+    <div class="cc-brief">密度: moderate_inducible · 内吞: moderate · 异质性: high (I/C)</div>
+    <div style="font-size:10px;color:#b07800;font-weight:600;margin-top:2px">证据等级：中</div>
+    <span class="expand-toggle"></span>
+    <div class="cc-detail">
+      <div class="collapse-bar"><div class="collapse-progress"></div></div>
+      <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:6px 10px;font-size:11px;color:#856404;margin-bottom:8px">⚠ 热门但高风险靶点：表达受 IFN-gamma 动态调控，且正常免疫细胞也表达 PD-L1，ADC 窗口需严格验证。</div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:4px 0 4px">表达与密度</div>
+      <div class="info-row"><span class="info-label">密度 (定性)</span><span class="info-value">moderate_inducible</span></div>
+      <div class="info-row"><span class="info-label">异质性</span><span class="info-value">high (C) — spatially heterogeneous and inducible by IFN-gamma</span></div>
+      <div class="info-row"><span class="info-label">正常组织表达</span><span class="info-value">moderate (immune cells, APCs, inflamed tissues; placenta high)</span></div>
+      <div class="info-row"><span class="info-label">脱靶风险</span><span class="info-value">high</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">内吞特性</div>
+      <div class="info-row"><span class="info-label">内吞速率</span><span class="info-value">moderate</span></div>
+      <div class="info-row"><span class="info-label">机制</span><span class="info-value">Antibody-induced endocytosis with lysosomal trafficking after surface engagement; suitability for ADC appears context-dependent and weaker than classic fast-internalizing targets such as TROP-2 or Nectin-4. (C/I)</span></div>
+      <div class="info-row"><span class="info-label">内吞后回收</span><span class="info-value">Partial recycling to membrane expected; not a purely degradative receptor. (I)</span></div>
+      <div class="info-row"><span class="info-label">抗原脱落率</span><span class="info-value">Moderate — soluble / exosomal PD-L1 may act as sink and complicate exposure-response. (C)</span></div>
+      <div class="info-row"><span class="info-label">增殖敏感性</span><span class="info-value">Low-to-moderate — cell-cycle independent payloads or immune-modulating ADC logic preferred over classic mitotic payloads.</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">生物标志物与检测</div>
+      <div class="info-row"><span class="info-label">生物标志物检测 / CDx</span><span class="info-value">IHC platforms already mature: 22C3, 28-8, SP263, SP142; readouts include TPS / CPS. Existing IO diagnostics can support ADC enrichment logic.</span></div>
+      <div class="info-row"><span class="info-label">证据说明</span><span class="info-value" style="font-style:italic;color:#444">PD-L1 is attractive because it marks both tumor cells and immunosuppressive tumor microenvironment, enabling a potential dual mechanism: direct payload delivery plus checkpoint blockade. However, broad immune-cell expression, dynamic induction, and soluble/exosomal PD-L1 create a much narrower therapeutic window than mainstream ADC targets. Recent bifunctional / bispecific PD-L1 ADC programs support continued interest.</span></div>
+      <div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">Cancers 2019;11:232 (PD-L1 antibody-drug conjugate concept)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">Anti-PD-L1 immunoconjugates for cancer therapy (2022 review)</span></div><div class="info-row" style="font-size:11px;color:#666"><span class="info-label">文献</span><span class="info-value">DB-1419 preclinical bispecific B7-H3 × PD-L1 ADC report</span></div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin:10px 0 4px;border-top:1px solid #eee;padding-top:8px">设计逻辑链 (Design Logic)</div>
+      <div class="info-row" style="background:#f0f7f4;padding:8px;border-radius:4px;border-left:3px solid #1a7a4a;margin-bottom:8px">
+        <span class="info-value" style="color:#1a7a4a;font-weight:500">[Tier 4 (Emerging)] Based on Inferred (I) moderate inducible density and Translational / preclinical (C) evidence of moderate internalization with lysosomal trafficking in PD-L1 ADC programs. Best suited for carefully tuned, cell-cycle independent or immune-active payload strategies rather than generic high-DAR tubulin payloads.</span>
       </div></div>
   </div></div>
 <div class="card" data-tier="Tier 3 (Failed)" onclick="toggleCard(this)" data-expr="实体瘤" data-intern="low" data-het="moderate" data-density="moderate" data-risk="low" data-search="tier 3 (failed) dll3 solid_tumor low moderate moderate [tier 3 (failed)] based on inferred (i) low_to_moderate density and inferred (i) low internalization. internalized via moderate-to-rapid clathrin-mediated endocytosis. dll3 is a non-canonical delta-like notch ligand; internalization is ligand-independent. expressed on cell surface as a cis-inhibitor of notch. (i).">
