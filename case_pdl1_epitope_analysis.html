@@ -391,9 +391,40 @@
 
   <!-- ─── STRUCTURAL ANALYSIS ─── -->
   <div class="reveal">
-    <div class="section-label">结构分析</div>
-    <h2 class="section-title">界面参数：<span>两株抗体的结合差异</span></h2>
-    <p class="section-intro">基于 AF2-Multimer 预测结构的全面界面分析。Ab1 具有更大的总体界面但延伸至 IgC 域外周；Ab2 界面更紧凑、集中于 IgV 核心区。</p>
+    <div class="section-label">结构可视化</div>
+    <h2 class="section-title">结合构型对比：<span>正面嵌入 vs. 侧面结合</span></h2>
+    <p class="section-intro">通过 AF2-Multimer 预测的复合物结构，可以清晰观察到两株抗体在 PD-L1 上的结合姿态差异。这种几何构型的不同直接决定了它们的阻断活性和应用方向。</p>
+    
+    <div class="compare-grid" style="margin-bottom: 24px;">
+      <div class="compare-col ab1">
+        <h4 style="color:#7c3aed; display:flex; align-items:center; gap:8px;">
+          <i data-lucide="layout-side-panel" style="width:18px;height:18px"></i>
+          Ab1 (非阻断型 / ADC 候选)
+        </h4>
+        <div style="background:#fff; border-radius:10px; padding:10px; margin-bottom:12px; border:1px solid #e5e7eb;">
+          <img src="images/case-pdl1-ab1.jpg" alt="Ab1 侧面结合构型" style="width:100%; border-radius:6px; display:block;">
+          <p style="font-size:11px; color:#6b7280; margin-top:8px; text-align:center;">Ab1 结合于 PD-L1 IgV 侧面并延伸至 IgC 域，不遮蔽 PD-1 结合核心</p>
+        </div>
+        <div class="compare-row"><span class="ck">结合构型</span><span class="cv violet">侧面延伸 (Lateral)</span></div>
+        <div class="compare-row"><span class="ck">PD-1 竞争</span><span class="cv">极低空间位阻</span></div>
+        <div class="compare-row"><span class="ck">主要优势</span><span class="cv">肿瘤靶向而不干扰免疫</span></div>
+      </div>
+      <div class="compare-col ab2">
+        <h4 style="color:#065f46; display:flex; align-items:center; gap:8px;">
+          <i data-lucide="layout-maximize" style="width:18px;height:18px"></i>
+          Ab2 (阻断型 / 免疫检查点)
+        </h4>
+        <div style="background:#fff; border-radius:10px; padding:10px; margin-bottom:12px; border:1px solid #e5e7eb;">
+          <img src="images/case-pdl1-ab2.jpg" alt="Ab2 正面嵌入构型" style="width:100%; border-radius:6px; display:block;">
+          <p style="font-size:11px; color:#6b7280; margin-top:8px; text-align:center;">Ab2 正面嵌入 PD-L1 IgV 核心区，直接占据 PD-1 结合界面</p>
+        </div>
+        <div class="compare-row"><span class="ck">结合构型</span><span class="cv green">正面嵌入 (Frontal)</span></div>
+        <div class="compare-row"><span class="ck">PD-1 竞争</span><span class="cv">强竞争性抑制</span></div>
+        <div class="compare-row"><span class="ck">主要优势</span><span class="cv">直接解除免疫抑制</span></div>
+      </div>
+    </div>
+
+    <div class="section-label">界面参数</div>
     <div class="metrics-grid" style="margin-bottom: 14px;">
       <div class="metric-card">
         <div class="metric-value">1941</div>

@@ -1,9 +1,9 @@
 <svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f0fdfa"/>
+      <stop offset="0"    stop-color="#f0fdfa"/>
       <stop offset="0.55" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#ccfbf1"/>
+      <stop offset="1"    stop-color="#ccfbf1"/>
     </linearGradient>
     <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0d9488" stop-opacity="0.75"/>
@@ -20,44 +20,28 @@
       </feMerge>
     </filter>
   </defs>
-
   <rect width="1200" height="675" fill="url(#bg)"/>
   <rect width="1200" height="675" fill="url(#dots)"/>
-
   <g opacity="0.55" fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft)">
-    <path d="M180 480 C 320 320, 450 580, 600 420 S 850 260, 1020 380"/>
-    <path d="M240 260 C 380 180, 480 360, 660 280 S 880 160, 1040 220" stroke-width="4" opacity="0.85"/>
-    <path d="M420 420 C 500 350, 550 350, 630 420" stroke-width="3" opacity="0.4" stroke-dasharray="8 8"/>
+    <path d="M200 260 C 360 200, 480 340, 620 280 S 840 180, 1040 240"/>
+    <path d="M220 440 C 370 380, 480 500, 640 430 S 840 320, 1040 400" stroke-width="4" opacity="0.80"/>
   </g>
-
   <g fill="#0d9488" opacity="0.22">
-    <circle cx="180" cy="480" r="10"/>
-    <circle cx="600" cy="420" r="12"/>
-    <circle cx="1020" cy="380" r="9"/>
+    <circle cx="620" cy="280" r="11"/>
+    <circle cx="640" cy="430" r="10"/>
+    <circle cx="1040" cy="240" r="8"/>
   </g>
-
-  <circle cx="520" cy="365" r="14" fill="#0d9488" opacity="0.18" filter="url(#soft)"/>
-  <circle cx="520" cy="365" r="7" fill="#0d9488" opacity="0.45"/>
-
-  <circle cx="708" cy="320" r="14" fill="#7c3aed" opacity="0.18" filter="url(#soft)"/>
-  <circle cx="708" cy="320" r="7" fill="#7c3aed" opacity="0.45"/>
-
-  <path d="M472 388 C 500 376, 520 370, 548 355"
-        fill="none" stroke="#0d9488" stroke-width="2.5"
-        stroke-linecap="round" stroke-dasharray="7 6" opacity="0.42"/>
-
-  <path d="M660 346 C 682 336, 699 329, 736 311"
+  <circle cx="490" cy="342" r="16" fill="#0ea5e9" opacity="0.16" filter="url(#soft)"/>
+  <circle cx="490" cy="342" r="8"  fill="#0ea5e9" opacity="0.50"/>
+  <circle cx="760" cy="312" r="16" fill="#7c3aed" opacity="0.18" filter="url(#soft)"/>
+  <circle cx="760" cy="312" r="8"  fill="#7c3aed" opacity="0.48"/>
+  <path d="M498 340 C 560 290, 680 286, 752 314"
         fill="none" stroke="#7c3aed" stroke-width="2.5"
-        stroke-linecap="round" stroke-dasharray="7 6" opacity="0.35"/>
-
-  <path d="M528 360 C 585 300, 645 292, 701 319"
-        fill="none" stroke="#7c3aed" stroke-width="2.5"
-        stroke-linecap="round" stroke-dasharray="8 6" opacity="0.28"/>
-
+        stroke-linecap="round" stroke-dasharray="8 6" opacity="0.38"/>
   <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
-    <text x="40" y="72" font-size="14" fill="#0f766e" font-weight="800" letter-spacing="2" opacity="0.9">CASE STUDY</text>
-    <text x="40" y="118" font-size="34" fill="#111827" font-weight="750">PD-L1 Antibody</text>
-    <text x="40" y="158" font-size="24" fill="#7c3aed" font-weight="700" opacity="0.75">Dual-Epitope Mapping</text>
-    <text x="40" y="188" font-size="13" fill="#6b7280" font-weight="500">Side-binding ADC route versus blocking checkpoint route</text>
+    <text x="40" y="72"  font-size="14" fill="#0f766e" font-weight="800" letter-spacing="2" opacity="0.9">CASE STUDY</text>
+    <text x="40" y="118" font-size="34" fill="#111827" font-weight="750">PD-L1 Dual-Clone</text>
+    <text x="40" y="158" font-size="24" fill="#7c3aed" font-weight="700" opacity="0.75">Epitope Structural Profiling</text>
+    <text x="40" y="188" font-size="13" fill="#6b7280" font-weight="500">Non-blocking ADC route vs. blocking ICI route -- AF2-Multimer</text>
   </g>
 </svg>
