@@ -18,7 +18,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.therasik.com/case_fentanyl_hapten_vam.html">
   <meta property="og:title" content="芬太尼半抗原抗体虚拟亲和力成熟 | Therasik">
-  <meta property="og:description" content="多阶段计算筛选：ABodyBuilder2 结构建模 + AutoDock Vina 对接 + EvoEF2 饱和扫描 + MM/GBSA 验证，ΔΔG 最优 −5.53 kcal/mol。">
+  <meta property="og:description" content="多阶段计算筛选：抗体三维结构建模 + 配体对接 + 系统突变扫描 + 物理化学能量验证，ΔΔG 最优 −5.53 kcal/mol。">
   <meta property="og:image" content="https://www.therasik.com/images/hero-bg.svg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -348,34 +348,34 @@
 
     <!-- 计算流程 -->
     <div class="reveal">
-      <p class="section-label">计算流程</p>
-      <h2 class="section-title">五阶段<span>多工具筛选</span>方案</h2>
-      <p class="section-intro">采用从结构到物理化学的逐层过滤策略，每一阶段基于前一阶段的排名结果做下一轮更精细的评估，确保最终候选兼顾亲和力和可开发性。</p>
+      <p class="section-label">设计流程</p>
+      <h2 class="section-title">五阶段<span>逐层筛选</span>策略</h2>
+      <p class="section-intro">从抗体三维结构出发，经分子对接确认结合口袋，再通过系统突变扫描和能量评估逐步缩小候选空间，最终以可开发性评估作为交付门控，确保推荐变体兼顾亲和力与生产可行性。</p>
       <div class="pipeline-flow">
         <div class="pipe-step">
           <div class="step-num">1</div>
-          <h4>三维结构建模</h4>
-          <p>ABodyBuilder2 双链 Fv 预测（VH+VL 分链输入）· IMGT 标准编号</p>
+          <h4>抗体三维结构建模</h4>
+          <p>基于 VH、VL 双链序列分别预测三维结构，采用国际通用 IMGT 编号体系，确保 CDR 区域准确定位</p>
         </div>
         <div class="pipe-step">
           <div class="step-num">2</div>
-          <h4>分子对接</h4>
-          <p>AutoDock Vina 1.2.7 · 以 CDR3 质心为中心 ±12 Å 搜索盒 · 最优打分 −6.9 kcal/mol</p>
+          <h4>配体对接 · 口袋定位</h4>
+          <p>将芬太尼小分子对接至 CDR3 交界区域，最优结合能 −6.9 kcal/mol，19 个接触残基中 68% 位于 CDR</p>
         </div>
         <div class="pipe-step">
           <div class="step-num">3</div>
-          <h4>丙氨酸扫描</h4>
-          <p>EvoEF2 · 对接触口袋 14 个 CDR 残基逐一替换 Ala · 鉴定关键热点</p>
+          <h4>位点贡献扫描</h4>
+          <p>对 14 个口袋接触 CDR 残基逐一进行丙氨酸替换，评估每个位点对结合的独立贡献，筛选出 9 个关键位点</p>
         </div>
         <div class="pipe-step">
           <div class="step-num">4</div>
-          <h4>饱和 + 组合扫描</h4>
-          <p>9 个位点全氨基酸替换 99 变体 · 最优单突变组合为 15 个双突变体</p>
+          <h4>饱和扫描 + 组合优化</h4>
+          <p>9 个位点全氨基酸饱和替换（99 个变体），最优单突变两两组合为 15 个双突变体，寻找协同效应</p>
         </div>
         <div class="pipe-step">
           <div class="step-num">5</div>
-          <h4>MM/GBSA 验证 + CMC</h4>
-          <p>GAFF2 + OpenMM OBC2 物理化学计算 · pI / 不稳定性指数 / 疏水性全面评估</p>
+          <h4>能量精算 + 可开发性评估</h4>
+          <p>对候选变体进行分子力学精细能量计算，同步评估等电点、热稳定性和聚集风险，确保临床可用性</p>
         </div>
       </div>
     </div>
@@ -383,96 +383,34 @@
     <!-- 结构可视化 -->
     <div class="reveal">
       <p class="section-label">结构分析</p>
-      <h2 class="section-title">抗体–芬太尼<span>结合口袋</span>图示</h2>
+      <h2 class="section-title">抗体–芬太尼<span>结合口袋</span>三维结构</h2>
       <div class="struct-panel">
         <div class="struct-inner">
-          <div class="struct-svg-wrap">
-            <svg width="340" height="280" viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="pocketGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#f59e0b" stop-opacity="0.35"/>
-                  <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
-                </radialGradient>
-                <radialGradient id="vhGrad" cx="30%" cy="30%" r="70%">
-                  <stop offset="0" stop-color="#5eead4"/>
-                  <stop offset="1" stop-color="#0d9488"/>
-                </radialGradient>
-                <radialGradient id="vlGrad" cx="30%" cy="30%" r="70%">
-                  <stop offset="0" stop-color="#93c5fd"/>
-                  <stop offset="1" stop-color="#3b82f6"/>
-                </radialGradient>
-                <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              </defs>
-              <!-- VH domain -->
-              <ellipse cx="130" cy="155" rx="88" ry="68" fill="url(#vhGrad)" opacity="0.22"/>
-              <ellipse cx="130" cy="155" rx="88" ry="68" fill="none" stroke="#0d9488" stroke-width="1.5" opacity="0.5"/>
-              <text x="130" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e" font-family="Inter,sans-serif">VH</text>
-              <!-- VL domain -->
-              <ellipse cx="215" cy="155" rx="88" ry="68" fill="url(#vlGrad)" opacity="0.16"/>
-              <ellipse cx="215" cy="155" rx="88" ry="68" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
-              <text x="215" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8" font-family="Inter,sans-serif">VL</text>
-              <!-- CDR loops VH -->
-              <path d="M90 100 C 105 72, 130 68, 145 96" fill="none" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
-              <path d="M100 130 C 112 110, 132 108, 142 128" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-              <path d="M112 160 C 128 134, 152 130, 165 158" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
-              <!-- CDR loops VL -->
-              <path d="M188 100 C 200 73, 222 70, 238 98" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-              <path d="M196 130 C 208 112, 228 110, 240 128" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
-              <path d="M178 160 C 192 133, 218 130, 232 157" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
-              <!-- CDR3 labels -->
-              <text x="140" y="128" font-size="8.5" fill="#0f766e" font-weight="700" font-family="Inter,sans-serif">HCDR3</text>
-              <text x="204" y="124" font-size="8.5" fill="#1d4ed8" font-weight="700" font-family="Inter,sans-serif">LCDR3</text>
-              <!-- Pocket glow -->
-              <circle cx="173" cy="148" r="38" fill="url(#pocketGlow)" filter="url(#glow)"/>
-              <!-- Fentanyl molecule (schematic) -->
-              <circle cx="173" cy="146" r="10" fill="#f59e0b" opacity="0.90" filter="url(#glow)"/>
-              <circle cx="162" cy="136" r="5" fill="#fbbf24" opacity="0.75"/>
-              <circle cx="184" cy="136" r="5" fill="#fbbf24" opacity="0.75"/>
-              <circle cx="173" cy="158" r="4" fill="#fcd34d" opacity="0.65"/>
-              <line x1="162" y1="136" x2="173" y2="146" stroke="#f59e0b" stroke-width="1.5" opacity="0.6"/>
-              <line x1="184" y1="136" x2="173" y2="146" stroke="#f59e0b" stroke-width="1.5" opacity="0.6"/>
-              <line x1="173" y1="146" x2="173" y2="158" stroke="#f59e0b" stroke-width="1.5" opacity="0.6"/>
-              <!-- Mutation sites -->
-              <circle cx="155" cy="148" r="6" fill="#7c3aed" opacity="0.22" filter="url(#glow)"/>
-              <circle cx="155" cy="148" r="3.5" fill="#7c3aed" opacity="0.65"/>
-              <circle cx="192" cy="152" r="6" fill="#7c3aed" opacity="0.22" filter="url(#glow)"/>
-              <circle cx="192" cy="152" r="3.5" fill="#7c3aed" opacity="0.65"/>
-              <!-- Mutation arrows -->
-              <path d="M155 140 L155 122" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
-              <text x="148" y="118" font-size="8" fill="#7c3aed" font-weight="700" font-family="Inter,sans-serif">W107→I</text>
-              <path d="M192 144 L210 126" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
-              <text x="206" y="122" font-size="8" fill="#7c3aed" font-weight="700" font-family="Inter,sans-serif">N116→E</text>
-              <!-- Labels -->
-              <text x="50" y="24" font-size="10" font-weight="700" fill="#374151" font-family="Inter,sans-serif">芬太尼结合口袋示意图</text>
-              <text x="50" y="38" font-size="8.5" fill="#6b7280" font-family="Inter,sans-serif">最优双突变位点标注（IMGT 编号）</text>
-              <!-- Legend -->
-              <circle cx="52" cy="248" r="5" fill="#f59e0b"/>
-              <text x="62" y="252" font-size="9" fill="#374151" font-family="Inter,sans-serif">芬太尼分子</text>
-              <circle cx="118" cy="248" r="5" fill="#7c3aed"/>
-              <text x="128" y="252" font-size="9" fill="#374151" font-family="Inter,sans-serif">优化突变位点</text>
-              <rect x="192" y="243" width="8" height="8" rx="2" fill="#0d9488" opacity="0.6"/>
-              <text x="205" y="252" font-size="9" fill="#374151" font-family="Inter,sans-serif">VH (绿)</text>
-              <rect x="252" y="243" width="8" height="8" rx="2" fill="#3b82f6" opacity="0.5"/>
-              <text x="265" y="252" font-size="9" fill="#374151" font-family="Inter,sans-serif">VL (蓝)</text>
-            </svg>
+          <div class="struct-svg-wrap" style="background:#111827; padding:0; overflow:hidden; min-height:320px; display:flex; align-items:center; justify-content:center;">
+            <img src="images/case-fentanyl-structure.png"
+                 alt="Ab278 抗体与芬太尼结合口袋静电势表面图——真实分子对接结构"
+                 style="width:100%; max-width:440px; height:auto; display:block; object-fit:contain;">
           </div>
-          <div class="struct-legend">
-            <h4>结合口袋结构特征</h4>
+          <div class="struct-legend" style="padding:22px 24px;">
+            <h4>结合口袋三维结构解读</h4>
+            <div style="font-size:11px;color:#6b7280;margin-bottom:12px;font-style:italic;">
+              ▲ 静电势表面图：蓝色为正电区域，红色为负电区域。芬太尼（黄绿色棒状）嵌入 VH/VL 界面口袋中央。
+            </div>
             <div class="legend-row">
               <div class="legend-dot" style="background:#f59e0b;"></div>
-              <div><strong>芬太尼小分子</strong>停留于 VH/VL 交界处的 CDR3-CDR3 口袋内，与 19 个残基形成接触，其中 13 个（68%）位于 CDR 环，确认结合口袋定位准确。</div>
+              <div><strong>芬太尼结合位置</strong>位于 VH/VL 界面的 CDR3-CDR3 口袋内，形成 19 个接触残基，其中 13 个（68%）在 CDR 区，口袋定位与预期一致。</div>
             </div>
             <div class="legend-row">
-              <div class="legend-dot" style="background:#0d9488;"></div>
-              <div><strong>重链 CDR3（HCDR3）</strong>是最主要的结合贡献者，丙氨酸扫描显示多个位点对结合有显著贡献。</div>
+              <div class="legend-dot" style="background:#ef4444;"></div>
+              <div><strong>口袋负电区（红色）</strong>为主要结合驱动区域，L:N116 位点突变为 Glu（负电荷）后可与口袋正极形成更强互补，显著提升结合能。</div>
             </div>
             <div class="legend-row">
-              <div class="legend-dot" style="background:#3b82f6;"></div>
-              <div><strong>轻链 CDR3（LCDR3）</strong>提供互补接触，N116 位点突变为 Glu 可引入负电荷增强极性相互作用。</div>
+              <div class="legend-dot" style="background:#6366f1;"></div>
+              <div><strong>口袋正电区（蓝色）</strong>由重链 CDR3 提供，H:W107 位点的色氨酸侧链体积过大、产生空间位阻；替换为更小的疏水残基后口袋更贴合芬太尼苯环。</div>
             </div>
             <div class="legend-row">
               <div class="legend-dot" style="background:#7c3aed;"></div>
-              <div><strong>最优突变组合</strong>H:W107I（HCDR3）+ L:N116E（LCDR3）呈现轻度协同效应，预测结合能改善 −5.53 kcal/mol。</div>
+              <div><strong>最优突变组合</strong>H:W107I + L:N116E 同时优化两侧相互作用，协同效应超出单突变加和预期 0.58 kcal/mol，总预测改善 −5.53 kcal/mol。</div>
             </div>
           </div>
         </div>
@@ -578,16 +516,16 @@
       <h2 class="section-title">为何选择<span>全计算流程</span></h2>
       <div class="adv-grid">
         <div class="adv-card purple">
-          <h4>🏗️ 抗体专用结构建模</h4>
-          <p>使用 ABodyBuilder2（ImmuneBuilder）对 VH + VL 分链建模，避免单链 scFv 的人工接头干扰，IMGT 标准编号与抗体工程惯例一致，CDR 接触识别更准确。</p>
+          <h4>🏗️ 分链独立建模</h4>
+          <p>重链（VH）与轻链（VL）分别建模后组装为完整 Fv 结构，避免单链拼接产生的人工接头干扰。CDR 口袋几何形状与天然抗体高度吻合，确保后续对接的可信度。</p>
         </div>
         <div class="adv-card teal">
-          <h4>🎯 半抗原专属对接策略</h4>
-          <p>以 CDR3 质心为中心设定 ±12 Å 对接搜索盒，精准定位半抗原结合空腔，避免假阳性结合位点，19 个接触残基中 68% 在 CDR 区域验证了策略有效性。</p>
+          <h4>🎯 CDR 口袋精准对接</h4>
+          <p>搜索空间聚焦于 CDR3-CDR3 交界区域，专为小分子半抗原优化的策略。19 个接触残基中 13 个位于 CDR 区，验证了结合位点定位准确，后续突变扫描的起点可信。</p>
         </div>
         <div class="adv-card amber">
-          <h4>⚡ 多阶段漏斗筛选</h4>
-          <p>丙氨酸扫描（粗筛）→ 饱和扫描（精筛）→ 组合扫描（协同发现）→ MM/GBSA + CMC（双重验证），效率远高于随机突变库筛选，成本仅需实验流程的 1/10。</p>
+          <h4>⚡ 漏斗式分级筛选</h4>
+          <p>粗筛（位点贡献扫描）→ 精筛（全氨基酸饱和替换）→ 协同发现（双突变组合）→ 物理化学双重验证，在 72 小时内完成超过 100 个候选的系统评估，效率是实验筛选的数十倍。</p>
         </div>
       </div>
     </div>
@@ -637,7 +575,7 @@
 <!-- ─── FOOTER ─── -->
 <footer class="site-footer">
   <p>© 2026 Therasik · <a href="index.html">首页</a> · <a href="index.html#contact">联系我们</a></p>
-  <p style="margin-top:6px;font-size:12px;color:#4b5563;">本案例为客户委托项目，序列信息依保密协议不予公开。数值结果与方法学内容经客户许可展示。</p>
+    <p style="margin-top:6px;font-size:12px;color:#4b5563;">本案例为客户委托项目，序列信息依保密协议不予公开。数值结果、结构图和流程内容经客户许可展示。</p>
 </footer>
 
 <script>
