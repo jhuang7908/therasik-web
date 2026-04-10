@@ -66,7 +66,7 @@
     .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
     .hero .hero-inner { position: relative; z-index: 2; max-width: 980px; }
     .hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.03em; color: #ffffff; line-height: 1.08; white-space: nowrap; }
-    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 400; }
+    .hero .tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.5; font-weight: 400; }
     .hero-features { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
     .feature-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.92); background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); font-weight: 500; }
     .feature-item svg { stroke: rgba(255,255,255,0.85); }
@@ -90,7 +90,7 @@
     .tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(13,148,136,0.10); }
     .tool-card .tc-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); background: rgba(13,148,136,0.1); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
     .tool-card h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; color: #111827; }
-    .tool-card p { font-size: 14px; color: #5b6472; line-height: 1.6; margin: 0; }
+    .tool-card p { font-size: 14px; color: #5b6472; line-height: 1.5; margin: 0; }
 
     /* Data highlight strips */
     .data-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 32px; }
@@ -111,7 +111,7 @@
 
     /* Feature list */
     .feature-list { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 12px; }
-    .feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #374151; line-height: 1.6; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #374151; line-height: 1.5; }
     .feature-list li::before { content: ''; display: inline-block; width: 20px; height: 20px; flex-shrink: 0; background: rgba(13,148,136,0.1); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230d9488' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; margin-top: 2px; }
 
     .cta-section { background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); color: #fff; padding: 72px 32px; text-align: center; }
@@ -305,7 +305,7 @@
   <div class="container">
     <span class="section-label">技术平台</span>
     <h2 class="section-h2">AbEngineCore — <span>统一设计引擎</span></h2>
-    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7;">AbEngineCore 是 Therasik 的核心计算框架，深度集成 <strong>30+</strong> 种业界领先的生物计算与 AI 建模工具。我们将机器学习算法与 1,142 条临床抗体基准数据有机整合，交付真正可执行的设计方案。以下是工作流中常用的 8 核心技术组件：</p>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.55;">AbEngineCore 是 Therasik 的核心计算框架，深度集成 <strong>30+</strong> 种业界领先的生物计算与 AI 建模工具。我们将机器学习算法与 1,142 条临床抗体基准数据有机整合，交付真正可执行的设计方案。以下是工作流中常用的 8 核心技术组件：</p>
 
     <div class="tool-grid">
       <div class="tool-card">
@@ -356,7 +356,7 @@
   <div class="container">
     <span class="section-label">临床参考库</span>
     <h2 class="section-h2">以临床数据为<span>校准基础</span></h2>
-    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7; margin-bottom: 8px;">Therasik 的差异化不在于工具本身，而在于我们以真实临床结果校准每一项评估——提供有意义的背景，而非孤立的分数。知识库侧持续对齐 <strong>1,142</strong> 条临床抗体序列库（含 <strong>42</strong> 条临床阶段 VHH 参考）、疫苗知识库中 <strong>109</strong> 条 MHC I/II 表位记录（EpiDesignCore），以及基于 <strong>458</strong> 株临床基因工程人源化抗体（AbRef-458）的 CMC 校准，包含 <strong>21</strong> 条关键临床 Fc 工程记录。</p>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.55; margin-bottom: 8px;">Therasik 的差异化不在于工具本身，而在于我们以真实临床结果校准每一项评估——提供有意义的背景，而非孤立的分数。知识库侧持续对齐 <strong>1,142</strong> 条临床抗体序列库（含 <strong>42</strong> 条临床阶段 VHH 参考）、疫苗知识库中 <strong>109</strong> 条 MHC I/II 表位记录（EpiDesignCore），以及基于 <strong>458</strong> 株临床基因工程人源化抗体（AbRef-458）的 CMC 校准，包含 <strong>21</strong> 条关键临床 Fc 工程记录。</p>
 
     <div class="data-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
       <div class="data-card">
@@ -408,7 +408,7 @@
   <div class="container">
     <span class="section-label">服务流程</span>
     <h2 class="section-h2">从输入序列到<span>可执行报告</span></h2>
-    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.7; margin-bottom: 8px;">AbEngineCore 的工作流是模块化的——根据项目类型和可用输入选择相关模块，每个阶段的输出均经专家验证。</p>
+    <p style="color: #4b5563; font-size: 17px; max-width: 760px; line-height: 1.55; margin-bottom: 8px;">AbEngineCore 的工作流是模块化的——根据项目类型和可用输入选择相关模块，每个阶段的输出均经专家验证。</p>
 
     <div class="pipeline">
       <div class="pipeline-step">

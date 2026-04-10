@@ -67,7 +67,7 @@
     .nav-icon { width: 18px; height: 18px; margin-right: 12px; opacity: 0.8; flex-shrink: 0; }
     .main { flex: 1; padding: 60px 60px 100px; max-width: 960px; margin: 0 auto; }
     .main h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 700; color: #111827; margin: 0 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
-    .main .subtitle { font-size: 20px; color: #4b5563; margin-bottom: 8px; line-height: 1.6; }
+    .main .subtitle { font-size: 20px; color: #4b5563; margin-bottom: 8px; line-height: 1.5; }
     .main h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: #111827; margin: 56px 0 24px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.05); letter-spacing: -0.01em; }
     .main h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
     .h2-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin-right: 12px; border-radius: 10px; background: rgba(13,148,136,0.1); color: var(--primary); vertical-align: middle; flex-shrink: 0; }
@@ -77,7 +77,7 @@
     .main .input-note { font-size: 14px; color: #6b7280; margin-top: 8px; font-style: italic; }
     .mission-block { background: linear-gradient(135deg, #eff6ff 0%, #fff 100%); border: 1px solid rgba(13,148,136,0.1); border-radius: 16px; padding: 32px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(13,148,136,0.05); position: relative; overflow: hidden; }
     .mission-block::before { content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13,148,136,0.1) 0%, transparent 70%); border-radius: 50%; transform: translate(30%, -30%); pointer-events: none; }
-    .mission-block p { margin: 0; font-size: 17px; line-height: 1.7; color: #111827; position: relative; z-index: 1; }
+    .mission-block p { margin: 0; font-size: 17px; line-height: 1.55; color: #111827; position: relative; z-index: 1; }
     .mission-block p + p { margin-top: 16px; }
     .mission-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; position: relative; z-index: 1; }
     .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(13,148,136,0.18); background: rgba(13,148,136,0.08); color: var(--primary-dark); text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.2s ease; }
@@ -87,7 +87,7 @@
     .trust-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 2px; background: linear-gradient(90deg, rgba(13,148,136,0.95), rgba(13,148,136,0.18)); }
     .trust-card .eyebrow { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); }
     .trust-card h3 { margin: 0 0 8px; font-size: 18px; color: #111827; }
-    .trust-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #5b6472; }
+    .trust-card p { margin: 0; font-size: 14px; line-height: 1.5; color: #5b6472; }
     .quick-proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
     .quick-proof-item { background: #fff; border: 1px solid rgba(13,148,136,0.1); border-radius: 14px; padding: 18px 16px; position: relative; overflow: hidden; }
     .quick-proof-item::before { content: ''; position: absolute; inset: auto 0 0 0; height: 3px; background: linear-gradient(90deg, rgba(13,148,136,0.95), rgba(13,148,136,0.15)); }
@@ -98,7 +98,7 @@
     .form-panel { background: linear-gradient(155deg, #f9fbff 0%, #f3f7fb 100%); border: 1px solid rgba(13,148,136,0.12); border-radius: 16px; padding: 22px; position: relative; overflow: hidden; }
     .form-panel::before { content: ''; position: absolute; inset: 0 auto auto 0; width: 100%; height: 2px; background: linear-gradient(90deg, rgba(13,148,136,0.9), rgba(13,148,136,0.18)); }
     .form-panel h3 { margin: 0 0 8px; font-size: 18px; color: #111827; }
-    .form-panel p { margin: 0; font-size: 14px; line-height: 1.6; color: #5b6472; }
+    .form-panel p { margin: 0; font-size: 14px; line-height: 1.5; color: #5b6472; }
     .form-panel ul { margin: 12px 0 0; padding-left: 18px; }
     .form-panel li { margin: 0 0 8px; font-size: 14px; color: #4b5563; }
     .form-block { padding: 24px; border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; background: #fff; }
@@ -588,7 +588,7 @@
           <span style="font-size:11px;font-weight:700;color:#0f766e;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.2);padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:0.05em;">VHH 双抗 · 表达优化</span>
         </div>
         <h3 style="margin:0 0 8px;font-size:17px;color:#0f172a;">Engineering a High-Expression Bispecific Coronavirus Nanobody</h3>
-        <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">一个靶向双冠状病毒刺突蛋白的 VHH-GS-VHH 双特异性融合蛋白在酵母中表达量持续偏低。SmartLink™ + VirtualCMC 流程诊断出 pI 驱动的内质网静电滞留为根本原因——通过臂交换 + 带电连接子工程将 pI 降低 1.09 个单位，同时将跨冠状病毒 IC90 提升 4.8×。</p>
+        <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height: 1.5;">一个靶向双冠状病毒刺突蛋白的 VHH-GS-VHH 双特异性融合蛋白在酵母中表达量持续偏低。SmartLink™ + VirtualCMC 流程诊断出 pI 驱动的内质网静电滞留为根本原因——通过臂交换 + 带电连接子工程将 pI 降低 1.09 个单位，同时将跨冠状病毒 IC90 提升 4.8×。</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
           <div style="text-align:center;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 16px;min-width:100px;">
             <div style="font-size:20px;font-weight:700;color:#059669;">↓1.09</div>
@@ -619,7 +619,7 @@
           <span style="font-size:11px;font-weight:700;color:#7c3aed;background:rgba(124,58,237,0.07);border:1px solid rgba(124,58,237,0.2);padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:0.05em;">IgG-like 双抗 · VH/VL 配对稳定性</span>
         </div>
         <h3 style="margin:0 0 8px;font-size:17px;color:#0f172a;">Faricimab VPSA：KiH+CrossFab 共表达中的臂特异性配对选择性</h3>
-        <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">CrossFab 解决的是 LC 层面的错配——但 Fv 可变结构域界面是独立的一层。InSynBio 对 Faricimab (VEGF-A×ANG-2, FDA 2022) 的 VPSA 分析揭示：A 臂具有强固有 Fv 选择性（156 个原生盐桥 → 错配后仅 43 个，−72%），B 臂则主要依赖 CrossFab C 域架构。仅凭 BSA 会得出相反结论——证明多维度 VPSA 的必要性。</p>
+        <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height: 1.5;">CrossFab 解决的是 LC 层面的错配——但 Fv 可变结构域界面是独立的一层。InSynBio 对 Faricimab (VEGF-A×ANG-2, FDA 2022) 的 VPSA 分析揭示：A 臂具有强固有 Fv 选择性（156 个原生盐桥 → 错配后仅 43 个，−72%），B 臂则主要依赖 CrossFab C 域架构。仅凭 BSA 会得出相反结论——证明多维度 VPSA 的必要性。</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
           <div style="text-align:center;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px 16px;min-width:120px;">
             <div style="font-size:16px;font-weight:700;color:#7c3aed;">156 → 43 SB</div>

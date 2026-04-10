@@ -63,11 +63,11 @@
     .breadcrumb a { color: #6b7280; text-decoration: none; }
     .breadcrumb a:hover { color: var(--primary); }
     .breadcrumb span { margin: 0 6px; }
-    .subtitle { font-size: 20px; color: #4b5563; margin-bottom: 8px; line-height: 1.6; }
+    .subtitle { font-size: 20px; color: #4b5563; margin-bottom: 8px; line-height: 1.5; }
     .main h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: #111827; margin: 56px 0 24px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.05); letter-spacing: -0.01em; }
     .main h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
     .h2-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin-right: 12px; border-radius: 10px; background: rgba(13,148,136,0.1); color: var(--primary); vertical-align: middle; }
-    .main p, .main ul, .main li { margin: 0 0 20px; color: #374151; font-size: 17px; line-height: 1.7; }
+    .main p, .main ul, .main li { margin: 0 0 20px; color: #374151; font-size: 15px; line-height: 1.55; }
     .main ul { padding-left: 24px; }
     .main li { margin-bottom: 10px; }
     
@@ -491,7 +491,7 @@
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;">
         <div style="background:#fef9c3;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;">
           <div style="font-weight:700;font-size:14px;color:#92400e;margin-bottom:8px;">① 微管蛋白抑制剂（Tubulin Inhibitors）</div>
-          <div style="font-size:12px;color:#374151;line-height:1.7;">
+          <div style="font-size:12px;color:#374151;line-height: 1.55;">
             代表：<strong>MMAE</strong>（LogP 3.2）、<strong>MMAF</strong>（LogP 2.8）、<strong>DM1/DM4</strong>（LogP 2.0–2.8）<br>
             最优 DAR：3–4（LogP 高，DAR &gt; 4 易聚集）<br>
             细胞周期：有丝分裂期依赖；旁观者效应：<span style="color:#0d9488;font-weight:600;">中等</span><br>
@@ -500,7 +500,7 @@
         </div>
         <div style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:10px;padding:14px 16px;">
           <div style="font-weight:700;font-size:14px;color:#065f46;margin-bottom:8px;">② 拓扑异构酶 I 抑制剂（TOP1i）</div>
-          <div style="font-size:12px;color:#374151;line-height:1.7;">
+          <div style="font-size:12px;color:#374151;line-height: 1.55;">
             代表：<strong>DXd</strong>（LogP 1.3）、<strong>SN-38</strong>（LogP −0.37）、<strong>Exatecan</strong>（LogP −0.2）<br>
             最优 DAR：4–8（亲水，高 DAR CMC 可接受）<br>
             细胞周期无关；旁观者效应：<span style="color:#16a34a;font-weight:600;">强</span>（膜渗透性高）<br>
@@ -509,7 +509,7 @@
         </div>
         <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:10px;padding:14px 16px;">
           <div style="font-weight:700;font-size:14px;color:#991b1b;margin-bottom:8px;">③ DNA 损伤剂（DNA Damaging Agents）</div>
-          <div style="font-size:12px;color:#374151;line-height:1.7;">
+          <div style="font-size:12px;color:#374151;line-height: 1.55;">
             代表：<strong>Calicheamicin</strong>（Mylotarg）、<strong>PBD（吡咯并苯并二氮卓）</strong>、<strong>Duocarmycin</strong><br>
             最优 DAR：2–2.5（超高效力，&lt; pM；DAR 高则毒性无法控制）<br>
             细胞周期无关；旁观者效应：<span style="color:#f59e0b;font-weight:600;">弱</span>（反应性太强）<br>
@@ -518,7 +518,7 @@
         </div>
         <div style="background:#ede9fe;border:1px solid #c4b5fd;border-radius:10px;padding:14px 16px;">
           <div style="font-weight:700;font-size:14px;color:#5b21b6;margin-bottom:8px;">④ 免疫刺激型（ISAC — Immunostimulatory ADC）</div>
-          <div style="font-size:12px;color:#374151;line-height:1.7;">
+          <div style="font-size:12px;color:#374151;line-height: 1.55;">
             代表：TLR 7/8 激动剂（如 resiquimod）、STING 激动剂、CpG ODN<br>
             DAR：2–4；机制：激活肿瘤内 APC，触发适应性免疫<br>
             旁观者效应：<span style="color:#16a34a;font-weight:600;">强（免疫激活）</span><br>
@@ -527,7 +527,7 @@
         </div>
         <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:14px 16px;">
           <div style="font-weight:700;font-size:14px;color:#0c4a6e;margin-bottom:8px;">⑤ 放射性核素（Radionuclide ADC / RDC）</div>
-          <div style="font-size:12px;color:#374151;line-height:1.7;">
+          <div style="font-size:12px;color:#374151;line-height: 1.55;">
             代表：<strong>Lu-177</strong>、<strong>Ac-225</strong>（α 粒子）、<strong>Y-90</strong><br>
             DAR：不适用（螯合剂 1:1 标记）<br>
             内化非必须；交叉火力可克服抗原异质性<br>
@@ -536,7 +536,7 @@
         </div>
         <div style="background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:14px 16px;">
           <div style="font-weight:700;font-size:14px;color:#9a3412;margin-bottom:8px;">⑥ 其他新型 Payload（6 类）</div>
-          <div style="font-size:12px;color:#374151;line-height:1.7;">
+          <div style="font-size:12px;color:#374151;line-height: 1.55;">
             <strong>蛋白毒素</strong>：蓖麻毒素 A（Ricin-A）、假单胞菌外毒素（PE24）— 免疫原性高<br>
             <strong>RNA Pol II 抑制剂</strong>：Amatoxin（α-鹅膏毒素）— 细胞周期无关<br>
             <strong>Bcl-xL 抑制剂</strong>：AZ1208 衍生物 — 凋亡通路<br>
@@ -663,7 +663,7 @@
       <h2 id="example"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>案例推演：TROP2 ADC 设计决策全过程</h2>
       <p>以下展示我们的 ADC 决策引擎针对三阴性乳腺癌（TNBC）项目的完整 8 步推演，说明每个设计选择背后的生物学依据与数据来源。</p>
 
-      <div style="background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#78350f;line-height:1.6;">
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#78350f;line-height: 1.5;">
         <strong>说明：</strong>本案例展示知识库查询推理路径（D1–D8）——即引擎如何从临床数据库中提取证据并形成决策。数据来源标注于各步骤中；正式项目还包括分子级计算（抗体 CMC 评估、LogP 建模、偶联结构模拟），将在交付报告中呈现。
       </div>
 
