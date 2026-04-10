@@ -6,7 +6,7 @@
   <meta name="description" content="Therasik 抗体研发与评估服务——序列分析、人源化、免疫原性预测、结构评估及亲和力成熟。专家审核，3–5 个工作日交付。">
   <meta name="keywords" content="抗体可开发性, VHH人源化, 免疫原性, CDR分析, 抗体工程, Therasik">
   <meta name="robots" content="index, follow">
-  <meta name="robots" content="noai, noimageai">
+  
   <link rel="canonical" href="https://www.therasik.com/Therasik_Antibody_Page.html">
   <meta property="og:title" content="抗体研发与评估 | Therasik">
   <meta property="og:description" content="为 Biotech、药企及 CRO 团队提供决策级抗体评估支持——人源化、可开发性、免疫原性及结构分析。专家审核报告，3–5 个工作日交付。">
@@ -29,9 +29,7 @@
     * { box-sizing: border-box; }
     body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size:  15px; line-height:  1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
 
-    @media print {
-      body { display: none !important; }
-    }
+    
 
     /* ── Fixed Header ── */
     .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: nowrap; }
@@ -859,11 +857,7 @@
   </footer>
 
   <script>
-    // Security: Anti-copy, Anti-right-click, Anti-print
-    (function() {
-      document.addEventListener('contextmenu', e => e.preventDefault());
-      document.addEventListener('selectstart', e => e.preventDefault());
-      document.addEventListener('copy', e => e.preventDefault());
+    
       document.addEventListener('keydown', e => {
         if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
           e.preventDefault();

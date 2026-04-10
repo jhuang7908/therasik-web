@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Therasik 技术平台：AbEngineCore 系统集成 AlphaFold2、ABodyBuilder2、HADDOCK3、ProteinMPNN 等工具，以 1,142 条临床抗体序列为基准，为药物设计提供专家审核输出。">
   <meta name="robots" content="index, follow">
-  <meta name="robots" content="noai, noimageai">
+  
   <link rel="canonical" href="https://www.therasik.com/Therasik_OurTech.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.therasik.com/Therasik_OurTech.html">
@@ -30,9 +30,7 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size:  15px; line-height:  1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
 
-    @media print {
-      body { display: none !important; }
-    }
+    
 
     /* Header */
     .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: nowrap; }
@@ -496,11 +494,7 @@
 </footer>
 
 <script>
-  // Security: Anti-copy, Anti-right-click, Anti-print
-  (function() {
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('copy', e => e.preventDefault());
+  
     document.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
         e.preventDefault();
