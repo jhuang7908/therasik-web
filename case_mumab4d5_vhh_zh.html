@@ -35,7 +35,7 @@
       --bg-white: #ffffff; --bg-light: #f9fafb;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; padding-top: 72px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text); line-height:  1.5; -webkit-font-smoothing: antialiased; padding-top: 72px; }
 
     /* ─── NAV ─── */
     .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; }
@@ -72,19 +72,19 @@
     .eval-amber  { background: rgba(245,158,11,0.25); color: #fde68a; border: 1px solid rgba(245,158,11,0.35); }
 
     /* ─── BODY ─── */
-    .page-body { padding: 64px 20px 80px; }
+    .page-body { padding:  40px 20px 60px; }
     .container { max-width: 1020px; margin: 0 auto; }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; margin-bottom: 52px; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; margin-bottom:  24px; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .section-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 8px; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,3.5vw,36px); font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.2; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size:  clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.2; }
     .section-title span { color: #4338ca; }
-    .section-intro { font-size: 16px; color: var(--text-muted); max-width: 720px; margin-bottom: 28px; line-height: 1.7; }
+    .section-intro { font-size:  13.5px; color: var(--text-muted); max-width: 720px; margin-bottom: 28px; line-height:  1.5; }
 
     /* ─── EXEC SUMMARY CARDS ─── */
     .card-grid { display: grid; gap: 20px; }
     .card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; padding: 24px 22px; }
-    .card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .card h3 { font-size:  14px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
     .card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin: 0; }
 
     /* ─── ADVANTAGE CARDS ─── */
@@ -97,7 +97,7 @@
     .adv-card .adv-icon i { color: #7c3aed; }
     .adv-card.teal .adv-icon i { color: var(--primary); }
     .adv-card.amber .adv-icon i { color: #d97706; }
-    .adv-card h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .adv-card h4 { font-size:  13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .adv-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
     /* ─── PATHWAY COMPARE ─── */

@@ -27,7 +27,7 @@
   <style>
     :root { --primary: #0d9488; --primary-dark: #0f766e; --text: #111827; --text-muted: #4b5563; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
+    body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size:  15px; line-height:  1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
 
     /* Header */
     .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
@@ -64,7 +64,7 @@
     .main h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: #111827; margin: 56px 0 24px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.05); letter-spacing: -0.01em; display: flex; align-items: center; }
     .main h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
     .h2-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin-right: 12px; border-radius: 10px; background: rgba(13,148,136,0.1); color: var(--primary); vertical-align: middle; flex-shrink: 0; }
-    .main p { margin: 0 0 20px; color: #374151; font-size: 17px; line-height: 1.7; }
+    .main p { margin: 0 0 20px; color: #374151; font-size:  14.5px; line-height:  1.5; }
     .main ul { padding-left: 24px; margin: 0 0 20px; }
     .main li { margin-bottom: 10px; color: #374151; font-size: 17px; line-height: 1.7; }
 
@@ -372,7 +372,7 @@
         </div>
       </div>
 
-      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:20px;">全人源抗体通过噬菌体展示或转基因小鼠技术获得，其 CDR 经由体细胞高频突变（SHM）进化，框架区完全人源。其 ADA 风险不来自外源序列，而来自<strong>分子结构本身的物理瑕疵</strong>：界面不稳定性与疏水斑块的暴露。</p>
+      <p style="color:#374151;font-size: 15px; line-height: 1.5;margin-bottom:20px;">全人源抗体通过噬菌体展示或转基因小鼠技术获得，其 CDR 经由体细胞高频突变（SHM）进化，框架区完全人源。其 ADA 风险不来自外源序列，而来自<strong>分子结构本身的物理瑕疵</strong>：界面不稳定性与疏水斑块的暴露。</p>
 
       <div class="insight-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px;">
         <div class="insight-card" style="background:#fff;">
@@ -434,7 +434,7 @@
         </div>
       </div>
 
-      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:20px;">人源化抗体通过 CDR 移植将鼠源互补决定区嫁接至人源框架。其 ADA 风险不仅来自外源 CDR 肽段，更来自三个工程特有的"设计陷阱"：<strong>Vernier Zone 残留、CDR-FR 接头（Junction）表位，以及人源化引发的分子不稳定性。</strong>临床干预（如 MTX 联用）会显著压制表观 ADA，使分子层面的相关性信号在统计上较弱——这正是 HU 评估需要专项系统的根本原因。</p>
+      <p style="color:#374151;font-size: 15px; line-height: 1.5;margin-bottom:20px;">人源化抗体通过 CDR 移植将鼠源互补决定区嫁接至人源框架。其 ADA 风险不仅来自外源 CDR 肽段，更来自三个工程特有的"设计陷阱"：<strong>Vernier Zone 残留、CDR-FR 接头（Junction）表位，以及人源化引发的分子不稳定性。</strong>临床干预（如 MTX 联用）会显著压制表观 ADA，使分子层面的相关性信号在统计上较弱——这正是 HU 评估需要专项系统的根本原因。</p>
 
       <div class="insight-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px;">
         <div class="insight-card" style="background:#fff;border-top:3px solid #1d4ed8;">
@@ -477,7 +477,7 @@
     <!-- ── Composite Score ── -->
     <div style="margin: 40px 0;">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">ADA V2.1 综合评分：FH vs HU 的预测效力对比</h3>
-      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">ADA V2.1 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈显著正相关（ρ=+0.308, p=0.025），相关性较 V2.0 进一步提升。本次权重更新的关键改进：<strong>基于 FH 深度扫描结果</strong>，将界面接触密度 (I) 权重从 20% 提升至 35%，表面斑块 (P) 权重从 25% 提升至 30%，并引入了 FH 专项 Midpoint 修正（0.32）以平衡风险分级。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
+      <p style="color:#374151;font-size: 15px; line-height: 1.5;margin-bottom:16px;">ADA V2.1 综合评分将多维特征加权整合为单一风险指标。在 FH 子集中，综合评分与临床 ADA 呈显著正相关（ρ=+0.308, p=0.025），相关性较 V2.0 进一步提升。本次权重更新的关键改进：<strong>基于 FH 深度扫描结果</strong>，将界面接触密度 (I) 权重从 20% 提升至 35%，表面斑块 (P) 权重从 25% 提升至 30%，并引入了 FH 专项 Midpoint 修正（0.32）以平衡风险分级。HU 子集中因临床免疫抑制剂的广泛使用，表观信号被压低（ρ≈0）——这恰恰验证了双轨制的必要性。</p>
       <div style="margin: 0; text-align: center;">
         <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 6: ADA V2 综合评分与临床 ADA — FH vs HU 对比</h4>
         <img src="images/ada_study/fig7_ada_v2_composite.png" alt="ADA V2 Composite Score" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -570,7 +570,7 @@
     <!-- ── CMC Cross-System ── -->
     <div style="margin: 40px 0;">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#111827;margin-bottom:16px;">CMC 可开发性特征：FH 与 HU 的共通风险</h3>
-      <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:16px;">无论 FH 还是 HU，<strong>聚集基序和疏水斑块</strong>在全样本面板中均维持正相关（全面板 ρ=+0.177, p=0.045），为早期 CMC 筛选提供了共通的免疫学风险依据。检测方法分层（Kruskal-Wallis p=0.852）证实这一相关性不受检测代际偏差影响。</p>
+      <p style="color:#374151;font-size: 15px; line-height: 1.5;margin-bottom:16px;">无论 FH 还是 HU，<strong>聚集基序和疏水斑块</strong>在全样本面板中均维持正相关（全面板 ρ=+0.177, p=0.045），为早期 CMC 筛选提供了共通的免疫学风险依据。检测方法分层（Kruskal-Wallis p=0.852）证实这一相关性不受检测代际偏差影响。</p>
       <div style="margin: 0; text-align: center;">
         <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">图 7: CMC 可开发性特征（聚集基序、脱酰胺等）与 ADA 的跨抗体形式关联</h4>
         <img src="images/ada_study/fig8_cmc_vs_ada.png" alt="CMC vs ADA" style="max-width: 100%; width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
