@@ -2,8 +2,6 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noai, noimageai">
-  <meta name="AI-Training" content="opt-out">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Therasik 抗体工程参考指南 — Fc mutation library, developability metrics, and immunogenicity factors.">
   <link rel="canonical" href="https://www.therasik.com/Therasik_Antibody_Guide.html">
@@ -219,15 +217,6 @@
       }
     })();
 
-    // Disable right-click on data tables and SVG charts
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('table, svg, .kpi-row, .card').forEach(function(el) {
-        el.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-      });
-      // Add copyright watermark to page title in source
-      var c = document.createComment(' © 2026 Therasik. All rights reserved. Unauthorized reproduction or scraping of this content is prohibited. contact@therasik.com ');
-      document.head.appendChild(c);
-    });
   </script>
   <meta name="citation_title" content="抗体工程参考指南: Fc Mutations, Developability Assessment Metrics, and Immunogenicity Factors">
   <meta name="citation_author" content="Therasik">
@@ -1510,17 +1499,6 @@ if (urlTab && DOMAINS[urlTab]) {
 updateCatFilter();
 renderGrid();
 
-// Security: Anti-copy, Anti-right-click, Anti-print
-(function() {
-  document.addEventListener('contextmenu', e => e.preventDefault());
-  document.addEventListener('selectstart', e => e.preventDefault());
-  document.addEventListener('copy', e => e.preventDefault());
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
-      e.preventDefault();
-    }
-  });
-})();
 </script>
 </body>
 </html>

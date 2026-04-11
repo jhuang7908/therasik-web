@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Comprehensive vaccine design knowledge base covering cancer, infectious diseases, and autoimmunity. Integrates antigen evidence, TCR pairs, delivery platforms, and mRNA design rules.">
-  <meta name="robots" content="noai, noimageai, noindex">
-  <meta name="AI-Training" content="opt-out">
+  <meta name="robots" content="index, follow">
   <meta name="copyright" content="© 2026 InSynBio / Therasik. All rights reserved. Unauthorized reproduction prohibited.">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Vaccine Design Knowledge Base | InSynBio</title>
@@ -343,21 +342,6 @@
       .hero h1 { font-size:30px; }
       .page { padding:18px 14px 56px; }
     }
-    /* ── Anti-copy protection ───────────────────────────────────────────── */
-    .kb-protected {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    @media print {
-      body::before {
-        content: "© 2026 InSynBio / Therasik — This knowledge base is protected by copyright. Printing and copying are prohibited.";
-        display: block; padding: 60px; font-size: 18px; text-align: center;
-        border: 3px solid #0d9488; border-radius: 12px; margin: 40px;
-      }
-      .page, .topbar { display: none !important; }
-    }
     .source-badge {
       display: inline-block; font-size: 10px; font-weight: 700;
       padding: 2px 7px; border-radius: 999px; text-transform: uppercase;
@@ -396,37 +380,8 @@
                 padding: 3px 10px; border: 1px solid rgba(13,148,136,.25); border-radius: 999px; }
     .tcr-link:hover { background: var(--accent); }
   </style>
-  <!-- Anti-crawler honeypot -->
-  <a href="/do-not-crawl/kb-bot-trap" aria-hidden="true" tabindex="-1"
-     style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"
-     rel="nofollow noindex">bot-trap</a>
 </head>
 <body>
-  <script>
-  (function(){
-    var _prot = function(e){
-      if(e.target && e.target.closest && e.target.closest('.kb-protected')){
-        e.preventDefault(); return false;
-      }
-    };
-    document.addEventListener('contextmenu', _prot, true);
-    document.addEventListener('copy',  _prot, true);
-    document.addEventListener('cut',   _prot, true);
-    document.addEventListener('dragstart', _prot, true);
-    document.addEventListener('keydown', function(e){
-      var ctrl = e.ctrlKey || e.metaKey;
-      if(ctrl && ['s','u','p'].indexOf(e.key.toLowerCase()) > -1){ e.preventDefault(); }
-      if(e.key === 'F12'){ e.preventDefault(); }
-      if(ctrl && e.shiftKey && ['i','j','c'].indexOf(e.key.toLowerCase()) > -1){ e.preventDefault(); }
-    });
-    window.addEventListener('beforeprint', function(){
-      document.querySelector('.page') && (document.querySelector('.page').style.display = 'none');
-    });
-    window.addEventListener('afterprint', function(){
-      document.querySelector('.page') && (document.querySelector('.page').style.display = '');
-    });
-  })();
-  </script>
   <script>window.PAGE_TEXT = {"statTumor": "Tumor", "statInfectious": "Infectious", "statTolerogenic": "Tolerogenic", "statDelivery": "Delivery", "statTcr": "TCR", "statBenchmarks": "Benchmarks", "sourceLabel": "Primary source", "questionsLabel": "Priority questions", "modulesLabel": "Recommended modules", "rankLabel": "Rank", "contextLabel": "Context", "locationLabel": "Location", "clinicalLabel": "Clinical signal", "reasonLabel": "Decision flags", "correlateLabel": "Immune correlate", "burdenLabel": "Burden", "comparatorLabel": "Comparators", "approachLabel": "Approach", "hlaLabel": "HLA", "translationalLabel": "Translational", "ifLabel": "If", "thenLabel": "Then", "clonotypesLabel": "clonotypes", "frequencyLabel": "Frequency", "manufacturingLabel": "Manufacturing", "coldChainLabel": "Cold chain", "compareLabel": "Comparators", "mechanismLabel": "Mechanism", "defaultLabel": "Default / parameters", "triggerLabel": "Trigger / required when", "logicLabel": "Core logic", "bestForLabel": "Best for", "inputsLabel": "inputs", "readoutsLabel": "readouts", "summaryLabel": "Summary", "implicationLabel": "Design implication", "resultsLabel": "results", "approvedShort": "approved", "lang": "en", "title": "Vaccine Design Knowledge Base | InSynBio", "meta_description": "Comprehensive vaccine design knowledge base covering cancer, infectious diseases, and autoimmunity. Integrates antigen evidence, TCR pairs, delivery platforms, and mRNA design rules.", "brand_prefix": "InSyn", "brand_accent": "Bio", "home_href": "index.html", "back_href": "vaccine_design.html", "back_label": "Vaccine Design", "home_label": "Home", "hero_title": "Vaccine Design Knowledge Base", "hero_subtitle": "A centralized evidence base for vaccine engineering. Covering tumor antigens, infectious pathogens, and tolerogenic targets with clinical-grade TCR data, delivery platform insights, and mRNA construct rules.", "integrity_note": "All data is sourced from peer-reviewed literature, clinical trial reports, and verified databases (PDB, IEDB, UniProt). Evidence tiers and verification status are provided for each record.", "search_placeholder": "Search antigens, TCRs, platforms, or design rules...", "tab_tumor": "Tumor", "tab_infectious": "Infectious", "tab_tolerogenic": "Tolerogenic", "tab_tcr": "TCR", "tab_delivery": "Delivery & Adjuvants", "tab_methods": "Design Methods", "tab_benchmarks": "Benchmarks", "tumor_title": "Tumor Antigen Targets", "tumor_desc": "Curated TAA and TSA database covering expression patterns, MHC-I/II epitopes, HLA restriction, and clinical status to support target prioritization and multi-epitope design.", "infectious_title": "Infectious Disease Antigens", "infectious_desc": "Key protective antigens from major viral and bacterial pathogens, including approved vaccine references, immune correlates, and variant update strategies.", "tolerogenic_title": "Autoimmunity / Tolerogenic Targets", "tolerogenic_desc": "Self-antigens involved in autoimmune diseases, including HLA risk associations, clinical status of tolerogenic vaccines, and immune tolerance induction strategies.", "tcr_title": "TCR-pMHC Database", "tcr_desc": "Clinically relevant TCR clones with full α/β chain sequences, CDR3 motifs, and structural data covering cancer, viral, and neoantigen scenarios.", "tcr_clones_title": "Verified TCR Clones", "tcr_clones_desc": "Records traceable to PDB structures or peer-reviewed literature (PMID), including affinity data and clinical context.", "tcr_rules_title": "TCR Selection Rules", "tcr_rules_desc": "Principles for selecting TCR clones for immune monitoring, adoptive cell therapy, and cross-reactivity risk assessment.", "tcr_motif_title": "Public TCR Motifs", "tcr_motif_desc": "High-frequency TCR clonotypes observed across multiple donors, useful for population-level immune response prediction.", "delivery_title": "Delivery Platforms & Adjuvants", "delivery_desc": "Insights into mRNA, viral vectors, and subunit platforms, including manufacturing notes, cold chain requirements, and immune bias profiles.", "platform_title": "Delivery Platforms", "platform_desc": "Comparison of major vaccine delivery technologies based on clinical validation, process complexity, and logistical requirements.", "adjuvant_title": "Adjuvant Systems", "adjuvant_desc": "Mechanism of action, immune bias (Th1/Th2/Th17), and approved product references for common vaccine adjuvants.", "helper_epitope_title": "Universal CD4 Helper Epitopes", "helper_epitope_desc": "Broadly reactive CD4⁺ T cell epitopes (e.g., PADRE) used to enhance immune help and overall vaccine immunogenicity.", "methods_title": "Design Methodologies", "methods_desc": "Consolidated rules for multi-epitope construct design, mRNA parameters, and experimental validation gates to support systematic design decisions.", "mrna_rules_title": "mRNA Construct Rules", "mrna_rules_desc": "Guidelines for epitope linkers (AAY, GPGPG), signal peptides, MITD fusion, and junctional neoepitope quality control.", "playbooks_title": "Design Playbooks", "playbooks_desc": "Standardized workflows for tumor, infectious, and TCR-guided vaccine projects with clear decision nodes and exit criteria.", "assay_title": "Experimental Gates", "assay_desc": "Core experimental readouts (ELISPOT, Multimer, ICS, etc.) and stage-gate criteria for immunogenicity validation.", "private_title": "Project Feedback", "private_desc": "Internal repository of design decisions and experimental outcomes to continuously refine design rules and model parameters.", "benchmarks_title": "Tool Benchmarks", "benchmarks_desc": "Public benchmark data for MHC-I/II prediction tools (AUC, sensitivity, specificity) to help set rational thresholds for validation.", "footer_note": "This knowledge base is powered by peer-reviewed evidence and verified data sources. For custom vaccine design services, please contact the InSynBio / Therasik team."};</script>
   <header class="topbar">
     <a class="brand" href="index.html">In<span class="accent">SynBio</span></a>

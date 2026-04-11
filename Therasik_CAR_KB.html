@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Therasik ACTES CAR-T 元件库与设计系统 — 覆盖 237+ 项临床验证元件、靶点导航与设计逻辑。">
-  <meta name="robots" content="noai, noimageai, noindex">
-  <meta name="AI-Training" content="opt-out">
+  <meta name="robots" content="index, follow">
   <meta name="copyright" content="© 2026 InSynBio / Therasik. All rights reserved. Unauthorized reproduction prohibited.">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>CAR-T 元件库与设计系统 | Therasik</title>
@@ -109,55 +108,9 @@
       .hero h1 { font-size: 28px; }
       .grid { grid-template-columns: 1fr; }
     }
-    /* ── Anti-copy protection ─────────────────────────────────────────── */
-    .kb-protected {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    @media print {
-      body::before {
-        content: "© 2026 InSynBio / Therasik — 本知识库受版权保护，禁止打印与复制。";
-        display: block; padding: 60px; font-size: 18px; text-align: center;
-        border: 3px solid #0d9488; border-radius: 12px; margin: 40px;
-      }
-      .page, header { display: none !important; }
-    }
   </style>
-  <!-- Anti-crawler honeypot -->
-  <a href="/do-not-crawl/kb-bot-trap" aria-hidden="true" tabindex="-1"
-     style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"
-     rel="nofollow noindex">bot-trap</a>
 </head>
 <body>
-  <script>
-  (function(){
-    var _prot = function(e){
-      if(e.target && e.target.closest && e.target.closest('.kb-protected')){
-        e.preventDefault(); return false;
-      }
-    };
-    document.addEventListener('contextmenu', _prot, true);
-    document.addEventListener('copy',  _prot, true);
-    document.addEventListener('cut',   _prot, true);
-    document.addEventListener('dragstart', _prot, true);
-    document.addEventListener('keydown', function(e){
-      var ctrl = e.ctrlKey || e.metaKey;
-      if(ctrl && ['s','u','p'].indexOf(e.key.toLowerCase()) > -1){ e.preventDefault(); }
-      if(e.key === 'F12'){ e.preventDefault(); }
-      if(ctrl && e.shiftKey && ['i','j','c'].indexOf(e.key.toLowerCase()) > -1){ e.preventDefault(); }
-    });
-    window.addEventListener('beforeprint', function(){
-      var p = document.querySelector('.page');
-      if(p) p.style.display = 'none';
-    });
-    window.addEventListener('afterprint', function(){
-      var p = document.querySelector('.page');
-      if(p) p.style.display = '';
-    });
-  })();
-  </script>
 <header class="top-header">
   <div class="brand">
     <a href="index.html"><span style="color:#111827">Thera</span><span class="accent">sik</span></a>

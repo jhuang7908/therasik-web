@@ -2,8 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noai, noimageai">
-  <meta name="AI-Training" content="opt-out">
+  <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Therasik ACTES CAR 组件库 — 237 curated CAR engineering components across 12 categories.">
   <link rel="canonical" href="https://www.therasik.com/Therasik_Component_Browser.html">
@@ -12,7 +11,6 @@
   <meta property="og:title" content="CAR-T 组件浏览器 | Therasik ACTES">
   <meta property="og:description" content="交互式浏览 Therasik 的 237 项 CAR-T 工程组件库：结合域、共刺激结构域、安全开关、接头、信号肽与递送载体。">
   <meta property="og:image" content="https://www.therasik.com/images/hero-bg.svg">
-  <meta name="robots" content="noindex">
   <title>CAR 组件库 | Therasik</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0S2HLBZ0B"></script>
   <script>
@@ -181,15 +179,6 @@
       }
     })();
 
-    // Disable right-click on data tables and SVG charts
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('table, svg, .kpi-row, .card').forEach(function(el) {
-        el.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-      });
-      // Add copyright watermark to page title in source
-      var c = document.createComment(' © 2026 Therasik. All rights reserved. Unauthorized reproduction or scraping of this content is prohibited. contact@therasik.com ');
-      document.head.appendChild(c);
-    });
   </script>
   <meta name="citation_title" content="Therasik ACTES CAR-T CAR 组件库: 237 Annotated Engineering Elements for Chimeric Antigen Receptor Design">
   <meta name="citation_author" content="Therasik">
@@ -546,18 +535,6 @@ document.getElementById('clear-btn').addEventListener('click',clearAll);
 document.getElementById('clear-btn2').addEventListener('click',clearAll);
 render();
 
-// Security: Anti-copy, Anti-right-click, Anti-print
-(function() {
-  document.addEventListener('contextmenu', e => e.preventDefault());
-  document.addEventListener('selectstart', e => e.preventDefault());
-  document.addEventListener('copy', e => e.preventDefault());
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
-      e.preventDefault();
-    }
-  });
-})();
-})();
 </script>
 </body>
 </html>
