@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therasik 服务白皮书 2026 · AI 辅助生物药研发决策</title>
+  <style>
+    /* ══════════════════════ TOKENS ══════════════════════ */
+    :root{
+      --t9:#0d4a44;--t8:#0d5e56;--t7:#0f766e;--t6:#0d9488;--t5:#14b8a6;--t3:#5eead4;--t1:#ccfbf1;--t0:#f0fdfa;
+      --r7:#b91c1c;--r6:#dc2626;--r1:#fee2e2;
+      --a6:#d97706;--a5:#f59e0b;--a0:#fffbeb;
+      --b7:#1d4ed8;--b1:#dbeafe;
+      --g9:#111827;--g8:#1f2937;--g7:#374151;--g5:#6b7280;--g3:#d1d5db;--g1:#f9fafb;
+      --wh:#ffffff;
+    }
+    /* ══════════════════════ BASE ══════════════════════ */
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',
+        -apple-system,BlinkMacSystemFont,sans-serif;
+      font-size:14px;line-height:1.7;color:var(--g9);background:#fff;
+      -webkit-font-smoothing:antialiased;
+    }
+    .doc{max-width:820px;margin:0 auto;}
+
+    /* ══════════════════════ SECTION SHELLS ══════════════════════ */
+    .pg{padding:40px 36px;}
+    .pg-cover{
+      background:#f0fdfa;
+      border-top:5px solid var(--t6);
+      position:relative;overflow:hidden;
+    }
+    /* Cover light-bg — all text dark */
+    .pg-cover h1{color:var(--t7);}
+    .pg-cover h1 em{color:var(--t5);}
+    .pg-cover .cover-sub{color:var(--g7);}
+    .pg-cover .cover-brand{color:var(--t7);}
+    .pg-cover .cover-brand b{color:var(--t5);font-style:italic;}
+    .pg-cover .cover-foot{color:var(--g5);border-color:var(--g3);}
+    .pg-cover .lbl{background:var(--t1);color:var(--t7);}
+    /* Problem cards — white on light */
+    .prob3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;}
+    .prob-card{background:#fff;border:1.5px solid var(--t3);border-radius:10px;padding:13px 12px;box-shadow:0 2px 8px rgba(13,148,136,.06);}
+    .pc-ico{font-size:20px;margin-bottom:6px;}
+    .pc-t{font-size:12px;font-weight:800;color:var(--g9);margin-bottom:4px;}
+    .pc-d{font-size:10.5px;color:var(--g7);line-height:1.5;}
+    /* About-us band — white on light */
+    .about-band{background:#fff;border:1.5px solid var(--t3);border-radius:12px;padding:14px 16px;margin:12px 0;box-shadow:0 2px 8px rgba(13,148,136,.06);}
+    .ab-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--t6);margin-bottom:6px;}
+    .ab-txt{font-size:12px;color:var(--g7);line-height:1.65;margin-bottom:8px;}
+    .ab-tags{display:flex;gap:8px;flex-wrap:wrap;}
+    .ab-tag{font-size:11px;color:var(--t7);font-weight:700;}
+    /* Stats strip — white cards */
+    .cv-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:12px 0;}
+    .cv-stat{text-align:center;background:#fff;border-radius:8px;padding:8px 4px;border:1.5px solid var(--t3);}
+    .cv-sn{font-size:20px;font-weight:900;color:var(--t6);line-height:1;display:block;}
+    .cv-sl{font-size:9px;color:var(--g5);margin-top:2px;display:block;line-height:1.3;}
+    /* Service chips */
+    .cv-chips{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 16px;}
+    .cv-chip{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:14px;background:var(--t0);color:var(--t7);border:1px solid var(--t3);}
+    /* Comparison table (S1) */
+    .cmp-table{width:100%;border-collapse:separate;border-spacing:10px 0;margin-top:14px;table-layout:fixed;}
+    .cmp-col{border-radius:12px;padding:2px;background:#fff;border:1.5px solid var(--g3);vertical-align:top;}
+    .cmp-col.cmp-ai,.cmp-col.cmp-cro{background:#f8fafc;}
+    .cmp-col.cmp-us{background:linear-gradient(170deg,var(--t1) 0%,var(--t0) 100%);border-left:3px solid var(--t5);border-right:3px solid var(--t5);}
+    .cmp-table th{padding:16px 14px 0;font-weight:normal;}
+    .cmp-table td{padding:0 14px;}
+    .cmp-hd{font-size:14px;font-weight:900;text-align:center;margin-bottom:3px;}
+    .cmp-ai .cmp-hd,.cmp-cro .cmp-hd{color:var(--g9);}
+    .cmp-us .cmp-hd{color:var(--t7);}
+    .cmp-sub{font-size:10px;font-weight:600;text-align:center;padding:2px 8px;border-radius:10px;margin-bottom:10px;display:block;}
+    .cmp-ai .cmp-sub,.cmp-cro .cmp-sub{color:var(--g5);background:var(--g3);}
+    .cmp-us .cmp-sub{color:var(--t6);background:rgba(13,148,136,.12);}
+    .cmp-row{display:flex;align-items:flex-start;gap:5px;font-size:11.5px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.5;}
+    .cmp-us .cmp-row{border-bottom-color:rgba(13,148,136,.15);}
+    .cmp-table tr:last-child .cmp-row{border:none;padding-bottom:14px;}
+    .cmp-row .ck{color:var(--t5);font-weight:900;font-size:13px;flex-shrink:0;}
+    .cmp-row .cx{color:#ef4444;font-weight:900;font-size:13px;flex-shrink:0;}
+    .cmp-us .cmp-row .ck{color:var(--t6);}
+    .cmp-ai .cmp-row em,.cmp-cro .cmp-row em{font-style:normal;color:var(--g7);}
+    .cmp-us .cmp-row em{font-style:normal;color:var(--g7);}
+    .pg-wh{background:#fff;}
+    .pg-lt{background:var(--t0);}
+    .pg-g1{background:var(--g1);}
+    .pg-dk{background:var(--g8);color:#fff;}
+    .pg-cta{background:linear-gradient(160deg,var(--t0) 0%,#e6faf7 100%);}
+
+    /* ══════════════════════ LABELS ══════════════════════ */
+    .lbl{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--t7);background:var(--t1);padding:3px 12px;border-radius:20px;margin-bottom:12px;
+    }
+    .pg-dk .lbl,.pg-cta .lbl{background:rgba(13,148,136,.12);color:var(--t7);}
+    .pg-dk .lbl{background:rgba(255,255,255,.12);color:#a7f3d0;}
+
+    /* ══════════════════════ HEADINGS ══════════════════════ */
+    h1{font-size:30px;font-weight:900;line-height:1.4;letter-spacing:-.03em;color:var(--t7);margin-bottom:14px;}
+    h1 em{display:inline-block;margin-top:8px;font-style:normal;color:var(--t5);}
+    h2{font-size:19px;font-weight:900;line-height:1.4;letter-spacing:-.02em;color:var(--g9);margin-bottom:14px;}
+    h2 em{display:inline-block;margin-top:6px;font-style:normal;color:var(--t6);}
+    h3{font-size:14px;font-weight:800;color:var(--g9);margin-bottom:6px;}
+    .pg-dk h2{color:#fff;}
+    .pg-dk h2 em{color:#6ee7b7;}
+
+    /* ══════════════════════ DIVIDER ══════════════════════ */
+    .div{height:3px;background:linear-gradient(90deg,var(--t6) 0%,var(--t5) 60%,transparent 100%);}
+
+    /* ══════════════════════ COVER LAYOUT ══════════════════════ */
+    .cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+    .cover-sub{font-size:13.5px;color:var(--g7);line-height:1.65;margin-bottom:18px;}
+    .cover-badge{
+      display:inline-block;font-size:11px;font-weight:700;
+      border:1.5px solid var(--t3);border-radius:20px;
+      padding:3px 12px;color:var(--t7);background:var(--t0);margin-right:5px;margin-bottom:6px;
+    }
+    .cover-stats{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+      margin-top:16px;border-top:2px solid var(--t1);padding-top:14px;
+    }
+    .cs-item{text-align:center;background:var(--t0);border-radius:8px;padding:8px 4px;}
+    .cs-n{font-size:24px;font-weight:900;color:var(--t6);line-height:1;}
+    .cs-l{font-size:10px;color:var(--g5);margin-top:3px;}
+    .cover-foot{
+      margin-top:16px;display:flex;align-items:center;justify-content:space-between;
+      font-size:11px;color:var(--g5);border-top:1px solid var(--g3);padding-top:12px;
+    }
+    .cover-brand{font-size:20px;font-weight:900;color:var(--t7);}
+    .cover-brand b{color:var(--t5);font-style:italic;}
+
+    /* ══════════════════════ CAPABILITY WHEEL (cover SVG) ══════════════════════ */
+    .cap-wheel{text-align:center;}
+    .cap-wheel svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+
+    /* ══════════════════════ DIFF TABLE (3-col) ══════════════════════ */
+    .diff3{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:0;border-radius:14px;overflow:hidden;border:2px solid var(--t6);}
+    .d-col{padding:18px 14px;}
+    .d-col-ai{background:#f8fafc;}
+    .d-col-us{background:var(--t7);color:#fff;}
+    .d-col-cro{background:#f8fafc;}
+    .d-col h3{font-size:13px;margin-bottom:4px;text-align:center;}
+    .d-col-us h3{color:#fff;}
+    .d-sub{font-size:10px;font-weight:600;text-align:center;padding:3px 8px;border-radius:10px;margin-bottom:12px;display:block;}
+    .d-col-ai .d-sub{color:var(--b7);background:var(--b1);}
+    .d-col-us .d-sub{color:#a7f3d0;background:rgba(255,255,255,.12);}
+    .d-col-cro .d-sub{color:var(--g7);background:var(--g3);}
+    .d-row{display:flex;align-items:flex-start;gap:6px;font-size:12px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+    .d-col-us .d-row{border-bottom-color:rgba(255,255,255,.12);}
+    .d-row:last-child{border:none;padding-bottom:0;}
+    .d-ok{color:#0d9488;font-weight:900;flex-shrink:0;font-size:14px;}
+    .d-no{color:#ef4444;font-weight:900;flex-shrink:0;font-size:14px;}
+    .d-col-us .d-ok{color:#6ee7b7;}
+    .d-col-us .d-no{color:#fca5a5;}
+    .d-row span{color:inherit;font-size:12px;line-height:1.5;flex:1;}
+    .d-col-us .d-row span{color:rgba(255,255,255,.88);}
+    .d-col-ai .d-row span,.d-col-cro .d-row span{color:var(--g7);}
+
+    /* ══════════════════════ SERVICE PIPELINE ══════════════════════ */
+    .svc-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;}
+    .sc-card{
+      background:#fff;border-radius:10px;border:1.5px solid var(--g3);overflow:hidden;
+      transition:box-shadow .2s;
+    }
+    .sc-hd{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--g3);}
+    .sc-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+    .sc-ico-t{background:var(--t1);}
+    .sc-ico-b{background:var(--b1);}
+    .sc-ico-o{background:#ffedd5;}
+    .sc-ico-r{background:var(--r1);}
+    .sc-ico-p{background:#fae8ff;}
+    .sc-ico-g{background:var(--g1);}
+    .sc-name{font-size:12px;font-weight:800;color:var(--g9);}
+    .sc-en{font-size:9px;color:var(--g5);font-weight:400;}
+    .sc-body{padding:8px 10px;}
+    .sc-pts{list-style:none;padding:0;margin:0;}
+    .sc-pts li{font-size:11px;color:var(--g7);padding:2px 0 2px 12px;position:relative;line-height:1.4;}
+    .sc-pts li::before{content:'·';position:absolute;left:3px;color:var(--t6);font-weight:900;font-size:14px;top:-1px;}
+    .sc-tag{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:8px;margin-top:4px;margin-right:3px;}
+    .tag-t{background:var(--t1);color:var(--t7);}
+    .tag-b{background:var(--b1);color:var(--b7);}
+    .tag-o{background:#ffedd5;color:#9a3412;}
+    .tag-r{background:var(--r1);color:var(--r7);}
+
+    /* ══════════════════════ DATABASE GRID ══════════════════════ */
+    .db6{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    .db-card{
+      background:#fff;border-radius:10px;border:1.5px solid var(--g3);padding:14px 12px;
+      position:relative;overflow:hidden;
+    }
+    .db-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+    .db-card.c-t::before{background:var(--t6);}
+    .db-card.c-r::before{background:var(--r6);}
+    .db-card.c-b::before{background:var(--b7);}
+    .db-card.c-o::before{background:var(--a5);}
+    .db-card.c-p::before{background:#9333ea;}
+    .db-card.c-g::before{background:var(--g7);}
+    .db-n{font-size:28px;font-weight:900;color:var(--g9);line-height:1;margin-bottom:2px;}
+    .db-n.c-t{color:var(--t6);}
+    .db-n.c-r{color:var(--r6);}
+    .db-n.c-b{color:var(--b7);}
+    .db-n.c-o{color:var(--a6);}
+    .db-n.c-p{color:#9333ea;}
+    .db-n.c-g{color:var(--g7);}
+    .db-label{font-size:12px;font-weight:800;color:var(--g9);margin-bottom:4px;display:block;}
+    .db-desc{font-size:10.5px;color:var(--g5);line-height:1.5;}
+    .rare-badge{
+      display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;
+      text-transform:uppercase;background:var(--r6);color:#fff;padding:2px 7px;border-radius:8px;
+      margin-left:4px;vertical-align:middle;
+    }
+    .qual-badge{
+      display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;
+      background:var(--t6);color:#fff;padding:2px 7px;border-radius:8px;
+      margin-left:4px;vertical-align:middle;
+    }
+    .comp-badge{
+      display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;
+      background:#9333ea;color:#fff;padding:2px 7px;border-radius:8px;
+      margin-left:4px;vertical-align:middle;
+    }
+
+    /* ══════════════════════ TOOLS LIST ══════════════════════ */
+    .tool-cats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .tool-cat{background:var(--g1);border-radius:10px;padding:12px 12px;}
+    .tc-head{font-size:11px;font-weight:800;color:var(--t7);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;}
+    .tc-tags{display:flex;flex-wrap:wrap;gap:4px;}
+    .tc-tag{font-size:10.5px;color:var(--g8);background:#fff;border:1px solid var(--g3);border-radius:6px;padding:2px 7px;font-weight:600;}
+    .tc-tag.ih{background:#f0fdf4;border-color:var(--t5);color:var(--t7);font-weight:700;}
+    .tc-tag.ih::before{content:"★ ";font-size:8px;}
+
+    /* ══════════════════════ CASES 3x3 ══════════════════════ */
+    .cases9{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    .case-card{
+      background:#fff;border-radius:10px;border:1.5px solid var(--g3);
+      overflow:hidden;position:relative;
+    }
+    .case-hd{padding:10px 65px 8px 12px;border-bottom:1px solid var(--g3);}
+    .case-type{
+      display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:.04em;
+      text-transform:uppercase;padding:2px 6px;border-radius:6px;margin-bottom:4px;
+    }
+    .ct-ab{background:var(--t1);color:var(--t7);}
+    .ct-cro{background:#fae8ff;color:#7e22ce;}
+    .ct-clt{background:#fef3c7;color:#92400e;}
+    .case-title{font-size:11.5px;font-weight:900;color:var(--t8);line-height:1.2;}
+    .case-body{padding:6px 10px;}
+    .case-result{font-size:11px;color:var(--t6);font-weight:800;margin-bottom:4px;}
+    .case-detail{font-size:10px;color:var(--g7);line-height:1.3;}
+    .case-impact{font-size:10px;color:var(--t7);font-weight:700;margin-top:5px;padding-top:5px;border-top:1px dashed var(--t3);line-height:1.4;}
+    .case-impact::before{content:"→ ";font-weight:900;}
+    .case-badge{
+      position:absolute;top:8px;right:8px;
+      font-size:8px;font-weight:800;padding:2px 6px;border-radius:6px;
+    }
+    .cb-client{background:var(--r1);color:var(--r6);}
+    .cb-demo{background:var(--t1);color:var(--t7);}
+    .cb-clt{background:var(--r1);color:var(--r6);}
+
+    /* ══════════════════════ PROCESS ══════════════════════ */
+    .proc5{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:16px 0;}
+    .proc5-step{text-align:center;position:relative;}
+    .proc5-step::after{
+      content:'→';position:absolute;right:-8px;top:18px;
+      font-size:16px;color:var(--t5);font-weight:900;
+    }
+    .proc5-step:last-child::after{display:none;}
+    .p5-ico{width:40px;height:40px;border-radius:8px;background:var(--t1);border:2px solid var(--t5);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:16px;}
+    .p5-t{font-size:11px;font-weight:800;color:var(--g9);margin-bottom:3px;}
+    .p5-d{font-size:9.5px;color:var(--g5);line-height:1.4;}
+
+    /* ══════════════════════ CONTACTS ══════════════════════ */
+    .cc3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px;}
+    .cc{background:#fff;border:1.5px solid var(--t3);border-radius:10px;padding:14px 12px;text-align:center;}
+    .cc.pri{background:var(--t0);border-color:var(--t5);box-shadow:0 2px 14px rgba(13,148,136,.18);}
+    .cc-ico{font-size:22px;margin-bottom:6px;}
+    .cc-lbl{font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+    .cc.pri .cc-lbl{color:var(--t6);}
+    .cc:not(.pri) .cc-lbl{color:var(--g5);}
+    .cc-val{font-size:13px;font-weight:800;}
+    .cc.pri .cc-val{color:var(--t7);}
+    .cc:not(.pri) .cc-val{color:var(--g9);}
+    .cc-hint{font-size:10px;margin-top:2px;}
+    .cc.pri .cc-hint{color:var(--t7);}
+    .cc:not(.pri) .cc-hint{color:var(--g5);}
+
+    /* ══════════════════════ MISC ══════════════════════ */
+    .pq{border-left:3px solid var(--t6);padding:8px 12px;background:var(--t0);border-radius:0 8px 8px 0;margin:12px 0;font-size:12.5px;font-weight:600;color:var(--t7);font-style:italic;line-height:1.6;}
+    .risk-note{background:var(--r1);border:1px solid #fca5a5;border-radius:10px;padding:10px 14px;font-size:12px;color:var(--r7);margin:10px 0;}
+    .risk-note b{color:var(--r6);}
+    .cols2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+    /* ══════════════════════ MOBILE ══════════════════════ */
+    @media(max-width:640px){
+      .pg{padding:28px 16px;}
+      .cols2,.tool-cats{grid-template-columns:1fr;}
+      .prob3,.db6,.cases9{grid-template-columns:1fr 1fr;}
+      .cv-stats{grid-template-columns:repeat(3,1fr);}
+      .svc-chain{grid-template-columns:1fr 1fr;}
+      .proc5{grid-template-columns:1fr 1fr;}
+      .cc3{grid-template-columns:1fr;}
+      h1{font-size:22px;}h2{font-size:16px;}
+    }
+
+    /* ══════════════════════ PRINT ══════════════════════ */
+    @media print{
+      /* ── 基础 ── */
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+      body{font-size:12.5px;line-height:1.6;}
+      .doc{max-width:100%;}
+      .div{display:none;}
+
+      /* ── 标题间距优化 ── */
+      h2 { line-height: 1.5; margin-bottom: 12px !important; }
+      h2 em { display: inline-block; margin-top: 6px; }
+
+      /* ── 允许自然分页，但保护卡片不被切断 ── */
+      .case-card, .db-card, .sc-card, .prob-card, .tool-cat, .proc5-step, .cc {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* ── 适度调整各区 padding，让排版紧凑 ── */
+      .pg { padding: 20px 24px !important; }
+      #s0 { padding: 30px 30px 20px !important; }
+
+      /* ── 缩小一些大元素的间距 ── */
+      .prob3 { margin: 12px 0 !important; }
+      .about-band { margin: 12px 0 !important; padding: 12px 16px !important; }
+      .cv-stats { margin: 12px 0 !important; }
+      .cmp-table { margin-bottom: 12px !important; }
+      .svc-chain { margin-bottom: 12px !important; }
+      .db6 { margin-bottom: 12px !important; }
+      .cases9 { gap: 8px !important; }
+
+      /* ── 恢复一些字号，避免过大 ── */
+      #s0 h1 { font-size: 26px !important; line-height: 1.4 !important; }
+      .db-n { font-size: 22px !important; }
+      .p5-ico{background:#ccfbf1 !important;border-color:#14b8a6 !important;color:#0f766e !important;}
+
+      @page{size:A4 portrait;margin:12mm 10mm;}
+    }
+  </style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ════════════════════════════════════════
+     COVER — 深青花纹底，信息丰富
+════════════════════════════════════════ -->
+<div id="s0" class="pg pg-cover" style="padding:36px 38px 28px;">
+
+  <!-- Rich biotech abstract background: circuit · neural · DNA · antibody -->
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"
+       viewBox="0 0 820 640" preserveAspectRatio="xMidYMid slice"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <!-- ① CIRCUIT BOARD — top-left corner -->
+    <g opacity=".1" transform="translate(10,28)" stroke="#0d9488" fill="#0d9488" stroke-linecap="square">
+      <line x1="0"   y1="0"   x2="185" y2="0"   stroke-width="1" fill="none"/>
+      <line x1="0"   y1="38"  x2="155" y2="38"  stroke-width="1" fill="none"/>
+      <line x1="30"  y1="76"  x2="185" y2="76"  stroke-width="1" fill="none"/>
+      <line x1="0"   y1="114" x2="125" y2="114" stroke-width="1" fill="none"/>
+      <line x1="38"  y1="0"   x2="38"  y2="145" stroke-width="1" fill="none"/>
+      <line x1="78"  y1="0"   x2="78"  y2="145" stroke-width="1" fill="none"/>
+      <line x1="118" y1="0"   x2="118" y2="114" stroke-width="1" fill="none"/>
+      <line x1="158" y1="0"   x2="158" y2="76"  stroke-width="1" fill="none"/>
+      <!-- Square pads -->
+      <rect x="34"  y="-4"  width="8" height="8" rx="1"/>
+      <rect x="74"  y="-4"  width="8" height="8" rx="1"/>
+      <rect x="74"  y="34"  width="8" height="8" rx="1"/>
+      <rect x="114" y="34"  width="8" height="8" rx="1"/>
+      <rect x="154" y="72"  width="8" height="8" rx="1"/>
+      <rect x="34"  y="72"  width="8" height="8" rx="1"/>
+      <rect x="114" y="110" width="8" height="8" rx="1"/>
+      <!-- Circular vias -->
+      <circle cx="118" cy="0"  r="4" fill="#0d9488"/>
+      <circle cx="78"  cy="76" r="4" fill="#0d9488"/>
+      <circle cx="38"  cy="38" r="3" fill="#0d9488"/>
+      <circle cx="158" cy="38" r="3" fill="#0d9488"/>
+      <!-- IC chip -->
+      <rect x="85" y="45" width="26" height="18" rx="2" fill="none" stroke-width="1.2"/>
+      <line x1="85" y1="50" x2="78" y2="50" stroke-width="1" fill="none"/>
+      <line x1="85" y1="57" x2="78" y2="57" stroke-width="1" fill="none"/>
+      <line x1="111" y1="50" x2="118" y2="50" stroke-width="1" fill="none"/>
+      <line x1="111" y1="57" x2="118" y2="57" stroke-width="1" fill="none"/>
+      <!-- Resistor-like component -->
+      <rect x="42" y="104" width="20" height="10" rx="2" fill="none" stroke-width="1"/>
+      <line x1="38" y1="109" x2="42" y2="109" stroke-width="1" fill="none"/>
+      <line x1="62" y1="109" x2="68" y2="109" stroke-width="1" fill="none"/>
+    </g>
+
+    <!-- ② NEURAL NETWORK / BRAIN — top center–right -->
+    <g opacity=".09" stroke="#0d9488" fill="#0d9488">
+      <circle cx="310" cy="42"  r="5.5" fill="none" stroke-width="1.3"/>
+      <circle cx="370" cy="20"  r="4"   fill="none" stroke-width="1.1"/>
+      <circle cx="430" cy="52"  r="6.5" fill="none" stroke-width="1.3"/>
+      <circle cx="492" cy="18"  r="4"   fill="none" stroke-width="1.1"/>
+      <circle cx="550" cy="58"  r="5.5" fill="none" stroke-width="1.3"/>
+      <circle cx="610" cy="28"  r="4"   fill="none" stroke-width="1.1"/>
+      <circle cx="340" cy="88"  r="3.5" fill="none" stroke-width="1"/>
+      <circle cx="480" cy="92"  r="3.5" fill="none" stroke-width="1"/>
+      <circle cx="580" cy="85"  r="3"   fill="none" stroke-width="1"/>
+      <!-- Filled accent nodes -->
+      <circle cx="430" cy="52"  r="3" fill="#0d9488" opacity=".4"/>
+      <circle cx="310" cy="42"  r="2.5" fill="#0d9488" opacity=".3"/>
+      <!-- Connections: main chain -->
+      <line x1="310" y1="42"  x2="370" y2="20"  stroke-width="0.8"/>
+      <line x1="370" y1="20"  x2="430" y2="52"  stroke-width="0.8"/>
+      <line x1="430" y1="52"  x2="492" y2="18"  stroke-width="0.8"/>
+      <line x1="492" y1="18"  x2="550" y2="58"  stroke-width="0.8"/>
+      <line x1="550" y1="58"  x2="610" y2="28"  stroke-width="0.8"/>
+      <!-- Cross connections -->
+      <line x1="310" y1="42"  x2="430" y2="52"  stroke-width="0.5"/>
+      <line x1="370" y1="20"  x2="492" y2="18"  stroke-width="0.5"/>
+      <line x1="430" y1="52"  x2="550" y2="58"  stroke-width="0.5"/>
+      <!-- Down branches -->
+      <line x1="310" y1="42"  x2="340" y2="88"  stroke-width="0.7"/>
+      <line x1="430" y1="52"  x2="340" y2="88"  stroke-width="0.6"/>
+      <line x1="430" y1="52"  x2="480" y2="92"  stroke-width="0.7"/>
+      <line x1="550" y1="58"  x2="480" y2="92"  stroke-width="0.6"/>
+      <line x1="550" y1="58"  x2="580" y2="85"  stroke-width="0.7"/>
+      <line x1="610" y1="28"  x2="580" y2="85"  stroke-width="0.6"/>
+    </g>
+
+    <!-- ③ DNA DOUBLE HELIX — right edge, vertical -->
+    <g opacity=".12" stroke="#0d9488" fill="none" stroke-linecap="round">
+      <!-- Strand A: curves right-left-right -->
+      <path d="M776,115
+               Q795,148 776,180  Q757,212 776,244
+               Q795,276 776,308  Q757,340 776,372
+               Q795,404 776,436  Q757,468 776,500  Q795,532 776,560"
+            stroke-width="1.6"/>
+      <!-- Strand B: mirror, curves left-right-left -->
+      <path d="M776,115
+               Q757,148 776,180  Q795,212 776,244
+               Q757,276 776,308  Q795,340 776,372
+               Q757,404 776,436  Q795,468 776,500  Q757,532 776,560"
+            stroke-width="1.6"/>
+      <!-- Base pairs — at helix maxima (where strands are farthest apart) -->
+      <line x1="757" y1="148" x2="795" y2="148" stroke-width="1"/>
+      <line x1="757" y1="162" x2="795" y2="162" stroke-width="0.7"/>
+      <line x1="757" y1="212" x2="795" y2="212" stroke-width="1"/>
+      <line x1="757" y1="226" x2="795" y2="226" stroke-width="0.7"/>
+      <line x1="757" y1="276" x2="795" y2="276" stroke-width="1"/>
+      <line x1="757" y1="290" x2="795" y2="290" stroke-width="0.7"/>
+      <line x1="757" y1="340" x2="795" y2="340" stroke-width="1"/>
+      <line x1="757" y1="354" x2="795" y2="354" stroke-width="0.7"/>
+      <line x1="757" y1="404" x2="795" y2="404" stroke-width="1"/>
+      <line x1="757" y1="418" x2="795" y2="418" stroke-width="0.7"/>
+      <line x1="757" y1="468" x2="795" y2="468" stroke-width="1"/>
+      <line x1="757" y1="482" x2="795" y2="482" stroke-width="0.7"/>
+      <line x1="757" y1="532" x2="795" y2="532" stroke-width="1"/>
+      <!-- Nodes at crossing points -->
+      <circle cx="776" cy="115" r="3"   fill="#0d9488" opacity=".7"/>
+      <circle cx="776" cy="180" r="2.5" fill="#0d9488" opacity=".5"/>
+      <circle cx="776" cy="244" r="2.5" fill="#0d9488" opacity=".5"/>
+      <circle cx="776" cy="308" r="3"   fill="#0d9488" opacity=".7"/>
+      <circle cx="776" cy="372" r="2.5" fill="#0d9488" opacity=".5"/>
+      <circle cx="776" cy="436" r="2.5" fill="#0d9488" opacity=".5"/>
+      <circle cx="776" cy="500" r="3"   fill="#0d9488" opacity=".7"/>
+    </g>
+
+    <!-- ④ ANTIBODY Y-SHAPE — bottom left -->
+    <g opacity=".1" transform="translate(22,452)" stroke="#0d9488" fill="none"
+       stroke-linecap="round" stroke-linejoin="round">
+      <!-- CH3 domain (lower Fc) -->
+      <rect x="44" y="110" width="36" height="24" rx="11" stroke-width="1.8"/>
+      <!-- CH2 domain (upper Fc) -->
+      <rect x="44" y="80"  width="36" height="24" rx="11" stroke-width="1.8"/>
+      <!-- Hinge stem -->
+      <line x1="62" y1="80" x2="62" y2="66" stroke-width="2.2"/>
+      <!-- Left Fab arm path -->
+      <path d="M62,66 C46,57 26,38 10,10" stroke-width="2"/>
+      <!-- Right Fab arm path -->
+      <path d="M62,66 C78,57 98,38 114,10" stroke-width="2"/>
+      <!-- Left variable domain (Fab tip) -->
+      <ellipse cx="8"   cy="5"  rx="14" ry="9"  stroke-width="1.6"/>
+      <!-- Right variable domain (Fab tip) -->
+      <ellipse cx="116" cy="5"  rx="14" ry="9"  stroke-width="1.6"/>
+      <!-- Left CL/CH1 constant region suggestion -->
+      <path d="M10,10 C4,22 6,34 14,40"  stroke-width="1.3"/>
+      <!-- Right CL/CH1 constant region suggestion -->
+      <path d="M114,10 C120,22 118,34 110,40" stroke-width="1.3"/>
+      <!-- Hinge disulfide bridge suggestion -->
+      <line x1="50" y1="68" x2="74" y2="68" stroke-width="1.3"/>
+    </g>
+
+  </svg>
+
+  <!-- Top bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;position:relative;z-index:1;">
+    <div class="cover-brand">Thera<b>sik</b> <span style="font-size:11px;font-weight:400;color:var(--g5);margin-left:8px;">服务白皮书 · 2026</span></div>
+    <div style="font-size:11px;color:var(--g5);text-align:right;line-height:1.6;">
+      www.therasik.com<br>微信 Rockhj · contact@therasik.com
+    </div>
+  </div>
+
+  <!-- Hero: what we do -->
+  <div style="position:relative;z-index:1;max-width:760px;">
+    <h1 style="font-size:28px;margin-bottom:8px;">AI 辅助生物药研发决策<br><em>解决问题，而非展示工具</em></h1>
+    <p class="cover-sub" style="font-size:13.5px;max-width:640px;margin-bottom:0;">
+      Therasik 整合 <strong style="color:var(--t7);">AI 分析 + 6 大临床专有数据库 + 专家判断</strong>，为抗体、双抗、CAR-T 与疫苗开发团队提供从序列到报告的全链路决策支持——在进入湿实验室之前，系统识别并降低研发失败风险。
+    </p>
+  </div>
+
+  <!-- 3 problems we solve -->
+  <div class="prob3" style="position:relative;z-index:1;">
+    <div class="prob-card">
+      <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+      <div class="pc-t">CMC 可开发性缺口</div>
+      <div class="pc-d">序列优化阶段未考量 CMC 边界，缺口在 IND 阶段才暴露，约 30% 候选分子因此临床前淘汰。</div>
+      <div style="font-size:10px;color:var(--r6);font-weight:700;margin-top:5px;">代价：浪费 6–18 个月开发周期</div>
+    </div>
+    <div class="prob-card">
+      <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div>
+      <div class="pc-t">免疫原性风险后置</div>
+      <div class="pc-d">人源化不充分、T 细胞表位未筛查，进入动物试验才触发 ADA 信号，被迫推倒重来。</div>
+      <div style="font-size:10px;color:var(--r6);font-weight:700;margin-top:5px;">代价：动物实验失败 = 百万级重复投入</div>
+    </div>
+    <div class="prob-card">
+      <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+      <div class="pc-t">格式选择依赖经验</div>
+      <div class="pc-d">双抗 / ADC / CAR 元件选择缺乏临床数据支撑，复现性差，走错方向无法量化。</div>
+      <div style="font-size:10px;color:var(--r6);font-weight:700;margin-top:5px;">代价：格式错误意味着整条管线重做</div>
+    </div>
+  </div>
+
+  <!-- Our solution line -->
+  <div style="position:relative;z-index:1;background:#fff;border:2px solid var(--t5);border-radius:10px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(13,148,136,.1);">
+    <span style="font-size:22px;color:var(--t6);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+    <p style="font-size:12.5px;color:var(--g7);line-height:1.55;margin:0;">
+      <strong style="color:var(--t7);">我们的解决方案：</strong>在湿实验之前介入——用 20+ AI 工具快速分析，用 6 大临床数据库作格式专属对标，用专家判断转化为可执行建议。<strong style="color:var(--t7);">不是分数，是方向。不是工具，是护城河。</strong>
+    </p>
+  </div>
+
+  <!-- About us -->
+  <div class="about-band" style="position:relative;z-index:1;">
+    <div class="ab-title">关于 Therasik 团队</div>
+    <p class="ab-txt">
+      核心团队来自<strong style="color:var(--g9);">中国科学院、哥伦比亚大学与洛克菲勒大学</strong>，免疫学专业背景，拥有逾十年免疫药物开发实战经验。专注于将计算 AI 与免疫学领域深度知识结合，已为多家 Biotech 公司及科研团队提供服务，覆盖从抗体人源化到新抗原疫苗的完整计算分析交付。
+    </p>
+    <div class="ab-tags">
+      <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>中国科学院</span>
+      <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>哥伦比亚大学</span>
+      <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>洛克菲勒大学</span>
+      <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><path d="M15 2v20"/><path d="M9 2v20"/><path d="M9 22c3 0 6-3 6-6"/><path d="M15 2c-3 0-6 3-6 6"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/><path d="M9 18h6"/></svg>免疫学专业</span>
+      <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><path d="M14 4L3.5 14.5a2.12 2.12 0 0 0 0 3l.5.5a2.12 2.12 0 0 0 3 0L17.5 7.5"/><path d="M12 8l4 4"/><path d="M2 22l3-3"/></svg>10+ 年免疫药物开发</span>
+      <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>AI 工程</span>
+    </div>
+  </div>
+
+  <!-- Key numbers strip -->
+  <div class="cv-stats" style="position:relative;z-index:1;">
+    <div class="cv-stat"><span class="cv-sn">1,142</span><span class="cv-sl">临床抗体<br>参考序列</span></div>
+    <div class="cv-stat"><span class="cv-sn">138</span><span class="cv-sl">ADA 稀有<br>免疫记录</span></div>
+    <div class="cv-stat"><span class="cv-sn">20+</span><span class="cv-sl">AI 分析<br>工具</span></div>
+    <div class="cv-stat"><span class="cv-sn">9</span><span class="cv-sl">完整实战<br>案例</span></div>
+    <div class="cv-stat"><span class="cv-sn">100+</span><span class="cv-sl">ADC 临床<br>项目库</span></div>
+    <div class="cv-stat"><span class="cv-sn">3–5天</span><span class="cv-sl">专家审核<br>交付</span></div>
+  </div>
+
+  <!-- Service chips -->
+  <div class="cv-chips" style="position:relative;z-index:1;">
+    <span class="cv-chip">VH/VL 人源化</span>
+    <span class="cv-chip">VHH 人源化</span>
+    <span class="cv-chip">VH→VHH 转化</span>
+    <span class="cv-chip">CMC 可开发性</span>
+    <span class="cv-chip">虚拟亲和力成熟</span>
+    <span class="cv-chip">CDR 重新设计</span>
+    <span class="cv-chip">免疫原性 / ADA</span>
+    <span class="cv-chip">双特异性抗体</span>
+    <span class="cv-chip">ADC 评估</span>
+    <span class="cv-chip">CAR-T / NK</span>
+    <span class="cv-chip">疫苗 / 新抗原</span>
+  </div>
+
+</div>
+<div class="div"></div>
+
+<!-- ════════════════════════════════════════
+     S1 · 我们与 AI 工具平台、CRO 的本质区别
+════════════════════════════════════════ -->
+<div id="s1" class="pg pg-lt">
+  <div class="lbl">01 · 差异化定位</div>
+  <h2 style="margin-bottom:6px;">AI 如何真正服务生物药研发？<br><em>不是工具，不是实验——是决策支持</em></h2>
+  <p style="font-size:13px;color:var(--g7);margin-bottom:16px;line-height:1.7;">
+    单纯提供 AI 工具，没有临床数据和专家判断，输出分数无法指导决策。单纯做 CRO 实验，进入湿实验前缺乏方向，每次试错都在烧钱烧时间。Therasik 提供第三条路：<strong>用 1,142 条临床序列作对标基线，用 25+ 工具交叉验证消除单工具误差，用免疫学专家解读让报告直接可执行。</strong> 这三重能力缺一不可，且难以复制。
+  </p>
+
+  <table class="cmp-table" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th class="cmp-col cmp-ai">
+          <div class="cmp-hd">AI 工具平台</div>
+          <span class="cmp-sub">Rosetta · ESMfold · 在线服务</span>
+        </th>
+        <th class="cmp-col cmp-us">
+          <div class="cmp-hd">Therasik</div>
+          <span class="cmp-sub">AI + 临床数据库 + 专家判断</span>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin:6px 0 2px;justify-content:center;">
+            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">🤖 AI</span>
+            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">🗄 临床数据</span>
+            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">🧠 专家</span>
+          </div>
+        </th>
+        <th class="cmp-col cmp-cro">
+          <div class="cmp-hd">传统 CRO</div>
+          <span class="cmp-sub">湿实验外包服务</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="ck">✓</span><em>自动化速度快</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>20+ AI 工具协同运行</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="ck">✓</span><em>湿实验直接验证</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="ck">✓</span><em>部分开源可用</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>6 大专有临床数据库</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="ck">✓</span><em>GMP · 法规支持</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无临床格式对标数据</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>格式专属对标（VHH/VH-VL/双抗）</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无早期计算风险筛查</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无专家解读与审核</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>免疫学专家全程审核</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>费用高（10–100× 计算）</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>单工具，无整合判断</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>可执行优化建议，非孤立分数</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>周期数周至数月</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>输出分数，无可执行建议</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>3–5 工作日交付</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无法实验前识别 CMC 风险</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无 ADA · ADC 稀有数据</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>ADA 稀有数据 138 条</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无临床序列对标基线</em></div></td>
+      </tr>
+      <tr>
+        <td class="cmp-col cmp-ai" style="border-radius:0 0 0 12px;"><div class="cmp-row"><span class="cx">✗</span><em>无领域背景知识支撑</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>10+ 年免疫药物开发背景</em></div></td>
+        <td class="cmp-col cmp-cro" style="border-radius:0 0 12px 0;"><div class="cmp-row"><span class="cx">✗</span><em>不提供计算优化建议</em></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pq" style="margin-top:14px;">
+    最优路径：先用 Therasik 在计算层识别关键风险、确定方向，再将高置信度方案推进湿实验验证——把 CRO 的实验预算花在刀刃上，而不是试错上。
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ════════════════════════════════════════
+     S2 · 完整服务链路 (10 services, 2 groups)
+════════════════════════════════════════ -->
+<div id="s2" class="pg pg-lt">
+  <div class="lbl">02 · 服务范围</div>
+  <h2 style="margin-bottom:6px;">从序列到报告 — <em>10 项全链路服务</em></h2>
+  <p style="font-size:12.5px;color:var(--g7);margin-bottom:18px;">单一团队，一份整合报告。每项服务可独立委托，也可组合为端到端项目。</p>
+
+  <!-- Group 1: Antibody Engineering -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
+    ▸ 抗体工程（Antibody Engineering）
+  </h3>
+  <div class="svc-chain" style="margin-bottom:20px;">
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2v20"/><path d="M9 2v20"/><path d="M9 22c3 0 6-3 6-6"/><path d="M15 2c-3 0-6 3-6 6"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/><path d="M9 18h6"/></svg></div><div><div class="sc-name">抗体人源化</div><div class="sc-en">VH/VL Humanization</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>CDR 移植 + Vernier 区分析</li>
+          <li>1,142 条临床序列格式对标</li>
+          <li>回突变精准化 + 构型验证</li>
+        </ul>
+        <span class="sc-tag tag-t">VH/VL</span><span class="sc-tag tag-t">mAb</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="6" ry="10"/></svg></div><div><div class="sc-name">VHH 人源化 / 转化</div><div class="sc-en">VHH · VH→VHH</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>29 项 VHH 专属检查清单</li>
+          <li>VH→VHH 结构转化设计</li>
+          <li>保留 CDR 结合同时提升成药性</li>
+        </ul>
+        <span class="sc-tag tag-b">VHH</span><span class="sc-tag tag-b">Nanobody</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-o"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="sc-name">CMC 可开发性评估</div><div class="sc-en">Developability · 15 Metrics</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>15 项指标全面检测（pI · 疏水 · 电荷）</li>
+          <li><b>格式专属</b>：VH/VL / VHH / 双抗各自对标</li>
+          <li>短板识别 + AI 优化建议</li>
+        </ul>
+        <span class="sc-tag tag-o">CMC</span><span class="sc-tag tag-o">临床对标</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="sc-name">虚拟亲和力成熟</div><div class="sc-en">VAM · ΔΔG 6-Tool</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>EvoEF2 / PRODIGY / FoldX / ThermoMPNN</li>
+          <li>AntiFold / ESM-IF1 / MM-GBSA 协同</li>
+          <li>突变热图 + 多结构共识筛选</li>
+        </ul>
+        <span class="sc-tag tag-t">ΔΔG</span><span class="sc-tag tag-t">Affinity</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div><div><div class="sc-name">CDR 重新设计</div><div class="sc-en">CDR Redesign · ProteinMPNN</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>ProteinMPNN 多样性序列生成</li>
+          <li>CDR 构型锚定保持，RMSD 监控</li>
+          <li>Shannon 多态性评分 + 亲和力过滤</li>
+        </ul>
+        <span class="sc-tag tag-b">ProteinMPNN</span><span class="sc-tag tag-b">CDR</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div><div><div class="sc-name">免疫原性与 ADA 风险</div><div class="sc-en">Immunogenicity · ADA DB</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>T 细胞表位筛查，27 HLA-DR 覆盖</li>
+          <li>138 条 <b>ADA 稀有数据库</b>对标</li>
+          <li>免疫原性热区定位 + 突变降风险</li>
+        </ul>
+        <span class="sc-tag tag-r">ADA</span><span class="sc-tag tag-r">T-cell Epitope</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 2: Modality Extension -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
+    ▸ 模态扩展（Modality Extension）
+  </h3>
+  <div class="svc-chain">
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div class="sc-name">双特异性抗体</div><div class="sc-en">Bispecific · 134+ Molecules</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>134+ 临床双抗 + 84 Linker 库</li>
+          <li>格式筛选 · 配对稳定性 · CMC 错配</li>
+          <li>78 IgG-like 结构模型验证</li>
+        </ul>
+        <span class="sc-tag tag-t">Bispecific</span><span class="sc-tag tag-t">SmartLink</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-o"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="sc-name">ADC 设计与评估</div><div class="sc-en">ADC · 100+ Clinical Projects</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>100+ ADC 临床项目数据库</li>
+          <li>Linker / Payload / DAR 优化</li>
+          <li>偶联位点筛选 + 稳定性评估</li>
+        </ul>
+        <span class="sc-tag tag-o">ADC</span><span class="sc-tag tag-o">Linker</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="sc-name">CAR-T / NK / M 设计</div><div class="sc-en">CAR Immunotherapy · 237 Parts</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>237 精选元件，12 类别系统架构</li>
+          <li>铰链 / 共刺激域理性优化</li>
+          <li>实体瘤穿透 · 安全开关设计</li>
+        </ul>
+        <span class="sc-tag tag-b">CAR-T</span><span class="sc-tag tag-b">CAR-NK</span>
+      </div>
+    </div>
+    <div class="sc-card" style="grid-column:span 1;">
+      <div class="sc-hd"><div class="sc-ico sc-ico-r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 4"/><path d="M17 7l-3-3"/><path d="M19 9l-3-3"/><path d="M14 4L3.5 14.5a2.12 2.12 0 0 0 0 3l.5.5a2.12 2.12 0 0 0 3 0L17.5 7.5"/><path d="M12 8l4 4"/><path d="M2 22l3-3"/></svg></div><div><div class="sc-name">疫苗 / 新抗原设计</div><div class="sc-en">Vaccine · Neoantigen · mRNA</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>KRAS G12D · EBV 等靶点案例</li>
+          <li>100+ IEDB 验证表位，MHC-I/II</li>
+          <li>多表位 mRNA 装配 + GC 优化</li>
+        </ul>
+        <span class="sc-tag tag-r">mRNA</span><span class="sc-tag tag-r">Neoantigen</span>
+      </div>
+    </div>
+
+    <!-- Card 5: De novo protein AI design (在研课题) -->
+    <div class="sc-card" style="border:1.5px dashed #a855f7;background:#fdfaff;">
+      <div class="sc-hd" style="background:#fdf4ff;">
+        <div class="sc-ico" style="background:#fae8ff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <div>
+          <div class="sc-name">蛋白药物从头设计</div>
+          <div class="sc-en">De Novo Protein Drug Design</div>
+        </div>
+        <span style="font-size:9px;font-weight:800;color:#7e22ce;background:#fae8ff;border:1px solid #a855f7;border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">在研课题</span>
+      </div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>RFdiffusion · ProteinMPNN · AlphaFold2 协同生成</li>
+          <li>不依赖已有骨架，探索全新结合序列空间</li>
+          <li>从头设计 + 结构预测验证 + 成药性初评</li>
+        </ul>
+        <span class="sc-tag" style="background:#fae8ff;color:#7e22ce;">De Novo</span>
+        <span class="sc-tag" style="background:#fae8ff;color:#7e22ce;">RFdiffusion</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">在研 · 合作探索</span>
+      </div>
+    </div>
+
+    <!-- Card 6: TCR-restricted epitope immunopotentiation (research) -->
+    <div class="sc-card" style="border:1.5px dashed var(--t5);background:#fafffe;">
+      <div class="sc-hd" style="background:var(--t0);">
+        <div class="sc-ico" style="background:var(--t1);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div>
+          <div class="sc-name">TCR 限制表位免疫增强</div>
+          <div class="sc-en">TCR-Restricted Epitope Immunopotentiation</div>
+        </div>
+        <span style="font-size:9px;font-weight:800;color:var(--t7);background:var(--t1);border:1px solid var(--t5);border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">在研课题</span>
+      </div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>TCR 识别 pMHC 表位的结合能优化</li>
+          <li>增强 T 细胞免疫应答，多 HLA 覆盖策略</li>
+          <li>pMHC-TCR 接触面 AI 分析与突变设计</li>
+        </ul>
+        <span class="sc-tag tag-t">TCR-pMHC</span>
+        <span class="sc-tag tag-t">免疫增强</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">在研 · 合作探索</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ════════════════════════════════════════
+     S3 · 6 大数据库 + 20+ AI 工具
+════════════════════════════════════════ -->
+<div id="s3" class="pg pg-wh">
+  <div class="lbl">03 · 核心资产</div>
+  <h2 style="margin-bottom:6px;">6 大专有数据库 + <em>20+ AI 工具</em></h2>
+  <p style="font-size:12.5px;color:var(--g7);margin-bottom:16px;">
+    这是其他 AI 平台和 CRO 无法复制的资产组合——不是公开工具的简单集成，而是经临床验证的专有数据库与协同 AI 分析能力。
+  </p>
+
+  <!-- 6 Databases -->
+  <div class="db6" style="margin-bottom:18px;">
+    <div class="db-card c-t">
+      <div class="db-n c-t">1,142 <span class="qual-badge">优质</span></div>
+      <span class="db-label">临床抗体序列库</span>
+      <div class="db-desc">覆盖 VH/VL · VHH · 双抗三种格式，分类对标，附临床状态注释</div>
+    </div>
+    <div class="db-card c-r">
+      <div class="db-n c-r">138 <span class="rare-badge">稀有</span></div>
+      <span class="db-label">ADA 免疫原性记录库</span>
+      <div class="db-desc">临床 ADA 事件精选，抗药抗体风险判断的唯一专有参考基线</div>
+    </div>
+    <div class="db-card c-b">
+      <div class="db-n c-b">100+ <span style="font-size:16px;vertical-align:middle;">🔥</span></div>
+      <span class="db-label">ADC 临床项目库</span>
+      <div class="db-desc">Linker · Payload · DAR · 靶点全覆盖，支持 ADC 格式理性选择</div>
+    </div>
+    <div class="db-card c-o">
+      <div class="db-n c-o">134+</div>
+      <span class="db-label">双特异性分子库</span>
+      <div class="db-desc">临床双抗格式 · 84 验证 Linker · 78 IgG-like 结构模型</div>
+    </div>
+    <div class="db-card c-p">
+      <div class="db-n c-p">237 <span class="comp-badge">全面</span></div>
+      <span class="db-label">CAR 元件库</span>
+      <div class="db-desc">12 元件类别系统分类，支持 CAR-T / NK / Macrophage 三模态设计</div>
+    </div>
+    <div class="db-card c-g">
+      <div class="db-n c-g">100+</div>
+      <span class="db-label">IEDB 验证疫苗表位</span>
+      <div class="db-desc">27 HLA-DR 覆盖，MHC-I/II 双路筛查，临床肿瘤新抗原案例支持</div>
+    </div>
+  </div>
+
+  <!-- AI Tools by category -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
+    ▸ AI 工具矩阵（25+ 工具 · 5 自研模块，6 大类）<span style="font-size:9px;background:var(--t1);color:var(--t7);border:1px solid var(--t4);border-radius:6px;padding:1px 6px;margin-left:6px;font-weight:700;letter-spacing:0;text-transform:none;">★ 自研模块</span>
+  </h3>
+  <div class="tool-cats">
+    <div class="tool-cat">
+      <div class="tc-head">结构预测 · 分子对接</div>
+      <div class="tc-tags">
+        <span class="tc-tag">ABodyBuilder2</span>
+        <span class="tc-tag">AlphaFold2</span>
+        <span class="tc-tag">ANARCI / AbNum</span>
+        <span class="tc-tag">HADDOCK3</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <div class="tc-head">能量计算 · 亲和力</div>
+      <div class="tc-tags">
+        <span class="tc-tag">EvoEF2</span>
+        <span class="tc-tag">PRODIGY</span>
+        <span class="tc-tag">FoldX</span>
+        <span class="tc-tag">ThermoMPNN</span>
+        <span class="tc-tag">AntiFold</span>
+        <span class="tc-tag">ESM-IF1</span>
+        <span class="tc-tag">MM/GBSA</span>
+        <span class="tc-tag">OpenMM</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <div class="tc-head">CMC · 可开发性</div>
+      <div class="tc-tags">
+        <span class="tc-tag ih">AbEvaluator</span>
+        <span class="tc-tag">TAP</span>
+        <span class="tc-tag">AbLang</span>
+        <span class="tc-tag">SAP / PSH</span>
+        <span class="tc-tag">pI · GRAVY · CDR Liability</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <div class="tc-head">免疫原性评估 <span style="font-size:9px;color:var(--t6);font-weight:800;">★ 自研</span></div>
+      <div class="tc-tags">
+        <span class="tc-tag">IEDB API</span>
+        <span class="tc-tag ih">MHC-II 分析器</span>
+        <span class="tc-tag ih">ADA 风险评分器</span>
+        <span class="tc-tag ih">表面免疫原性检测</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <div class="tc-head">疫苗表位设计 <span style="font-size:9px;color:var(--t6);font-weight:800;">★ 自研</span></div>
+      <div class="tc-tags">
+        <span class="tc-tag ih">多表位组装器</span>
+        <span class="tc-tag ih">新抗原扫描器</span>
+        <span class="tc-tag">MHCflurry 2.0</span>
+        <span class="tc-tag ih">异质表位设计器</span>
+        <span class="tc-tag ih">密码子优化器</span>
+        <span class="tc-tag ih">表位优先级评分</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <div class="tc-head">CDR 设计 · 从头生成</div>
+      <div class="tc-tags">
+        <span class="tc-tag">ProteinMPNN</span>
+        <span class="tc-tag">ESM-2</span>
+        <span class="tc-tag" style="color:var(--g5);border-style:dashed;">RFdiffusion</span>
+        <span class="tc-tag" style="color:var(--g5);border-style:dashed;">AfDesign</span>
+        <span class="tc-tag" style="color:var(--g5);border-style:dashed;">BindCraft</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ════════════════════════════════════════
+     S4 · 9 大案例
+════════════════════════════════════════ -->
+<div id="s4" class="pg pg-g1">
+  <div class="lbl">04 · 实战案例</div>
+  <h2 style="margin-bottom:6px;">9 大完整案例 — <em>覆盖全部服务类型</em></h2>
+  <p style="font-size:12.5px;color:var(--g7);margin-bottom:16px;">
+    包含已发布方法案例与若干匿名客户项目，报告可按需提供（NDA 保护）。
+  </p>
+
+  <div class="cases9">
+
+    <!-- 1 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">人源化</span>
+        <div class="case-title">muMAb4D5 → 赫赛汀前体人源化</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">4 个回复突变 · 15/15 CMC ✓</div>
+        <div class="case-detail">使用 AbEngineCore V4.5.1 对全球临床验证最充分的抗体进行系统性重新人源化 — 仅需 4 个回复突变，CDR 100% 保留。</div>
+        <div class="case-impact">避免错误框架进入合成，节省 2–4 周返工与重新委托成本</div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">CMC / 可开发性</span>
+        <div class="case-title">muMAb4D5 CMC 可开发性与优化</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">15 项指标全通过 · AbRef-458</div>
+        <div class="case-detail">基于 AbRef-458 基准的 15 项全方位 CMC 评估 — 所有指标均通过，在免疫原性和脱酰胺风险上优于赫赛汀®。</div>
+        <div class="case-impact">在临床前确认候选分子的可开发性，降低一期免疫原性风险</div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">VH → VHH</span>
+        <div class="case-title">muMAb4D5 VH → 人源化 VHH 纳米抗体</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">100% CDR 保留 · SASA 引导</div>
+        <div class="case-detail">由 muMAb4D5 VH 改造的靶向 HER2 纳米抗体 — 100% CDR 保留，SASA 引导的表面重塑，在所有关键 CMC 指标上超越临床抗 HER2 VHH 参考分子。</div>
+        <div class="case-impact">结构与功能兼顾：亲和力保留 + 热稳定性提升，直接推进 IND 前优化</div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">亲和力成熟</span>
+        <div class="case-title">VGRW-SR-R2 HER2 VHH 亲和力成熟</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">跨 5 个维度筛选 · 247 个突变</div>
+        <div class="case-detail">发现上位性双突变 G49A+F112L，结合能提升 −3.32 kcal/mol，界面接触增加 70%，主链 RMSD 保持 0.000 Å。</div>
+        <div class="case-impact">计算预筛替代随机突变库筛选，节省 60–80% 合成与表达成本</div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">CDR 重设计</span>
+        <div class="case-title">CDR 重设计与亲和力再优化</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">拓展专利空间 · 13× 亲和力恢复</div>
+        <div class="case-detail">以 SR-R2 冠军为起点，结构指导生成式 AI 重构 CDR2/CDR3 拓展专利空间，再经极性定向再成熟将亲和力从 49.75 nM 恢复至 3.75 nM。</div>
+        <div class="case-impact">87 条多样化候选序列，规避序列同质化瓶颈和专利侵权风险</div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">双特异性 VHH</span>
+        <div class="case-title">高表达双特异性抗冠状病毒纳米抗体工程</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">等电点 (pI) 工程 · 臂交换</div>
+        <div class="case-detail">SmartLink™ + VirtualCMC 解决了双冠状病毒 VHH-GS-VHH 融合蛋白在酵母中分泌量低的问题。</div>
+        <div class="case-impact">通过模块化纳米抗体组装和表达调优，快速响应病毒突变</div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="case-card">
+      <span class="case-badge cb-demo">Case Demo</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">CAR‑M 设计</span>
+        <div class="case-title">针对恶性疟原虫的抗 CIDRα1 CAR-巨噬细胞</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">ACTES 11 层决策级联 · 双结合域</div>
+        <div class="case-detail">设计了一种靶向所有 6 种 CIDRα1 亚型的双结合域 CAR-M — 采用 mRNA-LNP 递送和 4 层临床前策略。</div>
+        <div class="case-impact">传染病领域的全新 CAR-M 模态，拓展了传统肿瘤学应用边界</div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="case-card">
+      <span class="case-badge cb-clt">Client Project</span>
+      <div class="case-hd">
+        <span class="case-type ct-ab">Half-Hapten VAM</span>
+        <div class="case-title">Ab278 抗芬太尼抗体的半抗原亲和力成熟</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">多阶段筛选 · 100+ 候选突变</div>
+        <div class="case-detail">针对小分子半抗原结合口袋进行多阶段筛选，识别出 5 个推荐变体，兼顾预测亲和力和可开发性。</div>
+        <div class="case-impact">识别出协同突变对，节省 60–80% 湿实验合成与表达成本</div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="case-card">
+      <span class="case-badge cb-clt">Client Project</span>
+      <div class="case-hd">
+        <span class="case-type ct-clt">Anti-PD-L1 Panel</span>
+        <div class="case-title">抗 PD-L1 双克隆的表位分层与机制定位</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result">Side-binding vs. Top blocking</div>
+        <div class="case-detail">结合结构建模、界面统计和热点映射，区分 side-binding / ADC 导向克隆与顶部 blocking clone，并形成 human / cyno PD-L1 的评估框架。</div>
+        <div class="case-impact">提前 3–6 个月暴露短板，在 IND 前完成修复，避免被动临床前淘汰</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-size:11px;color:var(--g5);margin-top:12px;text-align:center;font-style:italic;">
+    完整报告可在 NDA 保护下按需提供 · 客户项目数据已脱敏
+  </p>
+</div>
+<div class="div"></div>
+
+<!-- ════════════════════════════════════════
+     S5 · 合作流程 + CTA
+════════════════════════════════════════ -->
+<div id="s5" class="pg pg-cta">
+  <div class="lbl">05 · 合作方式</div>
+  <h2 style="margin-bottom:6px;">从<em>一次微信</em>开始</h2>
+  <p style="font-size:13px;color:var(--g7);margin-bottom:16px;">
+    无需提前准备正式文件。先聊项目背景，我们判断分析范围。<strong style="color:var(--t7);">所有项目在开始前签署 NDA 保密协议</strong>——您的序列、靶点与数据受法律保护全程保密，不对任何第三方披露，不用于训练或公开发布。
+  </p>
+
+  <!-- Two service modes -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+    <div style="background:#fff;border-radius:12px;padding:14px 16px;border:1.5px solid var(--t3);border-top:3px solid var(--t6);">
+      <div style="font-size:13px;font-weight:900;color:var(--g9);margin-bottom:6px;">📦 项目型服务</div>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>单次委托，明确范围与交付物</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>3–5 工作日专家审核报告</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>NDA 保护 · 里程碑计费</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>未达目标可减免尾款</li>
+      </ul>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:14px 16px;border:1.5px solid var(--t3);border-top:3px solid var(--t5);">
+      <div style="font-size:13px;font-weight:900;color:var(--g9);margin-bottom:6px;">🤝 AI 常驻顾问</div>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>按月 / 按季聘用，持续决策支持</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>参与研发会议，实时 AI 分析响应</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>多项目并行支持，灵活调配</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>适合持续研发管线的 Biotech 团队</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5-step process with NDA -->
+  <div class="proc5">
+    <div class="proc5-step">
+      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg></div>
+      <div class="p5-t">免费初评</div>
+      <div class="p5-d">微信说明项目，当天或次日反馈</div>
+    </div>
+    <div class="proc5-step">
+      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+      <div class="p5-t">签署 NDA</div>
+      <div class="p5-d">序列、靶点与数据受法律保护，不外泄、不用于训练</div>
+    </div>
+    <div class="proc5-step">
+      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div>
+      <div class="p5-t">确认范围</div>
+      <div class="p5-d">分析格式、工具选择、交付内容约定</div>
+    </div>
+    <div class="proc5-step">
+      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div>
+      <div class="p5-t">AI + 专家审核</div>
+      <div class="p5-d">20+ 工具运行，专家全程审核报告</div>
+    </div>
+    <div class="proc5-step">
+      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+      <div class="p5-t">3–5天交付</div>
+      <div class="p5-d">完整报告 + 建议 · 未达目标可减免尾款</div>
+    </div>
+  </div>
+
+  <div class="cc3">
+    <div class="cc pri">
+      <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg></div>
+      <div class="cc-lbl">首选 · 快速响应</div>
+      <div class="cc-val">微信 Rockhj</div>
+      <div class="cc-hint">搜索添加，注明来意</div>
+    </div>
+    <div class="cc">
+      <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+      <div class="cc-lbl">正式项目 / NDA</div>
+      <div class="cc-val">contact@therasik.com</div>
+      <div class="cc-hint">正式委托或 NDA 签署</div>
+    </div>
+    <div class="cc">
+      <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+      <div class="cc-lbl">在线平台</div>
+      <div class="cc-val">www.therasik.com</div>
+      <div class="cc-hint">服务详情 · 在线项目递交</div>
+    </div>
+  </div>
+
+  <p style="font-size:10.5px;color:var(--g5);margin-top:18px;text-align:center;">
+    本文件基于计算分析与公开临床数据，不构成临床决策建议，仅供研发参考。© 2026 Therasik / InSynBio
+  </p>
+</div>
+
+</div><!-- /doc -->
+</body>
+</html>

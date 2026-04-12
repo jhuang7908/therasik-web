@@ -607,11 +607,11 @@
       </div>
       <div style="background:#fff; border:1px solid #e5e7eb; border-left:4px solid #0d9488; border-radius:14px; padding:28px;">
         <h3 style="font-size:20px; font-weight:700; color:#111827; margin-bottom:10px;">🔬 我们的方法</h3>
-        <p style="font-size:14px; color:#4b5563; line-height: 1.55;">Therasik <strong>AbEngineCore V4.5.1</strong> 标准化流程：CDR 移植至最优人源胚系框架（IGHV1-69*01 / IGKV1-39*01），Vernier 区域分析识别结构关键回复突变，ABodyBuilder2 结构验证，以及基于 842 个获批临床抗体序列的全面 CMC 评估。</p>
+        <p style="font-size:14px; color:#4b5563; line-height: 1.55;">Therasik <strong>AbEngineCore V4.5.1</strong> 标准化流程：CDR 移植至最优人源胚系框架（IGHV1-69*01 / IGKV1-39*01），Vernier 区域分析识别结构关键回复突变，ABodyBuilder2 结构验证，以及基于临床抗体数据库的格式匹配 CMC 对标评估。对于本项目这样的 <strong>VH/VL 抗体</strong>，我们采用已进入临床的人源化抗体参考分布，而不是套用 VHH 或双特异性抗体标准。</p>
       </div>
       <div style="background:#fff; border:1px solid #e5e7eb; border-left:4px solid #16a34a; border-radius:14px; padding:28px;">
         <h3 style="font-size:20px; font-weight:700; color:#111827; margin-bottom:10px;">✓ 关键成果</h3>
-        <p style="font-size:14px; color:#4b5563; line-height: 1.55;">仅需 <strong>零回复突变</strong> 即与临床赫赛汀序列实现 <strong>100% CDR 一致</strong>。VH/VL 角度偏差仅 0.64°。全部 15 项 CMC 参数通过。38/38 质控项全部合格。结果：通过可重复、可审计的计算流程产出的临床级人源化抗体。</p>
+        <p style="font-size:14px; color:#4b5563; line-height: 1.55;">仅需 <strong>零回复突变</strong> 即与临床赫赛汀序列实现 <strong>100% CDR 一致</strong>。VH/VL 角度偏差仅 0.64°。全部 15 项 CMC 参数通过。38/38 质控项全部合格。结果：不是凭经验猜测“会不会失败”，而是用临床已通过的 VH/VL 抗体数据库确认该设计已回到可推进区间，并进一步给出可执行的优化建议。</p>
       </div>
     </div>
   </div>
@@ -620,7 +620,7 @@
   <div class="section" id="background">
     <div class="section-label">第 01 节</div>
     <h2>项目背景</h2>
-    <p>MuMAb4D5 是靶向 HER2 胞外域 IV 区的鼠源单克隆抗体，为曲妥珠单抗（Herceptin®）的亲本鼠抗。本报告记录依据 VH/VL 人源化标准 V4.4.1 对 MuMAb4D5 进行人源化改造的全过程，涵盖 Kabat 编号序列切分、842 临床抗体胚系库的人源框架选择、Vernier 区分析、最终人源化序列设计，以及通过 ABodyBuilder2 进行的结构保真性验证。</p>
+    <p>MuMAb4D5 是靶向 HER2 胞外域 IV 区的鼠源单克隆抗体，为曲妥珠单抗（Herceptin®）的亲本鼠抗。本报告记录依据 VH/VL 人源化标准 V4.4.1 对 MuMAb4D5 进行人源化改造的全过程，涵盖 Kabat 编号序列切分、842 临床抗体胚系库的人源框架选择、Vernier 区分析、最终人源化序列设计，以及通过 ABodyBuilder2 进行的结构保真性验证。核心原则不是定义“哪些分子天然不合格”，而是对照已进入临床的同类 VH/VL 抗体，判断当前设计离临床可接受区间还有多远。</p>
   </div>
 
   <!-- 2. 序列切分 -->
@@ -818,7 +818,7 @@
   <div class="section" id="structure">
     <div class="section-label">第 06 节</div>
     <h2>结构建模与人源化前后比较</h2>
-    <p>鼠源及人源化 Fv 的三维结构分别采用 <strong>ABodyBuilder2</strong>（ImmuneBuilder）独立预测，结构指标通过结构分析流程提取，并与 <strong>AbRef-458</strong> 临床抗体参考数据库（n = 458 个人源化抗体）进行对比评估。</p>
+    <p>鼠源及人源化 Fv 的三维结构分别采用 <strong>ABodyBuilder2</strong>（ImmuneBuilder）独立预测，结构指标通过结构分析流程提取，并与 <strong>AbRef-458</strong> 临床抗体参考数据库（n = 458 个人源化抗体）进行对比评估。这里使用的是 <strong>VH/VL 专属参考标准</strong>；如果是 VHH 或双特异性抗体项目，则会切换到各自独立的参考数据库与参数解释体系。</p>
 
     <h3>6.1 VH/VL 空间夹角</h3>
     <p>VH/VL 夹角反映重链与轻链可变区的相对空间取向，是抗原结合腔几何的核心参数。</p>
