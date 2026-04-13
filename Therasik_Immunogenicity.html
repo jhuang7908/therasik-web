@@ -308,8 +308,8 @@
       </div>
       <div class="trust-card">
         <span class="eyebrow">预测覆盖</span>
-        <h3>27 个 HLA-DR 等位基因</h3>
-        <p>基于 IEDB API 的 MHC-II 结合预测，覆盖全球主流 HLA-DR 等位基因，捕捉广谱人群风险。</p>
+        <h3>35 个 HLA-DRB1 等位基因</h3>
+        <p>基于 IEDB API 的 MHC-II 结合预测，覆盖 35 个 HLA-DRB1 等位基因，用于捕捉更广泛的人群风险。</p>
       </div>
       <div class="trust-card">
         <span class="eyebrow">分层分析</span>
@@ -493,21 +493,21 @@
 
       <!-- ── Benchmark KPIs ── -->
       <div style="margin-top:36px;">
-        <h4 style="font-size:17px;font-weight:700;color:#111827;margin-bottom:16px;">ADA V2 双轨制 Benchmark — 138 条临床记录对标</h4>
+        <h4 style="font-size:17px;font-weight:700;color:#111827;margin-bottom:16px;">ADA V2 双轨制 Benchmark — 129 条可比较临床记录</h4>
+        <p style="font-size:13px;color:#4b5563;line-height:1.7;margin-bottom:16px;">这里分开报告两类指标：<strong>表内 ρ / p 值</strong>用于描述连续分值与临床 ADA 的相关性；<strong>下方图 6c 的混淆矩阵</strong>则固定使用 <strong>0.646 作为 HIGH 阈值</strong>，用于展示严格分诊场景下的检出率。两者口径不同，不能直接混读。</p>
 
-        <!-- KPI table -->
-        <div style="overflow-x:auto;margin-bottom:28px;">
+        <div style="overflow-x:auto;margin-bottom:20px;">
           <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:center;">
             <thead>
               <tr style="background:#f0fdf4;border-bottom:2px solid #d1fae5;">
-                <th style="padding:10px 14px;text-align:left;color:#374151;font-weight:700;">轨道</th>
+                <th style="padding:10px 14px;text-align:left;color:#374151;font-weight:700;">评估轨道</th>
                 <th style="padding:10px 14px;color:#374151;font-weight:700;">n</th>
                 <th style="padding:10px 14px;color:#374151;font-weight:700;">ρ (Spearman)</th>
                 <th style="padding:10px 14px;color:#374151;font-weight:700;">p 值</th>
                 <th style="padding:10px 14px;color:#374151;font-weight:700;">AUC-ROC</th>
-                <th style="padding:10px 14px;color:#374151;font-weight:700;">均衡准确率</th>
-                <th style="padding:10px 14px;color:#374151;font-weight:700;">灵敏度</th>
-                <th style="padding:10px 14px;color:#374151;font-weight:700;">特异性</th>
+                <th style="padding:10px 14px;color:#374151;font-weight:700;">Balanced Acc.</th>
+                <th style="padding:10px 14px;color:#374151;font-weight:700;">Sensitivity</th>
+                <th style="padding:10px 14px;color:#374151;font-weight:700;">Specificity</th>
               </tr>
             </thead>
             <tbody>
@@ -544,7 +544,27 @@
             </tbody>
           </table>
         </div>
-        <p style="font-size:12px;color:#9ca3af;margin-bottom:20px;">* 临床 ADA>10% 为阳性；HIGH 风险等级为预测阳性。FH 轨道已达统计显著。HU 信号被临床免疫抑制剂压低（见 HU 专项分析）。</p>
+        <p style="font-size:12px;color:#9ca3af;margin-bottom:20px;">* 临床 ADA&gt;10% 作为阳性终点；本表中的 sensitivity / specificity 来自该 benchmark 统计口径，不等同于图 6c 中 HIGH-only 阈值 0.646 的检出率。</p>
+
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:24px;">
+          <h4 style="font-size:18px;color:#1e293b;margin-top:0;margin-bottom:12px;">如何理解图 6c 的 0.646 阈值结果</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <p style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:8px;">FH：高检出，低漏报</p>
+              <p style="font-size:13px;color:#475569;line-height:1.6;margin:0;">在 <strong>0.646</strong> 阈值下，FH 组对临床 <strong>ADA&gt;10%</strong> 的检出率为 <strong>100% (13/13)</strong>；低分组中高 ADA 比例为 <strong>0% (0/11)</strong>；高分组中高 ADA 比例为 <strong>31.0% (13/42)</strong>。这说明 FH 轨道更适合做“排除高风险”的保守分诊。</p>
+            </div>
+            <div>
+              <p style="font-size:14px;font-weight:700;color:#6366f1;margin-bottom:8px;">HU：趋势存在，但噪声更强</p>
+              <p style="font-size:13px;color:#475569;line-height:1.6;margin:0;">同一阈值下，HU 组对临床 <strong>ADA&gt;10%</strong> 的检出率为 <strong>37.1% (13/35)</strong>；低分组中高 ADA 比例为 <strong>41.5% (22/53)</strong>；高分组中高 ADA 比例为 <strong>56.5% (13/23)</strong>。HU 仍能体现风险富集，但受临床免疫抑制与给药情景影响更大。</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:20px 22px;margin-bottom:32px;">
+          <h4 style="font-size:17px;color:#9a3412;margin:0 0 10px;">与 EpiVax 的可比性：只在相似条件下比较</h4>
+          <p style="font-size:13px;color:#7c2d12;line-height:1.65;margin:0 0 10px;">本页<strong>没有</strong>给出与 EpiVax 在同一抗体面板、同一 assay 分层、同一阳性终点定义下的公开头对头运算，因此我们不做“优于 EpiVax”的定量宣称。</p>
+          <p style="font-size:13px;color:#7c2d12;line-height:1.65;margin:0;">若限定在<strong>可比条件</strong>，例如全人源抗体、高灵敏度 ADA assay、以及以序列/表位风险为主的判别场景，则 ADA V2 的 FH 结果可与 EpiVax 一类序列模型做<strong>同量级参考</strong>。但本模型额外引入了 <strong>SASA 暴露</strong>、<strong>VH-VL 界面稳定性</strong> 和 <strong>CMC veto</strong>，因此更准确地说，它是“在类似问题上的扩展模型”，而不是严格的 apples-to-apples 复刻。</p>
+        </div>
 
         <!-- 行1: 图6a — 横向三图全宽 -->
         <div style="background:#fff;padding:24px 24px 18px;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(0,0,0,0.04);text-align:center;margin-bottom:20px;">
@@ -592,14 +612,14 @@
 
     <p>Therasik 免疫原性评估流程整合了互补的多层次分析，并在最终报告中根据抗体类型自动切换 FH / HU 专项权重体系：</p>
     <ul>
-      <li><strong>IEDB MHC-II 深层扫描</strong> — 覆盖 27 个 HLA-DR 等位基因；<strong>HU 专项</strong>额外扫描 Vernier Zone（VH/VL 各 ~10 个位置）和 CDR-FR 接头（每个 CDR 两端各 5 个残基）的降解肽段。</li>
+      <li><strong>IEDB MHC-II 深层扫描</strong> — 覆盖 <strong>35 个 HLA-DRB1 等位基因</strong>；<strong>HU 专项</strong>额外扫描 Vernier Zone（VH/VL 各 ~10 个位置）和 CDR-FR 接头（每个 CDR 两端各 5 个残基）的降解肽段。</li>
       <li><strong>风险位点聚类</strong> — 识别空间聚集的 T 细胞表位热点，区分孤立弱信号与功能性强表位簇。</li>
       <li><strong>表面暴露评估</strong> — Parker 亲水性评分 + SASA 分析（提供 PDB 时）；FH 专项侧重表面疏水斑块数量。</li>
       <li><strong>种系耐受过滤</strong> — IGHV/IGKV/IGLV 频率加权过滤，识别人类非自身残基；HU 专项额外评估 Vernier Zone 残基的人源化程度。</li>
       <li><strong>ADA V2 双轨综合评分</strong> — 根据输入序列类型（FH/HU）自动选择权重矩阵，输出分层风险评分（低/中/高），并与 138 条临床记录对标。</li>
     </ul>
 
-    <p>所有评分均与 Therasik ADA 数据库中的 138 条临床记录对标，提供分位数排名和基准比较（如 Herceptin®、Humira® 等标杆抗体）。</p>
+    <p>所有评分均与 Therasik ADA 数据库中的 138 条临床记录对标；其中本页展示的轨道 benchmark 采用可比较终点完整的 129 条记录，提供分位数排名和基准比较（如 Herceptin®、Humira® 等标杆抗体）。</p>
 
     <div style="background:#f0fdf4;border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:13px;color:#166534">
       <strong>2026-04 数据验证</strong> — 最新高灵敏度检测分层分析（n=122，ECL/Tiered）确认：FH 系统的界面稳定性信号（ρ=+0.339, p=0.018）和 MHC-II 表位信号（ρ=+0.425, p=0.034）在排除检测偏差后均保持统计显著，证实 ADA V2 双轨体系的稳健性。全样本 8/8 前次显著特征方向一致。
