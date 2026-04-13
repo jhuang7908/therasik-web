@@ -825,9 +825,9 @@ body.mode-light .slide li::before { color: #0d9488 !important; }
 </section>
 
 <!-- ===================== SLIDE 8: ADA ===================== -->
-<section class="slide slide-green" id="s8" style="align-items:stretch;">
+<section class="slide slide-green" id="s8">
   <div class="slide-inner" style="display:flex;flex-direction:column;">
-    <!-- 上方固定内容块 -->
+    <!-- 上方内容块 -->
     <div style="flex-shrink:0;">
       <span class="label label-teal">免疫原性</span>
       <h2 class="slide-title" style="font-size:40px;margin-bottom:10px;">ADA 免疫原性 — <span>坦诚直面，多维对标</span></h2>
@@ -850,18 +850,18 @@ body.mode-light .slide li::before { color: #0d9488 !important; }
         <p style="font-size:15px;line-height:1.5;">"我们无法保证绝对零免疫原性，但在最全面的临床数据供应链的支持下，我们将把相对风险降至行业最低可达水平。"</p>
       </div>
     </div>
-    <!-- 图片区：flex:1 自动撑满剩余空间 -->
-    <div style="flex:1;margin-top:12px;display:grid;grid-template-columns:1fr 2fr;gap:12px;min-height:0;">
+    <!-- 图片区：固定 210px 高度，与上方内容视觉等重 -->
+    <div style="flex-shrink:0;height:210px;margin-top:12px;display:grid;grid-template-columns:1fr 2fr;gap:12px;">
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 10px;text-align:center;display:flex;flex-direction:column;">
         <p style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;">图 6b — ROC 曲线 · 全人源 AUC 0.690</p>
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;background:rgba(0,0,0,0.3);min-height:0;">
-          <img src="../images/immuno/fig_benchmark_roc.png" alt="ROC 曲线" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;background:rgba(0,0,0,0.3);">
+          <img src="../images/immuno/fig_benchmark_roc.png" alt="ROC 曲线" style="max-width:100%;max-height:180px;object-fit:contain;">
         </div>
       </div>
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 10px;text-align:center;display:flex;flex-direction:column;">
         <p style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;">图 6c — 混淆矩阵 @0.646 · 全人源灵敏度 100% · <a href="Therasik_Immunogenicity.html" target="_blank" style="color:#5eead4;">完整报告 →</a></p>
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;background:rgba(0,0,0,0.3);min-height:0;">
-          <img src="../images/immuno/fig_benchmark_confusion.png" alt="混淆矩阵" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;background:rgba(0,0,0,0.3);">
+          <img src="../images/immuno/fig_benchmark_confusion.png" alt="混淆矩阵" style="max-width:100%;max-height:180px;object-fit:contain;">
         </div>
       </div>
     </div>
