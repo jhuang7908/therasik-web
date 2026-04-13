@@ -564,13 +564,27 @@
       <p><strong>免疫原性评估——含于完整报告</strong></p>
       <p style="font-size:13px;background:#fef3c7;border-left:3px solid #d97706;padding:8px 12px;border-radius:4px;margin-bottom:12px;color:#78350f;">免疫原性评分需要<strong>完整的、已充分人源化或完全人源序列</strong>。不提供早期前筛查。对于人源化前的序列，仅报告序列级化学稳定性标记（NG/DG 序列基序、Met/Trp 氧化、游离 Cys）。完整免疫原性评估包含于人源化后的完整报告中。</p>
       <ul>
-        <li><strong>MHC-II T 细胞表位预测</strong> — 通过 IEDB API 覆盖 27 个 HLA-DR 等位基因；框架区表面风险评估</li>
-        <li><strong>风险聚类</strong> — 高风险肽段位点的聚集分析</li>
+        <li><strong>MHC-II T 细胞表位预测</strong> — Therasik 自研免疫原性分析流水线（调用 IEDB API），覆盖 <strong>35 个 HLA-DRB1 等位基因</strong>；CDR/FR 区段精准定位；框架区表面风险评估</li>
+        <li><strong>风险聚类</strong> — 高风险肽段位点的空间热点聚集分析</li>
         <li><strong>表面免疫原性</strong> — Parker 亲水性评分；SASA 暴露分析（提供 PDB 时）</li>
         <li><strong>种系耐受性</strong> — IGHV/IGKV/IGLV 频率加权过滤；报告种系同源性（%）</li>
       </ul>
+      <!-- 自研工具介绍 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+        <div style="background:rgba(249,168,212,0.07);border:1px solid rgba(249,168,212,0.3);border-radius:8px;padding:12px 14px;">
+          <div style="font-size:11px;color:#be185d;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:7px;">🔬 自研工具 · MHC-II 表位分析器</div>
+          <p style="font-size:13px;color:#374151;margin:0;line-height:1.55;">覆盖 35 个 HLA-DRB1 等位基因 · CDR/FR 区段精准定位 · 种系耐受性锚核过滤（排除已耐受肽段）· 空间热点聚类 · 人群频率加权净负担评分</p>
+        </div>
+        <div style="background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.22);border-radius:8px;padding:12px 14px;">
+          <div style="font-size:11px;color:#0f766e;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:7px;">📊 自研工具 · ADA 风险评分器 V2.1</div>
+          <p style="font-size:13px;color:#374151;margin:0;line-height:1.55;">FH/HU 双轨复合评分 · 5 维度（种系距离 · 暴露量 · VH-VL 界面接触密度 · MHC-II 表位数 · 表面亲水斑块）· 经 138 个临床抗体校准 · 支持给药途径/适应症/检测方法情景调整</p>
+        </div>
+      </div>
       <p class="input-note">输入：完整 VH/VL 人源化或完全人源序列（PDB 可选）。模型经 138 条临床抗体校准，覆盖 31 维特征与检测方法分层分析。结果为分层风险评分，非绝对 ADA 率预测。</p>
-      <div style="margin-top:12px;"><a href="Therasik_Immunogenicity.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0f766e;font-weight:600;text-decoration:none;background:rgba(13,148,136,0.07);border:1px solid rgba(13,148,136,0.22);padding:5px 12px;border-radius:20px;">📊 查看临床基准：138 抗体 ADA 免疫原性研究 →</a></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+        <a href="Therasik_Immunogenicity.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#b91c1c;font-weight:600;text-decoration:none;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);padding:5px 12px;border-radius:20px;" onmouseover="this.style.background='rgba(239,68,68,0.12)'" onmouseout="this.style.background='rgba(239,68,68,0.06)'">🛡 ADA 形成机制、检测与风险控制策略 →</a>
+        <a href="Therasik_Immunogenicity.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0f766e;font-weight:600;text-decoration:none;background:rgba(13,148,136,0.07);border:1px solid rgba(13,148,136,0.22);padding:5px 12px;border-radius:20px;" onmouseover="this.style.background='rgba(13,148,136,0.14)'" onmouseout="this.style.background='rgba(13,148,136,0.07)'">📊 查看临床基准：138 抗体 ADA 免疫原性研究 →</a>
+      </div>
 
       <h2 id="structure"><span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>结构分析</h2>
       <p><strong>结构与界面分析</strong></p>
