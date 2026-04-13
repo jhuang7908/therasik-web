@@ -1,0 +1,1090 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Therasik — AI 驱动的生物药物决策系统</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--text:#111827;--text-muted:#4b5563;--border:#e5e7eb;--bg:#ffffff;--violet:#7c3aed;--amber:#d97706;--red:#ef4444;--green:#16a34a;}
+.bg-indigo-dark { background: linear-gradient(145deg, #020617 0%, #17183B 100%); }
+.bg-teal-dark { background: linear-gradient(145deg, #020617 0%, #06312F 100%); }
+.bg-violet-dark { background: linear-gradient(145deg, #020617 0%, #220E40 100%); }
+.bg-slate-dark { background: #0b1120; }
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
+@page { size: 16in 9in; margin: 0; }
+body{font-family:'Noto Sans SC','Inter',sans-serif;color:var(--text);background:#0f172a;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* ── Slide System ── */
+.slide{width:100vw;height:100vh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 80px;}
+.slide-inner{z-index:10;position:relative;max-width:1300px;width:100%;z-index:2;}
+.slide-num{position:absolute;bottom:24px;right:32px;font-size:18px;color:rgba(255,255,255,0.25);font-weight:600;font-family:'Space Grotesk',sans-serif;}
+
+/* ── Typography ── */
+.label{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;display:block;}
+.label-teal{color:#5eead4;}
+.label-white{color:rgba(255,255,255,0.75);}
+h1.hero-title{font-family:'Noto Sans SC',sans-serif;font-size:76px;font-weight:900;line-height:1.1;letter-spacing:-0.01em;color:#fff;margin-bottom:20px;}
+h1.hero-title em{color:#5eead4;font-style:normal;font-weight:900;}
+h2.slide-title{font-family:'Noto Sans SC',sans-serif;font-size:54px;font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#fff;margin-bottom:16px;}
+h2.slide-title span{color:#5eead4;}
+.slide-subtitle{font-size:23px;color:rgba(255,255,255,0.9);max-width:960px;line-height:1.6;margin-bottom:32px;}
+
+/* ── Backgrounds ── */
+.bg-dark{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);}
+.bg-gradient{background:linear-gradient(135deg,#0a3632 0%,#0c5e56 60%,#0f766e 100%);}
+.bg-deep{background:linear-gradient(135deg,#020617 0%,#0f172a 50%,#1e293b 100%);}
+.bg-violet{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);}
+body.mode-light{background:#faf7f2;color:#1c3330;}
+
+/* ── Cards ── */
+.card-grid{display:grid;gap:16px;}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+.g5{grid-template-columns:repeat(5,1fr);}
+.g2{grid-template-columns:repeat(2,1fr);}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:22px 20px;backdrop-filter:blur(8px);transition:transform 0.3s,box-shadow 0.3s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.3);}
+.card h3{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.card p{font-size:18px;color:rgba(255,255,255,0.85);line-height:1.55;}
+.card-icon{font-size:27px;}
+.card-accent{border-top:3px solid;}
+.card-teal{border-top-color:var(--primary);}
+.card-amber{border-top-color:var(--amber);}
+.card-red{border-top-color:var(--red);}
+.card-violet{border-top-color:var(--violet);}
+.card-green{border-top-color:var(--green);}
+
+/* White bg cards */
+body.mode-light .card{background:#fff !important;border:1px solid #cce4de !important;box-shadow:0 2px 14px rgba(13,148,136,0.08) !important;backdrop-filter:none !important;}
+body.mode-light .card h3{color:#1c3330 !important;}
+body.mode-light .card p{color:#374151 !important;}
+
+/* ── Data number cards ── */
+.data-card{background:linear-gradient(135deg,rgba(13,148,136,0.12),rgba(13,148,136,0.04));border:1px solid rgba(13,148,136,0.2);border-radius:12px;padding:18px 14px;text-align:center;}
+.data-num{font-family:'Space Grotesk',sans-serif;font-size:49px;font-weight:700;color:#5eead4;line-height:1;margin-bottom:4px;}
+.data-label{font-size:15px;color:rgba(255,255,255,0.95);font-weight:600;line-height:1.35;}
+
+/* ── Comparison table ── */
+.compare-table{width:100%;border-collapse:collapse;font-size:18px;}
+.compare-table th{padding:12px 16px;text-align:left;font-size:15px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.85);border-bottom:1px solid rgba(255,255,255,0.1);}
+.compare-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.9);}
+.compare-table td:last-child{color:#5eead4;font-weight:700;}
+.compare-table tr:hover td{background:rgba(13,148,136,0.06);}
+
+/* ── Badge ── */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:14px;font-weight:700;letter-spacing:0.05em;}
+.badge-pass{background:rgba(16,185,129,0.2);color:#6ee7b7;border:1px solid rgba(16,185,129,0.3);}
+.badge-warn{background:rgba(245,158,11,0.2);color:#fde68a;border:1px solid rgba(245,158,11,0.3);}
+
+/* ── Pain point icons ── */
+.pain-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:12px;}
+.pain-red{background:rgba(239,68,68,0.15);}
+.pain-amber{background:rgba(245,158,11,0.15);}
+.pain-violet{background:rgba(124,58,237,0.15);}
+
+/* ── Brand ── */
+.brand-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.brand-name{font-family:'Noto Sans SC',sans-serif;font-size:38px;font-weight:900;color:#fff;}
+.brand-name .accent{color:#0d9488;}
+.brand-slogan{font-size:18px;color:rgba(255,255,255,0.85);padding-left:14px;border-left:1px solid rgba(255,255,255,0.15);}
+.school-row{display:flex;gap:24px;align-items:center;margin-top:20px;}
+.school-badge{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 18px;font-size:16px;color:rgba(255,255,255,0.95);font-weight:600;}
+
+/* ── Pipeline ── */
+.pipe-row{display:flex;gap:0;align-items:stretch;}
+.pipe-step{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 10px;text-align:center;position:relative;}
+.pipe-step:first-child{border-radius:10px 0 0 10px;}
+.pipe-step:last-child{border-radius:0 10px 10px 0;}
+.pipe-step:not(:last-child){border-right:none;}
+.pipe-step:not(:last-child)::after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.2);font-size:22px;z-index:2;}
+.pipe-step .step-n{font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:rgba(94,234,212,0.3);line-height:1;}
+.pipe-step strong{display:block;font-size:16px;color:#fff;margin-top:4px;}
+.pipe-step span{font-size:14px;color:rgba(255,255,255,0.85);display:block;margin-top:2px;}
+
+/* ── Case mini cards ── */
+.case-mini{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px;border-left:3px solid var(--primary);}
+.case-mini h4{font-size:19px;font-weight:700;color:#fff;margin-bottom:6px;}
+.case-mini ul{list-style:none;padding:0;}
+.case-mini ul li{font-size:16px;color:rgba(255,255,255,0.75);padding:2px 0;display:flex;align-items:flex-start;gap:6px;}
+.case-mini ul li::before{content:"›";color:#5eead4;font-weight:800;}
+
+/* ── Highlight quote ── */
+.quote-box{border-left:4px solid #5eead4;padding:16px 20px;background:rgba(13,148,136,0.06);border-radius:0 10px 10px 0;margin-top:24px;}
+.quote-box p{font-size:20px;color:rgba(255,255,255,0.95);font-style:normal;line-height:1.6;}
+
+/* ── CTA ── */
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:8px;font-size:20px;font-weight:700;text-decoration:none;transition:all 0.2s;}
+.cta-primary{background:#fff;color:var(--primary-dark);box-shadow:0 4px 20px rgba(0,0,0,0.2);}
+.cta-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.3);}
+.cta-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.85);}
+.cta-outline:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .slide{padding:32px 24px;}
+  h1.hero-title{font-size:48px;}
+  h2.slide-title{font-size:36px;}
+  .g3,.g4,.g5{grid-template-columns:1fr 1fr;}
+  .pipe-row{flex-wrap:wrap;}
+  .pipe-step{flex:1 1 45%;border-radius:8px!important;border:1px solid rgba(255,255,255,0.08)!important;margin:4px;}
+  .pipe-step::after{display:none;}
+}
+@media(max-width:600px){
+  .g3,.g4,.g5,.g2{grid-template-columns:1fr;}
+  h1.hero-title{font-size:36px;}
+}
+
+/* ══════════════════════════════════════════════
+   移动端全面修复  Mobile Comprehensive Fix
+   核心原则：
+   1. 幻灯片高度改为 min-height，允许内容超高时滚动
+   2. scroll-snap 改为 proximity，避免强制截断
+   3. 字体、间距、网格大幅收窄
+   4. 导航圆点移至底部，避免遮挡
+   ══════════════════════════════════════════════ */
+@media(max-width:768px){
+  /* 解除强制吸附，改为柔和模式 */
+  html{ scroll-snap-type: y proximity; }
+
+  /* 幻灯片允许自由伸展 */
+  .slide{
+    height: auto !important;
+    min-height: 100vh;
+    min-height: 100svh; /* 排除浏览器导航栏高度 */
+    padding: 52px 16px 44px !important;
+  }
+  .slide-inner{ max-width: 100% !important; }
+
+  /* 标题字体 */
+  h1.hero-title{ font-size: 32px !important; line-height: 1.15 !important; margin-bottom: 12px !important; }
+  h2.slide-title{ font-size: 24px !important; line-height: 1.25 !important; margin-bottom: 10px !important; }
+  .slide-subtitle{ font-size: 14px !important; margin-bottom: 16px !important; line-height: 1.55 !important; }
+  .label{ font-size: 11px !important; letter-spacing: 1.5px !important; margin-bottom: 8px !important; }
+
+  /* 全部网格单列 */
+  .g2,.g3,.g4,.g5{ grid-template-columns: 1fr !important; gap: 10px !important; }
+
+  /* 卡片 */
+  .card{ padding: 14px 12px !important; border-radius: 10px !important; }
+  .card h3{ font-size: 15px !important; margin-bottom: 6px !important; }
+  .card h4{ font-size: 14px !important; }
+  .card p{ font-size: 13px !important; line-height: 1.5 !important; }
+
+  /* 数据卡片 */
+  .data-card{ padding: 10px 6px !important; }
+  .data-num{ font-size: 34px !important; }
+  .data-label{ font-size: 12px !important; line-height: 1.3 !important; }
+
+  /* 数据卡片在 768px 下允许 2 列 */
+  .g5{ grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+
+  /* 引用框 */
+  .quote-box{ padding: 12px 14px !important; margin-top: 16px !important; }
+  .quote-box p{ font-size: 14px !important; }
+
+  /* CTA 按钮 */
+  .cta-btn{ font-size: 15px !important; padding: 11px 18px !important; }
+  div[style*="display:flex"][style*="justify-content:center"]{
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* 品牌名 */
+  .brand-name{ font-size: 30px !important; }
+  .brand-slogan{ font-size: 14px !important; }
+  .school-badge{ font-size: 13px !important; padding: 7px 12px !important; }
+  .school-row{ flex-direction: column !important; gap: 8px !important; align-items: flex-start !important; }
+
+  /* 工程管线 bar */
+  .eng-pipe-bar{ flex-wrap: wrap !important; padding: 14px 10px !important; gap: 6px !important; }
+  .eng-pipe-item{ flex: 0 0 calc(50% - 10px) !important; }
+  .eng-pipe-arrow{ display: none !important; }
+  .eng-pipe-final{ flex: 1 1 100% !important; }
+  .eng-pipe-num{ width: 32px !important; height: 32px !important; font-size: 15px !important; }
+  .eng-pipe-label{ font-size: 12px !important; }
+
+  /* 封面 meta 行 */
+  .cover-meta{ margin-top: 20px !important; margin-bottom: 20px !important; }
+  .meta-row{ margin-bottom: 7px !important; }
+  .meta-key{ font-size: 13px !important; width: 4em !important; }
+  .meta-val{ font-size: 13px !important; padding-left: 7px !important; }
+
+  /* 幻灯片编号 */
+  .slide-num{ font-size: 13px !important; bottom: 12px !important; right: 14px !important; }
+
+  /* 导航圆点移至底部中央，避免遮挡 */
+  .nav-dots{
+    right: auto !important;
+    bottom: 6px !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+  }
+
+  /* 对比表格 */
+  .compare-table{ font-size: 13px !important; }
+  .compare-table th,.compare-table td{ padding: 7px 8px !important; }
+
+  /* pain 图标 */
+  .pain-icon{ width: 38px !important; height: 38px !important; font-size: 22px !important; margin-bottom: 8px !important; }
+
+  /* 幻灯片内行内 gap/margin 覆盖 */
+  [style*="gap:32px"]{ gap: 12px !important; }
+  [style*="gap:24px"]{ gap: 10px !important; }
+  [style*="margin-bottom:32px"]{ margin-bottom: 16px !important; }
+  [style*="margin-bottom:40px"]{ margin-bottom: 20px !important; }
+
+  /* 主题切换按钮：缩小、固定在左上角避开内容 */
+  #themeToggle{
+    top: 8px !important;
+    right: auto !important;
+    left: 8px !important;
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media(max-width:480px){
+  .slide{ padding: 48px 12px 40px !important; }
+  h1.hero-title{ font-size: 26px !important; }
+  h2.slide-title{ font-size: 20px !important; }
+  .slide-subtitle{ font-size: 13px !important; }
+  .data-num{ font-size: 28px !important; }
+  .g5{ grid-template-columns: 1fr 1fr !important; }
+  .card h3{ font-size: 14px !important; }
+  .card p{ font-size: 12px !important; }
+  .cta-btn{ width: 100% !important; justify-content: center !important; font-size: 14px !important; }
+}
+
+/* ── Nav dots ── */
+.nav-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
+.nav-dot.active{background:#5eead4;transform:scale(1.4);}
+
+/* ── Dark mode legibility ── */
+.slide-subtitle { color: rgba(255,255,255,0.92) !important; font-weight: 500; text-shadow: 0 1px 8px rgba(0,0,0,0.25) !important; opacity: 1 !important; }
+.card p { color: rgba(255,255,255,0.9) !important; opacity: 1 !important; line-height: 1.6 !important; }
+
+/* ── Dark mode slide-green (teal gradient) ── */
+.slide-green { background: linear-gradient(135deg, #094741 0%, #0d9488 50%, #115e59 100%) !important; color: #fff !important; }
+.slide-green h2.slide-title { color: #fff !important; }
+.slide-green h2.slide-title span { color: #fde68a !important; }
+.slide-green .label-teal { color: #fff !important; border-bottom: 2px solid #5eead4; display: inline-block; padding-bottom: 2px; }
+.slide-green .slide-subtitle { color: #fdfdfd !important; text-shadow: 0 1px 4px rgba(0,0,0,0.4) !important; }
+.slide-green .card { background: rgba(0,0,0,0.15) !important; border: 1px solid rgba(255,255,255,0.15) !important; backdrop-filter: blur(12px) !important; }
+.slide-green .card h3, .slide-green .card h4 { color: #fff !important; }
+.slide-green .card p { color: rgba(255,255,255,0.95) !important; }
+.slide-green .quote-box { background: rgba(0,0,0,0.15) !important; border-left-color: #fde68a !important; }
+.slide-green .quote-box p { color: #fff !important; }
+.slide-green .data-card { background: rgba(0,0,0,0.2) !important; border-color: rgba(255,255,255,0.2) !important; }
+.slide-green .data-num { color: #fde68a !important; }
+.slide-green .pipe-step { background: rgba(255,255,255,0.05) !important; }
+.slide-green .pipe-step .step-n { color: #fde68a !important; opacity: 0.6; }
+.slide-green .slide-num { color: rgba(255,255,255,0.35) !important; }
+
+/* ── Nav dots (universal) ── */
+.nav-dot { background: rgba(255,255,255,0.2); border: none; }
+.nav-dot.active { background: #0d9488; transform: scale(1.4); }
+
+/* ══════════════════════════════════════════════
+   浅色模式 — 乳白 Cream + 鼠尾草 Sage 交替
+   Cream  slides: #faf7f2  (暖象牙白)
+   Sage   slides: #e4f2ee  (柔和薄荷绿, slide-green)
+   标题: #1c3330  正文: #374151  强调: #1c3330
+   青绿色: #0d9488 / #0c7a70
+   ══════════════════════════════════════════════ */
+
+/* — 基础 — */
+body.mode-light { background: #faf7f2 !important; color: #1c3330; }
+body.mode-light .slide { background: #faf7f2 !important; color: #1c3330 !important; }
+
+/* — 鼠尾草交替页面 — */
+body.mode-light .slide.slide-green { background: #c8e8df !important; color: #1c3330 !important; }
+
+/* — 字体排版 — */
+body.mode-light h1.hero-title,
+body.mode-light h2.slide-title,
+body.mode-light .brand-name { color: #1c3330 !important; }
+body.mode-light h2.slide-title span { color: #0d9488 !important; }
+body.mode-light h1.hero-title em { color: #0d9488 !important; }
+body.mode-light .slide-subtitle { color: #374151 !important; text-shadow: none !important; }
+body.mode-light .brand-slogan { color: #4b5563 !important; border-color: #b8d9d2 !important; }
+body.mode-light p { color: #374151 !important; }
+body.mode-light li { color: #374151 !important; }
+body.mode-light td { color: #374151 !important; }
+body.mode-light strong { color: #1c3330 !important; }
+body.mode-light .slide-num { color: #9ca3af !important; }
+
+/* — 标签 — */
+body.mode-light .label-teal { color: #0d9488 !important; border-bottom: none !important; padding-bottom: 0 !important; }
+body.mode-light .label-white { color: #0d9488 !important; }
+
+/* — 乳白页卡片 — */
+body.mode-light .slide .card { background: #ffffff !important; border: 1px solid #cce4de !important; box-shadow: 0 3px 14px rgba(13,148,136,0.09) !important; backdrop-filter: none !important; }
+body.mode-light .slide .card h3 { color: #1c3330 !important; }
+body.mode-light .slide .card h4 { color: #1c3330 !important; }
+body.mode-light .slide .card p { color: #374151 !important; }
+body.mode-light .card div { color: #374151 !important; }
+
+/* — 薄荷页卡片 — */
+body.mode-light .slide.slide-green .card { background: #f0faf7 !important; border: 1px solid #b4d9d0 !important; box-shadow: 0 3px 14px rgba(13,148,136,0.12) !important; backdrop-filter: none !important; }
+body.mode-light .slide.slide-green .card h3 { color: #1c3330 !important; }
+body.mode-light .slide.slide-green .card h4 { color: #1c3330 !important; }
+body.mode-light .slide.slide-green .card p { color: #374151 !important; }
+body.mode-light .slide.slide-green .slide-subtitle { color: #374151 !important; text-shadow: none !important; }
+body.mode-light .slide.slide-green h2.slide-title { color: #1c3330 !important; }
+body.mode-light .slide.slide-green h2.slide-title span { color: #0d9488 !important; }
+body.mode-light .slide.slide-green .label-teal { color: #0d9488 !important; border-bottom: none !important; }
+body.mode-light .slide.slide-green .label-white { color: #0d9488 !important; }
+body.mode-light .slide.slide-green p { color: #374151 !important; }
+body.mode-light .slide.slide-green li { color: #374151 !important; }
+body.mode-light .slide.slide-green strong { color: #1c3330 !important; }
+body.mode-light .slide.slide-green .slide-num { color: #7aafa8 !important; }
+
+/* — 数据卡片 — */
+body.mode-light .data-card { background: #edf8f5 !important; border: 1px solid #b4d9d0 !important; }
+body.mode-light .data-num { color: #0c7a70 !important; }
+body.mode-light .data-label { color: #374151 !important; }
+body.mode-light .slide.slide-green .data-card { background: #ddf0eb !important; border-color: #9dcec5 !important; }
+body.mode-light .slide.slide-green .data-num { color: #0a6a62 !important; }
+
+/* — 对比表格 — */
+body.mode-light .compare-table th { color: #374151 !important; border-bottom: 2px solid #b4d9d0 !important; }
+body.mode-light .compare-table td { border-bottom: 1px solid #d0e8e3 !important; }
+body.mode-light .compare-table td:last-child { color: #0d9488 !important; }
+body.mode-light .compare-table tr:hover td { background: rgba(13,148,136,0.05) !important; }
+
+/* — 徽章 — */
+body.mode-light .badge-pass { background: #d1fae5; color: #065f46; border-color: #a7f3d0; }
+body.mode-light .badge-warn { background: #fef3c7; color: #78350f; border-color: #fde68a; }
+
+/* — 学校徽章 — */
+body.mode-light .school-badge { color: #374151 !important; border-color: #b8d9d2 !important; background: #f5faf8 !important; }
+
+/* — 流程步骤 — */
+body.mode-light .pipe-step { background: #ffffff !important; border: 1px solid #cce4de !important; }
+body.mode-light .pipe-step::after { color: #9ca3af !important; }
+body.mode-light .pipe-step strong { color: #1c3330 !important; }
+body.mode-light .pipe-step span { color: #4b5563 !important; }
+body.mode-light .pipe-step .step-n { color: #0d9488 !important; opacity: 0.5; }
+body.mode-light .slide.slide-green .pipe-step { background: #ddf0eb !important; border-color: #9dcec5 !important; }
+
+/* — 案例小卡片 — */
+body.mode-light .case-mini { background: #ffffff !important; border: 1px solid #cce4de !important; border-left: 4px solid #0d9488 !important; }
+body.mode-light .case-mini h4 { color: #1c3330 !important; }
+body.mode-light .case-mini a { color: #0d9488 !important; }
+
+/* — 引用框 — */
+body.mode-light .quote-box { background: #e8f5f2 !important; border-left: 4px solid #0d9488 !important; }
+body.mode-light .quote-box p { color: #0f5f58 !important; }
+body.mode-light .slide.slide-green .quote-box { background: #d5ece7 !important; border-left-color: #0a6a62 !important; }
+body.mode-light .slide.slide-green .quote-box p { color: #0a4f49 !important; }
+
+/* — CTA 按钮 — */
+body.mode-light .cta-primary { background: #0d9488 !important; color: #fff !important; border: 1px solid #0d9488 !important; }
+body.mode-light .cta-outline { border-color: #0d9488 !important; color: #0d9488 !important; background: transparent !important; }
+body.mode-light .cta-outline:hover { background: #e8f5f2 !important; }
+
+/* — 导航点 — */
+body.mode-light .nav-dot { background: #b4d9d0 !important; }
+body.mode-light .nav-dot.active { background: #0d9488 !important; }
+
+/* — 主题切换按钮 — */
+body.mode-light #themeToggle { background: #f0faf7 !important; border-color: #b4d9d0 !important; color: #0d9488 !important; }
+
+/* — 首页封面浅色：仿深色版画风，单幅 DNA + 抗体 + 电路装饰 — */
+body.mode-light #s1 {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1300 900'%3E%3Cpath d='M95,0 C122,45 66,90 95,135 C122,180 66,225 95,270 C122,315 66,360 95,405 C122,450 66,495 95,540 C122,585 66,630 95,675 C122,720 66,765 95,810 C122,855 66,900 95,900' stroke='rgba(6,95,70,0.17)' stroke-width='1.8' fill='none'/%3E%3Cpath d='M138,0 C111,45 165,90 138,135 C111,180 165,225 138,270 C111,315 165,360 138,405 C111,450 165,495 138,540 C111,585 165,630 138,675 C111,720 165,765 138,810 C111,855 165,900 138,900' stroke='rgba(6,95,70,0.17)' stroke-width='1.8' fill='none'/%3E%3Cline x1='95' y1='22' x2='138' y2='22' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='67' x2='138' y2='67' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='112' x2='138' y2='112' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='157' x2='138' y2='157' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='202' x2='138' y2='202' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='247' x2='138' y2='247' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='292' x2='138' y2='292' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='337' x2='138' y2='337' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='382' x2='138' y2='382' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='427' x2='138' y2='427' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='472' x2='138' y2='472' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='517' x2='138' y2='517' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='562' x2='138' y2='562' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='607' x2='138' y2='607' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='652' x2='138' y2='652' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='697' x2='138' y2='697' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='742' x2='138' y2='742' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='787' x2='138' y2='787' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='832' x2='138' y2='832' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='95' y1='877' x2='138' y2='877' stroke='rgba(6,95,70,0.13)' stroke-width='1'/%3E%3Cline x1='1080' y1='700' x2='1080' y2='490' stroke='rgba(6,95,70,0.09)' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='1080' y1='490' x2='960' y2='340' stroke='rgba(6,95,70,0.09)' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='1080' y1='490' x2='1200' y2='340' stroke='rgba(6,95,70,0.09)' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='960' cy='325' r='32' fill='none' stroke='rgba(6,95,70,0.08)' stroke-width='2.5'/%3E%3Ccircle cx='1200' cy='325' r='32' fill='none' stroke='rgba(6,95,70,0.08)' stroke-width='2.5'/%3E%3Cpath d='M1210,20 L1210,85 L1280,85' stroke='rgba(6,95,70,0.14)' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='1210' cy='85' r='5' fill='rgba(6,95,70,0.22)'/%3E%3Cpath d='M1280,155 L1185,155 L1185,220' stroke='rgba(6,95,70,0.14)' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='1185' cy='155' r='5' fill='rgba(6,95,70,0.22)'/%3E%3Ccircle cx='480' cy='95' r='3.5' fill='rgba(6,95,70,0.18)'/%3E%3Ccircle cx='680' cy='55' r='2.5' fill='rgba(6,95,70,0.14)'/%3E%3Ccircle cx='850' cy='120' r='2' fill='rgba(6,95,70,0.12)'/%3E%3Cline x1='480' y1='95' x2='680' y2='55' stroke='rgba(6,95,70,0.09)' stroke-width='1'/%3E%3Cline x1='680' y1='55' x2='850' y2='120' stroke='rgba(6,95,70,0.09)' stroke-width='1'/%3E%3Ccircle cx='420' cy='830' r='2.5' fill='rgba(6,95,70,0.12)'/%3E%3Ccircle cx='620' cy='870' r='2' fill='rgba(6,95,70,0.10)'/%3E%3Cline x1='420' y1='830' x2='620' y2='870' stroke='rgba(6,95,70,0.08)' stroke-width='0.8'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 65% 55% at 78% 22%, rgba(255,255,255,0.20) 0%, transparent 65%),
+    linear-gradient(140deg, #b4ddd4 0%, #cce8e0 55%, #bde3d8 100%) !important;
+  background-size: 100% 100%, 100% 100%, 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+body.mode-light #s1 canvas { opacity: 0.04 !important; }
+/* cover-meta alignment */
+.cover-meta { margin-top:44px; margin-bottom:28px; font-size:18px; color:rgba(255,255,255,0.75); display:inline-block; text-align:left; }
+.meta-row { display:flex; align-items:baseline; margin-bottom:10px; }
+.meta-key { font-weight:700; width:5em; text-align:right; color:#fff; flex-shrink:0; }
+.meta-val { padding-left:10px; color:rgba(255,255,255,0.88); }
+body.mode-light .cover-meta { color: #1c3330; }
+body.mode-light .meta-key { color: #065f46 !important; }
+body.mode-light .meta-val { color: #2d5a54 !important; }
+body.mode-light #s1 h1.hero-title { color: #1c3330 !important; }
+body.mode-light #s1 h1.hero-title em { color: #065f46 !important; }
+body.mode-light #s1 .slide-subtitle { color: #2d5a54 !important; }
+body.mode-light #s1 .slide-num { color: #7aafa8 !important; }
+
+/* — 工程流程条 浅色 — */
+.eng-pipe-bar { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.eng-pipe-item { flex:1; text-align:center; }
+.eng-pipe-num { font-family:'Space Grotesk',sans-serif; font-size:20px; color:#5eead4; font-weight:800; margin-bottom:4px; }
+.eng-pipe-label { font-size:15px; font-weight:700; color:#fff; }
+.eng-pipe-arrow { color:rgba(255,255,255,0.2); font-size:18px; }
+.eng-pipe-final { flex:1.2; background:rgba(13,148,136,0.15); border:1px solid #0d9488; border-radius:8px; padding:12px 5px; }
+body.mode-light .eng-pipe-bar { background: #e0f3ee; border-color: #9dcec5; }
+body.mode-light .eng-pipe-num { color: #0d9488 !important; }
+body.mode-light .eng-pipe-label { color: #1c3330 !important; }
+body.mode-light .eng-pipe-arrow { color: #7ab8af !important; }
+body.mode-light .eng-pipe-final { background: #c4e5de !important; border-color: #0d9488 !important; }
+body.mode-light .eng-pipe-final .eng-pipe-label { color: #0a5c55 !important; font-weight:900; }
+
+/* — 卡片内联白字全局修复 — */
+body.mode-light .card strong { color: #1c3330 !important; }
+body.mode-light .card h4 { color: #1c3330 !important; }
+body.mode-light .card a { color: #0d9488 !important; }
+body.mode-light .slide h4 { color: #1c3330 !important; }
+body.mode-light .slide li::before { color: #0d9488 !important; }
+</style>
+</head>
+<body>
+
+<button id="themeToggle" onclick="document.body.classList.toggle('mode-light')" style="position:fixed;top:20px;right:20px;z-index:9999;padding:8px 14px;border-radius:20px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#9ca3af;cursor:pointer;font-family:'Noto Sans SC',sans-serif;font-weight:600;font-size:15px;backdrop-filter:blur(4px);transition:all 0.3s;">🌓 主题切换</button>
+
+<!-- Nav dots -->
+<div class="nav-dots" id="navDots"></div>
+
+<!-- ===================== SLIDE 1: COVER ===================== -->
+<section class="slide bg-dark hero-grid-bg" id="s1" style="background: radial-gradient(ellipse at 60% 40%, rgba(99,255,210,0.12) 0%, transparent 50%), url('images/hero-bg.svg') center/cover no-repeat, linear-gradient(135deg, #042f2e 0%, #065f46 45%, #0d9488 100%); position: relative;">
+
+  <canvas id="tech-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; opacity:0.85; mix-blend-mode:screen; pointer-events:none;"></canvas>
+  <script>
+    (function(){
+      const canvas = document.getElementById('tech-canvas');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const particles = [];
+      for(let i=0; i<60; i++) {
+        particles.push({
+          x: Math.random() * 2000, y: Math.random() * 1200,
+          vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 2 + 0.5
+        });
+      }
+
+      let time = 0;
+      function draw() {
+        if (!document.getElementById('tech-canvas')) return;
+        ctx.clearRect(0, 0, width, height);
+        time += 0.012;
+
+        for(let i=0; i<particles.length; i++) {
+          let p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if(p.x < 0 || p.x > width) p.vx *= -1;
+          if(p.y < 0 || p.y > height) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fillStyle = 'rgba(94, 234, 212, 0.4)';
+          ctx.fill();
+          for(let j=i+1; j<particles.length; j++) {
+            let p2 = particles[j];
+            let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+            if(dist < 150) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              if (Math.abs(p.x - p2.x) > Math.abs(p.y - p2.y)) {
+                ctx.lineTo(p2.x, p.y); ctx.lineTo(p2.x, p2.y);
+              } else {
+                ctx.lineTo(p.x, p2.y); ctx.lineTo(p2.x, p2.y);
+              }
+              ctx.strokeStyle = `rgba(14, 165, 233, ${0.1 * (1 - dist/150)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        const centerX = Math.min(width * 0.12, 200);
+        ctx.lineWidth = 1;
+        for(let y = -50; y < height + 50; y += 18) {
+          const offset = (y * 0.01) - time * 2;
+          const x1 = centerX + Math.sin(offset) * 35;
+          const x2 = centerX + Math.sin(offset + Math.PI) * 35;
+          ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y);
+          ctx.strokeStyle = 'rgba(94, 234, 212, 0.15)'; ctx.stroke();
+          ctx.beginPath(); ctx.arc(x1, y, 2, 0, Math.PI*2); ctx.fillStyle = 'rgba(14, 165, 233, 0.4)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(x2, y, 2, 0, Math.PI*2); ctx.fillStyle = 'rgba(94, 234, 212, 0.4)'; ctx.fill();
+        }
+
+        const drawAb = (bx, by, scale, rot) => {
+          ctx.save();
+          ctx.translate(bx, by);
+          ctx.rotate(rot + Math.sin(time)*0.1);
+          ctx.scale(scale, scale);
+          ctx.beginPath();
+          ctx.moveTo(0, 45); ctx.lineTo(0, 0);
+          ctx.lineTo(-30, -40); ctx.moveTo(0, 0); ctx.lineTo(30, -40);
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+          ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+          ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-15, -15); ctx.lineTo(15, -15);
+          ctx.strokeStyle = 'rgba(94, 234, 212, 0.2)'; ctx.lineWidth = 2; ctx.stroke();
+          ctx.restore();
+        };
+
+        drawAb(width * 0.88, height * 0.4 + Math.sin(time*1.5)*30, 1.4, 0.2);
+        drawAb(width * 0.72, height * 0.8 + Math.cos(time)*20, 0.9, -0.4);
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+
+  <div class="slide-inner" style="justify-content:center; align-items:center; text-align:center;">
+    <h1 class="hero-title" style="margin-top:24px; font-size:72px;">
+      临床数据导向的<br><em>AI 生物药物决策系统</em>
+    </h1>
+    <p class="slide-subtitle" style="margin:0 auto 28px;text-align:center;max-width:960px; font-size:22px;">
+      融合免疫学逻辑、临床数据对标与私有 AI 推理<br>交付确定性的药物设计方案——而非孤立的算法评分
+    </p>
+    <div class="cover-meta">
+      <div class="meta-row"><span class="meta-key">汇报人：</span><span class="meta-val">黄菁，Ph.D.</span></div>
+      <div class="meta-row"><span class="meta-key">日期：</span><span class="meta-val">2026-04</span></div>
+      <div class="meta-row"><span class="meta-key">领域：</span><span class="meta-val">智能药物设计</span></div>
+    </div>
+  </div>
+  <div class="slide-num">01 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 2: WHO WE ARE ===================== -->
+<section class="slide bg-dark" id="s2">
+  <div class="slide-inner">
+    <span class="label label-teal">创始人与愿景</span>
+    <h2 class="slide-title" style="font-size:66px;">黄菁，<span>Ph.D.</span></h2>
+    <p class="slide-subtitle" style="font-size:22px; max-width:960px;">连接经验免疫学与结构 AI 算法，构建下一代生物药物工程工具，推动药物研发从经验驱动迈向确定性设计。</p>
+    <div class="card-grid g2" style="margin-bottom: 24px;">
+      <div class="card card-accent card-teal">
+        <h3 style="font-size:24px;">🎓 学术背景</h3>
+        <p style="font-size:18px;">博士学位及顶尖机构研究经历：<br><br>
+          <strong style="color:#fff;">· 中国科学院（理学博士）</strong><br>
+          <strong style="color:#fff;">· 哥伦比亚大学（助理研究员）</strong><br>
+          <strong style="color:#fff;">· 洛克菲勒大学（助理研究员）</strong>
+        </p>
+      </div>
+      <div class="card card-accent card-amber">
+        <h3 style="font-size:24px;">🔬 我们的使命</h3>
+        <p style="font-size:18px; line-height: 1.6; margin-top: 10px;">
+          "我们不只是提供通用的 AI 算法。<br><br>
+          通过将前沿机器学习模型（AlphaFold、Diffusion、LM）锚定在<strong style="color:#fff;">真实的临床湿实验数据库</strong>上，我们为复杂大分子提供可执行、经实验验证的决策支持。"
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">02 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 02.5: NEXT-GEN MODALITIES ===================== -->
+<section class="slide bg-gradient slide-green" id="s2_5">
+  <div class="slide-inner">
+    <span class="label label-teal">平台覆盖范围</span>
+    <h2 class="slide-title">掌握<span>下一代</span>主流模态</h2>
+    <p class="slide-subtitle">除标准抗体外，我们利用临床数据引导的 AI 设计和评估全谱系现代免疫疗法。</p>
+
+    <div style="margin-top:20px;">
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
+        <div class="card card-accent card-teal" style="padding:14px;">
+          <h4 style="font-size:16px; color:#fff; margin-bottom:4px;">单抗 & VHH</h4>
+          <p style="font-size:13px;">AI 驱动的人源化与稳定性优化，最大程度降低 IND 阶段失败率。</p>
+        </div>
+        <div class="card card-accent card-amber" style="padding:14px;">
+          <h4 style="font-size:16px; color:#fff; margin-bottom:4px;">双特异性抗体</h4>
+          <p style="font-size:13px;">优化格式选择与几何控制的链配对精度，攻克轻重链错配难题。</p>
+        </div>
+        <div class="card card-accent card-red" style="padding:14px;">
+          <h4 style="font-size:16px; color:#fff; margin-bottom:4px;">ADC 组合设计</h4>
+          <p style="font-size:13px;">DAR 优化与结构感知的 Linker-Payload 兼容性设计。</p>
+        </div>
+        <div class="card card-accent card-violet" style="padding:14px;">
+          <h4 style="font-size:16px; color:#fff; margin-bottom:4px;">CAR-T / CAR-M</h4>
+          <p style="font-size:13px;">从 237 项 Binder 库中模块化筛选，克服实体瘤微环境中的 T 细胞耗竭。</p>
+        </div>
+        <div class="card card-accent card-green" style="padding:14px;">
+          <h4 style="font-size:16px; color:#fff; margin-bottom:4px;">mRNA & AI 疫苗</h4>
+          <p style="font-size:13px;">LNP 递送优化与多表位抗原支架理性设计，激发强效免疫应答。</p>
+        </div>
+        <div class="card card-accent card-teal" style="padding:14px; border-style:dashed;">
+          <h4 style="font-size:16px; color:#fff; margin-bottom:4px;">AI 评估体系</h4>
+          <p style="font-size:13px;">利用临床数据基准进行端到端设计验证与 CMC 风险预警。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="quote-box" style="margin-top:20px; padding: 12px 20px;">
+      <p style="font-size:16px; color:#5eead4;">"我们提供<strong>决策架构</strong>：利用 AI 逻辑，在所有免疫药物模态中超越试错模式。"</p>
+    </div>
+  </div>
+  <div class="slide-num">03 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 3: PAIN POINTS ===================== -->
+<section class="slide bg-dark" id="s3">
+  <div class="slide-inner">
+    <span class="label label-teal">您可能正在面临</span>
+    <h2 class="slide-title" style="font-size:54px;">三个<span>我们每天在解决的</span>问题</h2>
+    <p class="slide-subtitle" style="font-size:22px; max-width:960px;">这些挑战无需独自应对——我们为您提供可直接落地的方案。</p>
+    <div class="card-grid g3">
+      <div class="card card-accent card-red">
+        <div class="pain-icon pain-red">🧬</div>
+        <h3 style="font-size:20px;">"人源化之后亲和力掉了"</h3>
+        <p style="font-size:16px;">这是最常见的问题之一。<br><br><strong style="color:#fff;">我们的做法：</strong><br>结构偏差分析 + VH-VL 黄金配对筛选，在框架替换前预判风险，确保 CDR 结合力 100% 保留。</p>
+      </div>
+      <div class="card card-accent card-amber">
+        <div class="pain-icon pain-amber">⚠️</div>
+        <h3 style="font-size:20px;">"不知道分子能不能开发"</h3>
+        <p style="font-size:16px;">算法评分看不出 IND 风险在哪。<br><br><strong style="color:#fff;">我们的做法：</strong><br>15 项参数对照 1,142 个已上市药物，逐项告诉您哪里通过、哪里有风险、如何修。</p>
+      </div>
+      <div class="card card-accent card-violet">
+        <div class="pain-icon pain-violet">⏳</div>
+        <h3 style="font-size:20px;">"ADC/CAR 设计没有方向感"</h3>
+        <p style="font-size:16px;">复杂模态靠经验筛选，周期长、成本高。<br><br><strong style="color:#fff;">我们的做法：</strong><br>基于靶点生物学逻辑 + 临床数据库对标，给出有依据的设计建议，不是随机筛选。</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 4: VALUE POSITION ===================== -->
+<section class="slide slide-green" id="s4">
+  <div class="slide-inner">
+    <span class="label label-teal">我们的服务方式</span>
+    <h2 class="slide-title" style="font-size:54px;">您收到的是<span>方案，不是工具</span></h2>
+    <p class="slide-subtitle" style="font-size:22px; max-width:960px;">提交序列，我们返回可直接讨论、可直接进实验室的分析报告——无需您学任何软件。</p>
+
+    <div class="quote-box" style="margin-top: 20px;">
+      <p style="font-size:18px;"><strong style="color:#fff;">每份交付物包含：</strong><br>1️⃣ 逐项风险清单（哪些通过 / 哪些需要关注 / 建议如何修改）。<br>2️⃣ 候选序列排名，附带与 1,142 个上市药物的对标百分位。<br>3️⃣ 可操作建议：具体突变位点、替换方案、后续实验优先级。</p>
+    </div>
+
+    <div class="card-grid g3" style="margin-top:24px;">
+      <div class="card">
+        <h3 style="font-size:24px; color:rgba(255,255,255,0.7);">只买 AI 软件</h3>
+        <p style="font-size:17px; color:rgba(255,255,255,0.55); line-height:1.4;">
+          <strong>您还需要：</strong>懂模型的生信工程师、解读结果的专家、整合结论的时间。<br><br>
+          <strong>结果：</strong>得到一堆数字，但不知道下一步做什么。
+        </p>
+      </div>
+      <div class="card card-accent card-teal" style="transform:scale(1.05); box-shadow:0 10px 30px rgba(13,148,136,0.2); background:rgba(255,255,255,0.12);">
+        <h3 style="font-size:24px; color:#fff;">Therasik 服务</h3>
+        <p style="font-size:17px; color:#fff; line-height:1.4;">
+          <strong>提交序列，收到报告：</strong>3–5 个工作日，结构化报告直接可用。<br><br>
+          <strong>专家解读：</strong>每份报告均有免疫学 + AI 专家背书，结论可直接支撑内部决策。
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:24px; color:rgba(255,255,255,0.7);">纯湿实验摸索</h3>
+        <p style="font-size:17px; color:rgba(255,255,255,0.55); line-height:1.4;">
+          <strong>时间成本：</strong>每轮筛选需数周，失败后重复，难以定位根本原因。<br><br>
+          <strong>结果：</strong>可能 9 个月后才发现分子根本无法开发。
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 5: DATA MOAT ===================== -->
+<section class="slide bg-dark" id="s5">
+  <div class="slide-inner">
+    <span class="label label-white">我们的参考基准</span>
+    <h2 class="slide-title">您的分子会与<span>真实药物比较</span></h2>
+    <p class="slide-subtitle">不是靠算法猜测，而是与 1,000+ 个已经上市或进入临床的药物逐项对标——这是我们评估的起点。</p>
+    <div class="card-grid g5">
+      <div class="data-card"><div class="data-num">1,142</div><div class="data-label">临床抗体<br>序列</div></div>
+      <div class="data-card"><div class="data-num">458</div><div class="data-label">工程化抗体<br>（AbRef-458）</div></div>
+      <div class="data-card"><div class="data-num">138</div><div class="data-label">临床 ADA<br>免疫原性记录</div></div>
+      <div class="data-card"><div class="data-num">100</div><div class="data-label">临床 ADC<br>项目数据</div></div>
+      <div class="data-card"><div class="data-num">237</div><div class="data-label">CAR-T 设计<br>组件库</div></div>
+    </div>
+    <div class="card-grid g5" style="margin-top:12px;">
+      <div class="data-card"><div class="data-num">842</div><div class="data-label">临床生殖系<br>数据库</div></div>
+      <div class="data-card"><div class="data-num">134+</div><div class="data-label">双特异性 CMC<br>基准</div></div>
+      <div class="data-card"><div class="data-num">109</div><div class="data-label">MHC I/II<br>表位记录</div></div>
+      <div class="data-card"><div class="data-num">42</div><div class="data-label">临床 VHH<br>参考分子</div></div>
+      <div class="data-card"><div class="data-num">21</div><div class="data-label">Fc 工程<br>临床记录</div></div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 6: TECH ARSENAL ===================== -->
+<section class="slide slide-green" id="s6">
+  <div class="slide-inner" style="max-width: 1300px;">
+    <span class="label label-teal">决策矩阵引擎</span>
+    <h2 class="slide-title">AbEngineCore — <span>8 系列决策矩阵</span></h2>
+
+    <div class="card-grid g4" style="margin-top:24px;">
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#5eead4; font-weight:800; margin-bottom:10px; text-transform:uppercase;">结构预测</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">AlphaFold2</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">ABodyBuilder2</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#fde68a; font-weight:800; margin-bottom:10px; text-transform:uppercase;">分子对接</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">HADDOCK3</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">AF2-Multimer</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#c4b5fd; font-weight:800; margin-bottom:10px; text-transform:uppercase;">生成式设计</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">ProteinMPNN</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">ESM-IF1 · RFdiffusion</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#6ee7b7; font-weight:800; margin-bottom:10px; text-transform:uppercase;">稳定性与亲和力</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">ThermoMPNN</div>
+        <div style="font-size:17px; color:rgba(255,255,255,0.8); margin-top:4px;">MM/GBSA · PRODIGY</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#f9a8d4; font-weight:800; margin-bottom:10px; text-transform:uppercase;">免疫原性</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">IEDB API</div>
+        <div style="font-size:16px; color:rgba(255,255,255,0.75); margin-top:4px;">27 个 HLA-DR 等位基因</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#93c5fd; font-weight:800; margin-bottom:10px; text-transform:uppercase;">序列注释</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">ANARCI</div>
+        <div style="font-size:16px; color:rgba(255,255,255,0.75); margin-top:4px;">Kabat / IMGT 编号</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#fde68a; font-weight:800; margin-bottom:10px; text-transform:uppercase;">生物适应性</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">AntiFold</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">ESM-2</div>
+      </div>
+      <div class="card" style="text-align:center; padding:20px;">
+        <div style="font-size:14px; color:#5eead4; font-weight:800; margin-bottom:10px; text-transform:uppercase;">疫苗设计套件</div>
+        <div style="font-size:20px; font-weight:700; color:#fff;">新抗原扫描器</div>
+        <div style="font-size:16px; color:rgba(255,255,255,0.75); margin-top:4px;">多表位装配 · 密码子优化</div>
+      </div>
+    </div>
+
+    <div class="quote-box" style="margin-top:32px; text-align:center; border:none; background:none; padding:0;">
+      <p style="font-size:16px; color:rgba(255,255,255,0.6); font-style:normal;">"统一的 8 系列工具栈，为所有生物治疗模态提供端到端的决策智能。"</p>
+    </div>
+  </div>
+  <div class="slide-num">07 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 7: CMC FIREWALL ===================== -->
+<section class="slide bg-indigo-dark" id="s7">
+  <div class="slide-inner">
+    <span class="label label-teal">开发性风险评估</span>
+    <h2 class="slide-title">送实验室之前，<span>先知道风险在哪</span></h2>
+    <p class="slide-subtitle">我们从 4 个方向检查 15 项参数，告诉您分子的哪些特性可能在 IND 阶段出问题——在您花费大量实验成本之前。</p>
+
+    <div class="card-grid g4" style="margin-bottom:24px;">
+      <div class="card card-accent card-teal" style="background: rgba(13,148,136,0.06);">
+        <h3 style="font-size:18px;">1. 一级序列特征</h3>
+        <div style="font-size:12px; color:#5eead4; margin-bottom:8px; font-weight:700;">解决：基础溶解度与稳定性</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.4;"><strong>5 项参数：</strong>等电点 pI、GRAVY 疏水性、不稳定性指数、净电荷、SAP 聚集倾向评分。</p>
+      </div>
+      <div class="card card-accent card-amber" style="background: rgba(245,158,11,0.06);">
+        <h3 style="font-size:18px;">2. TAP 行业指南</h3>
+        <div style="font-size:12px; color:#fde68a; margin-bottom:8px; font-weight:700;">解决：行业离群风险</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.4;"><strong>4 项参数：</strong>CDR 长度、PSH（疏水斑块）、PPC/PNC（电荷斑块）、SFvCSP（不对称性）。</p>
+      </div>
+      <div class="card card-accent card-violet" style="background: rgba(124,58,237,0.06);">
+        <h3 style="font-size:18px;">3. 结构风险</h3>
+        <div style="font-size:12px; color:#c4b5fd; margin-bottom:8px; font-weight:700;">解决：折叠与界面缺陷</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.4;"><strong>3 项参数：</strong>VH-VL 夹角一致性、接触图谱（空间位阻）、Vernier 区 SASA 暴露面。</p>
+      </div>
+      <div class="card card-accent card-red" style="background: rgba(239,68,68,0.06);">
+        <h3 style="font-size:18px;">4. 化学修饰陷阱</h3>
+        <div style="font-size:12px; color:#fca5a5; margin-bottom:8px; font-weight:700;">解决：生产工艺风险</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.4;"><strong>3 项参数：</strong>脱酰胺位点（NG/NS）、氧化位点（M/W/H）、异构化位点（DG/DS）全序列扫描。</p>
+      </div>
+    </div>
+
+    <div class="card card-accent card-teal" style="padding:22px; background: linear-gradient(90deg, rgba(13,148,136,0.15) 0%, rgba(13,148,136,0) 100%);">
+      <div style="display:flex; gap:32px; align-items:center;">
+        <div style="flex:1;">
+          <h3 style="font-size:26px; color:#5eead4; margin-bottom:6px;">报告结论：IDI 综合评分</h3>
+          <p style="font-size:17px; color:#fff; line-height:1.5;">15 项参数汇总为一个直观的综合分值，并附上与 1,142 个上市药物的百分位排名。您可以清楚看到：这个分子在历史上同类药物中处于什么位置，哪里需要优先处理。</p>
+        </div>
+        <div style="width:180px; text-align:center; background:rgba(0,0,0,0.3); padding:16px; border-radius:16px; border:1px solid #0d9488;">
+          <div style="font-size:38px; font-weight:800; color:#fff; line-height:1;">15D</div>
+          <div style="font-size:13px; color:#5eead4; font-weight:700; margin-top:4px;">临床基准锚定</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">08 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 8: ADA ===================== -->
+<section class="slide slide-green" id="s8">
+  <div class="slide-inner">
+    <span class="label label-teal">免疫原性</span>
+    <h2 class="slide-title">ADA 免疫原性 — <span>坦诚直面，多维对标</span></h2>
+    <p class="slide-subtitle">ADA 极难准确预测——我们拒绝引导客户期待 100% 的预见。针对同类分子的多维横向比对系统，是唯一可靠的锚点。</p>
+    <div class="card-grid g3" style="margin-bottom:16px;">
+      <div class="card card-accent card-teal">
+        <h3>🧬 序列维度</h3>
+        <p>MHC-II 27 等位基因 T 细胞表位扫描 · 风险位点分群 · Parker 亲水性过滤</p>
+      </div>
+      <div class="card card-accent card-amber">
+        <h3>🔬 结构 + 生殖系维度</h3>
+        <p>同类生殖系历史 ADA 率对比 · 表面免疫原性（SASA）· 生殖系耐受性验证</p>
+      </div>
+      <div class="card card-accent card-violet">
+        <h3>📋 临床真实数据验证</h3>
+        <p>基于极其稀缺的 <strong style="color:#fff;">138 个真实临床药物 ADA 数据</strong>。多维参数比对揭示关键因果。<br><a href='Therasik_Immunogenicity.html' target='_blank' style='color:#5eead4;'>【探索 ADA 机制】</a> · <a href='Therasik_ADA_Database.html' target='_blank' style='color:#5eead4;'>【查看 ADA 数据库】</a></p>
+      </div>
+    </div>
+    <div class="quote-box">
+      <p>"我们无法保证绝对零免疫原性，但在最全面的临床数据供应链的支持下，我们将把相对风险降至行业最低可达水平。"</p>
+    </div>
+  </div>
+  <div class="slide-num">09 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 9: ENGINEERING PIPELINE ===================== -->
+<section class="slide bg-teal-dark" id="s9">
+  <div class="slide-inner" style="max-width: 1400px;">
+    <span class="label label-teal">工程化管线</span>
+    <h2 class="slide-title">标准化<span>抗体工程与 SOP 矩阵</span></h2>
+
+    <div class="eng-pipe-bar" style="border-radius:12px; padding:24px 20px; display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; gap:8px;">
+      <div class="eng-pipe-item">
+        <div class="eng-pipe-num">1</div>
+        <div class="eng-pipe-label">序列分析</div>
+      </div>
+      <div class="eng-pipe-arrow">→</div>
+      <div class="eng-pipe-item">
+        <div class="eng-pipe-num">2</div>
+        <div class="eng-pipe-label">人源化</div>
+      </div>
+      <div class="eng-pipe-arrow">→</div>
+      <div class="eng-pipe-item">
+        <div class="eng-pipe-num">3</div>
+        <div class="eng-pipe-label">结构 & 表位</div>
+      </div>
+      <div class="eng-pipe-arrow">→</div>
+      <div class="eng-pipe-item">
+        <div class="eng-pipe-num">4</div>
+        <div class="eng-pipe-label">亲和力 VAM</div>
+      </div>
+      <div class="eng-pipe-arrow">→</div>
+      <div class="eng-pipe-item">
+        <div class="eng-pipe-num">5</div>
+        <div class="eng-pipe-label">CMC 检查</div>
+      </div>
+      <div class="eng-pipe-arrow">→</div>
+      <div class="eng-pipe-item">
+        <div class="eng-pipe-num">6</div>
+        <div class="eng-pipe-label">临床对标</div>
+      </div>
+      <div class="eng-pipe-arrow">→</div>
+      <div class="eng-pipe-item eng-pipe-final">
+        <div class="eng-pipe-num">7</div>
+        <div class="eng-pipe-label">交付报告</div>
+      </div>
+    </div>
+
+    <div class="card-grid g3">
+      <div class="card card-accent card-teal" style="background: rgba(13,148,136,0.06);">
+        <h3>🧬 智能人源化</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6;">机器学习驱动的框架筛选 + 结构回突变，确保 CDR 100% 稳定保留。</p>
+      </div>
+      <div class="card card-accent card-amber" style="background: rgba(245,158,11,0.06);">
+        <h3>⚡ 虚拟亲和力成熟</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6;">6 工具 ΔΔG 共识验证，快速高置信度完成结合子优化。</p>
+      </div>
+      <div class="card card-accent card-violet" style="background: rgba(124,58,237,0.06);">
+        <h3>🔄 CDR 核心重构</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6;">ProteinMPNN 驱动的新拓扑骨架生成，绕过专利壁垒，实现序列多样化。</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">10 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 10: PROVEN EXCELLENCE I ===================== -->
+<section class="slide slide-green" id="s10">
+  <div class="slide-inner" style="max-width: 1350px;">
+    <span class="label label-teal">卓越成果 I</span>
+    <h2 class="slide-title">卓越画廊 — <span>真实商业与 PoC 案例</span></h2>
+
+    <div style="font-size:14px; color:#0ea5e9; font-weight:800; margin-bottom:12px; text-transform:uppercase;">一、商业成功案例</div>
+    <div class="card-grid g3" style="margin-bottom:32px; gap:16px;">
+      <div class="card card-accent card-teal" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:18px; color:#fff; margin-bottom:8px;">双抗 VHH 表达优化</h4>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7);">pI 调整：8.2 → 6.8 提升稳定性；GS-8 接头设计实现 4.8 倍表达量提升。</p>
+        <a href="case_bispecific_vhh_expression_optimization.html" target="_blank" style="font-size:12px; color:#5eead4; text-decoration:none; margin-top:12px;">查看完整报告 ↗</a>
+      </div>
+      <div class="card card-accent card-amber" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:18px; color:#fff; margin-bottom:8px;">小分子半抗原 VAM</h4>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7);">芬太尼检测抗体亲和力优化；ΔΔG 达 −5.53 kcal/mol，满足商用检测阈值。</p>
+        <a href="case_fentanyl_hapten_vam.html" target="_blank" style="font-size:12px; color:#5eead4; text-decoration:none; margin-top:12px;">查看完整报告 ↗</a>
+      </div>
+      <div class="card card-accent card-green" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:18px; color:#fff; margin-bottom:8px;">PD-L1 表位精细图谱</h4>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7);">揭示空间位阻阻断域；PRODIGY 评分验证作用机制（−10.8 vs −7.3）。</p>
+        <a href="case_pdl1_epitope_analysis.html" target="_blank" style="font-size:12px; color:#5eead4; text-decoration:none; margin-top:12px;">查看完整报告 ↗</a>
+      </div>
+    </div>
+
+    <div style="font-size:14px; color:#8b5cf6; font-weight:800; margin-bottom:12px; text-transform:uppercase;">二、技术验证（PoC）</div>
+    <div class="card-grid g4" style="gap:16px;">
+      <div class="card card-accent card-violet" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:16px; color:#fff; margin-bottom:6px;">人源化 SOP 验证</h4>
+        <p style="font-size:13px; color:rgba(255,255,255,0.6);">muMAb4D5：利用 842 谱系数据库确保 100% 结构结合保留。</p>
+        <a href="case_mumab4d5_humanization_zh.html" target="_blank" style="font-size:11px; color:#5eead4; text-decoration:none; margin-top:8px;">验证链接 ↗</a>
+      </div>
+      <div class="card card-accent card-violet" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:16px; color:#fff; margin-bottom:6px;">CMC 15 维对标</h4>
+        <p style="font-size:13px; color:rgba(255,255,255,0.6);">验证 15 项核心参数；映射至 1,142 项临床资产，IDI 指数 77/100。</p>
+        <a href="case_mumab4d5_cmc_zh.html" target="_blank" style="font-size:11px; color:#5eead4; text-decoration:none; margin-top:8px;">验证链接 ↗</a>
+      </div>
+      <div class="card card-accent card-violet" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:16px; color:#fff; margin-bottom:6px;">亲和力 VAM（疟疾）</h4>
+        <p style="font-size:13px; color:rgba(255,255,255,0.6);">利用 ACTES 237 组件筛选实现多靶点信号模型设计。</p>
+        <a href="case_malaria_carm_design.html" target="_blank" style="font-size:11px; color:#5eead4; text-decoration:none; margin-top:8px;">验证链接 ↗</a>
+      </div>
+      <div class="card card-accent card-violet" style="background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <h4 style="font-size:16px; color:#fff; margin-bottom:6px;">CDR 核心重构</h4>
+        <p style="font-size:13px; color:rgba(255,255,255,0.6);">ProteinMPNN 绕过 IP 壁垒，实现全新骨架拓扑设计。</p>
+        <a href="case_vgrw_cdr_redesign_remat.html" target="_blank" style="font-size:11px; color:#5eead4; text-decoration:none; margin-top:8px;">验证链接 ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">11 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 11: PROVEN EXCELLENCE II ===================== -->
+<section class="slide bg-violet-dark" id="s11">
+  <div class="slide-inner" style="max-width: 1350px;">
+    <span class="label label-teal">卓越成果 II</span>
+    <h2 class="slide-title">智能设计 — <span>复杂模态与研发前沿</span></h2>
+
+    <div style="font-size:14px; color:#f59e0b; font-weight:800; margin-bottom:12px; text-transform:uppercase;">三、智能药物设计系统</div>
+    <div class="card-grid g3" style="margin-bottom:40px; gap:16px;">
+      <div class="card" style="border-left: 3px solid #f59e0b; padding:24px; background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h4 style="font-size:20px; color:#fff; margin-bottom:8px;">ADC 决策引擎：CLDN18.2</h4>
+          <p style="font-size:15px; color:rgba(255,255,255,0.7); line-height:1.6;">应对胃癌高度肿瘤异质性。基于 CLDN18.2 中/慢速内吞及低脱落特征进行靶点分析与设计空间优化。</p>
+        </div>
+        <a href="Therasik_ADC_Design_Page.html" target="_blank" style="font-size:12px; color:#5eead4; text-decoration:none; margin-top:16px;">案例研究：胃癌智能 ADC 设计 ↗</a>
+      </div>
+      <div class="card" style="border-left: 3px solid #ef4444; padding:24px; background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h4 style="font-size:20px; color:#fff; margin-bottom:8px;">CAR-T 模态架构师</h4>
+          <p style="font-size:15px; color:rgba(255,255,255,0.7); line-height:1.6;">利用 Therasik 237-Binder 库进行精准模块化信号装配，优化 CAR 在实体瘤微环境中的持久性。</p>
+        </div>
+        <a href="case_malaria_carm_design.html" target="_blank" style="font-size:12px; color:#5eead4; text-decoration:none; margin-top:16px;">案例：抗 CIDRα1 双结合 CAR-M 设计 ↗</a>
+      </div>
+      <div class="card" style="border-left: 3px solid #5eead4; padding:24px; background:rgba(255,255,255,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h4 style="font-size:20px; color:#fff; margin-bottom:8px;">疫苗设计套件</h4>
+          <p style="font-size:15px; color:rgba(255,255,255,0.7); line-height:1.6;">理性抗原支架设计与多等位基因表位装配，已通过 109 条 MHC 核心记录及临床免疫原性证据验证。</p>
+        </div>
+        <a href="Therasik_Vaccine_Design.html" target="_blank" style="font-size:12px; color:#5eead4; text-decoration:none; margin-top:16px;">KRAS G12D 新抗原多表位 mRNA 设计案例 ↗</a>
+      </div>
+    </div>
+
+    <div style="font-size:14px; color:#ec4899; font-weight:800; margin-bottom:12px; text-transform:uppercase;">四、未来研究前沿（进行中）</div>
+    <div class="card-grid g2" style="gap:24px;">
+      <div class="card" style="border: 1.5px dashed rgba(236,72,153,0.4); background:rgba(236,72,153,0.05); padding:28px; display:flex; flex-direction:column; justify-content:space-between;">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">从头蛋白药物设计</h3>
+        <ul style="list-style:none; padding:0; margin:0; font-size:15px; color:rgba(255,255,255,0.85); line-height:1.6;">
+          <li style="margin-bottom:8px; display:flex; gap:8px;"><span style="color:#ec4899;">·</span> RFdiffusion、ProteinMPNN 与 AlphaFold2 协同生成。</li>
+          <li style="margin-bottom:8px; display:flex; gap:8px;"><span style="color:#ec4899;">·</span> 探索独立于现有支架的全新结合序列空间。</li>
+          <li style="margin-bottom:8px; display:flex; gap:8px;"><span style="color:#ec4899;">·</span> 整合工作流：从头设计 + 结构验证 + 成药性评估。</li>
+        </ul>
+        <div style="font-size:12px; color:#ec4899; font-weight:700; margin-top:16px;">【状态：活跃研发 / 合作探索中】</div>
+      </div>
+      <div class="card" style="border: 1.5px dashed rgba(16,185,129,0.4); background:rgba(16,185,129,0.05); padding:28px; display:flex; flex-direction:column; justify-content:space-between;">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">TCR 限制性表位免疫增强</h3>
+        <ul style="list-style:none; padding:0; margin:0; font-size:15px; color:rgba(255,255,255,0.85); line-height:1.6;">
+          <li style="margin-bottom:8px; display:flex; gap:8px;"><span style="color:#10b981;">·</span> pMHC 表位的 TCR 识别结合能优化。</li>
+          <li style="margin-bottom:8px; display:flex; gap:8px;"><span style="color:#10b981;">·</span> 多 HLA 覆盖策略增强 T 细胞免疫应答。</li>
+          <li style="margin-bottom:8px; display:flex; gap:8px;"><span style="color:#10b981;">·</span> pMHC-TCR 复合物界面的 AI 分析与突变设计。</li>
+        </ul>
+        <div style="font-size:12px; color:#10b981; font-weight:700; margin-top:16px;">【状态：活跃研发 / 合作探索中】</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 12: PARTNERSHIP ===================== -->
+<section class="slide slide-green" id="s12">
+  <div class="slide-inner">
+    <span class="label label-white">如何开始合作</span>
+    <h2 class="slide-title">流程简单，<span>3 步启动项目</span></h2>
+    <div class="card-grid g2" style="margin-bottom:24px;">
+      <div class="card" style="border-top:3px solid #5eead4;">
+        <h3>📋 单项目合作</h3>
+        <ul style="list-style:none;padding:0; margin-top:16px;">
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#5eead4;">①</span> 签署 NDA，序列安全提交</li>
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#5eead4;">②</span> 3–5 个工作日交付结构化分析报告</li>
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#5eead4;">③</span> 报告电话讨论，明确下一步实验方向</li>
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#5eead4;">+</span> 学术发表享 50% 费用返还</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid #fde68a;">
+        <h3>🤝 长期顾问合作</h3>
+        <ul style="list-style:none;padding:0; margin-top:16px;">
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#fde68a;">→</span> 持续跟进管线，随时分析新候选分子</li>
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#fde68a;">→</span> 参与内部 R&D 会议，提供实时技术支持</li>
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#fde68a;">→</span> 序列与数据完全保密，项目结束后不留存</li>
+          <li style="font-size:16px;color:rgba(255,255,255,0.85);padding:6px 0;display:flex;gap:8px;"><span style="color:#fde68a;">→</span> 可根据项目阶段灵活调整服务深度</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">13 / 14</div>
+</section>
+
+<!-- ===================== SLIDE 13: CTA ===================== -->
+<section class="slide bg-deep" id="s13">
+  <div class="slide-inner" style="text-align:center;">
+    <span class="label label-teal">联系我们</span>
+    <h2 class="slide-title" style="font-size:66px;">有具体分子？<span>发给我们看看</span></h2>
+    <p class="slide-subtitle" style="margin:0 auto 20px;text-align:center;">
+      一封邮件附上序列，我们免费提供初步评估建议。无义务，无压力。
+    </p>
+    <div style="margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:contact@therasik.com" class="cta-btn cta-primary">📧 contact@therasik.com</a>
+      <a href="https://www.therasik.com" target="_blank" class="cta-btn cta-outline">🌐 www.therasik.com</a>
+    </div>
+    <div class="brand-row" style="justify-content:center;margin-top:60px;">
+      <span class="brand-name" style="font-size:56px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Thera<span class="accent">sik</span></span>
+    </div>
+    <p style="font-size:16px;color:rgba(255,255,255,0.25);margin-top:12px;">© 2026 Therasik · AI for Life Sciences</p>
+  </div>
+  <div class="slide-num">14 / 14</div>
+</section>
+
+<script>
+// Nav dots
+const slides=document.querySelectorAll('.slide');
+const dotsC=document.getElementById('navDots');
+dotsC.innerHTML = '';
+slides.forEach((_,i)=>{const b=document.createElement('button');b.className='nav-dot';b.onclick=()=>slides[i].scrollIntoView({behavior:'smooth'});dotsC.appendChild(b);});
+const dots=dotsC.querySelectorAll('.nav-dot');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const idx=[...slides].indexOf(e.target);dots.forEach((d,i)=>d.classList.toggle('active',i===idx));}});},{threshold:0.55});
+slides.forEach(s=>obs.observe(s));
+
+// Keyboard nav
+document.addEventListener('keydown',e=>{
+  const cur=[...dots].findIndex(d=>d.classList.contains('active'));
+  if(e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){e.preventDefault();if(cur<slides.length-1)slides[cur+1].scrollIntoView({behavior:'smooth'});}
+  if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();if(cur>0)slides[cur-1].scrollIntoView({behavior:'smooth'});}
+});
+</script>
+</body>
+</html>

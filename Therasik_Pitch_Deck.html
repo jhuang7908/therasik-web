@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -751,8 +751,10 @@ body.mode-light .slide li::before { color: #0d9488 !important; }
       </div>
       <div class="card" style="text-align:center; padding:20px;">
         <div style="font-size:14px; color:#f9a8d4; font-weight:800; margin-bottom:10px; text-transform:uppercase;">免疫原性</div>
-        <div style="font-size:20px; font-weight:700; color:#fff;">IEDB API</div>
-        <div style="font-size:16px; color:rgba(255,255,255,0.75); margin-top:4px;">27 个 HLA-DR 等位基因</div>
+        <div style="font-size:17px; font-weight:700; color:#fff;">MHC-II 表位分析器</div>
+        <div style="font-size:12px; color:#f9a8d4; font-weight:600; margin:2px 0 6px;">自研 · 35 个 HLA-DRB1 等位基因</div>
+        <div style="font-size:17px; font-weight:700; color:#fff;">ADA 风险评分器</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.65); margin-top:2px;">基于 138 个临床抗体校准</div>
       </div>
       <div class="card" style="text-align:center; padding:20px;">
         <div style="font-size:14px; color:#93c5fd; font-weight:800; margin-bottom:10px; text-transform:uppercase;">序列注释</div>
@@ -833,7 +835,7 @@ body.mode-light .slide li::before { color: #0d9488 !important; }
     <div class="card-grid g3" style="margin-bottom:16px;">
       <div class="card card-accent card-teal">
         <h3>🧬 序列维度</h3>
-        <p>MHC-II 27 等位基因 T 细胞表位扫描 · 风险位点分群 · Parker 亲水性过滤</p>
+        <p>MHC-II 35 等位基因 T 细胞表位扫描 · 风险位点分群 · Parker 亲水性过滤</p>
       </div>
       <div class="card card-accent card-amber">
         <h3>🔬 结构 + 生殖系维度</h3>
@@ -842,6 +844,17 @@ body.mode-light .slide li::before { color: #0d9488 !important; }
       <div class="card card-accent card-violet">
         <h3>📋 临床真实数据验证</h3>
         <p>基于极其稀缺的 <strong style="color:#fff;">138 个真实临床药物 ADA 数据</strong>。多维参数比对揭示关键因果。<br><a href='Therasik_Immunogenicity.html' target='_blank' style='color:#5eead4;'>【探索 ADA 机制】</a> · <a href='Therasik_ADA_Database.html' target='_blank' style='color:#5eead4;'>【查看 ADA 数据库】</a></p>
+      </div>
+    </div>
+    <!-- 自研工具说明 -->
+    <div style="display:flex; gap:16px; margin-top:14px; margin-bottom:16px;">
+      <div style="flex:1; background:rgba(249,168,212,0.09); border:1px solid rgba(249,168,212,0.3); border-radius:10px; padding:14px 16px;">
+        <div style="font-size:11px; color:#f9a8d4; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">🔬 自研工具 · MHC-II 表位分析器</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.85); line-height:1.5;">调用 IEDB netMHCIIpan-4.1 接口 · 覆盖 35 个 HLA-DRB1 等位基因 · CDR/FR 区定位 · 种系耐受性过滤 · 空间热点聚类 · 人群加权净负担评分</div>
+      </div>
+      <div style="flex:1; background:rgba(94,234,212,0.09); border:1px solid rgba(94,234,212,0.3); border-radius:10px; padding:14px 16px;">
+        <div style="font-size:11px; color:#5eead4; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">📊 自研工具 · ADA 风险评分器 V2.1</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.85); line-height:1.5;">FH/HU 双轨模型 · 5 维度复合评分（种系距离 · 暴露量 · 界面接触 · 表位数 · 表面亲水斑块）· 经 138 个临床抗体校准 · 临床用药情景调整</div>
       </div>
     </div>
     <div class="quote-box">
