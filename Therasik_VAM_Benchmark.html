@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Therasik 亲和力成熟基准研究：基于 854 个临床前真实抗体突变数据的多维计算工具评估——揭示刚体打分负相关悖论，提出多尺度级联筛选方案。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.therasik.com/Therasik_VAM_Benchmark.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.therasik.com/Therasik_VAM_Benchmark.html">
+  <meta property="og:title" content="亲和力成熟基准研究 | Therasik">
+  <meta property="og:description" content="基于 854 个临床前真实抗体突变数据：打破唯能量论，AI-MD 多尺度级联引擎将筛选命中率从 74.5% 提升至 82.4%。">
+  <title>亲和力成熟基准研究 | Therasik — 生命科学 AI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0S2HLBZ0B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F0S2HLBZ0B');
+  </script>
+  <style>
+    :root { --primary: #0d9488; --primary-dark: #0f766e; --accent: #6d28d9; --accent-light: #ede9fe; --text: #111827; --text-muted: #4b5563; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
+
+    /* Header */
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
+    .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; }
+    .top-header .brand a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; }
+    .top-header .slogan { font-size: 14px; color: var(--text-muted); padding-left: 14px; border-left: 1px solid var(--border); margin-left: 14px; font-weight: 600; white-space: nowrap; }
+    .mobile-menu-btn { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); line-height: 0; }
+    .nav-close-btn { display: none; }
+    .top-header-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
+    .top-header-nav a { padding: 8px 16px; font-size: 15px; color: var(--text-muted); text-decoration: none; border-radius: 20px; transition: all 0.2s; font-weight: 600; }
+    .top-header-nav a:hover { color: var(--primary); background: rgba(13,148,136,0.06); }
+    .top-header-nav a.active { background: var(--primary); color: #fff; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; margin-left: 4px; }
+    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); min-width: 240px; padding: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.12); opacity: 0; visibility: hidden; transition: all 0.2s cubic-bezier(0.16,1,0.3,1); z-index: 100; margin-top: 8px; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown .dropdown-menu a { display: block; padding: 12px 16px; color: var(--text); text-decoration: none; border-radius: 8px; }
+    .nav-dropdown .dropdown-menu a:hover { background: var(--bg-alt); }
+    .nav-dropdown .dropdown-menu a .menu-title { display: block; font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
+    .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
+
+    /* Layout */
+    .page-wrap { display: flex; min-height: calc(100vh - 73px); max-width: 1400px; margin: 0 auto; }
+    .sidebar { width: 280px; flex-shrink: 0; background: var(--bg); border-right: 1px solid rgba(0,0,0,0.05); padding: 40px 20px; position: sticky; top: 73px; height: calc(100vh - 73px); overflow-y: auto; }
+    .sidebar h3 { font-size: 12px; font-weight: 700; color: var(--text-muted); margin: 0 16px 16px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .sidebar nav a { display: flex; align-items: center; padding: 12px 16px; color: var(--text-muted); text-decoration: none; font-size: 15px; transition: all 0.2s; border-radius: 8px; margin-bottom: 4px; font-weight: 500; }
+    .sidebar nav a:hover { background: rgba(13,148,136,0.06); color: var(--primary); }
+    .sidebar nav a.active { background: rgba(13,148,136,0.1); color: var(--primary-dark); font-weight: 600; }
+    .nav-icon { width: 18px; height: 18px; margin-right: 12px; opacity: 0.8; flex-shrink: 0; }
+    .main { flex: 1; padding: 60px 60px 100px; max-width: 960px; }
+    .main h1 { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 700; color: #111827; margin: 0 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
+    .main h2 { font-size: 22px; font-weight: 700; color: var(--text); margin: 48px 0 16px; display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 1.5px solid var(--border); }
+    .h2-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.1); border-radius: 8px; color: var(--primary); flex-shrink: 0; }
+    .subtitle { font-size: 17px; color: var(--text-muted); margin: 0 0 40px; line-height: 1.6; }
+    .breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 32px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--primary); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* Data cards */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin: 28px 0; }
+    .kpi-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+    .kpi-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px; }
+    .kpi-value { font-size: 32px; font-weight: 700; color: var(--text); line-height: 1.1; font-family: 'Cormorant Garamond', serif; }
+    .kpi-desc { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+    /* Insight cards */
+    .insight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 24px 0; }
+    .insight-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .ic-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    .ic-value { font-size: 28px; font-weight: 700; color: var(--text); font-family: 'Cormorant Garamond', serif; }
+    .ic-desc { font-size: 13px; color: var(--text-muted); margin-top: 6px; line-height: 1.5; }
+
+    /* Table */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0; }
+    .data-table th { background: var(--bg-alt); font-weight: 600; padding: 12px 16px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 2px solid var(--border); }
+    .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--bg-alt); }
+    .auc-good { color: #059669; font-weight: 700; }
+    .auc-bad { color: #dc2626; font-weight: 700; }
+    .auc-mid { color: #d97706; font-weight: 700; }
+    .auc-neutral { color: #6b7280; }
+
+    /* Key finding box */
+    .finding-box { border-radius: 16px; padding: 28px 32px; margin: 32px 0; }
+    .finding-box.purple { background: linear-gradient(135deg, #f5f3ff 0%, #fff 100%); border: 1.5px solid rgba(109,40,217,0.2); }
+    .finding-box.red { background: linear-gradient(135deg, #fff1f2 0%, #fff 100%); border: 1.5px solid rgba(220,38,38,0.2); }
+    .finding-box.green { background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%); border: 1.5px solid rgba(13,148,136,0.2); }
+    .finding-box.amber { background: linear-gradient(135deg, #fffbeb 0%, #fff 100%); border: 1.5px solid rgba(217,119,6,0.2); }
+    .finding-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .finding-box.purple .finding-title { color: #5b21b6; }
+    .finding-box.red .finding-title { color: #991b1b; }
+    .finding-box.green .finding-title { color: #065f46; }
+    .finding-box.amber .finding-title { color: #92400e; }
+
+    /* Funnel */
+    .funnel-stage { display: flex; align-items: center; padding: 14px 20px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-alt); margin-bottom: 10px; transition: all 0.2s; }
+    .funnel-stage:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .funnel-num { width: 36px; height: 36px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex-shrink: 0; margin-right: 16px; }
+    .funnel-content { flex: 1; }
+    .funnel-name { font-weight: 600; color: var(--text); font-size: 15px; }
+    .funnel-desc { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .funnel-count { font-size: 13px; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
+
+    /* Bar chart */
+    .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .bar-label { width: 160px; font-size: 13px; color: var(--text-muted); flex-shrink: 0; text-align: right; }
+    .bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 9999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 9999px; transition: width 0.8s ease; }
+    .bar-val { width: 60px; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+
+    /* Mission block */
+    .mission-block { background: var(--bg-alt); border: 1.5px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 24px 28px; margin-bottom: 40px; }
+    .mission-block p { margin: 0 0 12px; line-height: 1.7; }
+    .mission-block p:last-child { margin: 0; }
+
+    /* Footer */
+    .site-footer { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+    .site-footer a { color: var(--text-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--primary); }
+
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main { padding: 32px 24px 60px; }
+      .main h1 { font-size: 32px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top-header">
+  <div class="brand">
+    <a href="index.html">
+      <svg width="34" height="28" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <path d="M16 2L2 10V22L16 28L30 22V10L16 2Z" fill="#0d9488" fill-opacity="0.05" stroke="#0d9488" stroke-width="1" stroke-opacity="0.3"/>
+        <path d="M14.5 24 V 16" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M17.5 24 V 16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="13" y1="19" x2="19" y2="19" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="13" y1="21" x2="19" y2="21" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M14.5 16 L 8 7" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M10 16 L 3.5 7" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M17.5 16 L 24 7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="21.5" y="3.5" width="5" height="5" rx="1" fill="#f59e0b" transform="rotate(45 24 6)"/>
+      </svg>
+      <span><span style="color:#111827">Thera</span><span style="color:var(--primary);font-style:italic">sik</span></span>
+    </a>
+    <span class="slogan">AI 赋能生命科学</span>
+  </div>
+  <button class="mobile-menu-btn" onclick="document.querySelector('.top-header-nav').classList.toggle('open')" aria-label="Open navigation">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="top-header-nav">
+    <button class="nav-close-btn" onclick="document.querySelector('.top-header-nav').classList.remove('open')">&#10005;</button>
+    <a href="index.html">首页</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#services">AI 药物设计</a>
+      <div class="dropdown-menu">
+        <a href="Therasik_Antibody_Page.html"><span class="menu-title">抗体研发与评估</span><span class="menu-desc">人源化、可开发性、免疫原性</span></a>
+        <a href="Therasik_ADC_Design_Page.html"><span class="menu-title">智能 ADC 设计</span><span class="menu-desc">抗原-载荷-链接子匹配</span></a>
+        <a href="Therasik_CART_Design_Page.html"><span class="menu-title">智慧 CAR-T 设计</span><span class="menu-desc">架构设计与组件优化</span></a>
+        <a href="Therasik_Bispecific_Page.html"><span class="menu-title">双特异抗体设计与评估</span><span class="menu-desc">格式筛选 · CMC 评估 · 配对验证</span></a>
+        <a href="Therasik_Vaccine_Design.html"><span class="menu-title">新型疫苗设计</span><span class="menu-desc">新抗原 · 异克隆 · mRNA</span></a>
+      </div>
+    </div>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="antibody-guide.html">临床参考库</a>
+      <div class="dropdown-menu">
+        <a href="antibody-guide.html"><span class="menu-title">抗体工程指南</span><span class="menu-desc">技术标准与设计原则</span></a>
+        <a href="Therasik_ADA_Database.html"><span class="menu-title">ADA 数据库</span><span class="menu-desc">138 项临床免疫原性基准</span></a>
+        <a href="Therasik_ADC_Database.html"><span class="menu-title">ADC 数据库</span><span class="menu-desc">100 个临床 ADC 程序</span></a>
+        <a href="Therasik_Component_Browser.html"><span class="menu-title">CAR 组件库</span><span class="menu-desc">237 个 CAR-T 工程组件</span></a>
+        <a href="Therasik_Vaccine_KB.html"><span class="menu-title">疫苗知识库</span><span class="menu-desc">抗原与佐剂数据</span></a>
+      </div>
+    </div>
+    <a href="Therasik_OurTech.html">技术平台</a>
+    <div class="nav-dropdown" tabindex="0">
+      <a href="index.html#about">关于我们</a>
+      <div class="dropdown-menu">
+        <a href="index.html#about"><span class="menu-title">公司简介</span><span class="menu-desc">团队背景与研发使命</span></a>
+        <a href="index.html#workflow"><span class="menu-title">服务流程</span><span class="menu-desc">从咨询到交付的透明流程</span></a>
+      </div>
+    </div>
+    <a href="index.html#contact">联系我们</a>
+  </nav>
+  <div class="header-right"></div>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar">
+    <h3>亲和力成熟</h3>
+    <nav>
+      <a href="#overview" class="nav-link active">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>研究概述
+      </a>
+      <a href="#paradox" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>核心发现：负相关悖论
+      </a>
+      <a href="#target-analysis" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>靶点分层分析
+      </a>
+      <a href="#gating" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>序贯过滤验证
+      </a>
+      <a href="#cascade" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>多尺度级联引擎
+      </a>
+      <a href="#implications" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>项目指导意义
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a><span>/</span><a href="Therasik_Antibody_Page.html">抗体研发与评估</a><span>/</span><span>亲和力成熟基准研究</span>
+    </div>
+
+    <div style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.3rem 0.9rem;border-radius:9999px;background:var(--accent-light);color:var(--accent);font-size:0.8rem;font-weight:700;margin-bottom:1.5rem;letter-spacing:0.05em;">
+      ◈ 研究报告 · 2026年4月
+    </div>
+
+    <h1 id="overview">打破"唯能量论"：<em style="font-style:italic;color:var(--accent);">亲和力成熟计算工具</em>大规模基准研究</h1>
+    <p class="subtitle">基于 854 个临床前真实抗体突变实验数据，揭示传统刚体物理打分与真实亲和力的系统性负相关，并提出 AI-MD 多尺度序贯筛选方案。</p>
+
+    <div class="mission-block">
+      <p><strong>背景：</strong>计算辅助亲和力成熟（Virtual Affinity Maturation, VAM）的标准流程通常依赖刚体物理能量打分对突变体进行排序，并将 Top-K 候选送入实验验证。这一方法在临床前项目中的实际命中率往往令人失望。</p>
+      <p><strong>研究目标：</strong>系统评估多类型计算工具在真实大规模抗体突变数据集上的性能表现，确定各工具的有效使用边界，并建立更可靠的筛选决策框架。</p>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">数据规模</div>
+        <div class="kpi-value">854</div>
+        <div class="kpi-desc">真实抗体突变实验数据点</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">靶点覆盖</div>
+        <div class="kpi-value">6</div>
+        <div class="kpi-desc">不同蛋白靶点（含先导优化与从头设计）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">工具类别</div>
+        <div class="kpi-value">4</div>
+        <div class="kpi-desc">刚体物理 · 热力学稳定性 · AI 语言模型</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">命中率提升</div>
+        <div class="kpi-value" style="color:var(--primary);">+7.9%</div>
+        <div class="kpi-desc">多尺度序贯过滤 vs 随机基线</div>
+      </div>
+    </div>
+
+    <!-- Section 2: The Paradox -->
+    <h2 id="paradox">
+      <span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+      核心发现：刚体打分负相关悖论
+    </h2>
+
+    <p>在先导优化数据集（475 个突变体，74.5% 为真实结合者）中，对比真实 Binder 与 Non-Binder 在各类工具上的平均得分：</p>
+
+    <div class="finding-box red" style="margin-top:24px;">
+      <div class="finding-title">⚠ 悖论：能量越低，越可能是假阳性</div>
+      <p style="margin:0 0 20px;color:#374151;line-height:1.7;">传统刚体物理打分（Rigid-body Scoring）在先导优化场景中，其得分<strong>与真实亲和力呈负相关（全局加权 AUC = 0.454）</strong>——即得分"最好"的候选，实验上更可能是 Non-binder。</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:#fff;border-radius:10px;padding:16px;">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#6b7280;margin-bottom:8px;">Non-Binder 平均得分</div>
+          <div style="font-size:28px;font-weight:700;color:#dc2626;font-family:'Cormorant Garamond',serif;">23.60</div>
+          <div style="font-size:12px;color:#6b7280;margin-top:4px;">刚体结合能（相对单位）· 较低</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:16px;">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#6b7280;margin-bottom:8px;">True Binder 平均得分</div>
+          <div style="font-size:28px;font-weight:700;color:#059669;font-family:'Cormorant Garamond',serif;">38.46</div>
+          <div style="font-size:12px;color:#6b7280;margin-top:4px;">刚体结合能（相对单位）· <strong>更高！</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="finding-box amber" style="margin-top:16px;">
+      <div class="finding-title">🔬 物理根因：刚性骨架假设导致诱导契合被系统性惩罚</div>
+      <p style="margin:0;color:#374151;line-height:1.7;">当引入体积较大的高亲和力侧链（如芳香族、强电荷氨基酸）时，刚体打分软件因"空间碰撞（Steric Clash）"给出极高惩罚分。而在真实溶液中，骨架与侧链发生微小弛豫（诱导契合）即可完美容纳，导致这类<strong>最有价值的突变被系统性淘汰</strong>，假阴性率极高。</p>
+    </div>
+
+    <!-- Section 3: Target Analysis -->
+    <h2 id="target-analysis">
+      <span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+      靶点分层分析：工具性能的极端异质性
+    </h2>
+
+    <p>不同靶点的工具分类性能（AUC）差异极为显著，表明<strong>不存在任何"万能"工具或单一全局策略</strong>。靶点特性决定了工具组合的选择。</p>
+
+    <div style="overflow-x:auto;margin:24px 0;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>靶点</th>
+            <th>场景类型</th>
+            <th>样本量</th>
+            <th>Binder 率</th>
+            <th>刚体能量 A<br><small>（分类 AUC）</small></th>
+            <th>刚体能量 B<br><small>（分类 AUC）</small></th>
+            <th>热力学稳定性<br><small>（分类 AUC）</small></th>
+            <th>AI 自然度<br><small>（分类 AUC）</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>靶点 A</strong></td>
+            <td>先导优化</td>
+            <td>189</td>
+            <td>39.2%</td>
+            <td class="auc-good">0.877</td>
+            <td class="auc-good">0.905</td>
+            <td class="auc-bad">0.158</td>
+            <td class="auc-mid">0.270</td>
+          </tr>
+          <tr>
+            <td><strong>靶点 B</strong></td>
+            <td>先导优化</td>
+            <td>190</td>
+            <td>31.1%</td>
+            <td class="auc-good">0.785</td>
+            <td class="auc-good">0.843</td>
+            <td class="auc-mid">0.295</td>
+            <td class="auc-bad">0.172</td>
+          </tr>
+          <tr>
+            <td><strong>靶点 C</strong></td>
+            <td>先导优化</td>
+            <td>190</td>
+            <td>35.3%</td>
+            <td class="auc-good">0.852</td>
+            <td class="auc-good">0.855</td>
+            <td class="auc-bad">0.167</td>
+            <td class="auc-mid">0.380</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td><strong>靶点 D-1</strong></td>
+            <td>先导优化（高容忍）</td>
+            <td>95</td>
+            <td>87.4%</td>
+            <td class="auc-neutral">0.459</td>
+            <td class="auc-bad">0.364</td>
+            <td class="auc-neutral">0.558</td>
+            <td class="auc-neutral">0.481</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td><strong>靶点 D-2</strong></td>
+            <td>先导优化（高容忍）</td>
+            <td>95</td>
+            <td>77.9%</td>
+            <td class="auc-neutral">0.495</td>
+            <td class="auc-neutral">0.475</td>
+            <td class="auc-neutral">0.555</td>
+            <td class="auc-neutral">0.467</td>
+          </tr>
+          <tr style="background:#f0fdf4;">
+            <td><strong>靶点 D (De Novo)</strong></td>
+            <td><strong>从头设计</strong></td>
+            <td>379</td>
+            <td>1.3%</td>
+            <td class="auc-good">0.758</td>
+            <td class="auc-bad">0.030 ⚠</td>
+            <td class="auc-neutral">0.419</td>
+            <td class="auc-mid">0.355</td>
+          </tr>
+          <tr style="font-weight:600;background:var(--bg-alt);border-top:2px solid var(--border);">
+            <td colspan="4">全局加权平均（先导优化）</td>
+            <td class="auc-neutral">0.454</td>
+            <td class="auc-neutral">0.460</td>
+            <td class="auc-neutral">0.537</td>
+            <td class="auc-neutral">0.496</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card" style="border-color:rgba(109,40,217,0.25);">
+        <span class="ic-label" style="color:var(--accent);">结构决定型靶点</span>
+        <div class="ic-value" style="color:var(--accent);font-size:22px;">AUC 0.85–0.91</div>
+        <div class="ic-desc">靶点 A/B/C：低 Binder 率（30-39%），结合受严格空间约束。刚体物理打分在此表现优异。</div>
+      </div>
+      <div class="insight-card" style="border-color:rgba(217,119,6,0.25);">
+        <span class="ic-label" style="color:#92400e;">序列容忍型靶点</span>
+        <div class="ic-value" style="color:#d97706;font-size:22px;">AUC ≈ 0.50</div>
+        <div class="ic-desc">靶点 D-1/D-2：高 Binder 率（78-87%），结合界面宽松。所有工具均失效，应转为序列多样性策略。</div>
+      </div>
+      <div class="insight-card" style="border-color:rgba(220,38,38,0.25);">
+        <span class="ic-label" style="color:#991b1b;">从头设计场景</span>
+        <div class="ic-value" style="color:#dc2626;font-size:22px;">AUC 0.03 ⚠</div>
+        <div class="ic-desc">刚体打分中的接触计数法在从头设计场景完全失效（AUC 接近随机的反面），<strong>应在流程中禁用</strong>。</div>
+      </div>
+    </div>
+
+    <!-- Section 4: Sequential Gating -->
+    <h2 id="gating">
+      <span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></span>
+      序贯过滤验证：命中率的可预测提升
+    </h2>
+
+    <p>既然刚体打分不能用于正向选优，那么工具应如何组合使用？基于 475 条先导优化数据的序贯过滤仿真表明：</p>
+
+    <div style="max-width:640px;margin:28px 0;">
+      <div class="bar-row">
+        <div class="bar-label">基线（随机突变池）</div>
+        <div class="bar-track"><div class="bar-fill" style="width:74.5%;background:#9ca3af;"></div></div>
+        <div class="bar-val" style="color:#6b7280;">74.5%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">+ AI 自然度过滤</div>
+        <div class="bar-track"><div class="bar-fill" style="width:77.8%;background:#3b82f6;"></div></div>
+        <div class="bar-val" style="color:#2563eb;">77.8%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">+ 热力学稳定性过滤</div>
+        <div class="bar-track"><div class="bar-fill" style="width:78.5%;background:#6366f1;"></div></div>
+        <div class="bar-val" style="color:#4f46e5;">78.5%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">+ 反向物理截断</div>
+        <div class="bar-track"><div class="bar-fill" style="width:82.4%;background:#10b981;"></div></div>
+        <div class="bar-val" style="color:#059669;font-size:15px;">82.4%</div>
+      </div>
+    </div>
+
+    <div class="finding-box green">
+      <div class="finding-title">✓ 关键洞察：物理工具应"反向使用"于先导优化场景</div>
+      <p style="margin:0;color:#374151;line-height:1.7;">在通过 AI 自然度和热力学稳定性初步过滤后，若使用刚体物理<strong>正向</strong>截断（取能量最低的 25%），命中率从 78.5% <strong>下降</strong>至 69.1%；若<strong>反向</strong>使用物理工具（取刚体得分较差的一侧，因为真实高亲和力突变往往在刚体评分上表现不佳），命中率可<strong>提升至 82.4%</strong>。</p>
+    </div>
+
+    <!-- Section 5: The Cascade Engine -->
+    <h2 id="cascade">
+      <span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+      Therasik 多尺度级联引擎 (Multi-Scale Cascade Engine)
+    </h2>
+
+    <p>基于上述基准研究，Therasik 完全重构了亲和力成熟筛选架构，由"唯能量论"转型为<strong>多阶段、按功能分层的序贯过滤体系</strong>：</p>
+
+    <div style="margin:28px 0;">
+      <div class="funnel-stage" style="margin-left:0;">
+        <div class="funnel-num" style="background:#dbeafe;color:#2563eb;">0</div>
+        <div class="funnel-content">
+          <div class="funnel-name">热点定位（Alanine Scan）</div>
+          <div class="funnel-desc">用物理工具做"功能丧失"预测——这是其精度最高的使用场景。确定哪些位点可被改造，哪些不可触碰。</div>
+        </div>
+        <div class="funnel-count">定义突变空间</div>
+      </div>
+      <div class="funnel-stage" style="margin-left:20px;">
+        <div class="funnel-num" style="background:#dbeafe;color:#2563eb;">1</div>
+        <div class="funnel-content">
+          <div class="funnel-name">AI 降维排雷（Naturalness & Stability Gate）</div>
+          <div class="funnel-desc">深度学习语言模型与热力学稳定性预测，剔除不自然、不稳定序列。毫秒级计算，极高通量。</div>
+        </div>
+        <div class="funnel-count">10,000+ → ~3,000</div>
+      </div>
+      <div class="funnel-stage" style="margin-left:40px;">
+        <div class="funnel-num" style="background:#e0e7ff;color:#4f46e5;">2</div>
+        <div class="funnel-content">
+          <div class="funnel-name">刚体物理排雷（Rigid-body Mine-Sweeping）</div>
+          <div class="funnel-desc">仅用于"功能丧失"检测——排除引发严重静电排斥和空间冲突的绝对 Non-binder。<strong>严禁正向排序。</strong></div>
+        </div>
+        <div class="funnel-count">~3,000 → ~500</div>
+      </div>
+      <div class="funnel-stage" style="margin-left:60px;">
+        <div class="funnel-num" style="background:#f3e8ff;color:#7e22ce;">3</div>
+        <div class="funnel-content">
+          <div class="funnel-name">3D AI 正向选优（3D Microenvironment Probability）</div>
+          <div class="funnel-desc">专为抗体训练的 3D 逆折叠 AI 模型，在结构微环境概率层面进行正向排序，隐式捕捉柔性与溶剂效应。</div>
+        </div>
+        <div class="funnel-count">~500 → Top 150</div>
+      </div>
+      <div class="funnel-stage" style="margin-left:80px;">
+        <div class="funnel-num" style="background:#ccfbf1;color:#0d9488;">4</div>
+        <div class="funnel-content">
+          <div class="funnel-name">聚类与成药性预筛（Diversity & CMC Gate）</div>
+          <div class="funnel-desc">确保突变策略多样性（避免同质化），并提前排除聚集风险与 pI 偏移超标的候选。</div>
+        </div>
+        <div class="funnel-count">Top 150 → ~50</div>
+      </div>
+      <div class="funnel-stage" style="margin-left:100px;background:#ecfdf5;border-color:#a7f3d0;box-shadow:0 2px 8px rgba(16,185,129,0.12);">
+        <div class="funnel-num" style="background:#10b981;color:#fff;">5</div>
+        <div class="funnel-content">
+          <div class="funnel-name">高精度 MD 动力学验算（High-Precision MD）</div>
+          <div class="funnel-desc">对仅 50 条候选进行全原子力场 + 隐式溶剂的分子动力学最小化。唯一能真正反映侧链弛豫和溶剂化效应的方法，也是唯一可用于判断"是否优于野生型"的终极标准。</div>
+        </div>
+        <div class="funnel-count" style="color:#059669;font-weight:700;">→ Top 10 交付</div>
+      </div>
+    </div>
+
+    <!-- Section 6: Implications -->
+    <h2 id="implications">
+      <span class="h2-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+      项目指导意义与关键决策规则
+    </h2>
+
+    <div class="insight-grid">
+      <div class="insight-card" style="border-color:rgba(220,38,38,0.25);background:#fff1f2;">
+        <span class="ic-label" style="color:#991b1b;">严禁操作</span>
+        <div style="font-size:14px;color:#374151;line-height:1.7;margin-top:8px;">
+          ✗ 使用刚体物理工具对先导优化突变体进行 Top-K 绝对排序<br>
+          ✗ 在"从头设计"场景中使用接触计数法做筛选<br>
+          ✗ 在高 Binder 率（&gt;70%）靶点上以计算打分替代多样性覆盖
+        </div>
+      </div>
+      <div class="insight-card" style="border-color:rgba(13,148,136,0.25);background:#f0fdfa;">
+        <span class="ic-label" style="color:#065f46;">推荐做法</span>
+        <div style="font-size:14px;color:#374151;line-height:1.7;margin-top:8px;">
+          ✓ 刚体工具仅用于 Ala Scan 热点定位和绝对 Non-binder 排雷<br>
+          ✓ 先判断靶点类型（结构决定型 vs 序列容忍型），再选工具策略<br>
+          ✓ 最终"优于野生型"的判断必须基于高精度 MD 能量
+        </div>
+      </div>
+    </div>
+
+    <div class="finding-box purple" style="margin-top:24px;">
+      <div class="finding-title">结论：不同工具解答不同的物理问题，不可混用</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px;">
+        <div style="background:#fff;border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:6px;">刚体物理</div>
+          <div style="font-size:12px;color:#4b5563;line-height:1.5;">回答：<strong>"哪些突变会破坏结合？"</strong><br>（排雷，不选优）</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:6px;">AI 语言模型</div>
+          <div style="font-size:12px;color:#4b5563;line-height:1.5;">回答：<strong>"哪些序列是自然且稳定的？"</strong><br>（底线防守）</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:#5b21b6;margin-bottom:6px;">高精度 MD</div>
+          <div style="font-size:12px;color:#4b5563;line-height:1.5;">回答：<strong>"哪些突变真正优于野生型？"</strong><br>（唯一可靠的最终判决）</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;padding:24px 28px;background:var(--bg-alt);border-radius:12px;border:1px solid var(--border);">
+      <p style="margin:0 0 8px;font-size:14px;color:var(--text-muted);">免责声明</p>
+      <p style="margin:0;font-size:13px;color:var(--text-muted);line-height:1.7;">本报告基于公开数据集的分析结果，所有计算结论均为统计意义上的规律总结，不代表在任何特定项目中的绝对预测保证。计算结果均需经过湿实验验证后方可用于临床决策。靶点名称经过脱敏处理，以字母代号标识。</p>
+    </div>
+
+    <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="Therasik_Antibody_Page.html#affinity-maturation" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 4px 12px rgba(13,148,136,0.25);transition:all 0.2s;" onmouseover="this.style.background='var(--primary-dark)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--primary)';this.style.transform='none'">
+        ← 返回抗体研发与评估
+      </a>
+      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;color:var(--primary);border:1.5px solid var(--primary);border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(13,148,136,0.05)'" onmouseout="this.style.background='#fff'">
+        提交亲和力成熟咨询 →
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2026 Therasik · <a href="https://therasik.com">therasik.com</a> · <a href="mailto:contact@therasik.com">contact@therasik.com</a></p>
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll('.top-header-nav a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.top-header-nav').classList.remove('open'));
+  });
+  // Sidebar active state on scroll
+  const sections = document.querySelectorAll('h1[id], h2[id]');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
