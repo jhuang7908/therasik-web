@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Therasik 抗体 CMC 可开发性大数据基准研究：基于 934 条临床抗体序列（VH/VL ×840、VHH ×42、scFv ×52）的多格式 ADI 评分与参数区间分析。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.therasik.com/Therasik_CMC_Benchmark.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.therasik.com/Therasik_CMC_Benchmark.html">
+  <meta property="og:title" content="抗体 CMC 可开发性基准研究 | Therasik">
+  <meta property="og:description" content="934 条临床抗体的 ADI 评分与开发性参数全景分析：VH/VL、VHH、scFv 三格式对比。">
+  <title>抗体 CMC 可开发性基准研究 | Therasik</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0S2HLBZ0B"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F0S2HLBZ0B');</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{--primary:#0d9488;--primary-dark:#0f766e;--accent:#6d28d9;--accent-light:#ede9fe;--text:#111827;--text-muted:#4b5563;--border:#e5e7eb;--bg:#ffffff;--bg-alt:#f9fafb;
+      --vhvl:#0d9488;--vhh:#6d28d9;--scfv:#d97706;}
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;font-size:15px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;padding-top:73px;}
+
+    /* Header */
+    .top-header{display:flex;align-items:center;justify-content:space-between;padding:12px 32px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:2px solid rgba(13,148,136,0.1);position:fixed;width:100%;top:0;z-index:2000;gap:12px;flex-wrap:wrap;}
+    .top-header .brand{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:26px;letter-spacing:-0.03em;display:flex;align-items:center;flex-wrap:nowrap;min-width:max-content;}
+    .top-header .brand a{text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0;}
+    .top-header .slogan{font-size:14px;color:var(--text-muted);padding-left:14px;border-left:1px solid var(--border);margin-left:14px;font-weight:600;white-space:nowrap;}
+    .top-header-nav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center;}
+    .top-header-nav a{padding:8px 16px;font-size:15px;color:var(--text-muted);text-decoration:none;border-radius:20px;transition:all 0.2s;font-weight:600;}
+    .top-header-nav a:hover{color:var(--primary);background:rgba(13,148,136,0.06);}
+    .top-header-nav a.active{background:var(--primary);color:#fff;}
+
+    /* Layout */
+    .page-wrap{display:flex;min-height:calc(100vh - 73px);max-width:1400px;margin:0 auto;}
+    .sidebar{width:260px;flex-shrink:0;background:var(--bg);border-right:1px solid rgba(0,0,0,0.05);padding:40px 16px;position:sticky;top:73px;height:calc(100vh - 73px);overflow-y:auto;}
+    .sidebar h3{font-size:11px;font-weight:700;color:var(--text-muted);margin:0 12px 12px;text-transform:uppercase;letter-spacing:1.5px;}
+    .sidebar nav a{display:flex;align-items:center;padding:10px 14px;color:var(--text-muted);text-decoration:none;font-size:14px;transition:all 0.2s;border-radius:8px;margin-bottom:2px;font-weight:500;}
+    .sidebar nav a:hover{background:rgba(13,148,136,0.06);color:var(--primary);}
+    .sidebar nav a.active{background:rgba(13,148,136,0.1);color:var(--primary-dark);font-weight:600;}
+    .main{flex:1;padding:60px 60px 100px;max-width:940px;}
+    .main h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:#111827;margin:0 0 14px;letter-spacing:-0.03em;line-height:1.1;}
+    .main h2{font-size:22px;font-weight:700;color:#111827;margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border);}
+    .main h3{font-size:17px;font-weight:700;color:#111827;margin:1.5rem 0 0.75rem;}
+    .lead{font-size:16px;color:var(--text-muted);line-height:1.7;margin:0 0 2rem;}
+    p{margin:0 0 1rem;color:#374151;}
+
+    /* Tags */
+    .tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;}
+    .tag-teal{background:rgba(13,148,136,0.1);color:var(--primary-dark);}
+    .tag-purple{background:rgba(109,40,217,0.1);color:#6d28d9;}
+    .tag-amber{background:rgba(217,119,6,0.1);color:#b45309;}
+    .tag-gray{background:#f3f4f6;color:#6b7280;}
+
+    /* KPI grid */
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;}
+    .kpi-card{border-radius:12px;padding:1.25rem 1.5rem;border:1px solid;}
+    .kpi-card.vhvl{border-color:rgba(13,148,136,0.25);background:rgba(13,148,136,0.04);}
+    .kpi-card.vhh{border-color:rgba(109,40,217,0.25);background:rgba(109,40,217,0.04);}
+    .kpi-card.scfv{border-color:rgba(217,119,6,0.25);background:rgba(217,119,6,0.04);}
+    .kpi-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+    .kpi-card.vhvl .kpi-label{color:var(--primary-dark);}
+    .kpi-card.vhh .kpi-label{color:#6d28d9;}
+    .kpi-card.scfv .kpi-label{color:#b45309;}
+    .kpi-value{font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;}
+    .kpi-card.vhvl .kpi-value{color:var(--primary);}
+    .kpi-card.vhh .kpi-value{color:#7c3aed;}
+    .kpi-card.scfv .kpi-value{color:#d97706;}
+    .kpi-sub{font-size:13px;color:var(--text-muted);margin-top:6px;}
+    .kpi-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .kpi-meta span{font-size:12px;font-weight:600;padding:2px 8px;border-radius:12px;}
+
+    /* Chart containers */
+    .chart-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0;}
+    .chart-box{background:var(--bg-alt);border-radius:12px;padding:1.25rem;border:1px solid var(--border);}
+    .chart-box h4{font-size:14px;font-weight:700;color:var(--text-muted);margin:0 0 1rem;text-transform:uppercase;letter-spacing:0.5px;}
+    .chart-full{background:var(--bg-alt);border-radius:12px;padding:1.25rem;border:1px solid var(--border);margin:1.5rem 0;}
+    .chart-full h4{font-size:14px;font-weight:700;color:var(--text-muted);margin:0 0 1rem;text-transform:uppercase;letter-spacing:0.5px;}
+
+    /* Data table */
+    table{width:100%;border-collapse:collapse;font-size:14px;margin:1rem 0;}
+    th{background:#f9fafb;padding:10px 14px;text-align:left;font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--border);}
+    td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    tr:last-child td{border-bottom:none;}
+    tr:hover td{background:#f9fafb;}
+
+    /* Grade badges */
+    .grade-excellent{background:#dcfce7;color:#166534;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700;}
+    .grade-acceptable{background:#dbeafe;color:#1e40af;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700;}
+    .grade-moderate{background:#fef3c7;color:#92400e;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700;}
+    .grade-high{background:#fee2e2;color:#991b1b;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:700;}
+
+    /* Insight box */
+    .insight{background:linear-gradient(135deg,#f0fdf4 0%,#ecfdf5 100%);border:1px solid rgba(13,148,136,0.2);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin:1.25rem 0;}
+    .insight.purple{background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%);border-color:rgba(109,40,217,0.2);border-left-color:#7c3aed;}
+    .insight.amber{background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);border-color:rgba(217,119,6,0.2);border-left-color:#d97706;}
+    .insight strong{font-weight:700;}
+    .insight p{margin:0;font-size:14px;color:#374151;}
+
+    /* Format badge */
+    .fmt-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;}
+
+    /* Footer */
+    .report-footer{background:#f9fafb;border-top:1px solid var(--border);padding:2rem 60px;text-align:center;margin-top:3rem;}
+    .report-footer p{font-size:13px;color:var(--text-muted);margin:0 0 1rem;}
+
+    /* Grade legend */
+    .grade-legend{display:flex;gap:16px;flex-wrap:wrap;margin:0.5rem 0 1.5rem;font-size:13px;}
+    .grade-legend span{display:flex;align-items:center;gap:6px;}
+    .legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+
+    @media(max-width:900px){
+      .main{padding:30px 20px 60px;}
+      .kpi-grid{grid-template-columns:1fr;}
+      .chart-row{grid-template-columns:1fr;}
+      .sidebar{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="top-header">
+  <div class="brand">
+    <a href="index.html">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#0d9488"/><path d="M10 18c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="18" r="3" fill="#fff"/></svg>
+      <span style="color:#0d9488;">Thera</span><span style="color:#6d28d9;">sik</span>
+    </a>
+    <span class="slogan">生命科学 AI 研究平台</span>
+  </div>
+  <nav class="top-header-nav">
+    <a href="Therasik_Antibody_Guide.html">抗体工程</a>
+    <a href="Therasik_ADC_Design_Page.html">ADC 设计</a>
+    <a href="Therasik_Bispecific_Page.html">双特异</a>
+    <a href="Therasik_CAR_KB.html">CAR-T</a>
+    <a href="Therasik_Vaccine_Design.html">疫苗</a>
+    <a href="index.html#contact" style="background:var(--primary);color:#fff;padding:8px 20px;border-radius:20px;">咨询合作</a>
+  </nav>
+</header>
+
+<!-- ── Layout ── -->
+<div class="page-wrap">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>目录</h3>
+    <nav>
+      <a href="#overview" class="active">📊 研究概览</a>
+      <a href="#adi">🏆 ADI 综合评分</a>
+      <a href="#category">📐 四维分类评分</a>
+      <a href="#vhvl">🔵 VH/VL IgG</a>
+      <a href="#vhh">🟣 VHH 纳米抗体</a>
+      <a href="#scfv">🟠 scFv 单链</a>
+      <a href="#params">📋 关键参数对比</a>
+      <a href="#guidance">🎯 实用指南</a>
+    </nav>
+    <div style="margin-top:2rem;padding:12px 14px;background:rgba(13,148,136,0.06);border-radius:10px;">
+      <div style="font-size:11px;font-weight:700;color:var(--primary-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">数据资产</div>
+      <div style="font-size:13px;color:var(--text-muted);line-height:1.6;">
+        <div><span style="color:var(--vhvl);font-weight:700;">■</span> VH/VL × 840</div>
+        <div><span style="color:var(--vhh);font-weight:700;">■</span> VHH × 42</div>
+        <div><span style="color:var(--scfv);font-weight:700;">■</span> scFv × 52</div>
+        <div style="margin-top:6px;font-size:12px;">合计 <strong>934</strong> 条临床序列</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- ── Section 0: Hero ── -->
+    <div style="margin-bottom:2rem;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+        <span class="tag tag-teal">CMC 可开发性</span>
+        <span class="tag tag-purple">大数据基准</span>
+        <span class="tag tag-gray">934 条临床序列</span>
+        <span class="tag tag-gray">InSynBio AbEvaluator V1.1</span>
+      </div>
+      <h1>抗体 CMC 可开发性<br><em style="color:var(--primary);font-style:italic;">三格式全景基准</em></h1>
+      <p class="lead">基于 <strong>934 条临床阶段治疗性抗体序列</strong>（VH/VL×840、VHH×42、scFv×52），
+      通过 InSynBio AbEvaluator 对四维 CMC 参数进行系统评分，建立行业级别的开发性参考区间。
+      无论您的分子是传统 IgG、纳米抗体还是 scFv 骨架，均可对照本基准进行<strong>开发前体检</strong>——在进入昂贵的 CMC 开发流程之前，用数据判断您的候选分子是否处于健康区间。</p>
+      <div style="margin:1.5rem 0;padding:1.5rem 2rem;background:linear-gradient(135deg,#ecfdf5 0%,#f0fdf4 100%);border:1px solid rgba(13,148,136,0.2);border-radius:16px;display:flex;align-items:center;gap:1.5rem;">
+        <div style="font-size:48px;flex-shrink:0;">🩺</div>
+        <div>
+          <div style="font-size:18px;font-weight:700;color:#065f46;margin-bottom:6px;">就像健康人群体检报告——为您的抗体做上市前体检</div>
+          <p style="font-size:14px;color:#374151;margin:0;line-height:1.7;">正如人体体检参考健康人群的正常值范围，抗体体检参考 <strong>已进入临床的同类抗体</strong> 的 CMC 参数分布。不同格式（IgG / VHH / scFv）各有自己的"正常值区间"——一个 pI 值在 IgG 框架下正常，在 VHH 框架下可能偏高。通过本基准体检，可以在 CMC 开发前识别高风险候选分子，<strong>避免数十万至数百万的无效开发投入</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 1: Overview KPIs ── -->
+    <h2 id="overview">研究概览</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card vhvl">
+        <div class="kpi-label">VH/VL IgG</div>
+        <div class="kpi-value">840</div>
+        <div class="kpi-sub">临床人源化 + 全人抗体序列</div>
+        <div class="kpi-meta">
+          <span style="background:rgba(13,148,136,0.15);color:#065f46;">参考库 AbRef-458</span>
+          <span style="background:#f0fdf4;color:#166534;">9 项 CMC 参数</span>
+        </div>
+      </div>
+      <div class="kpi-card vhh">
+        <div class="kpi-label">VHH 纳米抗体</div>
+        <div class="kpi-value">42</div>
+        <div class="kpi-sub">临床阶段骆驼科单域抗体</div>
+        <div class="kpi-meta">
+          <span style="background:rgba(109,40,217,0.12);color:#5b21b6;">参考库 VHH-42</span>
+          <span style="background:#f5f3ff;color:#4c1d95;">14 项 CMC 参数</span>
+        </div>
+      </div>
+      <div class="kpi-card scfv">
+        <div class="kpi-label">scFv 单链抗体</div>
+        <div class="kpi-value">52</div>
+        <div class="kpi-sub">临床 / 晚期开发阶段 scFv</div>
+        <div class="kpi-meta">
+          <span style="background:rgba(217,119,6,0.12);color:#92400e;">参考库 scFv-52</span>
+          <span style="background:#fffbeb;color:#78350f;">12 项 CMC 参数</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <p><strong>设计理念：</strong>每种格式使用其自身临床分布作为参考基准。VH/VL 对应 AbRef-458 百分位；VHH 对应 VHH-42 临床阈值；scFv 对应 scFv-52 百分位分布。<strong>跨格式直接比较 ADI 分值需谨慎</strong>——各格式的参考群体不同，ADI 反映的是在本格式内的相对位置。</p>
+    </div>
+
+    <!-- ── Section 2: ADI ── -->
+    <h2 id="adi">ADI 综合开发性指数</h2>
+
+    <p>ADI（Antibody Developability Index）是一个 0–100 的加权综合评分。评分算法基于 InSynBio 专有的多维度加权模型，整合四大 CMC 维度，权重系数基于临床数据回归校准（具体权重为商业机密，不予公开）：</p>
+    <table>
+      <thead><tr><th>维度</th><th>包含参数</th><th>评分逻辑</th></tr></thead>
+      <tbody>
+        <tr><td>🟦 疏水性</td><td>GRAVY、疏水 patch（最大9-mer）、SAP 聚集倾向评分</td><td>以参考群体百分位分段线性评分</td></tr>
+        <tr><td>🟩 电荷分布</td><td>pI、pH 7 净电荷、电荷 patch（最大7-mer）</td><td>对称 Tent 函数，p50 处满分</td></tr>
+        <tr><td>🟨 化学修饰风险</td><td>N-糖基化、脱酰胺（NG/NS）、异构化（DG/DS）、氧化、游离 Cys</td><td>位点数量越少越优</td></tr>
+        <tr><td>🟥 聚集风险</td><td>聚集 motif 数量、疏水簇数量、不稳定性指数</td><td>多维度综合门控</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ADI distribution chart -->
+    <div class="chart-full">
+      <h4>三格式 ADI 分布对比</h4>
+      <canvas id="adiDistChart" height="110"></canvas>
+    </div>
+
+    <!-- ADI summary table -->
+    <table>
+      <thead>
+        <tr><th>格式</th><th>n</th><th>ADI 均值</th><th>中位数</th><th>最低</th><th>最高</th><th>优秀 ≥80</th><th>可接受 60–80</th><th>中等风险 40–60</th><th>高风险 &lt;40</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="fmt-dot" style="background:var(--vhvl);"></span><strong>VH/VL</strong></td>
+          <td>840</td><td><strong>66.6</strong></td><td>67.5</td><td>34.5</td><td>90.2</td>
+          <td><span class="grade-excellent">50 (6%)</span></td>
+          <td><span class="grade-acceptable">575 (68%)</span></td>
+          <td><span class="grade-moderate">211 (25%)</span></td>
+          <td><span class="grade-high">4 (1%)</span></td>
+        </tr>
+        <tr>
+          <td><span class="fmt-dot" style="background:var(--vhh);"></span><strong>VHH</strong></td>
+          <td>42</td><td><strong>65.9</strong></td><td>66.1</td><td>53.1</td><td>82.0</td>
+          <td><span class="grade-excellent">3 (8%)</span></td>
+          <td><span class="grade-acceptable">26 (67%)</span></td>
+          <td><span class="grade-moderate">10 (26%)</span></td>
+          <td><span class="grade-high">0</span></td>
+        </tr>
+        <tr>
+          <td><span class="fmt-dot" style="background:var(--scfv);"></span><strong>scFv</strong></td>
+          <td>52</td><td><strong>63.1</strong></td><td>62.3</td><td>48.0</td><td>76.0</td>
+          <td><span class="grade-excellent">0</span></td>
+          <td><span class="grade-acceptable">37 (71%)</span></td>
+          <td><span class="grade-moderate">15 (29%)</span></td>
+          <td><span class="grade-high">0</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grade-legend">
+      <span><span class="legend-dot" style="background:#dcfce7;border:1px solid #16a34a;"></span> 优秀 ≥80</span>
+      <span><span class="legend-dot" style="background:#dbeafe;border:1px solid #3b82f6;"></span> 可接受 60–80</span>
+      <span><span class="legend-dot" style="background:#fef3c7;border:1px solid #f59e0b;"></span> 中等风险 40–60</span>
+      <span><span class="legend-dot" style="background:#fee2e2;border:1px solid #ef4444;"></span> 高风险 &lt;40</span>
+    </div>
+
+    <div class="insight">
+      <p><strong>核心发现：</strong>三种格式均以"可接受"区间（60–80）为主体（67–71%），说明临床级抗体在各自格式的参考框架下呈现一致的 CMC 特征。scFv 无"优秀"条目——这反映了 scFv 结构固有的化学修饰暴露更多（双倍 CDR 序列 + 接头区）的现实，而非选品质量问题。</p>
+    </div>
+
+    <!-- ── Section 3: Category Scores ── -->
+    <h2 id="category">四维分类评分</h2>
+
+    <div class="chart-row">
+      <div class="chart-box">
+        <h4>各格式四维雷达图</h4>
+        <canvas id="radarChart" height="200"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>维度分项得分</h4>
+        <canvas id="catBarChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>格式</th><th>🟦 疏水性</th><th>🟩 电荷分布</th><th>🟨 化学修饰</th><th>🟥 聚集风险</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="fmt-dot" style="background:var(--vhvl);"></span><strong>VH/VL</strong></td>
+          <td>70.2</td><td>70.4</td><td>65.4</td><td>57.9</td>
+        </tr>
+        <tr>
+          <td><span class="fmt-dot" style="background:var(--vhh);"></span><strong>VHH</strong></td>
+          <td>70.9</td><td>69.6</td><td><strong style="color:#0d9488;">70.4 ★</strong></td><td><strong style="color:#dc2626;">48.0 ⚠</strong></td>
+        </tr>
+        <tr>
+          <td><span class="fmt-dot" style="background:var(--scfv);"></span><strong>scFv</strong></td>
+          <td><strong style="color:#dc2626;">61.3 ⚠</strong></td><td>67.7</td><td><strong style="color:#dc2626;">59.4 ⚠</strong></td><td>64.6</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight purple">
+      <p><strong>VHH 聚集维度偏低（48.0）：</strong>临床 VHH 普遍具有较多的聚集 motif（均值 3.7 个 vs VH/VL 的 0–2 个），这是 CDR3 长且常形成特殊二级结构所致。但 VHH 优秀的化学修饰评分（70.4）弥补了聚集不足——这正是纳米抗体在热稳定性上表现优异的分子基础。</p>
+    </div>
+    <div class="insight amber">
+      <p><strong>scFv 疏水性与化学修饰偏低：</strong>scFv 将 VH 和 VL 连接为单链，暴露了更大的疏水表面（无 VH-VL 界面遮蔽），同时两套 CDR 序列使化学修饰位点（脱酰胺、异构化）的总数增倍。（G₄S）₃ 接头本身属于高亲水性，不引入额外风险。</p>
+    </div>
+
+    <!-- ── Section 4: VH/VL ── -->
+    <h2 id="vhvl"><span class="fmt-dot" style="background:var(--vhvl);width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;border-radius:50%;"></span>VH/VL IgG — 840 条参考区间</h2>
+
+    <p>参考群体：<strong>AbRef-458</strong>（458 条临床人源化 IgG）为门控基准；另含 382 条全人抗体作为对照群体。两组 ADI 均值：人源化 67.6 vs 全人 65.4，无显著差异。</p>
+
+    <table>
+      <thead><tr><th>参数</th><th>均值</th><th>p5</th><th>p25</th><th>p50</th><th>p75</th><th>p95</th><th>门控范围（PASS）</th></tr></thead>
+      <tbody>
+        <tr><td>pI</td><td>7.76</td><td>5.20</td><td>6.80</td><td>8.30</td><td>8.80</td><td>9.09</td><td>5.2 – 9.1</td></tr>
+        <tr><td>GRAVY</td><td>−0.312</td><td>−0.475</td><td>−0.389</td><td>−0.339</td><td>−0.267</td><td>−0.192</td><td>−0.475 – −0.192</td></tr>
+        <tr><td>不稳定性指数</td><td>39.2</td><td>27.7</td><td>33.5</td><td>37.8</td><td>42.9</td><td>47.1</td><td>&lt; 47.1</td></tr>
+        <tr><td>pH 7 净电荷</td><td>+1.5</td><td>−3.4</td><td>−0.2</td><td>+1.9</td><td>+4.1</td><td>+5.9</td><td>−3.4 – +5.9</td></tr>
+        <tr><td>聚集 motif 数</td><td>0.3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>≤ 2</td></tr>
+        <tr><td>脱酰胺位点</td><td>0.9</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>≤ 3</td></tr>
+        <tr><td>异构化位点</td><td>0.9</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>≤ 3</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight">
+      <p><strong>VH/VL 关键特征：</strong>聚集 motif 中位数为 0——临床 IgG 框架区经过长期进化优化，固有聚集倾向极低。pI 呈双峰分布（约 5–6 或 8–9），对应不同的表达和纯化策略选择。聚集风险维度评分偏低（57.9）主要源于 VH-VL 界面接触残基的局部疏水性。</p>
+    </div>
+
+    <!-- ── Section 5: VHH ── -->
+    <h2 id="vhh"><span class="fmt-dot" style="background:var(--vhh);width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;border-radius:50%;"></span>VHH 纳米抗体 — 42 条参考区间</h2>
+
+    <p>参考群体：<strong>VHH-42</strong>（42 条临床及临床级 VHH）。VHH 使用临床阈值门控评分（PASS/WARN/FAIL），而非连续百分位。</p>
+
+    <table>
+      <thead><tr><th>参数</th><th>均值</th><th>p5</th><th>p25</th><th>p50</th><th>p75</th><th>p95</th><th>临床阈值 WARN</th></tr></thead>
+      <tbody>
+        <tr><td>pI</td><td>7.5</td><td>4.8</td><td>5.1</td><td>8.6</td><td>9.0</td><td>9.1</td><td>&gt; 9.5</td></tr>
+        <tr><td>GRAVY</td><td>−0.285</td><td>−0.481</td><td>−0.368</td><td>−0.293</td><td>−0.208</td><td>−0.106</td><td>&gt; −0.05</td></tr>
+        <tr><td>不稳定性指数</td><td>37.9</td><td>23.0</td><td>33.6</td><td>39.0</td><td>44.3</td><td>46.5</td><td>&gt; 50</td></tr>
+        <tr><td>pH 7 净电荷</td><td>+0.9</td><td>−3.2</td><td>−2.0</td><td>+1.8</td><td>+2.8</td><td>+3.9</td><td>&gt; 7</td></tr>
+        <tr><td>聚集 motif 数</td><td>3.7</td><td>2</td><td>3</td><td>4</td><td>4</td><td>5</td><td>&gt; 5</td></tr>
+        <tr><td>脱酰胺位点</td><td>1.4</td><td>0.1</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>&gt; 3</td></tr>
+        <tr><td>异构化位点</td><td>1.3</td><td>0</td><td>1.0</td><td>1.0</td><td>2.0</td><td>2.0</td><td>&gt; 3</td></tr>
+        <tr><td>游离 Cys</td><td>0.24</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1.95</td><td>&gt; 1</td></tr>
+        <tr><td>氧化位点（M/W）</td><td>5.0</td><td>4</td><td>4</td><td>5</td><td>6</td><td>6</td><td>&gt; 7</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight purple">
+      <p><strong>VHH 关键特征：</strong>VHH 的聚集 motif 均值（3.7）显著高于 VH/VL（0.3）——这是 CDR3 长链暴露的固有代价，临床已证明可接受。VHH 无"高风险"样本，说明进入临床的 VHH 经过充分的开发性筛选。化学修饰评分最优（70.4），因 VHH 仅有一条链，脱酰胺/异构化总暴露少于 Fv。</p>
+    </div>
+
+    <!-- ── Section 6: scFv ── -->
+    <h2 id="scfv"><span class="fmt-dot" style="background:var(--scfv);width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;border-radius:50%;"></span>scFv 单链抗体 — 52 条参考区间</h2>
+
+    <p>参考群体：<strong>scFv-52</strong>（52 条临床 / 晚期开发阶段 scFv，95% 采用 VH-（G₄S）₃-VL 方向，接头长度 15 aa）。</p>
+
+    <table>
+      <thead><tr><th>参数</th><th>均值</th><th>p5</th><th>p25</th><th>p50</th><th>p75</th><th>p95</th><th>PASS 范围</th></tr></thead>
+      <tbody>
+        <tr><td>pI</td><td>7.54</td><td>5.08</td><td>6.39</td><td>8.32</td><td>8.66</td><td>9.01</td><td>5.1 – 9.0</td></tr>
+        <tr><td>GRAVY</td><td>−0.323</td><td>−0.484</td><td>−0.383</td><td>−0.355</td><td>−0.274</td><td>−0.162</td><td>−0.484 – −0.162</td></tr>
+        <tr><td>不稳定性指数</td><td>41.4</td><td>34.0</td><td>38.0</td><td>41.1</td><td>44.2</td><td>50.1</td><td>&lt; 50.1</td></tr>
+        <tr><td>pH 7 净电荷</td><td>+1.3</td><td>−4.1</td><td>−0.4</td><td>+2.0</td><td>+3.6</td><td>+4.9</td><td>−4.1 – +4.9</td></tr>
+        <tr><td>聚集 motif 数</td><td>3.3</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>≤ 5</td></tr>
+        <tr><td>脱酰胺位点</td><td>1.5</td><td>0</td><td>0.75</td><td>1.5</td><td>2</td><td>3.5</td><td>≤ 3.5</td></tr>
+        <tr><td>异构化位点</td><td>2.0</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>≤ 4</td></tr>
+        <tr><td>氧化位点（M/W）</td><td>8.9</td><td>6.6</td><td>7</td><td>9</td><td>10</td><td>12</td><td>≤ 12</td></tr>
+        <tr><td>全链长度</td><td>244 aa</td><td>238</td><td>241</td><td>244</td><td>247</td><td>250</td><td>238–250 aa</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight amber">
+      <p><strong>scFv 关键特征：</strong>不稳定性指数均值（41.4）高于 VH/VL（39.2）和 VHH（37.9），反映单链结构热稳定性略低的固有特征。氧化位点均值（8.9）最高，因 scFv 包含完整 VH+VL 的全部 M/W 残基。scFv 无高风险样本但也无优秀样本——这是一个"可接受区间集中"的格式，设计优化空间集中在疏水性和化学修饰两个维度。</p>
+    </div>
+
+    <!-- ── Section 7: Params comparison ── -->
+    <h2 id="params">关键参数横向对比</h2>
+
+    <div class="chart-full">
+      <h4>核心 CMC 参数三格式对比（均值）</h4>
+      <canvas id="paramChart" height="100"></canvas>
+    </div>
+
+    <table>
+      <thead><tr><th>参数</th><th>VH/VL</th><th>VHH</th><th>scFv</th><th>解读</th></tr></thead>
+      <tbody>
+        <tr><td>ADI 均值</td><td>66.6</td><td>65.9</td><td>63.1</td><td>三格式相近；scFv 略低因固有结构原因</td></tr>
+        <tr><td>pI 均值</td><td>7.76</td><td>7.51</td><td>7.54</td><td>均在中性区间，VH/VL 略偏碱性</td></tr>
+        <tr><td>GRAVY 均值</td><td>−0.312</td><td>−0.285</td><td>−0.323</td><td>VHH 最亲水；scFv 因接头而略偏疏水</td></tr>
+        <tr><td>不稳定性指数</td><td>39.2</td><td>37.9</td><td>41.4</td><td>VHH 最稳定；scFv 略高但在阈值内</td></tr>
+        <tr><td>聚集 motif（均值）</td><td>0.3</td><td>3.7</td><td>3.3</td><td>VH/VL 几乎无聚集 motif；VHH/scFv 需关注</td></tr>
+        <tr><td>脱酰胺位点</td><td>0.9</td><td>1.4</td><td>1.5</td><td>VHH/scFv 因 CDR3 更长而略多</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── Section 8: Guidance ── -->
+    <h2 id="guidance">实用指南：如何用本基准体检您的抗体</h2>
+
+    <h3>体检流程</h3>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0;">
+      <div style="background:#f0fdf4;border-radius:10px;padding:1rem;border:1px solid #bbf7d0;text-align:center;">
+        <div style="font-size:24px;margin-bottom:6px;">①</div>
+        <div style="font-weight:700;font-size:13px;color:#065f46;">确定格式</div>
+        <div style="font-size:12px;color:#4b5563;margin-top:4px;">VH/VL / VHH / scFv 选择对应基准</div>
+      </div>
+      <div style="background:#f5f3ff;border-radius:10px;padding:1rem;border:1px solid #ddd6fe;text-align:center;">
+        <div style="font-size:24px;margin-bottom:6px;">②</div>
+        <div style="font-weight:700;font-size:13px;color:#4c1d95;">输入序列</div>
+        <div style="font-size:12px;color:#4b5563;margin-top:4px;">AbEvaluator 计算 15 项 CMC 参数</div>
+      </div>
+      <div style="background:#fffbeb;border-radius:10px;padding:1rem;border:1px solid #fde68a;text-align:center;">
+        <div style="font-size:24px;margin-bottom:6px;">③</div>
+        <div style="font-weight:700;font-size:13px;color:#78350f;">对照参考区间</div>
+        <div style="font-size:12px;color:#4b5563;margin-top:4px;">各参数落在 p5–p95 为 PASS</div>
+      </div>
+      <div style="background:#eff6ff;border-radius:10px;padding:1rem;border:1px solid #bfdbfe;text-align:center;">
+        <div style="font-size:24px;margin-bottom:6px;">④</div>
+        <div style="font-weight:700;font-size:13px;color:#1e40af;">解读 ADI 评分</div>
+        <div style="font-size:12px;color:#4b5563;margin-top:4px;">≥60 可进入下一开发阶段</div>
+      </div>
+    </div>
+
+    <h3>格式选择对 CMC 风险的影响</h3>
+    <table>
+      <thead><tr><th>风险项</th><th>VH/VL</th><th>VHH</th><th>scFv</th></tr></thead>
+      <tbody>
+        <tr><td>聚集风险</td><td>🟢 低</td><td>🟡 中（CDR3 长链）</td><td>🟡 中（疏水暴露）</td></tr>
+        <tr><td>化学修饰位点</td><td>🟢 低</td><td>🟢 低</td><td>🟡 中（双 CDR）</td></tr>
+        <tr><td>热稳定性</td><td>🟢 良好</td><td>🟢 优秀</td><td>🟡 略低</td></tr>
+        <tr><td>生产工艺</td><td>🟢 成熟</td><td>🟢 简单（单链）</td><td>🟡 折叠风险</td></tr>
+        <tr><td>免疫原性</td><td>🟢 已优化</td><td>🟡 需人源化评估</td><td>🟢 与 VH/VL 相当</td></tr>
+        <tr><td>半衰期</td><td>🟢 长（FcRn）</td><td>🔴 短（需 Fc 融合或修饰）</td><td>🔴 短（需 Fc 融合）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight">
+      <p><strong>关于 ADI 评分解读：</strong>ADI ≥ 80 = 优秀（建议快速推进）；60–80 = 可接受（正常临床开发范围）；40–60 = 中等风险（建议在候选分子选择阶段优化 WARN 参数）；&lt;40 = 高风险（建议在人源化或 CDR 优化阶段系统改善）。注意：ADI 评分仅基于序列，不替代实验 Tm 测定、浓缩聚集实验和生产工艺验证。</p>
+    </div>
+
+    <!-- Download / Contact -->
+    <div style="margin-top:3rem;padding:2rem;background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-radius:16px;border:1px solid rgba(13,148,136,0.15);text-align:center;">
+      <div style="font-size:20px;font-weight:700;margin-bottom:8px;">🩺 为您的抗体运行 CMC 体检</div>
+      <p style="color:var(--text-muted);margin:0 0 1.5rem;">提交您的抗体序列，获得完整的 AbEvaluator CMC 可开发性体检报告（PDF + JSON）：每项参数与同格式临床抗体参考区间对标，标注 PASS / WARN / FAIL，并给出可执行的 FR 区域优化建议。<strong>在进入 CMC 开发前完成筛查，降低后端工艺失败风险。</strong></p>
+      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--primary);color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(13,148,136,0.3);transition:all 0.2s;" onmouseover="this.style.background='#0f766e'" onmouseout="this.style.background='#0d9488'">
+        提交可开发性评估咨询 →
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<div class="report-footer">
+  <p>数据来源：InSynBio AbEngineCore V1.1 | 参考库：AbRef-458 (VH/VL)、VHH-42 (VHH)、scFv-52 (scFv)</p>
+  <p>© 2026 InSynBio / Therasik. 本报告数据为统计学参考区间，不构成临床开发建议。</p>
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+    <a href="Therasik_Antibody_Guide.html" style="color:var(--primary);text-decoration:none;font-weight:600;">抗体工程服务</a>
+    <a href="Therasik_VAM_Benchmark.html" style="color:var(--primary);text-decoration:none;font-weight:600;">亲和力成熟基准</a>
+    <a href="Therasik_ADC_Database.html" style="color:var(--primary);text-decoration:none;font-weight:600;">ADC 数据库</a>
+  </div>
+</div>
+
+<!-- Charts -->
+<script>
+const VHVL_COLOR = 'rgba(13,148,136,0.8)';
+const VHH_COLOR  = 'rgba(109,40,217,0.8)';
+const SCFV_COLOR = 'rgba(217,119,6,0.8)';
+
+// 1. ADI Distribution bar chart
+new Chart(document.getElementById('adiDistChart'), {
+  type: 'bar',
+  data: {
+    labels: ['高风险 <40','中等风险 40–60','可接受 60–80','优秀 ≥80'],
+    datasets: [
+      { label:'VH/VL (n=840)', data:[4,211,575,50], backgroundColor:VHVL_COLOR, borderRadius:6 },
+      { label:'VHH (n=42)',    data:[0,10,26,3],   backgroundColor:VHH_COLOR,  borderRadius:6 },
+      { label:'scFv (n=52)',   data:[0,15,37,0],   backgroundColor:SCFV_COLOR, borderRadius:6 },
+    ]
+  },
+  options:{
+    responsive:true, plugins:{legend:{position:'bottom'}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:{color:'rgba(0,0,0,0.05)'},title:{display:true,text:'序列数量'}}
+    }
+  }
+});
+
+// 2. Radar chart
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['疏水性','电荷分布','化学修饰','聚集风险'],
+    datasets: [
+      { label:'VH/VL', data:[70.2,70.4,65.4,57.9], borderColor:'rgba(13,148,136,0.9)', backgroundColor:'rgba(13,148,136,0.12)', pointBackgroundColor:'rgba(13,148,136,0.9)', borderWidth:2 },
+      { label:'VHH',   data:[70.9,69.6,70.4,48.0], borderColor:'rgba(109,40,217,0.9)', backgroundColor:'rgba(109,40,217,0.12)', pointBackgroundColor:'rgba(109,40,217,0.9)', borderWidth:2 },
+      { label:'scFv',  data:[61.3,67.7,59.4,64.6], borderColor:'rgba(217,119,6,0.9)', backgroundColor:'rgba(217,119,6,0.12)', pointBackgroundColor:'rgba(217,119,6,0.9)', borderWidth:2 },
+    ]
+  },
+  options:{
+    responsive:true, plugins:{legend:{position:'bottom'}},
+    scales:{r:{min:40,max:80,ticks:{stepSize:10,font:{size:11}},grid:{color:'rgba(0,0,0,0.06)'},pointLabels:{font:{size:12,weight:'600'}}}}
+  }
+});
+
+// 3. Category bar chart
+new Chart(document.getElementById('catBarChart'), {
+  type: 'bar',
+  data: {
+    labels:['疏水性','电荷分布','化学修饰','聚集风险'],
+    datasets:[
+      { label:'VH/VL', data:[70.2,70.4,65.4,57.9], backgroundColor:VHVL_COLOR, borderRadius:6 },
+      { label:'VHH',   data:[70.9,69.6,70.4,48.0], backgroundColor:VHH_COLOR,  borderRadius:6 },
+      { label:'scFv',  data:[61.3,67.7,59.4,64.6], backgroundColor:SCFV_COLOR, borderRadius:6 },
+    ]
+  },
+  options:{
+    indexAxis:'y', responsive:true, plugins:{legend:{position:'bottom'}},
+    scales:{
+      x:{min:0,max:100,grid:{color:'rgba(0,0,0,0.05)'},ticks:{stepSize:20}},
+      y:{grid:{display:false}}
+    }
+  }
+});
+
+// 4. Key params chart
+new Chart(document.getElementById('paramChart'), {
+  type: 'bar',
+  data: {
+    labels:['pI 均值','−GRAVY×100','不稳定性指数/10','聚集 motif×10'],
+    datasets:[
+      { label:'VH/VL', data:[7.76, 31.2, 3.92, 3.0], backgroundColor:VHVL_COLOR, borderRadius:6 },
+      { label:'VHH',   data:[7.51, 28.5, 3.79, 37.0], backgroundColor:VHH_COLOR, borderRadius:6 },
+      { label:'scFv',  data:[7.54, 32.3, 4.14, 33.0], backgroundColor:SCFV_COLOR, borderRadius:6 },
+    ]
+  },
+  options:{
+    responsive:true, plugins:{legend:{position:'bottom'},
+      tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw}}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:{color:'rgba(0,0,0,0.05)'}}
+    }
+  }
+});
+
+// Sidebar active link on scroll
+const sections = document.querySelectorAll('h2[id]');
+const navLinks = document.querySelectorAll('.sidebar nav a');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const l = document.querySelector('.sidebar nav a[href="#'+e.target.id+'"]');
+      if(l) l.classList.add('active');
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
