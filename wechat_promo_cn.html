@@ -215,9 +215,8 @@
 
   
 
-      /* ─── UNIFIED MOBILE NAV ─── */
+    /* ─── UNIFIED MOBILE NAV ─── */
     @media (max-width: 768px) {
-      /* Full-screen overlay anchored to the viewport (avoid clipping from header filter/stacking). */
       .mobile-menu-btn {
         display: block !important;
         flex-shrink: 0 !important;
@@ -247,16 +246,18 @@
         background: #ffffff !important;
         flex: none !important;
         flex-direction: column !important;
-        justify-content: center !important;
+        justify-content: flex-start !important;
         align-items: stretch !important;
+        align-content: flex-start !important;
         gap: 0 !important;
         z-index: 10000 !important;
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
-        padding: 80px 0 40px !important;
+        padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
+        overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;
@@ -270,20 +271,54 @@
       body:has(.top-header-nav.open) {
         overflow: hidden !important;
       }
-      .top-header-nav a {
-        font-size: 18px !important;
-        padding: 16px 20px !important;
+      /* Top-level rows: block + full width (fixes staggered alignment / tiny tap targets). */
+      .top-header-nav > a {
+        display: block !important;
+        flex: 0 0 auto !important;
+        align-self: stretch !important;
         width: 100% !important;
         max-width: 100% !important;
         text-align: center !important;
+        font-size: 18px !important;
+        padding: 16px 20px !important;
+        min-height: 48px !important;
+        line-height: 1.35 !important;
         border-radius: 0 !important;
         border-bottom: 1px solid #f3f4f6 !important;
         color: #111827 !important;
         background: transparent !important;
         box-shadow: none !important;
         box-sizing: border-box !important;
+        -webkit-tap-highlight-color: transparent !important;
       }
-      .top-header-nav a:last-child { border-bottom: none !important; }
+      .top-header-nav > a:last-of-type {
+        border-bottom: none !important;
+        padding-bottom: max(28px, calc(16px + env(safe-area-inset-bottom, 0px))) !important;
+      }
+      .nav-dropdown {
+        width: 100% !important;
+        max-width: 100% !important;
+        align-self: stretch !important;
+        flex: 0 0 auto !important;
+      }
+      .nav-dropdown > a {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        font-size: 18px !important;
+        padding: 16px 20px !important;
+        min-height: 48px !important;
+        line-height: 1.35 !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+        color: #111827 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        box-sizing: border-box !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+      .nav-dropdown > a::after { content: ' ▾' !important; }
       .nav-close-btn {
         display: flex !important;
         position: absolute !important;
@@ -291,8 +326,10 @@
         right: max(12px, env(safe-area-inset-right, 0px)) !important;
         background: #f3f4f6 !important;
         border: none !important;
-        width: 40px !important;
-        height: 40px !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
         border-radius: 50% !important;
         font-size: 24px !important;
         color: #111827 !important;
@@ -300,9 +337,8 @@
         z-index: 10001 !important;
         align-items: center !important;
         justify-content: center !important;
+        touch-action: manipulation !important;
       }
-      .nav-dropdown { width: 100% !important; max-width: 100% !important; }
-      .nav-dropdown > a::after { content: ' ▾' !important; }
       .nav-dropdown .dropdown-menu {
         position: static !important;
         transform: none !important;
@@ -322,10 +358,13 @@
         display: block !important;
       }
       .nav-dropdown .dropdown-menu a {
+        display: block !important;
         font-size: 15px !important;
-        padding: 12px 24px !important;
+        padding: 14px 20px !important;
         text-align: left !important;
         border-bottom: 1px solid #f3f4f6 !important;
+        min-height: 44px !important;
+        box-sizing: border-box !important;
       }
       .nav-dropdown .dropdown-menu a .menu-title { font-size: 15px !important; margin-bottom: 2px !important; }
       .nav-dropdown .dropdown-menu a .menu-desc { font-size: 12px !important; }

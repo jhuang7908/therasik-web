@@ -1,10 +1,11 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><style>html, body { overflow-x: hidden; }
-    body {font-family:'Segoe UI Emoji', sans-serif; font-size: 40px;}
+# Replace UNIFIED MOBILE NAV block: aligned top-level rows + safe-area padding for last link.
+import os
 
+HERE = os.path.dirname(os.path.abspath(__file__))
 
-  
+MARKER = "/* ─── UNIFIED MOBILE NAV ─── */"
 
-    /* ─── UNIFIED MOBILE NAV ─── */
+NEW = r"""    /* ─── UNIFIED MOBILE NAV ─── */
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block !important;
@@ -158,7 +159,54 @@
       .nav-dropdown .dropdown-menu a .menu-title { font-size: 15px !important; margin-bottom: 2px !important; }
       .nav-dropdown .dropdown-menu a .menu-desc { font-size: 12px !important; }
     }
+"""
 
-  </style></head><body>
-<div>Test Emojis: ⚠️ 🔬 🎲 🎯 🔒</div>
-</body></html>
+
+def replace_unified_mobile_nav(content: str) -> str:
+    """Replace first UNIFIED MOBILE NAV @media block only (marker appears again inside NEW)."""
+    if MARKER not in content:
+        return content
+    idx = content.find(MARKER)
+    line_start = content.rfind("\n", 0, idx)
+    line_start = line_start + 1 if line_start >= 0 else 0
+    m_start = content.find("@media (max-width: 768px)", idx)
+    if m_start == -1:
+        return content
+    brace_start = content.find("{", m_start)
+    depth = 0
+    i = brace_start
+    while i < len(content):
+        c = content[i]
+        if c == "{":
+            depth += 1
+        elif c == "}":
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                if end < len(content) and content[end] == "\n":
+                    end += 1
+                return content[:line_start] + NEW + content[end:]
+        i += 1
+    return content
+
+
+def main():
+    for name in sorted(os.listdir(HERE)):
+        if not name.endswith(".html"):
+            continue
+        path = os.path.join(HERE, name)
+        with open(path, "r", encoding="utf-8") as f:
+            raw = f.read()
+        if MARKER not in raw:
+            continue
+        new = replace_unified_mobile_nav(raw)
+        if new != raw:
+            with open(path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(new)
+            print("updated:", name)
+        else:
+            print("skip:", name)
+
+
+if __name__ == "__main__":
+    main()
