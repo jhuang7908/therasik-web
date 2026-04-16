@@ -27,7 +27,7 @@
   <style>
     :root { --primary: #0d9488; --primary-dark: #0f766e; --text: #111827; --text-muted: #6b7280; --border: #e5e7eb; --bg: #ffffff; --bg-alt: #f9fafb; }
     * { box-sizing: border-box; }
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: auto; }
     body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size: 14.5px; line-height: 1.45; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
 
     
@@ -120,7 +120,7 @@
     .technical-details summary::-webkit-details-marker { display: none; }
     .technical-details[open] summary { border-bottom: 1px solid rgba(13,148,136,0.1); }
     .technical-details summary span { font-size: 13px; font-weight: 500; color: var(--text-muted); }
-    .technical-details-html, body { overflow-x: hidden; }
+    .technical-details-html, body { overflow-x: auto; }
     body { padding: 22px; }
     .form-row { display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
     .form-group { flex: 1; min-width: 180px; }
@@ -266,7 +266,7 @@
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

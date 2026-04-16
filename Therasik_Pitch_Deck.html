@@ -16,8 +16,8 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
 @page { size: 16in 9in; margin: 0; }
-html, body { overflow-x: hidden; }
-    body {font-family:'Noto Sans SC','Inter',sans-serif;color:var(--text);background:#0f172a;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+html, body { overflow-x: auto; }
+    body {font-family:'Noto Sans SC','Inter',sans-serif;color:var(--text);background:#0f172a;-webkit-font-smoothing:antialiased;overflow-x:auto;}
 
 /* ── Slide System ── */
 .slide{width:100vw;height:100vh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 80px;}
@@ -489,7 +489,7 @@ body.mode-light .slide li::before { color: #0d9488 !important; }
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

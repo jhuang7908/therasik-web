@@ -47,7 +47,7 @@ NEW = r"""    /* ─── UNIFIED MOBILE NAV ─── */
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

@@ -26,7 +26,7 @@
   <style>
     :root{--primary:#0d9488;--primary-dark:#0f766e;--text:#111827;--text-muted:#4b5563;--border:#e5e7eb;--bg:#fff;--bg-alt:#f9fafb;}
     *{box-sizing:border-box;}
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: auto; }
     body {margin:0;padding-top: 62px;font-family:'Inter',-apple-system,sans-serif;font-size: 15px;line-height: 1.5;color:var(--text);background:var(--bg-alt);-webkit-font-smoothing:antialiased;}
 
     /* ── Header ── */
@@ -175,7 +175,7 @@
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

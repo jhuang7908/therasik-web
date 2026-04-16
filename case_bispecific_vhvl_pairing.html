@@ -34,7 +34,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: auto; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height:  1.5; -webkit-font-smoothing: antialiased; padding-top: 72px; }
 
     .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
@@ -70,7 +70,7 @@
     .hero-stat .val { font-size: 26px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
     .hero-stat .lbl { font-size: 10px; color: #6ee7b7; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    .page-html, body { overflow-x: hidden; }
+    .page-html, body { overflow-x: auto; }
     body { padding:  40px 20px 60px; }
     .container { max-width: 1000px; margin: 0 auto; }
     section.section { padding: 60px 0; border-top: 1px solid var(--border); }
@@ -201,7 +201,7 @@
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

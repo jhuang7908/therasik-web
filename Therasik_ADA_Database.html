@@ -39,11 +39,11 @@
       --radius: 8px; --radius-lg: 12px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: auto; }
     body { font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif; font-size:  15px; line-height:  1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 62px;}
 
     @media print {
-      html, body { overflow-x: hidden; }
+      html, body { overflow-x: auto; }
     body { display: none !important; }
     }
 
@@ -71,7 +71,7 @@
     .nav-dropdown .dropdown-menu a:hover .menu-title { color: var(--primary); }
     .nav-dropdown .dropdown-menu a .menu-desc { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
 
-          html, body { overflow-x: hidden; }
+          html, body { overflow-x: auto; }
     body { padding-top: 52px; }
       .hero { padding: 40px 20px; min-height: 320px; }
       .hero h1 { font-size: 32px; }
@@ -159,7 +159,7 @@
     .case-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px -6px rgba(13, 148, 136, 0.15), 0 8px 20px rgba(0,0,0,0.06); border-color: var(--card-border-hover); }
     .case-media { width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(135deg, rgba(13,148,136,0.08), rgba(45,212,191,0.06)); position: relative; }
     .case-media picture, .case-media img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .case-html, body { overflow-x: hidden; }
+    .case-html, body { overflow-x: auto; }
     body { padding: 16px 18px 12px; background: rgba(255,255,255,0.45); }
     .case-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary-dark); background: rgba(13,148,136,0.10); border: 1px solid rgba(13,148,136,0.18); padding: 6px 10px; border-radius: 999px; }
     .case-title { margin: 10px 0 6px; font-size:  15px; font-weight: 650; letter-spacing: -0.01em; color: #111827; }
@@ -253,13 +253,13 @@
     .detail-header .sub { font-size:12px; color:var(--text-muted); }
     .detail-close { position:absolute; right:20px; top:20px; background:none; border:none; font-size:20px; cursor:pointer; color:var(--text-muted); line-height:1; padding:4px 8px; border-radius:4px; }
     .detail-close:hover { background:var(--bg-alt); color:var(--text); }
-    .detail-html, body { overflow-x: hidden; }
+    .detail-html, body { overflow-x: auto; }
     body { padding:20px 24px; flex:1; }
     .detail-section { margin-bottom:22px; }
     .detail-section h3 { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--primary); margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid var(--primary-light); cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:space-between; }
     .detail-section h3::after { content:'▾'; font-size:10px; opacity:0.45; margin-left:4px; font-style:normal; text-transform:none; }
     .detail-section.collapsed h3::after { content:'▸'; }
-    .detail-section.collapsed .ds-html, body { overflow-x: hidden; }
+    .detail-section.collapsed .ds-html, body { overflow-x: auto; }
     body { display:none; }
     .fc-note-box { background:#f0fdf9; border:1px solid rgba(13,148,136,0.2); border-radius:8px; padding:10px 14px; font-size:12px; line-height:1.65; color:var(--text); margin-top:4px; white-space:pre-wrap; word-break:break-word; }
     .evidence-toggle { background:none; border:none; color:var(--primary); font-size:11.5px; cursor:pointer; padding:4px 0; text-decoration:underline; }
@@ -376,7 +376,7 @@
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

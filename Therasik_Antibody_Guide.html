@@ -36,11 +36,11 @@
       --bg-alt2: #f1f5f9;
     }
     * { box-sizing:border-box; }
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: auto; }
     body { margin:0; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size: 15px; line-height: 1.5; color:var(--text); background:var(--bg-alt); -webkit-font-smoothing:antialiased; padding-top: 62px; }
 
     @media print {
-      html, body { overflow-x: hidden; }
+      html, body { overflow-x: auto; }
     body { display: none !important; }
     }
 
@@ -216,7 +216,7 @@
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;

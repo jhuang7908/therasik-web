@@ -23,7 +23,7 @@
       --card-border: rgba(13, 148, 136, 0.16);
     }
     * { box-sizing: border-box; }
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: auto; }
     body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; padding-top: 73px; }
     .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(13,148,136,0.1); position: fixed; width: 100%; top: 0; z-index: 2000; gap: 12px; flex-wrap: wrap; }
     .top-header .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.03em; display: flex; align-items: center; flex-wrap: nowrap; min-width: max-content; white-space: nowrap; }
@@ -51,7 +51,7 @@
     .top-header-nav a.active { background: var(--primary); color: #fff; font-weight: 500; }
 
     @media print {
-      html, body { overflow-x: hidden; }
+      html, body { overflow-x: auto; }
     body { display: none !important; }
     }
 
@@ -144,7 +144,7 @@
     .case-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px -6px rgba(13, 148, 136, 0.15), 0 8px 20px rgba(0,0,0,0.06); border-color: var(--card-border-hover); }
     .case-media { width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(135deg, rgba(13,148,136,0.08), rgba(45,212,191,0.06)); position: relative; }
     .case-media picture, .case-media img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .case-html { overflow-x: hidden; }
+    .case-html { overflow-x: auto; }
     .case-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary-dark); background: rgba(13,148,136,0.10); border: 1px solid rgba(13,148,136,0.18); padding: 6px 10px; border-radius: 999px; }
     .case-title { margin: 10px 0 6px; font-size: 16px; font-weight: 650; letter-spacing: -0.01em; color: #111827; }
     .case-desc { margin: 0 0 10px; font-size: 14px; color: #6b7280; line-height: 1.55; }
@@ -213,7 +213,7 @@
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
         padding: 72px 0 max(24px, env(safe-area-inset-bottom, 0px)) !important;
         overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         display: flex !important;
         margin: 0 !important;
