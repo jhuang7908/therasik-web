@@ -142,7 +142,7 @@
     .accordion-btn .chevron { font-size: 12px; color: #9ca3af; transition: transform 0.25s ease; flex-shrink: 0; margin-left: auto; }
     .accordion-btn.open .chevron { transform: rotate(180deg); color: var(--primary); }
     .accordion-html, body { overflow-x: auto; }
-    body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.2s ease; padding: 0 20px; background: #f8fafc; border-left: 3px solid var(--primary); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.2s ease; padding: 0 20px; background: #f8fafc; border-left: 3px solid var(--primary); }
     .accordion-body.open { max-height: 900px; padding: 14px 20px 18px; }
     .accordion-body .col-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin: 12px 0 5px; display: flex; align-items: center; gap: 6px; }
     .accordion-body .col-label:first-child { margin-top: 0; }
@@ -474,7 +474,20 @@
         position: static !important; 
         border-right: none !important; 
         border-bottom: 1px solid #eee !important;
-        padding: 20px !important;
+        padding: 16px !important;
+      }
+      .sidebar nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+      .sidebar nav a {
+        flex: 1 1 calc(50% - 8px) !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 8px 12px !important;
+        margin-bottom: 0 !important;
+        font-size: 13.5px !important;
       }
       .main { padding: 30px 20px !important; }
       .main h1 { font-size: 32px !important; }
