@@ -980,17 +980,37 @@
     document.querySelectorAll('.top-header-nav a').forEach(a => {
       a.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href === '#') return;
-        const id = href.slice(1);
+        if (!href || href === '#') return;
+        var hash = '';
+        var hi = href.indexOf('#');
+        if (hi !== -1) hash = href.slice(hi);
+        if (!hash || hash === '#') return;
+        const id = hash.slice(1);
+        if (!id) return;
         const el = document.getElementById(id);
         if (el) {
           e.preventDefault();
           el.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(function() { window.location.hash = href; }, 100);
+          setTimeout(function() { window.location.hash = hash; }, 100);
         }
       });
     });
-    
+
+    (function() {
+      function syncNavDropdownTabindex() {
+        var mobile = window.matchMedia('(max-width: 768px)').matches;
+        document.querySelectorAll('.top-header-nav .nav-dropdown').forEach(function(el) {
+          if (mobile) el.removeAttribute('tabindex');
+          else el.setAttribute('tabindex', '0');
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncNavDropdownTabindex);
+      } else {
+        syncNavDropdownTabindex();
+      }
+      window.addEventListener('resize', syncNavDropdownTabindex);
+    })();
   </script>
 </body>
 </html>

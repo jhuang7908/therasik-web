@@ -90,6 +90,8 @@ NEW = r"""    /* ─── UNIFIED MOBILE NAV ─── */
         max-width: 100% !important;
         align-self: stretch !important;
         flex: 0 0 auto !important;
+        text-align: center !important;
+        margin: 0 !important;
       }
       .nav-dropdown > a {
         display: block !important;
@@ -129,6 +131,7 @@ NEW = r"""    /* ─── UNIFIED MOBILE NAV ─── */
         justify-content: center !important;
         touch-action: manipulation !important;
       }
+      /* Always show submenus on phone so :focus-within/tabindex is not required (fixes first-tap dead links on iOS). */
       .nav-dropdown .dropdown-menu {
         position: static !important;
         transform: none !important;
@@ -139,13 +142,9 @@ NEW = r"""    /* ─── UNIFIED MOBILE NAV ─── */
         background: #f9fafb !important;
         margin: 0 !important;
         padding: 0 !important;
-        display: none !important;
+        display: block !important;
         border: none !important;
         border-bottom: 1px solid #f3f4f6 !important;
-      }
-      .nav-dropdown:focus-within .dropdown-menu,
-      .nav-dropdown:hover .dropdown-menu {
-        display: block !important;
       }
       .nav-dropdown .dropdown-menu a {
         display: block !important;
