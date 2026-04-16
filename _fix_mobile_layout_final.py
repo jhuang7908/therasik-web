@@ -1,47 +1,19 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="感谢您联系 Therasik，我们将在 1–2 个工作日内回复您的咨询。">
-  <meta name="robots" content="noindex, follow">
-  <title>提交成功 | Therasik</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0S2HLBZ0B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-F0S2HLBZ0B');
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --primary: #0d9488; --primary-dark: #0f766e; --text: #111827; --text-muted: #6b7280; }
-    * { box-sizing: border-box; }
-    html, body { overflow-x: auto; }
-    body { margin: 0; font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; font-size:  15px; line-height:  1.5; color: var(--text); background-color: #ffffff; background-image: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.75) 100%), url('images/hero-bg.svg'); background-size: cover; background-position: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
-    .container { max-width: 560px; text-align: center; }
-    .brand-logo { margin-bottom: 32px; }
-    .brand-logo a { text-decoration: none; display: inline-flex; align-items: center; flex-direction: column; gap: 8px; }
-    .brand-name { display: flex; align-items: center; gap: 10px; }
-    .icon { width: 64px; height: 64px; margin: 0 auto 24px; padding: 16px; background: rgba(13,148,136,0.12); border-radius: 50%; color: var(--primary); }
-    .icon svg { width: 100%; height: 100%; }
-    h1 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; margin: 0 0 16px; color: var(--text); letter-spacing: -0.02em; }
-    p { font-size: 17px; color: var(--text-muted); margin: 0 0 12px; line-height: 1.55; }
-    .highlight { color: var(--primary); font-weight: 600; }
-    .btn { display: inline-block; margin-top: 28px; padding: 14px 32px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; font-family: inherit; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(13,148,136,0.28); }
-    .btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
-    .footer { margin-top: 48px; font-size: 13px; color: var(--text-muted); }
-    .footer a { color: var(--primary); text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-  
+"""
+Fix mobile layout and navigation issues:
+1. ADC/CAR-T/Vaccine: Fix sidebar/main flex-direction on mobile.
+2. Vaccine: Fix hero text overlap (padding-top).
+3. All: Fix anchor links (AI药物设计, 关于我们, 联系我们) by ensuring correct hash parsing and smooth scroll.
+4. All: Fix text alignment in nav.
+"""
+import os
+import re
 
+HERE = os.path.dirname(os.path.abspath(__file__))
 
-  
+# 1. Update the UNIFIED CSS in the patch script to include layout fixes
+PATCH_SCRIPT = os.path.join(HERE, "_patch_mobile_nav_align.py")
 
-    /* ─── UNIFIED MOBILE NAV ─── */
+NEW_CSS = r"""    /* ─── UNIFIED MOBILE NAV ─── */
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block !important;
@@ -209,60 +181,9 @@
       .main-intro { margin: -30px -20px 30px !important; padding: 30px 20px !important; }
       .hero { padding-top: 100px !important; } /* Fix overlap in Vaccine */
     }
+"""
 
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="brand-logo">
-      <a href="index.html">
-        <div class="brand-name">
-          <svg width="36" height="36" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="logo_grad_thanks_zh" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#0d9488"/><stop offset="1" stop-color="#065f58"/>
-              </linearGradient>
-            </defs>
-            <circle cx="17" cy="17" r="16" fill="url(#logo_grad_thanks_zh)"/>
-            <path d="M9 13 H25" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M17 13 V24" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
-            <circle cx="9" cy="13" r="2.3" fill="white"/>
-            <circle cx="25" cy="13" r="2.3" fill="white"/>
-            <circle cx="17" cy="24" r="2.3" fill="white"/>
-          </svg>
-          <span style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 32px; color: #1f2937; letter-spacing: -0.02em;">
-            Thera<span style="color: #0d9488;">sik</span>
-          </span>
-        </div>
-        <div style="font-size: 12px; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;">生命科学 AI</div>
-      </a>
-    </div>
-
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-    </div>
-
-    <h1>提交成功</h1>
-
-    <p>您的咨询已收到。我们将在 <span class="highlight">1–2 个工作日</span>内与您联系，请留意邮件回复。</p>
-
-    <p style="font-size: 14px; margin-top: 16px; color: #6b7280;">如需附上 PDB 文件，请直接发送至 <a href="mailto:contact@therasik.com" style="color: var(--primary);">contact@therasik.com</a>，并在邮件中注明您的咨询内容。</p>
-
-    <a href="index.html" class="btn">返回首页</a>
-  </div>
-
-  <div class="footer">
-    © 2026 Therasik · <a href="https://www.therasik.com">therasik.com</a>
-  </div>
-
-  <script>
-    gtag('event', 'thanks_page_view', { page: 'thanks_zh', source: document.referrer });
-  </script>
-
-  
-
-
+JS_SNIPPET = """
   <script>
     (function() {
       // 1. Sync Nav Active State
@@ -312,6 +233,43 @@
       window.addEventListener('resize', syncNavDropdownTabindex);
     })();
   </script>
+"""
 
-</body>
-</html>
+def main():
+    # Update the patch script itself so NEW_CSS is correct
+    with open(PATCH_SCRIPT, "r", encoding="utf-8") as f:
+        p_content = f.read()
+    
+    # Find the NEW = r\"\"\" ... \"\"\" block and replace it
+    pattern = r'NEW = r"""(.*?)"""'
+    p_content = re.sub(pattern, f'NEW = r"""{NEW_CSS}"""', p_content, flags=re.DOTALL)
+    with open(PATCH_SCRIPT, "w", encoding="utf-8", newline="\n") as f:
+        f.write(p_content)
+    print("Updated _patch_mobile_nav_align.py")
+
+    # Run the updated patch script
+    os.system(f'conda run -n base python "{PATCH_SCRIPT}"')
+
+    # Now handle the JS injection and cleanup in all HTML files
+    for name in os.listdir(HERE):
+        if not name.endswith(".html"):
+            continue
+        path = os.path.join(HERE, name)
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Remove old scripts we might have injected or that are redundant
+        # We look for the start of our previous snippets
+        content = re.sub(r'<script>\s*\(function\(\) \{\s*function syncNavDropdownTabindex.*?</script>', '', content, flags=re.DOTALL)
+        # Also clean up the inline script in index.html/therasik_index.html if present
+        content = re.sub(r'function setNavActive\(\).*?document\.querySelectorAll\(\'\.top-header-nav a\'\)\.forEach\(a => \{.*?\}\);\s*', '', content, flags=re.DOTALL)
+        
+        # Inject the new unified JS before </body>
+        if "</body>" in content:
+            content = content.replace("</body>", JS_SNIPPET + "\n</body>")
+            with open(path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(content)
+            print(f"Updated JS in {name}")
+
+if __name__ == "__main__":
+    main()

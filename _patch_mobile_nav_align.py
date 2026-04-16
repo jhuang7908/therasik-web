@@ -157,6 +157,21 @@ NEW = r"""    /* ─── UNIFIED MOBILE NAV ─── */
       }
       .nav-dropdown .dropdown-menu a .menu-title { font-size: 15px !important; margin-bottom: 2px !important; }
       .nav-dropdown .dropdown-menu a .menu-desc { font-size: 12px !important; }
+
+      /* --- Layout Fixes for ADC/CAR-T/Vaccine --- */
+      .page-wrap { flex-direction: column !important; }
+      .sidebar { 
+        width: 100% !important; 
+        height: auto !important; 
+        position: static !important; 
+        border-right: none !important; 
+        border-bottom: 1px solid #eee !important;
+        padding: 20px !important;
+      }
+      .main { padding: 30px 20px !important; }
+      .main h1 { font-size: 32px !important; }
+      .main-intro { margin: -30px -20px 30px !important; padding: 30px 20px !important; }
+      .hero { padding-top: 100px !important; } /* Fix overlap in Vaccine */
     }
 """
 

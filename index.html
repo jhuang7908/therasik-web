@@ -329,6 +329,21 @@
       }
       .nav-dropdown .dropdown-menu a .menu-title { font-size: 15px !important; margin-bottom: 2px !important; }
       .nav-dropdown .dropdown-menu a .menu-desc { font-size: 12px !important; }
+
+      /* --- Layout Fixes for ADC/CAR-T/Vaccine --- */
+      .page-wrap { flex-direction: column !important; }
+      .sidebar { 
+        width: 100% !important; 
+        height: auto !important; 
+        position: static !important; 
+        border-right: none !important; 
+        border-bottom: 1px solid #eee !important;
+        padding: 20px !important;
+      }
+      .main { padding: 30px 20px !important; }
+      .main h1 { font-size: 32px !important; }
+      .main-intro { margin: -30px -20px 30px !important; padding: 30px 20px !important; }
+      .hero { padding-top: 100px !important; } /* Fix overlap in Vaccine */
     }
 
   </style>
@@ -1021,37 +1036,7 @@
     <p>© 2026 Therasik · <a href="https://therasik.com">therasik.com</a> · <a href="mailto:contact@therasik.com">contact@therasik.com</a></p>
   </footer>
   <script>
-    function setNavActive() {
-      var hash = window.location.hash || '';
-      var homeLink = document.querySelector('.top-header-nav a[href="index.html"]');
-      if (homeLink) homeLink.classList.toggle('active', !hash || hash === '#');
-      document.querySelectorAll('.top-header-nav a[href^="#"]').forEach(function(a) {
-        a.classList.toggle('active', hash && a.getAttribute('href') === hash);
-      });
-    }
-    setNavActive();
-    window.addEventListener('hashchange', setNavActive);
-    document.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'p' || e.key === 's' || e.key === 'u')) {
-        e.preventDefault();
-      }
-    });
-
-    document.querySelectorAll('.top-header-nav a').forEach(a => {
-      a.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (!href || href === '#') return;
-        var hash = '';
-        var hi = href.indexOf('#');
-        if (hi !== -1) hash = href.slice(hi);
-        if (!hash || hash === '#') return;
-        const id = hash.slice(1);
-        if (!id) return;
-        const el = document.getElementById(id);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(function() { window.location.hash = hash; }, 100);
+    setTimeout(function() { window.location.hash = hash; }, 100);
         }
       });
     });
@@ -1072,5 +1057,56 @@
       window.addEventListener('resize', syncNavDropdownTabindex);
     })();
   </script>
+
+  <script>
+    (function() {
+      // 1. Sync Nav Active State
+      function setNavActive() {
+        var hash = window.location.hash || '';
+        var homeLink = document.querySelector('.top-header-nav a[href="index.html"]');
+        if (homeLink) homeLink.classList.toggle('active', !hash || hash === '#');
+        document.querySelectorAll('.top-header-nav a[href*="#"]').forEach(function(a) {
+          var href = a.getAttribute('href');
+          var anchor = href.includes('#') ? href.split('#')[1] : '';
+          a.classList.toggle('active', anchor && hash === '#' + anchor);
+        });
+      }
+      window.addEventListener('hashchange', setNavActive);
+      setNavActive();
+
+      // 2. Smooth Scroll for all anchor links
+      document.querySelectorAll('.top-header-nav a').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          var hashIdx = href.indexOf('#');
+          if (hashIdx === -1) return; // Regular page link
+          
+          var targetId = href.substring(hashIdx + 1);
+          var targetEl = document.getElementById(targetId);
+          
+          // If on same page or index.html (main site), handle scroll
+          if (targetEl && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || href.startsWith('#'))) {
+            e.preventDefault();
+            document.querySelector('.top-header-nav').classList.remove('open');
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+            history.pushState(null, null, '#' + targetId);
+          }
+        });
+      });
+
+      // 3. Dropdown Tabindex Sync
+      function syncNavDropdownTabindex() {
+        var mobile = window.matchMedia('(max-width: 768px)').matches;
+        document.querySelectorAll('.top-header-nav .nav-dropdown').forEach(function(el) {
+          if (mobile) el.removeAttribute('tabindex');
+          else el.setAttribute('tabindex', '0');
+        });
+      }
+      syncNavDropdownTabindex();
+      window.addEventListener('resize', syncNavDropdownTabindex);
+    })();
+  </script>
+
 </body>
 </html>
