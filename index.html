@@ -60,6 +60,9 @@
     .top-header-nav a[href="therasik_index.html"].active:hover,
     .top-header-nav a[href="therasik_index.html"].active:focus { background: var(--primary-dark); color: #fff; }
     .top-header-nav a[href="therasik_index.html"]:hover { color: var(--primary); background: var(--bg-alt); }
+    /* AI 设计平台 入口按钮 — 突出的填充式按钮（区别于普通导航链接） */
+    .nav-platform-cta { background: var(--primary) !important; color: #fff !important; padding: 8px 18px !important; border-radius: 8px !important; font-weight: 700 !important; box-shadow: 0 4px 12px rgba(13,148,136,0.30); margin-left: 8px; white-space: nowrap; transition: all 0.2s ease; }
+    .nav-platform-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(13,148,136,0.40); }
     .header-right { display: flex; align-items: center; gap: 16px; }
     .lang-switch { display: flex; gap: 4px; }
     .lang-switch button { padding: 6px 12px; font-size: 13px; border: 1px solid var(--border); background: var(--bg); color: var(--text-muted); border-radius: 6px; cursor: pointer; font-family: 'Noto Sans SC', 'Inter', sans-serif; transition: all 0.2s; }
@@ -489,6 +492,7 @@
         </div>
       </div>
       <a href="index.html#contact">联系我们</a>
+      <a href="https://console.therasik.com" target="_blank" rel="noopener noreferrer" class="nav-platform-cta">AI 设计平台 →</a>
     </nav>
     <div class="header-right">
     </div>
@@ -516,7 +520,8 @@
       </div>
     </div>
     <div class="cta-row">
-      <a href="index.html#services" class="btn">开始项目评估</a>
+      <a href="https://console.therasik.com" target="_blank" rel="noopener noreferrer" class="btn">免费注册 AI 设计平台 →</a>
+      <a href="index.html#services" class="btn btn-outline">开始项目评估</a>
       <a href="index.html#contact" class="btn btn-outline">联系我们</a>
     </div>
     </div>
