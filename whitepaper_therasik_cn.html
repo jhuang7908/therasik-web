@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Therasik 服务白皮书 2026 · AI 辅助生物药研发决策</title>
+  <title>Therasik 药物 AI 设计平台 · 服务白皮书 2026</title>
   <style>
     /* ══════════════════════ TOKENS ══════════════════════ */
     :root{
@@ -173,8 +173,6 @@
     .sc-ico-g{background:var(--g1);}
     .sc-name{font-size:12px;font-weight:800;color:var(--g9);}
     .sc-en{font-size:9px;color:var(--g5);font-weight:400;}
-    .sc-html, body { overflow-x: auto; }
-    body {padding:8px 10px;}
     .sc-pts{list-style:none;padding:0;margin:0;}
     .sc-pts li{font-size:11px;color:var(--g7);padding:2px 0 2px 12px;position:relative;line-height:1.4;}
     .sc-pts li::before{content:'·';position:absolute;left:3px;color:var(--t6);font-weight:900;font-size:14px;top:-1px;}
@@ -246,8 +244,6 @@
     .ct-cro{background:#fae8ff;color:#7e22ce;}
     .ct-clt{background:#fef3c7;color:#92400e;}
     .case-title{font-size:11.5px;font-weight:900;color:var(--t8);line-height:1.2;}
-    .case-html, body { overflow-x: auto; }
-    body {padding:6px 10px;}
     .case-result{font-size:11px;color:var(--t6);font-weight:800;margin-bottom:4px;}
     .case-detail{font-size:10px;color:var(--g7);line-height:1.3;}
     .case-impact{font-size:10px;color:var(--t7);font-weight:700;margin-top:5px;padding-top:5px;border-top:1px dashed var(--t3);line-height:1.4;}
@@ -298,10 +294,10 @@
       .pg{padding:28px 16px;}
       .cols2,.tool-cats{grid-template-columns:1fr;}
       .prob3,.db6,.cases9{grid-template-columns:1fr 1fr;}
-      .cv-stats{grid-template-columns:repeat(3,1fr);}
+      .cv-stats{grid-template-columns:repeat(2,1fr) !important;}
       .svc-chain{grid-template-columns:1fr 1fr;}
       .proc5{grid-template-columns:1fr 1fr;}
-      .cc3{grid-template-columns:1fr;}
+      .cc3{grid-template-columns:1fr !important;}
       h1{font-size:22px;}h2{font-size:16px;}
     }
 
@@ -681,39 +677,45 @@
 
   <!-- Top bar -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;position:relative;z-index:1;">
-    <div class="cover-brand">Thera<b>sik</b> <span style="font-size:11px;font-weight:400;color:var(--g5);margin-left:8px;">服务白皮书 · 2026</span></div>
+    <div class="cover-brand">Thera<b>sik</b> <span style="font-size:11px;font-weight:400;color:var(--g5);margin-left:8px;">药物 AI 设计平台 · 服务白皮书 2026</span></div>
     <div style="font-size:11px;color:var(--g5);text-align:right;line-height:1.6;">
-      www.therasik.com<br>微信 Rockhj · contact@therasik.com
+      <a href="https://www.therasik.com" style="color:var(--t7);text-decoration:none;font-weight:700;">www.therasik.com</a> · <a href="https://console.therasik.com" style="color:var(--t7);text-decoration:none;font-weight:700;">console.therasik.com</a><br>
+      <a href="mailto:contact@therasik.com" style="color:var(--g7);text-decoration:none;">contact@therasik.com</a> · 客服微信 rockyhj
     </div>
   </div>
 
   <!-- Hero: what we do -->
   <div style="position:relative;z-index:1;max-width:760px;">
-    <h1 style="font-size:28px;margin-bottom:8px;">AI 辅助生物药研发决策<br><em>解决问题，而非展示工具</em></h1>
-    <p class="cover-sub" style="font-size:13.5px;max-width:640px;margin-bottom:0;">
-      Therasik 整合 <strong style="color:var(--t7);">AI 分析 + 6 大临床专有数据库 + 专家判断</strong>，为抗体、双抗、CAR-T 与疫苗开发团队提供从序列到报告的全链路决策支持——在进入湿实验室之前，系统识别并降低研发失败风险。
+    <h1 style="font-size:28px;margin-bottom:8px;">药物 AI 设计平台<br><em>基于临床抗体机器学习的 AI 设计</em></h1>
+    <p class="cover-sub" style="font-size:13.5px;max-width:660px;margin-bottom:8px;">
+      Therasik 不替代湿实验，而是<strong style="color:var(--t7);">让实验不再盲目</strong>——通过对临床上市抗体的系统性机器学习，把抗体工程、双特异、CAR-T、CMC 评估的设计与决策前置到分子合成之前，<strong style="color:var(--t7);">显著降低试错规模、提高研发效率与临床前成功率</strong>。
     </p>
+    <div style="display:inline-flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+      <span style="font-size:11px;font-weight:700;padding:4px 10px;border-radius:14px;background:var(--t1);color:var(--t7);border:1px solid var(--t3);">线上自助 · 分钟级</span>
+      <span style="font-size:11px;font-weight:700;padding:4px 10px;border-radius:14px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;">线下深度 · 专家驻场</span>
+      <span style="font-size:11px;font-weight:700;padding:4px 10px;border-radius:14px;background:#fae8ff;color:#7e22ce;border:1px solid #d8b4fe;">AI 设计助手 · 全程伴随</span>
+    </div>
   </div>
 
   <!-- 3 problems we solve -->
   <div class="prob3" style="position:relative;z-index:1;">
     <div class="prob-card">
       <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
-      <div class="pc-t">CMC 可开发性缺口</div>
-      <div class="pc-d">序列优化阶段未考量 CMC 边界，缺口在 IND 阶段才暴露，约 30% 候选分子因此临床前淘汰。</div>
-      <div style="font-size:10px;color:var(--r6);font-weight:700;margin-top:5px;">代价：浪费 6–18 个月开发周期</div>
+      <div class="pc-t">减少实验盲目性</div>
+      <div class="pc-d">在分子合成之前先在计算上完成方向筛选与风险定位，把湿实验预算花在已经过 AI 筛选的方案上，而不是大规模随机试错。</div>
+      <div style="font-size:10px;color:var(--t6);font-weight:700;margin-top:5px;">先 AI 筛 · 再 CRO 验</div>
     </div>
     <div class="prob-card">
       <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div>
-      <div class="pc-t">免疫原性风险后置</div>
-      <div class="pc-d">人源化不充分、T 细胞表位未筛查，进入动物试验才触发 ADA 信号，被迫推倒重来。</div>
-      <div style="font-size:10px;color:var(--r6);font-weight:700;margin-top:5px;">代价：动物实验失败 = 百万级重复投入</div>
+      <div class="pc-t">提升研发效率</div>
+      <div class="pc-d">从临床上市抗体中学规律，再迁移到新分子；人源化输出收敛到唯一候选，多特异稳定性提前预判，把抗体工程的"猜与试"变为"知与选"。</div>
+      <div style="font-size:10px;color:var(--t6);font-weight:700;margin-top:5px;">从经验试错 · 到知识驱动</div>
     </div>
     <div class="prob-card">
       <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
-      <div class="pc-t">格式选择依赖经验</div>
-      <div class="pc-d">双抗 / ADC / CAR 元件选择缺乏临床数据支撑，复现性差，走错方向无法量化。</div>
-      <div style="font-size:10px;color:var(--r6);font-weight:700;margin-top:5px;">代价：格式错误意味着整条管线重做</div>
+      <div class="pc-t">提高临床前成功率</div>
+      <div class="pc-d">CMC 可开发性、免疫原性、稳定性在序列阶段就完成平衡诊断，让候选分子进入 IND 阶段时已具备成药性边界，降低后期推倒重来的概率。</div>
+      <div style="font-size:10px;color:var(--t6);font-weight:700;margin-top:5px;">早暴露 · 早修复 · 早收敛</div>
     </div>
   </div>
 
@@ -721,7 +723,7 @@
   <div style="position:relative;z-index:1;background:#fff;border:2px solid var(--t5);border-radius:10px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(13,148,136,.1);">
     <span style="font-size:22px;color:var(--t6);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
     <p style="font-size:12.5px;color:var(--g7);line-height:1.55;margin:0;">
-      <strong style="color:var(--t7);">我们的解决方案：</strong>在湿实验之前介入——用 20+ AI 工具快速分析，用 6 大临床数据库作格式专属对标，用专家判断转化为可执行建议。<strong style="color:var(--t7);">不是分数，是方向。不是工具，是护城河。</strong>
+      <strong style="color:var(--t7);">平台核心立场：</strong>AI 不替代实验，但能把"必须做的实验"和"可以不做的实验"分开。以临床抗体的机器学习为底座，输出结构化、可审计、可执行的设计方案——<strong style="color:var(--t7);">让每一次湿实验，都是带着目的去做的。</strong>
     </p>
   </div>
 
@@ -729,7 +731,7 @@
   <div class="about-band" style="position:relative;z-index:1;">
     <div class="ab-title">关于 Therasik 团队</div>
     <p class="ab-txt">
-      核心团队来自<strong style="color:var(--g9);">中国科学院、哥伦比亚大学与洛克菲勒大学</strong>，免疫学专业背景，拥有逾十年免疫药物开发实战经验。专注于将计算 AI 与免疫学领域深度知识结合，已为多家 Biotech 公司及科研团队提供服务，覆盖从抗体人源化到新抗原疫苗的完整计算分析交付。
+      团队来自<strong style="color:var(--g9);">中国科学院、哥伦比亚大学与洛克菲勒大学</strong>，免疫学专业背景，拥有逾十年免疫药物开发经验。平台设计原则：<strong style="color:var(--g9);">不卖工具，卖结果；不替代实验，让实验有方向</strong>——把临床抗体的成药规律转化为可被工程师直接使用的 AI 设计能力。
     </p>
     <div class="ab-tags">
       <span class="ab-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:2px;margin-top:-2px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>中国科学院</span>
@@ -741,404 +743,503 @@
     </div>
   </div>
 
-  <!-- Key numbers strip -->
-  <div class="cv-stats" style="position:relative;z-index:1;">
-    <div class="cv-stat"><span class="cv-sn">1,142</span><span class="cv-sl">临床抗体<br>参考序列</span></div>
-    <div class="cv-stat"><span class="cv-sn">138</span><span class="cv-sl">ADA 稀有<br>免疫记录</span></div>
-    <div class="cv-stat"><span class="cv-sn">20+</span><span class="cv-sl">AI 分析<br>工具</span></div>
-    <div class="cv-stat"><span class="cv-sn">9</span><span class="cv-sl">完整实战<br>案例</span></div>
-    <div class="cv-stat"><span class="cv-sn">100+</span><span class="cv-sl">ADC 临床<br>项目库</span></div>
-    <div class="cv-stat"><span class="cv-sn">3–5天</span><span class="cv-sl">专家审核<br>交付</span></div>
+  <!-- Value strip (no DB sizes per platform policy) -->
+  <div class="cv-stats" style="position:relative;z-index:1;grid-template-columns:repeat(4,1fr);">
+    <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">结构相似</span><span class="cv-sl">不是序列<br>相似的人源化</span></div>
+    <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">一案一候选</span><span class="cv-sl">减少筛选<br>节省实验规模</span></div>
+    <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">多指标平衡</span><span class="cv-sl">CMC 不打分<br>做权衡诊断</span></div>
+    <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">Agent Skills</span><span class="cv-sl">专业知识<br>安全问答</span></div>
   </div>
 
   <!-- Service chips -->
   <div class="cv-chips" style="position:relative;z-index:1;">
     <span class="cv-chip">VH/VL 人源化</span>
     <span class="cv-chip">VHH 人源化</span>
-    <span class="cv-chip">VH→VHH 转化</span>
+    <span class="cv-chip">VH→VHH 小型化</span>
+    <span class="cv-chip">双特异组装</span>
+    <span class="cv-chip">Smart-CAR-T / CAR-M</span>
     <span class="cv-chip">CMC 可开发性</span>
-    <span class="cv-chip">虚拟亲和力成熟</span>
-    <span class="cv-chip">CDR 重新设计</span>
-    <span class="cv-chip">免疫原性 / ADA</span>
-    <span class="cv-chip">双特异性抗体</span>
-    <span class="cv-chip">ADC 评估</span>
-    <span class="cv-chip">CAR-T / NK</span>
-    <span class="cv-chip">疫苗 / 新抗原</span>
+    <span class="cv-chip">结构预测</span>
+    <span class="cv-chip">cDNA 优化</span>
+    <span class="cv-chip">亲和力成熟（线下）</span>
+    <span class="cv-chip">CDR 从头设计（线下）</span>
+    <span class="cv-chip">湿实验对接（线下）</span>
+    <span class="cv-chip">AI 设计助手</span>
   </div>
 
 </div>
 <div class="div"></div>
 
 <!-- ════════════════════════════════════════
-     S1 · 我们与 AI 工具平台、CRO 的本质区别
+     S1 · 平台 AI 设计架构
 ════════════════════════════════════════ -->
 <div id="s1" class="pg pg-lt">
-  <div class="lbl">01 · 差异化定位</div>
-  <h2 style="margin-bottom:6px;">AI 如何真正服务生物药研发？<br><em>不是工具，不是实验——是决策支持</em></h2>
-  <p style="font-size:13px;color:var(--g7);margin-bottom:16px;line-height:1.7;">
-    单纯提供 AI 工具，没有临床数据和专家判断，输出分数无法指导决策。单纯做 CRO 实验，进入湿实验前缺乏方向，每次试错都在烧钱烧时间。Therasik 提供第三条路：<strong>用 1,142 条临床序列作对标基线，用 25+ 工具交叉验证消除单工具误差，用免疫学专家解读让报告直接可执行。</strong> 这三重能力缺一不可，且难以复制。
+  <div class="lbl">01 · 平台架构</div>
+  <h2 style="margin-bottom:6px;">基于临床抗体机器学习的<em>AI 设计五层流水线</em></h2>
+  <p style="font-size:13px;color:var(--g7);margin-bottom:18px;line-height:1.7;">
+    Therasik 不是单点 AI 工具，而是<strong>把临床上市抗体的成药规律学进去、把序列设计输出来</strong>的多层流水线：每层负责一种判断，结果上下游自动衔接，最终由免疫学专家审核交付。<strong>同一条流水线，既支撑线上自助快跑，也支撑线下专家深度精修。</strong>
   </p>
+
+  <!-- 5-layer architecture visual -->
+  <div style="display:flex;flex-direction:column;gap:0;margin-bottom:20px;">
+
+    <!-- Layer 1 -->
+    <div style="display:flex;align-items:stretch;gap:0;">
+      <div style="width:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--t6);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">1</div>
+        <div style="width:2px;flex:1;background:linear-gradient(to bottom,var(--t6),var(--t5));min-height:12px;"></div>
+      </div>
+      <div style="flex:1;background:var(--t0);border:1.5px solid var(--t3);border-radius:10px;padding:12px 16px;margin:0 0 4px 8px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:900;color:var(--t7);">临床抗体规律学习底座</span>
+          <span style="font-size:10px;color:var(--g5);">Clinical Antibody Pattern Learning</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--g7);margin-top:5px;line-height:1.5;">
+          以已上市与临床在研抗体为学习样本，按格式（VH/VL · VHH · 双特异 · ADC · CAR）分群——把"能进临床的抗体长什么样"沉淀为可迁移到新分子上的设计经验。
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;">
+          <span style="font-size:9px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">临床冻结队列</span>
+          <span style="font-size:9px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">格式分群</span>
+          <span style="font-size:9px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">ADA 证据</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div style="display:flex;align-items:stretch;gap:0;">
+      <div style="width:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+        <div style="width:26px;height:26px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">2</div>
+        <div style="width:2px;flex:1;background:linear-gradient(to bottom,#1d4ed8,#0d9488);min-height:12px;"></div>
+      </div>
+      <div style="flex:1;background:var(--b1);border:1.5px solid #93c5fd;border-radius:10px;padding:12px 16px;margin:0 0 4px 8px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:900;color:var(--b7);">结构与构象判断层</span>
+          <span style="font-size:10px;color:var(--g5);">Structural &amp; Conformational Judgement</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--g7);margin-top:5px;line-height:1.5;">
+          区域划分（FR / CDR / Hallmark）→ 三维结构预测 → 链间夹角、CDR 长度、疏水分布、自然配对度的结构指纹提取——这是"结构相似度人源化"取代"序列相似度人源化"的基础。
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;">
+          <span style="font-size:9px;background:var(--b7);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">链间夹角</span>
+          <span style="font-size:9px;background:var(--b7);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">自然配对</span>
+          <span style="font-size:9px;background:var(--b7);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">CDR 构象</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 3 -->
+    <div style="display:flex;align-items:stretch;gap:0;">
+      <div style="width:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+        <div style="width:26px;height:26px;border-radius:50%;background:#d97706;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">3</div>
+        <div style="width:2px;flex:1;background:linear-gradient(to bottom,#d97706,var(--r6));min-height:12px;"></div>
+      </div>
+      <div style="flex:1;background:#fffbeb;border:1.5px solid #fde68a;border-radius:10px;padding:12px 16px;margin:0 0 4px 8px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:900;color:#b45309;">设计与决策收敛层</span>
+          <span style="font-size:10px;color:var(--g5);">Design &amp; Convergence</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--g7);margin-top:5px;line-height:1.5;">
+          对鼠抗 / 兔抗 / VHH 等候选输入：人源化设计输出少量高置信候选，VH→VHH 小型化按结构兼容性生成方案，多特异 / Smart-CAR-T / CAR-M 按靶点和疾病场景进行构型建议——<strong>把"筛大库"变成"先定方向"</strong>。
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;">
+          <span style="font-size:9px;background:#d97706;color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">一案一候选</span>
+          <span style="font-size:9px;background:#d97706;color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">小型化</span>
+          <span style="font-size:9px;background:#d97706;color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">构型建议</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 4 -->
+    <div style="display:flex;align-items:stretch;gap:0;">
+      <div style="width:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--r6);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">4</div>
+        <div style="width:2px;flex:1;background:linear-gradient(to bottom,var(--r6),var(--t7));min-height:12px;"></div>
+      </div>
+      <div style="flex:1;background:var(--r1);border:1.5px solid #fca5a5;border-radius:10px;padding:12px 16px;margin:0 0 4px 8px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:900;color:var(--r7);">CMC 与免疫原性平衡诊断层</span>
+          <span style="font-size:10px;color:var(--g5);">CMC &amp; Immunogenicity Balance</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--g7);margin-top:5px;line-height:1.5;">
+          多指标综合诊断：pI、疏水、电荷、聚集、脱酰胺、异构化、糖基化、免疫原性热区——指标之间存在冲突时给出<strong>权衡建议而非单一打分</strong>，CMC 优化建议<strong>只动 FR 不动 CDR</strong>，保留结合活性。
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;">
+          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">多指标平衡</span>
+          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">免疫原性热区</span>
+          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">FR-only 优化</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 5 -->
+    <div style="display:flex;align-items:stretch;gap:0;">
+      <div style="width:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--t7);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;">5</div>
+      </div>
+      <div style="flex:1;background:var(--t7);border-radius:10px;padding:12px 16px;margin-left:8px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:900;color:#fff;">专家审核 · AI 助手 · 结构化输出</span>
+          <span style="font-size:10px;color:#a7f3d0;">Expert Review · AI Assistant · Structured Output</span>
+        </div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,.85);margin-top:5px;line-height:1.5;">
+          免疫学专家审核计算结果 → 控制台 AI 助手实时解读与答疑 → 中英双语 · 可审计报告 → 可直接进入客户沟通、IND 前评估与 CRO 委托
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;">
+          <span style="font-size:9px;background:rgba(255,255,255,.2);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">专家审核</span>
+          <span style="font-size:9px;background:rgba(255,255,255,.2);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">AI 助手伴随</span>
+          <span style="font-size:9px;background:rgba(255,255,255,.2);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">中英双语</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Brief platform vs alternatives summary -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">▸ 与其他选项的本质区别</h3>
 
   <table class="cmp-table" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
         <th class="cmp-col cmp-ai">
-          <div class="cmp-hd">AI 工具平台</div>
-          <span class="cmp-sub">Rosetta · ESMfold · 在线服务</span>
+          <div class="cmp-hd">公开 AI 平台</div>
+          <span class="cmp-sub">单点工具 · 静态评分</span>
         </th>
         <th class="cmp-col cmp-us">
           <div class="cmp-hd">Therasik</div>
-          <span class="cmp-sub">AI + 临床数据库 + 专家判断</span>
+          <span class="cmp-sub">基于临床抗体 ML 的 AI 设计平台</span>
           <div style="display:flex;gap:4px;flex-wrap:wrap;margin:6px 0 2px;justify-content:center;">
-            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">🤖 AI</span>
-            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">🗄 临床数据</span>
-            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">🧠 专家</span>
+            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">线上 + 线下</span>
+            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">AI 助手伴随</span>
+            <span style="font-size:8.5px;background:var(--t6);color:#fff;border-radius:5px;padding:1px 6px;font-weight:800;">专家审核</span>
           </div>
         </th>
         <th class="cmp-col cmp-cro">
           <div class="cmp-hd">传统 CRO</div>
-          <span class="cmp-sub">湿实验外包服务</span>
+          <span class="cmp-sub">湿实验外包</span>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="ck">✓</span><em>自动化速度快</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>20+ AI 工具协同运行</em></div></td>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="ck">✓</span><em>工具运行速度快</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>临床抗体机器学习底座</em></div></td>
         <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="ck">✓</span><em>湿实验直接验证</em></div></td>
       </tr>
       <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="ck">✓</span><em>部分开源可用</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>6 大专有临床数据库</em></div></td>
-        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="ck">✓</span><em>GMP · 法规支持</em></div></td>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>序列相似度匹配，构象失真</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>结构相似度人源化，链间夹角自然</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="ck">✓</span><em>GMP / 法规支持</em></div></td>
       </tr>
       <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无临床格式对标数据</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>格式专属对标（VHH/VH-VL/双抗）</em></div></td>
-        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无早期计算风险筛查</em></div></td>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>输出大量候选需自行筛选</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>一案一候选，减少后续筛选规模</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无计算层预筛，试错成本高</em></div></td>
       </tr>
       <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无专家解读与审核</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>免疫学专家全程审核</em></div></td>
-        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>费用高（10–100× 计算）</em></div></td>
-      </tr>
-      <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>单工具，无整合判断</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>可执行优化建议，非孤立分数</em></div></td>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无 VH→VHH 小型化路径</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>VH→VHH 独家技术，桥接多特异/CAR-T</em></div></td>
         <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>周期数周至数月</em></div></td>
       </tr>
       <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>输出分数，无可执行建议</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>3–5 工作日交付</em></div></td>
-        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无法实验前识别 CMC 风险</em></div></td>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>单点 CMC 打分</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>多指标平衡诊断 + FR-only 优化</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>费用是计算分析的 10–100×</em></div></td>
       </tr>
       <tr>
-        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无 ADA · ADC 稀有数据</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>ADA 稀有数据 138 条</em></div></td>
-        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无临床序列对标基线</em></div></td>
+        <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>无 AI 对话助手 / IDE 工作台</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>AI 设计助手 + IDE 风格工作台</em></div></td>
+        <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>无 IND 前 CMC 风险识别</em></div></td>
       </tr>
       <tr>
-        <td class="cmp-col cmp-ai" style="border-radius:0 0 0 12px;"><div class="cmp-row"><span class="cx">✗</span><em>无领域背景知识支撑</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>10+ 年免疫药物开发背景</em></div></td>
-        <td class="cmp-col cmp-cro" style="border-radius:0 0 12px 0;"><div class="cmp-row"><span class="cx">✗</span><em>不提供计算优化建议</em></div></td>
+        <td class="cmp-col cmp-ai" style="border-radius:0 0 0 12px;"><div class="cmp-row"><span class="cx">✗</span><em>只能线上，无线下精修</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>线上自助 + 线下专家驻场双轨</em></div></td>
+        <td class="cmp-col cmp-cro" style="border-radius:0 0 12px 0;"><div class="cmp-row"><span class="cx">✗</span><em>不提供计算层方向判断</em></div></td>
       </tr>
     </tbody>
   </table>
 
   <div class="pq" style="margin-top:14px;">
-    最优路径：先用 Therasik 在计算层识别关键风险、确定方向，再将高置信度方案推进湿实验验证——把 CRO 的实验预算花在刀刃上，而不是试错上。
+    <strong>核心立场</strong>：AI 设计不能替代实验，但能把"必须做的实验"和"可以不做的实验"分开——先在 AI 上把方向、风险、边界看清楚，再把湿实验预算精准花在已经过计算筛选的方案上。
   </div>
 </div>
 <div class="div"></div>
 
 <!-- ════════════════════════════════════════
-     S2 · 完整服务链路 (10 services, 2 groups)
+     S2 · 服务模块 (线上 + 线下)
 ════════════════════════════════════════ -->
 <div id="s2" class="pg pg-lt">
-  <div class="lbl">02 · 服务范围</div>
-  <h2 style="margin-bottom:6px;">从序列到报告 — <em>10 项全链路服务</em></h2>
-  <p style="font-size:12.5px;color:var(--g7);margin-bottom:18px;">单一团队，一份整合报告。每项服务可独立委托，也可组合为端到端项目。</p>
+  <div class="lbl">02 · 服务模块</div>
+  <h2 style="margin-bottom:6px;">线上自助 + 线下精修 — <em>覆盖抗体设计全周期</em></h2>
+  <p style="font-size:12.5px;color:var(--g7);margin-bottom:18px;">
+    线上模块通过 <strong>console.therasik.com</strong> 自助调用，分钟到小时级返回报告；线下模块由免疫学专家驻场完成，包含湿实验对接与亲和力验证。两侧共享同一套设计标准与报告体系。
+  </p>
 
-  <!-- Group 1: Antibody Engineering -->
+  <!-- Group 1: Online — Antibody Engineering Modules -->
   <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
-    ▸ 抗体工程（Antibody Engineering）
+    ▸ 线上模块 · 抗体工程（Online · Antibody Engineering）
   </h3>
   <div class="svc-chain" style="margin-bottom:20px;">
     <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2v20"/><path d="M9 2v20"/><path d="M9 22c3 0 6-3 6-6"/><path d="M15 2c-3 0-6 3-6 6"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/><path d="M9 18h6"/></svg></div><div><div class="sc-name">抗体人源化</div><div class="sc-en">VH/VL Humanization</div></div></div>
+      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2v20"/><path d="M9 2v20"/><path d="M9 22c3 0 6-3 6-6"/><path d="M15 2c-3 0-6 3-6 6"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/><path d="M9 18h6"/></svg></div><div><div class="sc-name">VH/VL 人源化</div><div class="sc-en">VH/VL Humanization · 鼠 / 大鼠 / 兔</div></div></div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>CDR 移植 + Vernier 区分析</li>
-          <li>1,142 条临床序列格式对标</li>
-          <li>回突变精准化 + 构型验证</li>
+          <li>结构相似度选源（非序列相似度）</li>
+          <li>链间夹角 / 自然配对 / Vernier 校验</li>
+          <li><strong>一案一候选</strong>：输出少量高置信人源候选</li>
         </ul>
-        <span class="sc-tag tag-t">VH/VL</span><span class="sc-tag tag-t">mAb</span>
+        <span class="sc-tag tag-t">VH/VL</span><span class="sc-tag tag-t">线上</span>
       </div>
     </div>
     <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="6" ry="10"/></svg></div><div><div class="sc-name">VHH 人源化 / 转化</div><div class="sc-en">VHH · VH→VHH</div></div></div>
+      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="6" ry="10"/></svg></div><div><div class="sc-name">VHH 纳米抗体人源化</div><div class="sc-en">VHH Humanization</div></div></div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>29 项 VHH 专属检查清单</li>
-          <li>VH→VHH 结构转化设计</li>
-          <li>保留 CDR 结合同时提升成药性</li>
+          <li>从临床 VHH 中学规律</li>
+          <li><strong>自动感知</strong>：疏水分布 · CDR 长度 · 人源化程度</li>
+          <li>保留结合活性同时提升成药性</li>
         </ul>
-        <span class="sc-tag tag-b">VHH</span><span class="sc-tag tag-b">Nanobody</span>
+        <span class="sc-tag tag-b">VHH</span><span class="sc-tag tag-b">线上</span>
       </div>
     </div>
     <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-o"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="sc-name">CMC 可开发性评估</div><div class="sc-en">Developability · 15 Metrics</div></div></div>
+      <div class="sc-hd"><div class="sc-ico sc-ico-o"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="sc-name">CMC 可开发性</div><div class="sc-en">CMC Developability</div></div></div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>15 项指标全面检测（pI · 疏水 · 电荷）</li>
-          <li><b>格式专属</b>：VH/VL / VHH / 双抗各自对标</li>
-          <li>短板识别 + AI 优化建议</li>
+          <li>多指标综合诊断（不是单一打分）</li>
+          <li>格式专属对标：VH/VL · VHH · 双抗</li>
+          <li><strong>FR-only 优化</strong>，平衡冲突指标</li>
         </ul>
-        <span class="sc-tag tag-o">CMC</span><span class="sc-tag tag-o">临床对标</span>
+        <span class="sc-tag tag-o">CMC</span><span class="sc-tag tag-o">线上</span>
       </div>
     </div>
     <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="sc-name">虚拟亲和力成熟</div><div class="sc-en">VAM · ΔΔG 6-Tool</div></div></div>
+      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4L3.5 14.5a2.12 2.12 0 0 0 0 3l.5.5a2.12 2.12 0 0 0 3 0L17.5 7.5"/><path d="M12 8l4 4"/><path d="M2 22l3-3"/></svg></div><div><div class="sc-name">VH → VHH 小型化</div><div class="sc-en">VH-to-VHH Conversion · 独家</div></div></div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>EvoEF2 / PRODIGY / FoldX / ThermoMPNN</li>
-          <li>AntiFold / ESM-IF1 / MM-GBSA 协同</li>
-          <li>突变热图 + 多结构共识筛选</li>
+          <li><strong>抗体小型化的独家路径</strong></li>
+          <li>为多特异、CAR-T 提供更紧凑的结合域</li>
+          <li>结构兼容性 + Hallmark 自动设计</li>
         </ul>
-        <span class="sc-tag tag-t">ΔΔG</span><span class="sc-tag tag-t">Affinity</span>
+        <span class="sc-tag tag-t">VH→VHH</span><span class="sc-tag tag-t">线上</span>
       </div>
     </div>
     <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div><div><div class="sc-name">CDR 重新设计</div><div class="sc-en">CDR Redesign · ProteinMPNN</div></div></div>
+      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="sc-name">三维结构预测</div><div class="sc-en">Fv Structure · IgG / VHH</div></div></div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>ProteinMPNN 多样性序列生成</li>
-          <li>CDR 构型锚定保持，RMSD 监控</li>
-          <li>Shannon 多态性评分 + 亲和力过滤</li>
+          <li>VH+VL / VHH 三维构象</li>
+          <li>pLDDT 局部置信度 · CDR 柔性分析</li>
+          <li>可下载 PDB · 接入下游 CMC / 对接</li>
         </ul>
-        <span class="sc-tag tag-b">ProteinMPNN</span><span class="sc-tag tag-b">CDR</span>
+        <span class="sc-tag tag-b">Structure</span><span class="sc-tag tag-b">线上</span>
       </div>
     </div>
     <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div><div><div class="sc-name">免疫原性与 ADA 风险</div><div class="sc-en">Immunogenicity · ADA DB</div></div></div>
+      <div class="sc-hd"><div class="sc-ico sc-ico-r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div><div><div class="sc-name">cDNA 密码子优化</div><div class="sc-en">cDNA Optimization</div></div></div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>T 细胞表位筛查，35 HLA-DRB1 覆盖</li>
-          <li>138 条 <b>ADA 稀有数据库</b>对标</li>
-          <li>免疫原性热区定位 + 突变降风险</li>
+          <li>组装全长 IgG / VHH 链（含信号肽 / Fc）</li>
+          <li>表达系统偏好优化（HEK293 / CHO / E.coli）</li>
+          <li>输出可直接交付的合成序列</li>
         </ul>
-        <span class="sc-tag tag-r">ADA</span><span class="sc-tag tag-r">T-cell Epitope</span>
+        <span class="sc-tag tag-r">cDNA</span><span class="sc-tag tag-r">线上</span>
       </div>
     </div>
   </div>
 
-  <!-- Group 2: Modality Extension -->
+  <!-- Group 2: Online — Modality Modules -->
   <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
-    ▸ 模态扩展（Modality Extension）
+    ▸ 线上模块 · 模态设计（Online · Modality Design）
+  </h3>
+  <div class="svc-chain" style="margin-bottom:24px;">
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div class="sc-name">双特异抗体组装</div><div class="sc-en">Bispecific Assembly</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>IgG-like 与串联格式两类支持</li>
+          <li><strong>基于结构</strong>分析配对稳定性</li>
+          <li>Linker 智能选择 + 错配预警</li>
+        </ul>
+        <span class="sc-tag tag-t">Bispecific</span><span class="sc-tag tag-t">线上</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="sc-name">Smart-CAR-T / CAR-M 构型设计</div><div class="sc-en">Smart CAR Design · 靶点 / 场景驱动</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li><strong>按靶点与疾病场景</strong>推荐构型方向</li>
+          <li>覆盖 CAR-T / CAR-M · 肿瘤 / 感染 / 自免</li>
+          <li>结合域 → 铰链 → TM → 共刺激域 → 安全控制</li>
+        </ul>
+        <span class="sc-tag tag-b">Smart CAR</span><span class="sc-tag tag-b">Agent Skills</span>
+      </div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-hd"><div class="sc-ico sc-ico-o"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div><div class="sc-name">AI 设计助手</div><div class="sc-en">AI Design Assistant</div></div></div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>控制台右侧常驻，上下文感知</li>
+          <li>简答（5 积分）· 详答（20 积分，深度推理）</li>
+          <li>调用安全知识库，解读报告 · 答疑术语 · 草拟验证路线</li>
+        </ul>
+        <span class="sc-tag tag-o">AI Assistant</span><span class="sc-tag tag-o">线上</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 3: Offline — Deep services -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#b45309;margin-bottom:10px;font-weight:800;">
+    ▸ 线下模块 · 专家驻场深度服务（Offline · Expert Engagement）
   </h3>
   <div class="svc-chain">
-    <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div class="sc-name">双特异性抗体</div><div class="sc-en">Bispecific · 134+ Molecules</div></div></div>
-      <div class="sc-body">
-        <ul class="sc-pts">
-          <li>134+ 临床双抗 + 84 Linker 库</li>
-          <li>格式筛选 · 配对稳定性 · CMC 错配</li>
-          <li>78 IgG-like 结构模型验证</li>
-        </ul>
-        <span class="sc-tag tag-t">Bispecific</span><span class="sc-tag tag-t">SmartLink</span>
-      </div>
-    </div>
-    <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-o"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="sc-name">ADC 设计与评估</div><div class="sc-en">ADC · 100+ Clinical Projects</div></div></div>
-      <div class="sc-body">
-        <ul class="sc-pts">
-          <li>100+ ADC 临床项目数据库</li>
-          <li>Linker / Payload / DAR 优化</li>
-          <li>偶联位点筛选 + 稳定性评估</li>
-        </ul>
-        <span class="sc-tag tag-o">ADC</span><span class="sc-tag tag-o">Linker</span>
-      </div>
-    </div>
-    <div class="sc-card">
-      <div class="sc-hd"><div class="sc-ico sc-ico-b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="sc-name">CAR-T / NK / M 设计</div><div class="sc-en">CAR Immunotherapy · 237 Parts</div></div></div>
-      <div class="sc-body">
-        <ul class="sc-pts">
-          <li>237 精选元件，12 类别系统架构</li>
-          <li>铰链 / 共刺激域理性优化</li>
-          <li>实体瘤穿透 · 安全开关设计</li>
-        </ul>
-        <span class="sc-tag tag-b">CAR-T</span><span class="sc-tag tag-b">CAR-NK</span>
-      </div>
-    </div>
-    <div class="sc-card" style="grid-column:span 1;">
-      <div class="sc-hd"><div class="sc-ico sc-ico-r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 4"/><path d="M17 7l-3-3"/><path d="M19 9l-3-3"/><path d="M14 4L3.5 14.5a2.12 2.12 0 0 0 0 3l.5.5a2.12 2.12 0 0 0 3 0L17.5 7.5"/><path d="M12 8l4 4"/><path d="M2 22l3-3"/></svg></div><div><div class="sc-name">疫苗 / 新抗原设计</div><div class="sc-en">Vaccine · Neoantigen · mRNA</div></div></div>
-      <div class="sc-body">
-        <ul class="sc-pts">
-          <li>KRAS G12D · EBV 等靶点案例</li>
-          <li>100+ IEDB 验证表位，MHC-I/II</li>
-          <li>多表位 mRNA 装配 + GC 优化</li>
-        </ul>
-        <span class="sc-tag tag-r">mRNA</span><span class="sc-tag tag-r">Neoantigen</span>
-      </div>
-    </div>
-
-    <!-- Card 5: De novo protein AI design (在研课题) -->
-    <div class="sc-card" style="border:1.5px dashed #a855f7;background:#fdfaff;">
-      <div class="sc-hd" style="background:#fdf4ff;">
-        <div class="sc-ico" style="background:#fae8ff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-        <div>
-          <div class="sc-name">蛋白药物从头设计</div>
-          <div class="sc-en">De Novo Protein Drug Design</div>
-        </div>
-        <span style="font-size:9px;font-weight:800;color:#7e22ce;background:#fae8ff;border:1px solid #a855f7;border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">在研课题</span>
+    <div class="sc-card" style="border:1.5px solid #fde68a;background:#fffbeb;">
+      <div class="sc-hd" style="background:#fef3c7;">
+        <div class="sc-ico" style="background:#fde68a;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div><div class="sc-name">虚拟亲和力成熟</div><div class="sc-en">Virtual Affinity Maturation</div></div>
+        <span style="font-size:9px;font-weight:800;color:#92400e;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">线下报价</span>
       </div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>RFdiffusion · ProteinMPNN · AlphaFold2 协同生成</li>
-          <li>不依赖已有骨架，探索全新结合序列空间</li>
-          <li>从头设计 + 结构预测验证 + 成药性初评</li>
+          <li>多模型共识 ΔΔG 突变筛选</li>
+          <li>上位性双突变 · 协同位点发现</li>
+          <li>专家解读 + 推荐变体清单</li>
         </ul>
-        <span class="sc-tag" style="background:#fae8ff;color:#7e22ce;">De Novo</span>
-        <span class="sc-tag" style="background:#fae8ff;color:#7e22ce;">RFdiffusion</span>
-        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">在研 · 合作探索</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">VAM</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">线下</span>
       </div>
     </div>
-
-    <!-- Card 6: TCR-restricted epitope immunopotentiation (research) -->
-    <div class="sc-card" style="border:1.5px dashed var(--t5);background:#fafffe;">
-      <div class="sc-hd" style="background:var(--t0);">
-        <div class="sc-ico" style="background:var(--t1);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <div>
-          <div class="sc-name">TCR 限制表位免疫增强</div>
-          <div class="sc-en">TCR-Restricted Epitope Immunopotentiation</div>
-        </div>
-        <span style="font-size:9px;font-weight:800;color:var(--t7);background:var(--t1);border:1px solid var(--t5);border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">在研课题</span>
+    <div class="sc-card" style="border:1.5px solid #fde68a;background:#fffbeb;">
+      <div class="sc-hd" style="background:#fef3c7;">
+        <div class="sc-ico" style="background:#fde68a;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
+        <div><div class="sc-name">CDR 从头设计</div><div class="sc-en">De Novo CDR Design</div></div>
+        <span style="font-size:9px;font-weight:800;color:#92400e;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">线下报价</span>
       </div>
       <div class="sc-body">
         <ul class="sc-pts">
-          <li>TCR 识别 pMHC 表位的结合能优化</li>
-          <li>增强 T 细胞免疫应答，多 HLA 覆盖策略</li>
-          <li>pMHC-TCR 接触面 AI 分析与突变设计</li>
+          <li>规避专利空间（FTO 重设计）</li>
+          <li>CDR 多样性生成 + 多门控筛选</li>
+          <li>结构验证 + 亲和力再优化</li>
         </ul>
-        <span class="sc-tag tag-t">TCR-pMHC</span>
-        <span class="sc-tag tag-t">免疫增强</span>
-        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">在研 · 合作探索</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">De Novo</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">线下</span>
       </div>
     </div>
-
+    <div class="sc-card" style="border:1.5px solid #fde68a;background:#fffbeb;">
+      <div class="sc-hd" style="background:#fef3c7;">
+        <div class="sc-ico" style="background:#fde68a;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><div class="sc-name">湿实验对接</div><div class="sc-en">CRO Wet-Lab Bridge</div></div>
+        <span style="font-size:9px;font-weight:800;color:#92400e;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;white-space:nowrap;margin-left:auto;">线下报价</span>
+      </div>
+      <div class="sc-body">
+        <ul class="sc-pts">
+          <li>对接合作 CRO 完成 DNA 合成 · 克隆 · 表达 · 纯化</li>
+          <li>SPR / BLI / Octet 亲和力验证</li>
+          <li>实验报价凭单可<strong>赠送 AI 设计积分</strong></li>
+        </ul>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">克隆表达</span>
+        <span class="sc-tag" style="background:#fef3c7;color:#92400e;">亲和力验证</span>
+      </div>
+    </div>
   </div>
 </div>
 <div class="div"></div>
 
 <!-- ════════════════════════════════════════
-     S3 · 6 大数据库 + 20+ AI 工具
+     S3 · 独家能力（8 大差异化）
 ════════════════════════════════════════ -->
 <div id="s3" class="pg pg-wh">
-  <div class="lbl">03 · 核心资产</div>
-  <h2 style="margin-bottom:6px;">6 大专有数据库 + <em>20+ AI 工具</em></h2>
-  <p style="font-size:12.5px;color:var(--g7);margin-bottom:16px;">
-    这是其他 AI 平台和 CRO 无法复制的资产组合——不是公开工具的简单集成，而是经临床验证的专有数据库与协同 AI 分析能力。
+  <div class="lbl">03 · 独家能力</div>
+  <h2 style="margin-bottom:6px;">与其他 AI 药物设计平台的 <em>8 大本质差异</em></h2>
+  <p style="font-size:12.5px;color:var(--g7);margin-bottom:18px;">
+    我们不与公开 AI 工具比"工具数量"，而是比"对临床抗体规律的迁移能力"。以下 8 项能力强调客户可见价值，内部规则、阈值与决策路径不在白皮书中披露。
   </p>
 
-  <!-- 6 Databases -->
-  <div class="db6" style="margin-bottom:18px;">
+  <!-- 8 differentiator cards (2 rows × 4) -->
+  <div class="db6" style="grid-template-columns:repeat(4,1fr);gap:10px;">
+
     <div class="db-card c-t">
-      <div class="db-n c-t">1,142 <span class="qual-badge">优质</span></div>
-      <span class="db-label">临床抗体序列库</span>
-      <div class="db-desc">覆盖 VH/VL · VHH · 双抗三种格式，分类对标，附临床状态注释</div>
+      <div class="db-n c-t" style="font-size:18px;line-height:1.2;">01</div>
+      <span class="db-label">结构相似度人源化</span>
+      <div class="db-desc">取代传统"序列相似度"人源化——以链间夹角、自然配对、CDR 构象为指标，结果更接近临床上市抗体的真实构型。</div>
     </div>
+
     <div class="db-card c-r">
-      <div class="db-n c-r">138 <span class="rare-badge">稀有</span></div>
-      <span class="db-label">ADA 免疫原性记录库</span>
-      <div class="db-desc">临床 ADA 事件精选，抗药抗体风险判断的唯一专有参考基线</div>
+      <div class="db-n c-r" style="font-size:18px;line-height:1.2;">02</div>
+      <span class="db-label">一案一候选设计</span>
+      <div class="db-desc">面向具体项目输出少量高置信候选，不把大量低置信备选列表交给客户自行筛选——<strong>把筛选规模前置压缩</strong>。</div>
     </div>
+
     <div class="db-card c-b">
-      <div class="db-n c-b">100+ <span style="font-size:16px;vertical-align:middle;">🔥</span></div>
-      <span class="db-label">ADC 临床项目库</span>
-      <div class="db-desc">Linker · Payload · DAR · 靶点全覆盖，支持 ADC 格式理性选择</div>
+      <div class="db-n c-b" style="font-size:18px;line-height:1.2;">03</div>
+      <span class="db-label">VHH 三维感知人源化</span>
+      <div class="db-desc">基于临床 VHH 的机器学习，<strong>自动感知</strong>疏水分布、CDR 长度与人源化程度——不是套模板，是按结构特征做精修。</div>
     </div>
+
     <div class="db-card c-o">
-      <div class="db-n c-o">134+</div>
-      <span class="db-label">双特异性分子库</span>
-      <div class="db-desc">临床双抗格式 · 84 验证 Linker · 78 IgG-like 结构模型</div>
+      <div class="db-n c-o" style="font-size:18px;line-height:1.2;">04</div>
+      <span class="db-label">VH → VHH 小型化（独家）</span>
+      <div class="db-desc">把传统 VH/VL 抗体转换为纳米抗体格式，桥接多特异抗体与 CAR-T 设计场景——公开 AI 平台均不具备此能力。</div>
     </div>
+
     <div class="db-card c-p">
-      <div class="db-n c-p">237 <span class="comp-badge">全面</span></div>
-      <span class="db-label">CAR 元件库</span>
-      <div class="db-desc">12 元件类别系统分类，支持 CAR-T / NK / Macrophage 三模态设计</div>
+      <div class="db-n c-p" style="font-size:18px;line-height:1.2;">05</div>
+      <span class="db-label">基于结构的多特异稳定性</span>
+      <div class="db-desc">双特异 / 多特异格式不靠经验拼装，而是基于三维结构预判配对稳定性、链错配风险、Linker 兼容性——把"试制能否成"前置到设计阶段。</div>
     </div>
+
+    <div class="db-card c-t">
+      <div class="db-n c-t" style="font-size:18px;line-height:1.2;">06</div>
+      <span class="db-label">CMC 多指标平衡诊断</span>
+      <div class="db-desc">不打"CMC 总分"，而是给出 pI / 疏水 / 电荷 / 聚集 / 脱酰胺等指标的<strong>权衡报告</strong>——优化建议<strong>只动 FR 不动 CDR</strong>，保留结合活性。</div>
+    </div>
+
+    <div class="db-card c-r">
+      <div class="db-n c-r" style="font-size:18px;line-height:1.2;">07</div>
+      <span class="db-label">Smart-CAR-T / CAR-M 构型设计</span>
+      <div class="db-desc">根据靶点、疾病场景、效应细胞与安全边界推荐 CAR 构型方向——支持 CAR-T / CAR-M 在肿瘤、感染与免疫调节场景中的早期方案判断。</div>
+    </div>
+
     <div class="db-card c-g">
-      <div class="db-n c-g">100+</div>
-      <span class="db-label">IEDB 验证疫苗表位</span>
-      <div class="db-desc">35 HLA-DRB1 覆盖，MHC-I/II 双路筛查，临床肿瘤新抗原案例支持</div>
+      <div class="db-n c-g" style="font-size:18px;line-height:1.2;">08</div>
+      <span class="db-label">线上 + 线下双轨</span>
+      <div class="db-desc">线上自助快跑（人源化 / CMC / 拼装），线下专家驻场精修（VAM / 从头设计 / 湿实验对接）——<strong>同一标准、同一报告体系</strong>。</div>
     </div>
+
   </div>
 
-  <!-- AI Tools by category -->
-  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
-    ▸ AI 工具矩阵（25+ 工具 · 5 自研模块，6 大类）<span style="font-size:9px;background:var(--t1);color:var(--t7);border:1px solid var(--t4);border-radius:6px;padding:1px 6px;margin-left:6px;font-weight:700;letter-spacing:0;text-transform:none;">★ 自研模块</span>
+  <!-- Below: IDE workspace + AI assistant + auditability bar -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin:24px 0 10px;font-weight:800;">
+    ▸ 平台体验：IDE 工作台 + AI 助手伴随 + 可审计输出
   </h3>
   <div class="tool-cats">
     <div class="tool-cat">
-      <div class="tc-head">结构预测 · 分子对接</div>
-      <div class="tc-tags">
-        <span class="tc-tag">ABodyBuilder2</span>
-        <span class="tc-tag">AlphaFold2</span>
-        <span class="tc-tag">ANARCI / AbNum</span>
-        <span class="tc-tag">HADDOCK3</span>
+      <div class="tc-head">IDE 风格工作台</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
+        左侧模块导航 · 中部工作区 · 右侧 AI 助手 / 账户 · 底部状态栏——多模块串联，结果上下游自动衔接，像写代码一样切换服务。
       </div>
     </div>
     <div class="tool-cat">
-      <div class="tc-head">能量计算 · 亲和力</div>
-      <div class="tc-tags">
-        <span class="tc-tag">EvoEF2</span>
-        <span class="tc-tag">PRODIGY</span>
-        <span class="tc-tag">FoldX</span>
-        <span class="tc-tag">ThermoMPNN</span>
-        <span class="tc-tag">AntiFold</span>
-        <span class="tc-tag">ESM-IF1</span>
-        <span class="tc-tag">MM/GBSA</span>
-        <span class="tc-tag">OpenMM</span>
+      <div class="tc-head">AI Agent Skills · 专业知识注入</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
+        Agent 被赋予抗体结构生物学、CMC、多特异抗体与 Smart-CAR-T/CAR-M 的客户安全知识，可辅助解释风险、形成设计思路和实验验证路线。
       </div>
     </div>
     <div class="tool-cat">
-      <div class="tc-head">CMC · 可开发性</div>
-      <div class="tc-tags">
-        <span class="tc-tag ih">AbEvaluator</span>
-        <span class="tc-tag">TAP</span>
-        <span class="tc-tag">AbLang</span>
-        <span class="tc-tag">SAP / PSH</span>
-        <span class="tc-tag">pI · GRAVY · CDR Liability</span>
+      <div class="tc-head">中英双语 · 可审计报告</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
+        每份报告含版本水印与质控审计段；客户可见内容呈现工程结论、风险类别与推荐动作，不展示内部算法、阈值、数据库结构或决策树。
       </div>
     </div>
     <div class="tool-cat">
-      <div class="tc-head">免疫原性评估 <span style="font-size:9px;color:var(--t6);font-weight:800;">★ 自研</span></div>
-      <div class="tc-tags">
-        <span class="tc-tag">IEDB API</span>
-        <span class="tc-tag ih">MHC-II 分析器</span>
-        <span class="tc-tag ih">ADA 风险评分器</span>
-        <span class="tc-tag ih">表面免疫原性检测</span>
+      <div class="tc-head">序列数据安全</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
+        序列内存内处理，任务完成即清除，<strong>不入库、不参与模型训练、不向第三方披露</strong>。企业版支持私有节点部署。
       </div>
     </div>
-    <div class="tool-cat">
-      <div class="tc-head">疫苗表位设计 <span style="font-size:9px;color:var(--t6);font-weight:800;">★ 自研</span></div>
-      <div class="tc-tags">
-        <span class="tc-tag ih">多表位组装器</span>
-        <span class="tc-tag ih">新抗原扫描器</span>
-        <span class="tc-tag">MHCflurry 2.0</span>
-        <span class="tc-tag ih">异质表位设计器</span>
-        <span class="tc-tag ih">密码子优化器</span>
-        <span class="tc-tag ih">表位优先级评分</span>
-      </div>
-    </div>
-    <div class="tool-cat">
-      <div class="tc-head">CDR 设计 · 从头生成</div>
-      <div class="tc-tags">
-        <span class="tc-tag">ProteinMPNN</span>
-        <span class="tc-tag">ESM-2</span>
-        <span class="tc-tag" style="color:var(--g5);border-style:dashed;">RFdiffusion</span>
-        <span class="tc-tag" style="color:var(--g5);border-style:dashed;">AfDesign</span>
-        <span class="tc-tag" style="color:var(--g5);border-style:dashed;">BindCraft</span>
+    <div class="tool-cat" style="grid-column:1 / -1;background:var(--t0);border:1.5px solid var(--t3);">
+      <div class="tc-head">客户安全输出边界</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
+        Agent 可调用平台安全知识库辅助问答与方案初筛，但只输出结论、风险解释、建议动作与实验验证路线；不复述回复突变决策、germline 选择方法、内部阈值、数据库规模或工具链路径。
       </div>
     </div>
   </div>
@@ -1146,13 +1247,13 @@
 <div class="div"></div>
 
 <!-- ════════════════════════════════════════
-     S4 · 9 大案例
+     S4 · 平台案例
 ════════════════════════════════════════ -->
 <div id="s4" class="pg pg-g1">
-  <div class="lbl">04 · 实战案例</div>
-  <h2 style="margin-bottom:6px;">9 大完整案例 — <em>覆盖全部服务类型</em></h2>
+  <div class="lbl">04 · 平台案例</div>
+  <h2 style="margin-bottom:6px;">9 个案例 — <em>跨模态 AI 设计实证</em></h2>
   <p style="font-size:12.5px;color:var(--g7);margin-bottom:16px;">
-    包含已发布方法案例与若干匿名客户项目，报告可按需提供（NDA 保护）。
+    涵盖人源化、CMC 评估、VHH 转化、亲和力成熟、CDR 重设计、双特异、CAR-M 与半抗原应用——演示"AI 设计 → 减少试错 → 精准实验"的全链路价值（客户项目已脱敏，受 NDA 保护）。
   </p>
 
   <div class="cases9">
@@ -1165,8 +1266,8 @@
         <div class="case-title">muMAb4D5 → 赫赛汀前体人源化</div>
       </div>
       <div class="case-body">
-        <div class="case-result">4 个回复突变 · 15/15 CMC ✓</div>
-        <div class="case-detail">使用 AbEngineCore V4.5.1 对全球临床验证最充分的抗体进行系统性重新人源化 — 仅需 4 个回复突变，CDR 100% 保留。</div>
+        <div class="case-result">结构保护 · CDR 100% 保留</div>
+        <div class="case-detail">对全球临床验证最充分的抗体进行重新人源化——以结构相似度选源，保留关键结合构象，CMC 全维度达标。</div>
         <div class="case-impact">避免错误框架进入合成，节省 2–4 周返工与重新委托成本</div>
       </div>
     </div>
@@ -1175,13 +1276,13 @@
     <div class="case-card">
       <span class="case-badge cb-demo">Case Demo</span>
       <div class="case-hd">
-        <span class="case-type ct-ab">CMC / 可开发性</span>
-        <div class="case-title">muMAb4D5 CMC 可开发性与优化</div>
+        <span class="case-type ct-ab">CMC 可开发性</span>
+        <div class="case-title">muMAb4D5 CMC 多指标平衡诊断</div>
       </div>
       <div class="case-body">
-        <div class="case-result">15 项指标全通过 · AbRef-458</div>
-        <div class="case-detail">基于 AbRef-458 基准的 15 项全方位 CMC 评估 — 所有指标均通过，在免疫原性和脱酰胺风险上优于赫赛汀®。</div>
-        <div class="case-impact">在临床前确认候选分子的可开发性，降低一期免疫原性风险</div>
+        <div class="case-result">全指标通过 · 优于参照</div>
+        <div class="case-detail">基于临床抗体队列的 CMC 多指标平衡诊断——所有维度均通过，在免疫原性与脱酰胺风险上优于赫赛汀®。</div>
+        <div class="case-impact">临床前确认候选分子可开发性，降低一期免疫原性风险</div>
       </div>
     </div>
 
@@ -1189,13 +1290,13 @@
     <div class="case-card">
       <span class="case-badge cb-demo">Case Demo</span>
       <div class="case-hd">
-        <span class="case-type ct-ab">VH → VHH</span>
-        <div class="case-title">muMAb4D5 VH → 人源化 VHH 纳米抗体</div>
+        <span class="case-type ct-ab">VH → VHH 小型化</span>
+        <div class="case-title">muMAb4D5 VH → 人源化 HER2 VHH</div>
       </div>
       <div class="case-body">
-        <div class="case-result">100% CDR 保留 · SASA 引导</div>
-        <div class="case-detail">由 muMAb4D5 VH 改造的靶向 HER2 纳米抗体 — 100% CDR 保留，SASA 引导的表面重塑，在所有关键 CMC 指标上超越临床抗 HER2 VHH 参考分子。</div>
-        <div class="case-impact">结构与功能兼顾：亲和力保留 + 热稳定性提升，直接推进 IND 前优化</div>
+        <div class="case-result">CDR 全保留 · 表面重塑</div>
+        <div class="case-detail">将 IgG 格式 VH 小型化为 HER2 纳米抗体——CDR 全保留，结构感知的表面重塑，关键 CMC 指标超越临床参照分子。</div>
+        <div class="case-impact">为多特异 / CAR-T 提供更紧凑结合域，亲和力与热稳定性兼顾</div>
       </div>
     </div>
 
@@ -1203,12 +1304,12 @@
     <div class="case-card">
       <span class="case-badge cb-demo">Case Demo</span>
       <div class="case-hd">
-        <span class="case-type ct-ab">亲和力成熟</span>
-        <div class="case-title">VGRW-SR-R2 HER2 VHH 亲和力成熟</div>
+        <span class="case-type ct-ab">亲和力成熟（线下）</span>
+        <div class="case-title">HER2 VHH 亲和力成熟</div>
       </div>
       <div class="case-body">
-        <div class="case-result">跨 5 个维度筛选 · 247 个突变</div>
-        <div class="case-detail">发现上位性双突变 G49A+F112L，结合能提升 −3.32 kcal/mol，界面接触增加 70%，主链 RMSD 保持 0.000 Å。</div>
+        <div class="case-result">发现上位性协同突变</div>
+        <div class="case-detail">多维度筛选 + 共识模型，定位上位性双突变——结合能显著提升，界面接触面积增加，主链构象保持稳定。</div>
         <div class="case-impact">计算预筛替代随机突变库筛选，节省 60–80% 合成与表达成本</div>
       </div>
     </div>
@@ -1217,13 +1318,13 @@
     <div class="case-card">
       <span class="case-badge cb-demo">Case Demo</span>
       <div class="case-hd">
-        <span class="case-type ct-ab">CDR 重设计</span>
-        <div class="case-title">CDR 重设计与亲和力再优化</div>
+        <span class="case-type ct-ab">CDR 从头设计（线下）</span>
+        <div class="case-title">CDR 重设计与专利规避</div>
       </div>
       <div class="case-body">
-        <div class="case-result">拓展专利空间 · 13× 亲和力恢复</div>
-        <div class="case-detail">以 SR-R2 冠军为起点，结构指导生成式 AI 重构 CDR2/CDR3 拓展专利空间，再经极性定向再成熟将亲和力从 49.75 nM 恢复至 3.75 nM。</div>
-        <div class="case-impact">87 条多样化候选序列，规避序列同质化瓶颈和专利侵权风险</div>
+        <div class="case-result">拓展专利空间 · 亲和力恢复</div>
+        <div class="case-detail">以冠军候选为起点，结构指导生成式 AI 重构 CDR2/CDR3，再经极性定向再成熟将亲和力恢复至个位数 nM。</div>
+        <div class="case-impact">多样化候选序列，规避序列同质化与专利侵权风险</div>
       </div>
     </div>
 
@@ -1245,13 +1346,13 @@
     <div class="case-card">
       <span class="case-badge cb-demo">Case Demo</span>
       <div class="case-hd">
-        <span class="case-type ct-ab">CAR‑M 设计</span>
+        <span class="case-type ct-ab">Smart-CAR-M 设计</span>
         <div class="case-title">针对恶性疟原虫的抗 CIDRα1 CAR-巨噬细胞</div>
       </div>
       <div class="case-body">
-        <div class="case-result">ACTES 11 层决策级联 · 双结合域</div>
-        <div class="case-detail">设计了一种靶向所有 6 种 CIDRα1 亚型的双结合域 CAR-M — 采用 mRNA-LNP 递送和 4 层临床前策略。</div>
-        <div class="case-impact">传染病领域的全新 CAR-M 模态，拓展了传统肿瘤学应用边界</div>
+        <div class="case-result">感染场景迁移 · 双结合域构型</div>
+        <div class="case-detail">围绕恶性疟原虫感染场景，形成双结合域 CAR-M 构型方向，并给出递送方式、效应细胞与临床前验证路径建议。</div>
+        <div class="case-impact">展示 Smart-CAR-M 规律可迁移到传染病与免疫调节场景</div>
       </div>
     </div>
 
@@ -1259,13 +1360,13 @@
     <div class="case-card">
       <span class="case-badge cb-clt">Client Project</span>
       <div class="case-hd">
-        <span class="case-type ct-ab">Half-Hapten VAM</span>
-        <div class="case-title">Ab278 抗芬太尼抗体的半抗原亲和力成熟</div>
+        <span class="case-type ct-ab">半抗原亲和力成熟</span>
+        <div class="case-title">抗芬太尼抗体的半抗原 VAM</div>
       </div>
       <div class="case-body">
-        <div class="case-result">多阶段筛选 · 100+ 候选突变</div>
-        <div class="case-detail">针对小分子半抗原结合口袋进行多阶段筛选，识别出 5 个推荐变体，兼顾预测亲和力和可开发性。</div>
-        <div class="case-impact">识别出协同突变对，节省 60–80% 湿实验合成与表达成本</div>
+        <div class="case-result">多阶段筛选 · 推荐少量变体</div>
+        <div class="case-detail">针对小分子半抗原结合口袋进行多阶段筛选，识别出少量兼顾亲和力与可开发性的推荐变体。</div>
+        <div class="case-impact">协同突变对发现，节省 60–80% 湿实验合成与表达成本</div>
       </div>
     </div>
 
@@ -1292,89 +1393,156 @@
 <div class="div"></div>
 
 <!-- ════════════════════════════════════════
-     S5 · 合作流程 + CTA
+     S5 · 接入与定价
 ════════════════════════════════════════ -->
 <div id="s5" class="pg pg-cta">
-  <div class="lbl">05 · 合作方式</div>
-  <h2 style="margin-bottom:6px;">从<em>一次微信</em>开始</h2>
+  <div class="lbl">05 · 接入与定价</div>
+  <h2 style="margin-bottom:6px;"><em>注册即送积分</em>，先评估再付费</h2>
   <p style="font-size:13px;color:var(--g7);margin-bottom:16px;">
-    无需提前准备正式文件。先聊项目背景，我们判断分析范围。<strong style="color:var(--t7);">所有项目在开始前签署 NDA 保密协议</strong>——您的序列、靶点与数据受法律保护全程保密，不对任何第三方披露，不用于训练或公开发布。
+    线上服务通过 <strong style="color:var(--t7);">console.therasik.com</strong> 自助调用，<strong style="color:var(--t7);">新用户注册即赠送积分</strong>，覆盖完整人源化试运行 — 无需先付款即可评估平台。线下深度服务由专家驻场对接，全程 NDA 保护。
   </p>
 
-  <!-- Two service modes -->
+  <!-- Two access modes -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
     <div style="background:#fff;border-radius:12px;padding:14px 16px;border:1.5px solid var(--t3);border-top:3px solid var(--t6);">
-      <div style="font-size:13px;font-weight:900;color:var(--g9);margin-bottom:6px;">📦 项目型服务</div>
+      <div style="font-size:13px;font-weight:900;color:var(--g9);margin-bottom:6px;">线上自助 · console.therasik.com</div>
       <ul style="list-style:none;padding:0;margin:0;">
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>单次委托，明确范围与交付物</li>
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>3–5 工作日专家审核报告</li>
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>NDA 保护 · 里程碑计费</li>
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>未达目标可减免尾款</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>注册即送积分 + 优惠码额外赠送</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>分钟级响应，自助调用全部线上模块</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>AI 助手 + Demo 数据前 10 次免费</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>序列内存内处理 · 不入库 · 不训练</li>
       </ul>
     </div>
-    <div style="background:#fff;border-radius:12px;padding:14px 16px;border:1.5px solid var(--t3);border-top:3px solid var(--t5);">
-      <div style="font-size:13px;font-weight:900;color:var(--g9);margin-bottom:6px;">🤝 AI 常驻顾问</div>
+    <div style="background:#fff;border-radius:12px;padding:14px 16px;border:1.5px solid #fde68a;border-top:3px solid #d97706;">
+      <div style="font-size:13px;font-weight:900;color:var(--g9);margin-bottom:6px;">线下深度 · 专家驻场</div>
       <ul style="list-style:none;padding:0;margin:0;">
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>按月 / 按季聘用，持续决策支持</li>
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>参与研发会议，实时 AI 分析响应</li>
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>多项目并行支持，灵活调配</li>
-        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:var(--t6);font-weight:900;">·</span>适合持续研发管线的 Biotech 团队</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:#d97706;font-weight:900;">·</span>VAM / CDR 从头设计 / 湿实验对接</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:#d97706;font-weight:900;">·</span>免疫学专家全程审核 + AI 助手协同</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:#d97706;font-weight:900;">·</span>NDA 保护 · 里程碑计费</li>
+        <li style="font-size:12px;color:var(--g7);padding:3px 0 3px 12px;position:relative;"><span style="position:absolute;left:2px;color:#d97706;font-weight:900;">·</span>定制报价，按项目规模与复杂度</li>
       </ul>
     </div>
   </div>
 
-  <!-- 5-step process with NDA -->
-  <div class="proc5">
-    <div class="proc5-step">
-      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg></div>
-      <div class="p5-t">免费初评</div>
-      <div class="p5-d">微信说明项目，当天或次日反馈</div>
+  <!-- Pricing tiers (RMB / canonical from therasik_pricing.html) -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin:18px 0 10px;font-weight:800;">
+    ▸ 线上方案 · ¥1 = 50 积分基准（可累加套餐折扣）
+  </h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px;">
+    <!-- Free Trial -->
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border:1.5px solid var(--t5);border-top:3px solid var(--t6);box-shadow:0 2px 8px rgba(13,148,136,.08);">
+      <div style="font-size:10px;font-weight:800;color:var(--t6);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">注册赠送</div>
+      <div style="font-size:22px;font-weight:900;color:var(--t7);line-height:1;">免费</div>
+      <div style="font-size:11px;color:var(--g7);margin-top:4px;line-height:1.5;">注册即送积分；填优惠码可额外加赠。覆盖一次完整人源化试运行。</div>
     </div>
-    <div class="proc5-step">
-      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
-      <div class="p5-t">签署 NDA</div>
-      <div class="p5-d">序列、靶点与数据受法律保护，不外泄、不用于训练</div>
+    <!-- PAYG -->
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border:1.5px solid var(--g3);">
+      <div style="font-size:10px;font-weight:800;color:var(--g5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">按量付费 / PAYG</div>
+      <div style="font-size:22px;font-weight:900;color:var(--g9);line-height:1;">¥1 <span style="font-size:11px;font-weight:500;color:var(--g5);">/ 50 积分</span></div>
+      <div style="font-size:11px;color:var(--g7);margin-top:4px;line-height:1.5;">永久不过期，单次任务最经济入口。</div>
     </div>
-    <div class="proc5-step">
-      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div>
-      <div class="p5-t">确认范围</div>
-      <div class="p5-d">分析格式、工具选择、交付内容约定</div>
+    <!-- Starter Monthly -->
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border:1.5px solid var(--g3);">
+      <div style="font-size:10px;font-weight:800;color:var(--g5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">科研月卡 / Starter</div>
+      <div style="font-size:22px;font-weight:900;color:var(--g9);line-height:1;">¥500 <span style="font-size:11px;font-weight:500;color:var(--g5);">/ 月</span></div>
+      <div style="font-size:11px;color:var(--g7);margin-top:4px;line-height:1.5;"><strong>1元=70 积分（7折）</strong> · 约 3.5 次人源化 · 月末清零。</div>
     </div>
-    <div class="proc5-step">
-      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7A3 3 0 0 0 8 7v8a3 3 0 0 0 6 0V7z"/><path d="M8 11h6"/><path d="M18 21H6"/><path d="M15 21v-4a4 4 0 0 0-4-4H8"/></svg></div>
-      <div class="p5-t">AI + 专家审核</div>
-      <div class="p5-d">20+ 工具运行，专家全程审核报告</div>
+    <!-- Standard Annual -->
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border:1.5px solid var(--g3);">
+      <div style="font-size:10px;font-weight:800;color:var(--g5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">科研年卡 / Standard</div>
+      <div style="font-size:22px;font-weight:900;color:var(--g9);line-height:1;">¥5,000 <span style="font-size:11px;font-weight:500;color:var(--g5);">/ 年</span></div>
+      <div style="font-size:11px;color:var(--g7);margin-top:4px;line-height:1.5;"><strong>1元=84 积分（6折）</strong> · 约 42 次人源化 · 12 个月有效。</div>
     </div>
-    <div class="proc5-step">
-      <div class="p5-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-      <div class="p5-t">3–5天交付</div>
-      <div class="p5-d">完整报告 + 建议 · 未达目标可减免尾款</div>
+    <!-- Pro -->
+    <div style="background:linear-gradient(170deg,var(--t1) 0%,var(--t0) 100%);border-radius:10px;padding:12px 14px;border:1.5px solid var(--t5);border-top:3px solid var(--t5);position:relative;">
+      <span style="position:absolute;top:-9px;right:10px;font-size:9px;font-weight:800;background:var(--t6);color:#fff;border-radius:8px;padding:2px 8px;">推荐</span>
+      <div style="font-size:10px;font-weight:800;color:var(--t6);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">科研专业 / Pro</div>
+      <div style="font-size:22px;font-weight:900;color:var(--t7);line-height:1;">¥30,000 <span style="font-size:11px;font-weight:500;color:var(--g5);">/ 年</span></div>
+      <div style="font-size:11px;color:var(--g7);margin-top:4px;line-height:1.5;"><strong>1元=100 积分（5折）</strong> · 约 300 次人源化 · 优先队列 · 专属支持。</div>
+    </div>
+    <!-- Lab -->
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border:1.5px solid var(--g3);">
+      <div style="font-size:10px;font-weight:800;color:var(--g5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">实验室年包 / Lab</div>
+      <div style="font-size:22px;font-weight:900;color:var(--g9);line-height:1;">¥50,000 <span style="font-size:11px;font-weight:500;color:var(--g5);">/ 年</span></div>
+      <div style="font-size:11px;color:var(--g7);margin-top:4px;line-height:1.5;"><strong>1元=120 积分（4折）</strong> · 5 账号共享 · 统一费用统计。</div>
     </div>
   </div>
 
-  <div class="cc3">
+  <!-- Enterprise full-width -->
+  <div style="background:#fff;border-radius:10px;padding:12px 16px;border:1.5px solid var(--g3);border-left:3px solid var(--g8);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+    <div>
+      <div style="font-size:10px;font-weight:800;color:var(--g5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;">企业版 / Enterprise</div>
+      <div style="font-size:18px;font-weight:900;color:var(--g9);line-height:1.2;">¥300,000 / 年 起 · 含线下湿实验对接</div>
+      <div style="font-size:11px;color:var(--g7);margin-top:3px;">专属私有计算节点 · SLA 商业级保障 · API 接入 · 适合药企 / CRO</div>
+    </div>
+    <a href="mailto:contact@therasik.com" style="background:var(--g8);color:#fff;text-decoration:none;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:800;white-space:nowrap;">联系开通</a>
+  </div>
+
+  <!-- Bonus / discount strip -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;">
+    <div style="background:rgba(13,148,136,.06);border:1px dashed var(--t5);border-radius:10px;padding:10px 14px;">
+      <div style="font-size:10px;font-weight:800;color:var(--t6);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;">学术优惠</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.5;">使用高校 / 科研院所邮箱（.edu / .edu.cn）注册，月卡 / 年卡方案自动享受 <strong>额外 20% 积分赠送</strong>。</div>
+    </div>
+    <div style="background:rgba(56,142,60,.06);border:1px dashed #388e3c;border-radius:10px;padding:10px 14px;">
+      <div style="font-size:10px;font-weight:800;color:#388e3c;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;">下游实验互通</div>
+      <div style="font-size:11.5px;color:var(--g7);line-height:1.5;">通过平台对接合作 CRO 完成 <strong>DNA 合成 / 抗体表达 / 纯化</strong>，凭订单可获赠 <strong>AI 设计积分</strong>，规模灵活。</div>
+    </div>
+  </div>
+
+  <!-- Payment & Invoice -->
+  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t7);margin-bottom:10px;font-weight:800;">
+    ▸ 付款与发票
+  </h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+    <div style="background:#fff;border:1.5px solid var(--g3);border-radius:10px;padding:12px 14px;">
+      <div style="font-size:12px;font-weight:900;color:var(--g9);margin-bottom:6px;">扫码支付（小额）</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:11.5px;color:var(--g7);line-height:1.7;">
+        <li>· 微信扫码支付，10 分钟内到账</li>
+        <li>· 支付后将截图发送客服微信 <strong>rockyhj</strong></li>
+        <li>· 超出套餐部分按 ¥1 = 50 积分续费</li>
+      </ul>
+    </div>
+    <div style="background:#fff;border:1.5px solid var(--g3);border-radius:10px;padding:12px 14px;">
+      <div style="font-size:12px;font-weight:900;color:var(--g9);margin-bottom:6px;">对公转账（¥5,000+）</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:11.5px;color:var(--g7);line-height:1.7;">
+        <li>· 大额转账请联系客服获取对公账户</li>
+        <li>· 支持 <strong>6% 增值税专用发票</strong></li>
+        <li>· 普票 1% · 电子发票 3–5 工作日</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact (4 cards: WeChat / Email / Website / Console) -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px;">
     <div class="cc pri">
       <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg></div>
-      <div class="cc-lbl">首选 · 快速响应</div>
-      <div class="cc-val">微信 Rockhj</div>
-      <div class="cc-hint">搜索添加，注明来意</div>
+      <div class="cc-lbl">客服微信 · 快速响应</div>
+      <div class="cc-val">rockyhj</div>
+      <div class="cc-hint">搜索添加，注明项目背景</div>
     </div>
     <div class="cc">
       <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-      <div class="cc-lbl">正式项目 / NDA</div>
-      <div class="cc-val">contact@therasik.com</div>
-      <div class="cc-hint">正式委托或 NDA 签署</div>
+      <div class="cc-lbl">邮箱 · NDA / 正式合作</div>
+      <div class="cc-val" style="font-size:11.5px;">contact@therasik.com</div>
+      <div class="cc-hint">委托 / 询价 / NDA 签署</div>
     </div>
     <div class="cc">
-      <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
-      <div class="cc-lbl">在线平台</div>
-      <div class="cc-val">www.therasik.com</div>
-      <div class="cc-hint">服务详情 · 在线项目递交</div>
+      <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="cc-lbl">官方网站 · 服务与案例</div>
+      <div class="cc-val" style="font-size:12px;">www.therasik.com</div>
+      <div class="cc-hint">服务详情 · 团队 · 案例展示</div>
+    </div>
+    <div class="cc">
+      <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+      <div class="cc-lbl">在线控制台 · 即刻体验</div>
+      <div class="cc-val" style="font-size:11.5px;">console.therasik.com</div>
+      <div class="cc-hint">注册即送积分 · 立即评估</div>
     </div>
   </div>
 
-  <p style="font-size:10.5px;color:var(--g5);margin-top:18px;text-align:center;">
-    本文件基于计算分析与公开临床数据，不构成临床决策建议，仅供研发参考。© 2026 Therasik / InSynBio
+  <p style="font-size:10.5px;color:var(--g5);margin-top:18px;text-align:center;line-height:1.6;">
+    本文件介绍 Therasik 药物 AI 设计平台的服务范围与定价方案。AI 设计输出仅用于研发规划与方向筛选，<strong>不替代湿实验、临床试验或注册评估</strong>。© 2026 Therasik / InSynBio
   </p>
 </div>
 
