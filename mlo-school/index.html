@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>贷款助理线上培训 · Loan Assistant Training | 纽约华人</title>
-  <meta name="description" content="一门课培养抵押贷款团队贷款助理（非执照经纪人）。100% 线上视频+Zoom，无地产课，非 NMLS 执照培训。">
-  <meta name="robots" content="noindex, follow">
+  <title>纽约贷款助理培训 · 线上实务课程</title>
+  <meta name="description" content="纽约华人贷款助理线上培训：文档收档、客户沟通、流程合规。视频课程 + Zoom 答疑。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,15 +27,6 @@
       line-height: 1.6;
       color: var(--text);
     }
-    .host-banner {
-      background: #fef3c7;
-      border-bottom: 1px solid #fcd34d;
-      padding: 8px 16px;
-      font-size: 12px;
-      color: #92400e;
-      text-align: center;
-    }
-    .host-banner a { color: var(--navy); font-weight: 600; }
     header {
       display: flex;
       align-items: center;
@@ -102,16 +92,6 @@
     .section { max-width: 880px; margin: 0 auto; padding: 44px 24px; }
     .section h2 { font-size: 24px; margin: 0 0 8px; color: var(--navy); }
     .section .lead { color: var(--muted); margin-bottom: 24px; }
-    .notice {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 24px;
-      font-size: 14px;
-      color: #1e40af;
-    }
-    .notice strong { display: block; margin-bottom: 6px; }
     .course-box {
       border: 2px solid var(--navy);
       border-radius: 14px;
@@ -130,6 +110,14 @@
       margin-bottom: 12px;
     }
     .course-box h3 { margin: 0 0 12px; font-size: 22px; color: var(--navy); }
+    .scope-note {
+      background: var(--bg-alt);
+      border-left: 4px solid var(--teal);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
     .modules { list-style: none; padding: 0; margin: 20px 0 0; }
     .modules li {
       padding: 12px 0 12px 28px;
@@ -163,8 +151,8 @@
       font-size: 14px;
     }
     .compare-yes { background: #ecfdf5; border: 1px solid #a7f3d0; }
-    .compare-no { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
-    .compare-col h4 { margin: 0 0 10px; font-size: 15px; }
+    .compare-no { background: #f8fafc; border: 1px solid var(--border); color: var(--muted); }
+    .compare-col h4 { margin: 0 0 10px; font-size: 15px; color: var(--navy); }
     .compare-col ul { margin: 0; padding-left: 18px; }
     .features {
       display: grid;
@@ -181,18 +169,22 @@
     .feat .icon { font-size: 26px; margin-bottom: 6px; }
     .feat h4 { margin: 0 0 6px; font-size: 14px; }
     .feat p { margin: 0; color: var(--muted); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .contact-box {
+    .contact-cta {
+      text-align: center;
       background: var(--bg-alt);
-      border-radius: 10px;
-      padding: 18px;
-      font-size: 14px;
+      border-radius: 12px;
+      padding: 32px 24px;
     }
-    .contact-box strong { display: block; margin-bottom: 6px; color: var(--navy); }
+    .contact-cta p { color: var(--muted); margin: 0 0 16px; }
+    .contact-cta a.btn-dark {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
     .disclaimer {
       background: var(--bg-alt);
       border-top: 1px solid var(--border);
@@ -218,22 +210,16 @@
   </style>
 </head>
 <body>
-  <div class="host-banner">
-    <span data-lang="zh">预览页 · 临时托管于</span>
-    <span data-lang="en">Preview · Temporarily hosted on</span>
-    <a href="https://www.therasik.com/">www.therasik.com</a>
-  </div>
-
   <header>
-    <div class="brand" data-lang="zh">纽约 <span>贷款助理</span> 培训</div>
-    <div class="brand" data-lang="en">NY <span>Loan Assistant</span> Training</div>
+    <div class="brand" data-lang="zh">纽约 <span>贷款助理</span> 培训中心</div>
+    <div class="brand" data-lang="en">NY <span>Loan Assistant</span> Academy</div>
     <nav>
       <a href="#course" data-lang="zh">课程</a>
       <a href="#course" data-lang="en">Course</a>
-      <a href="#diff" data-lang="zh">助理 vs 专员</a>
-      <a href="#diff" data-lang="en">Assistant vs LO</a>
-      <a href="#contact" data-lang="zh">咨询报名</a>
-      <a href="#contact" data-lang="en">Contact</a>
+      <a href="#diff" data-lang="zh">适合谁学</a>
+      <a href="#diff" data-lang="en">Who It's For</a>
+      <a href="#contact" data-lang="zh">报名咨询</a>
+      <a href="#contact" data-lang="en">Enroll</a>
     </nav>
     <div class="lang-toggle">
       <button type="button" id="btn-zh" class="active">中文</button>
@@ -242,191 +228,156 @@
   </header>
 
   <section class="hero">
-    <h1 data-lang="zh">贷款助理线上培训 · 一门课</h1>
-    <h1 data-lang="en">Loan Assistant Training · One Course, Online</h1>
+    <h1 data-lang="zh">贷款助理实务培训</h1>
+    <h1 data-lang="en">Loan Assistant Professional Training</h1>
     <p class="sub" data-lang="zh">
-      培养抵押贷款团队的<strong>贷款助理</strong>（Loan Assistant）——协助处理申请、文档与客户沟通。
-      <strong>不是</strong>执照经纪人（MLO）培训；<strong>不含</strong>地产执照课程。
+      系统学习房贷申请流程、客户资料收档与跟进沟通，快速胜任贷款公司助理岗位。全程线上，支持中英双语。
     </p>
     <p class="sub" data-lang="en">
-      Train for a <strong>Loan Assistant</strong> role — applications, documents, client coordination.
-      <strong>Not</strong> licensed Loan Officer (MLO) education. <strong>No</strong> real estate courses.
+      Master mortgage workflows, document intake, and client follow-up — fully online, bilingual EN/ZH support.
     </p>
     <div class="hero-badges">
-      <span class="badge" data-lang="zh">100% 线上</span>
-      <span class="badge" data-lang="en">100% Online</span>
-      <span class="badge" data-lang="zh">视频 + Zoom 答疑</span>
-      <span class="badge" data-lang="en">Video + Zoom Q&amp;A</span>
+      <span class="badge" data-lang="zh">线上视频课</span>
+      <span class="badge" data-lang="en">Online Video Lessons</span>
+      <span class="badge" data-lang="zh">Zoom 直播答疑</span>
+      <span class="badge" data-lang="en">Live Zoom Q&amp;A</span>
       <span class="badge" data-lang="zh">中英双语</span>
       <span class="badge" data-lang="en">Bilingual</span>
     </div>
-    <a class="btn btn-primary" href="#contact" data-lang="zh">咨询报名</a>
-    <a class="btn btn-primary" href="#contact" data-lang="en">Inquire / Enroll</a>
+    <a class="btn btn-primary" href="#contact" data-lang="zh">立即咨询报名</a>
+    <a class="btn btn-primary" href="#contact" data-lang="en">Enroll Today</a>
     <a class="btn btn-outline" href="#course" data-lang="zh">查看课程大纲</a>
     <a class="btn btn-outline" href="#course" data-lang="en">View Syllabus</a>
   </section>
 
   <section class="section" id="course">
-    <h2 data-lang="zh">唯一课程：贷款助理实务培训</h2>
-    <h2 data-lang="en">Our Only Course: Loan Assistant Skills</h2>
-    <p class="lead" data-lang="zh">现阶段仅开设此一门课。全部线上授课，暂无线下教室（降低开办成本）。</p>
-    <p class="lead" data-lang="en">One course only. Fully online for now — no rented classroom.</p>
-
-    <div class="notice">
-      <strong data-lang="zh">重要说明</strong>
-      <strong data-lang="en">Important</strong>
-      <span data-lang="zh">教「贷款专员 / 持牌 MLO」需教育机构另行取得执照。本培训<strong>不申请</strong>该执照，因此<strong>不提供</strong> NMLS 20 小时考前课、续证 CE 或国考辅导。</span>
-      <span data-lang="en">Teaching licensed Loan Officers requires a separate school license. We do <strong>not</strong> hold that license — no NMLS pre-license, CE renewal, or SAFE exam prep.</span>
-    </div>
+    <h2 data-lang="zh">课程大纲</h2>
+    <h2 data-lang="en">Course Syllabus</h2>
+    <p class="lead" data-lang="zh">一门课贯穿助理上岗所需核心技能，录播随时回看，配合定期 Zoom 答疑。</p>
+    <p class="lead" data-lang="en">One comprehensive course — watch on your schedule, plus live Zoom support.</p>
 
     <div class="course-box">
-      <span class="tag">ONLINE ONLY</span>
-      <h3 data-lang="zh">贷款助理上岗实务（线上班）</h3>
-      <h3 data-lang="en">Loan Assistant Onboarding (Online)</h3>
-      <p data-lang="zh" style="color:var(--muted);margin:0 0 8px;">
-        适合：想进入房贷公司做助理、行政支持、客户跟进岗位的学员；由持牌经纪人团队雇佣后配合使用。
-      </p>
-      <p data-lang="en" style="color:var(--muted);margin:0 0 8px;">
-        For candidates seeking assistant / processor support roles at mortgage shops — not for obtaining an MLO license.
-      </p>
+      <span class="tag">ONLINE</span>
+      <h3 data-lang="zh">贷款助理上岗实务班</h3>
+      <h3 data-lang="en">Loan Assistant Onboarding Program</h3>
+      <div class="scope-note" data-lang="zh">
+        本课程为<strong>岗位技能培训</strong>，帮助您在贷款团队担任助理角色。不含贷款经纪人（MLO）执照考试辅导，也不含房地产经纪课程。
+      </div>
+      <div class="scope-note" data-lang="en">
+        This is a <strong>job-skills program</strong> for assistant roles in mortgage teams. It does not include MLO license exam prep or real estate licensing.
+      </div>
       <ul class="modules">
-        <li data-lang="zh"><b>模块 1</b> — 房贷流程概览：从咨询到结案各阶段</li>
-        <li data-lang="en"><b>Module 1</b> — Mortgage workflow overview</li>
-        <li data-lang="zh"><b>模块 2</b> — 客户资料清单与收档（1003、收入、资产、信用）</li>
-        <li data-lang="en"><b>Module 2</b> — Document checklists &amp; file intake</li>
-        <li data-lang="zh"><b>模块 3</b> — 与借款人、经纪人、银行的沟通话术（中英）</li>
-        <li data-lang="en"><b>Module 3</b> — Client &amp; lender communication (EN/ZH)</li>
-        <li data-lang="zh"><b>模块 4</b> — 合规意识：隐私、广告用语、不可承诺批复</li>
-        <li data-lang="en"><b>Module 4</b> — Compliance basics &amp; what not to promise</li>
-        <li data-lang="zh"><b>模块 5</b> — 常见系统入门（LOS 概念、任务跟进、截止日期）</li>
-        <li data-lang="en"><b>Module 5</b> — LOS basics, tasks &amp; deadlines</li>
-        <li data-lang="zh"><b>模块 6</b> — 结业：模拟案例 + Zoom 答疑</li>
-        <li data-lang="en"><b>Module 6</b> — Capstone case study + Zoom review</li>
+        <li data-lang="zh"><b>模块 1</b> — 房贷全流程：从客户咨询到结案过户</li>
+        <li data-lang="en"><b>Module 1</b> — End-to-end mortgage workflow</li>
+        <li data-lang="zh"><b>模块 2</b> — 资料收档清单：申请表、收入、资产与信用文件</li>
+        <li data-lang="en"><b>Module 2</b> — Document intake &amp; file checklists</li>
+        <li data-lang="zh"><b>模块 3</b> — 客户沟通：电话、邮件与微信跟进话术（中英）</li>
+        <li data-lang="en"><b>Module 3</b> — Client communication best practices (EN/ZH)</li>
+        <li data-lang="zh"><b>模块 4</b> — 合规要点：客户隐私、宣传用语与审批承诺边界</li>
+        <li data-lang="en"><b>Module 4</b> — Compliance essentials for assistants</li>
+        <li data-lang="zh"><b>模块 5</b> — 业务系统入门：任务跟进、截止日期与文件状态</li>
+        <li data-lang="en"><b>Module 5</b> — Pipeline tracking &amp; deadline management</li>
+        <li data-lang="zh"><b>模块 6</b> — 综合案例演练 + 讲师 Zoom 答疑</li>
+        <li data-lang="en"><b>Module 6</b> — Capstone case study + instructor review</li>
       </ul>
-      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="zh">授课形式：录播视频 + 定期 Zoom 直播答疑 · 学费待定</p>
-      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="en">Format: recorded lessons + scheduled Zoom Q&amp;A · pricing TBD</p>
+      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="zh">咨询邮箱获取开课时间与学费详情</p>
+      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="en">Email us for schedule and tuition details</p>
     </div>
   </section>
 
   <section class="section" id="diff" style="background:var(--bg-alt);">
-    <h2 data-lang="zh">贷款助理 ≠ 贷款专员（执照经纪人）</h2>
-    <h2 data-lang="en">Loan Assistant ≠ Licensed Loan Officer</h2>
-    <p class="lead" data-lang="zh">与 REEDC / iTraining 等「考执照学校」不同，我们的定位是岗位技能培训。</p>
-    <p class="lead" data-lang="en">Unlike REEDC / iTraining license schools — we train for a support role, not the MLO exam.</p>
+    <h2 data-lang="zh">这门课适合您，如果……</h2>
+    <h2 data-lang="en">This Course Is For You If…</h2>
     <div class="compare">
       <div class="compare-col compare-yes">
-        <h4 data-lang="zh">本课程培养</h4>
-        <h4 data-lang="en">This course trains</h4>
+        <h4 data-lang="zh">您将学到</h4>
+        <h4 data-lang="en">You will learn</h4>
         <ul>
-          <li data-lang="zh">贷款助理 / 行政支持</li>
-          <li data-lang="en">Loan assistant / admin support</li>
-          <li data-lang="zh">文档整理与客户跟进</li>
-          <li data-lang="en">Docs &amp; client follow-up</li>
-          <li data-lang="zh">在持牌经纪人指导下工作</li>
-          <li data-lang="en">Work under licensed LO supervision</li>
+          <li data-lang="zh">贷款公司助理日常实务</li>
+          <li data-lang="en">Day-to-day assistant workflows</li>
+          <li data-lang="zh">申请文件整理与跟进</li>
+          <li data-lang="en">Application file management</li>
+          <li data-lang="zh">与借款人及团队的高效沟通</li>
+          <li data-lang="en">Effective client &amp; team communication</li>
+          <li data-lang="zh">在持牌经纪人指导下合规协作</li>
+          <li data-lang="en">Compliant teamwork under licensed LOs</li>
         </ul>
       </div>
       <div class="compare-col compare-no">
-        <h4 data-lang="zh">本课程不提供</h4>
-        <h4 data-lang="en">Not offered here</h4>
+        <h4 data-lang="zh">若您的目标是</h4>
+        <h4 data-lang="en">If your goal is</h4>
         <ul>
-          <li data-lang="zh">NMLS / SAFE 执照考试培训</li>
-          <li data-lang="en">NMLS / SAFE license exam prep</li>
-          <li data-lang="zh">年度 CE 续证课时</li>
-          <li data-lang="en">Annual CE renewal credits</li>
-          <li data-lang="zh">地产经纪执照课程</li>
-          <li data-lang="en">Real estate license courses</li>
-          <li data-lang="zh">线下教室面授（暂无）</li>
-          <li data-lang="en">In-person classroom (not yet)</li>
+          <li data-lang="zh">考取 NMLS 贷款经纪人执照 → 请选择执照考试培训学校</li>
+          <li data-lang="en">NMLS Loan Officer license → choose a licensed exam-prep school</li>
+          <li data-lang="zh">地产经纪执照 → 请选择地产培训学校</li>
+          <li data-lang="en">Real estate license → choose a real estate school</li>
+          <li data-lang="zh">年度 CE 续证课时 → 请选择 NMLS 认可续证机构</li>
+          <li data-lang="en">Annual CE credits → choose an NMLS-approved CE provider</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="section" id="why">
-    <h2 data-lang="zh">为什么先做线上</h2>
-    <h2 data-lang="en">Why Online First</h2>
+    <h2 data-lang="zh">线上学习优势</h2>
+    <h2 data-lang="en">Why Learn Online</h2>
     <div class="features">
       <div class="feat">
-        <div class="icon">💻</div>
-        <h4 data-lang="zh">零教室租金</h4>
-        <h4 data-lang="en">No rent</h4>
-        <p data-lang="zh">法拉盛租教室成本高，线上先验证招生</p>
-        <p data-lang="en">Avoid upfront classroom overhead</p>
+        <div class="icon">🕐</div>
+        <h4 data-lang="zh">时间灵活</h4>
+        <h4 data-lang="en">Flexible Schedule</h4>
+        <p data-lang="zh">录播随时回看，适合在职进修</p>
+        <p data-lang="en">Replay lessons anytime — ideal for working professionals</p>
       </div>
       <div class="feat">
-        <div class="icon">🕐</div>
-        <h4 data-lang="zh">灵活学习</h4>
-        <h4 data-lang="en">Flexible</h4>
-        <p data-lang="zh">在职学员可晚间看录播</p>
-        <p data-lang="en">Evening-friendly recorded lessons</p>
+        <div class="icon">💻</div>
+        <h4 data-lang="zh">随时随地</h4>
+        <h4 data-lang="en">Learn Anywhere</h4>
+        <p data-lang="zh">手机、平板、电脑均可学习</p>
+        <p data-lang="en">Phone, tablet, or laptop</p>
       </div>
       <div class="feat">
         <div class="icon">🎯</div>
-        <h4 data-lang="zh">一门课聚焦</h4>
-        <h4 data-lang="en">One focus</h4>
-        <p data-lang="zh">只讲助理上岗，不分散战线</p>
-        <p data-lang="en">Single clear career path</p>
+        <h4 data-lang="zh">目标明确</h4>
+        <h4 data-lang="en">Focused Curriculum</h4>
+        <p data-lang="zh">专为贷款助理岗位设计</p>
+        <p data-lang="en">Built specifically for assistant roles</p>
       </div>
       <div class="feat">
         <div class="icon">💬</div>
-        <h4 data-lang="zh">微信 + Zoom</h4>
-        <h4 data-lang="en">WeChat + Zoom</h4>
-        <p data-lang="zh">报名与答疑全线上完成</p>
-        <p data-lang="en">Enrollment &amp; support online</p>
+        <h4 data-lang="zh">讲师答疑</h4>
+        <h4 data-lang="en">Instructor Support</h4>
+        <p data-lang="zh">定期 Zoom 直播解答您的疑问</p>
+        <p data-lang="en">Regular live Zoom Q&amp;A sessions</p>
       </div>
     </div>
   </section>
 
   <section class="section" id="contact">
-    <h2 data-lang="zh">咨询报名（线上）</h2>
-    <h2 data-lang="en">Contact (Online Only)</h2>
-    <div class="contact-grid">
-      <div class="contact-box">
-        <strong data-lang="zh">授课方式</strong>
-        <strong data-lang="en">Delivery</strong>
-        <span data-lang="zh">录播视频 + Zoom 答疑（暂无线下课）</span>
-        <span data-lang="en">Recorded video + Zoom Q&amp;A — no in-person class</span>
-      </div>
-      <div class="contact-box">
-        <strong data-lang="zh">微信</strong>
-        <strong data-lang="en">WeChat</strong>
-        <span data-lang="zh">（待填写）</span>
-        <span data-lang="en">(TBD)</span>
-      </div>
-      <div class="contact-box">
-        <strong data-lang="zh">电话 / 短信</strong>
-        <strong data-lang="en">Phone / Text</strong>
-        <span data-lang="zh">（待填写）</span>
-        <span data-lang="en">(TBD)</span>
-      </div>
-      <div class="contact-box">
-        <strong>Email</strong>
-        <a href="mailto:contact@insynbio.com">contact@insynbio.com</a>
-        <span data-lang="zh">（临时咨询）</span>
-        <span data-lang="en">(temp inquiry)</span>
-      </div>
+    <h2 data-lang="zh">报名咨询</h2>
+    <h2 data-lang="en">Enrollment</h2>
+    <div class="contact-cta">
+      <p data-lang="zh">欢迎来信咨询开课时间、学费与报名方式。我们将在一个工作日内回复。</p>
+      <p data-lang="en">Contact us for class dates, tuition, and enrollment. We reply within one business day.</p>
+      <a class="btn-dark" href="mailto:contact@insynbio.com?subject=贷款助理培训报名咨询" data-lang="zh">发送报名咨询邮件</a>
+      <a class="btn-dark" href="mailto:contact@insynbio.com?subject=Loan%20Assistant%20Training%20Inquiry" data-lang="en">Send Enrollment Inquiry</a>
     </div>
   </section>
 
   <div class="disclaimer">
     <div class="W">
       <p data-lang="zh">
-        <strong>免责声明：</strong>本机构为技能培训预览站，<strong>非</strong> NMLS 批准的教育提供商，<strong>不</strong>颁发贷款经纪人执照或地产执照。
-        本课程不保证就业或批复结果。涉及房dai / 抵押dai 的执业资格须通过持牌机构与官方考试另行取得。
-        本页不构成法律、财务或执业建议。
+        本课程为岗位技能培训，不颁发贷款经纪人或房地产经纪执照，亦不保证就业或贷款审批结果。执业资格须通过相应官方考试与持牌机构另行取得。本页内容不构成法律或财务建议。
       </p>
       <p data-lang="en">
-        <strong>Disclaimer:</strong> Skills-training preview only — <strong>not</strong> an NMLS-approved education provider.
-        Does not issue MLO or real estate licenses. No employment or loan-approval guarantees. Not legal or financial advice.
+        This is a vocational skills course. It does not issue MLO or real estate licenses and does not guarantee employment or loan approvals. Licensing requires separate official examinations. Not legal or financial advice.
       </p>
     </div>
   </div>
 
   <footer>
-    <span data-lang="zh">© 2026 贷款助理线上培训（预览）·</span>
-    <span data-lang="en">© 2026 Loan Assistant Training (Preview) ·</span>
-    <a href="https://www.therasik.com/">Therasik.com</a>
+    <span data-lang="zh">© 2026 纽约贷款助理培训中心</span>
+    <span data-lang="en">© 2026 NY Loan Assistant Academy</span>
   </footer>
 
   <script>
