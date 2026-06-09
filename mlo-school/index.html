@@ -5,379 +5,1487 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>纽约贷款助理培训 · 线上实务课程</title>
   <meta name="description" content="纽约华人贷款助理线上培训：文档收档、客户沟通、流程合规。视频课程 + Zoom 答疑。">
+  <meta property="og:title" content="纽约贷款助理培训中心">
+  <meta property="og:description" content="系统学习房贷助理实务，全程线上，中英双语。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #1e3a5f;
-      --blue: #2563eb;
-      --blue-light: #dbeafe;
-      --teal: #0d9488;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #e2e8f0;
-      --bg-alt: #f8fafc;
+      --navy: #0c2340;
+      --navy-mid: #163a5f;
+      --gold: #c9a227;
+      --gold-light: #e8d48a;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --text: #1a2332;
+      --muted: #5c6b7a;
+      --border: #e4e0d8;
+      --success: #0d7a5f;
+      --success-bg: #edf7f3;
+      --shadow-sm: 0 2px 8px rgba(12,35,64,0.06);
+      --shadow-md: 0 8px 32px rgba(12,35,64,0.10);
+      --shadow-lg: 0 20px 60px rgba(12,35,64,0.14);
+      --radius: 12px;
+      --max: 1140px;
     }
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Noto Sans SC', 'Inter', sans-serif;
+      font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--text);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
     }
-    header {
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 14px 24px;
-      border-bottom: 1px solid var(--border);
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      gap: 20px;
     }
-    .brand { font-size: 19px; font-weight: 700; color: var(--navy); }
-    .brand span { color: var(--blue); }
-    nav a {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(12,35,64,0.25);
+    }
+    .logo-mark svg { width: 24px; height: 24px; }
+    .logo-text { line-height: 1.2; }
+    .logo-text .name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .logo-text .name span { color: var(--gold); }
+    .logo-text .sub {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav a {
       text-decoration: none;
       color: var(--muted);
       font-size: 14px;
       font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
     }
-    nav a:hover { color: var(--blue); background: var(--bg-alt); }
-    .lang-toggle button {
+    .nav a:hover { color: var(--navy); background: var(--cream); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lang-toggle {
+      display: flex;
       border: 1px solid var(--border);
-      background: #fff;
-      padding: 6px 12px;
-      border-radius: 6px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .lang-toggle button {
+      border: none;
+      background: transparent;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
       color: var(--muted);
+      font-family: inherit;
+      transition: all 0.2s;
     }
-    .lang-toggle button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #1d4ed8 60%, #3b82f6 100%);
+    .lang-toggle button.active {
+      background: var(--navy);
       color: #fff;
-      padding: 52px 24px 56px;
-      text-align: center;
     }
-    .hero h1 { font-size: clamp(26px, 5vw, 38px); margin: 0 0 12px; line-height: 1.25; }
-    .hero .sub { font-size: 16px; opacity: 0.93; max-width: 680px; margin: 0 auto 24px; }
-    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
-    .badge {
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.28);
+    .btn-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(201,162,39,0.35);
+      white-space: nowrap;
+    }
+    .btn-nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(201,162,39,0.45);
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      color: #fff;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,162,39,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(59,130,246,0.10) 0%, transparent 50%),
+        linear-gradient(160deg, #0c2340 0%, #163a5f 55%, #1e4976 100%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 28px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
       padding: 6px 14px;
       border-radius: 20px;
-      font-size: 13px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 26px;
-      border-radius: 8px;
+      font-size: 12px;
       font-weight: 600;
-      text-decoration: none;
-      font-size: 15px;
-      margin: 4px;
-    }
-    .btn-primary { background: #fff; color: var(--navy); }
-    .btn-outline { border: 2px solid rgba(255,255,255,0.75); color: #fff; }
-    .section { max-width: 880px; margin: 0 auto; padding: 44px 24px; }
-    .section h2 { font-size: 24px; margin: 0 0 8px; color: var(--navy); }
-    .section .lead { color: var(--muted); margin-bottom: 24px; }
-    .course-box {
-      border: 2px solid var(--navy);
-      border-radius: 14px;
-      padding: 28px;
-      background: #fff;
-    }
-    .course-box .tag {
-      display: inline-block;
-      background: var(--blue-light);
-      color: var(--blue);
-      font-size: 11px;
-      font-weight: 700;
       letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: var(--gold-light);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      letter-spacing: -0.03em;
+    }
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      margin: 0 0 32px;
+      max-width: 480px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(201,162,39,0.40);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(201,162,39,0.50);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.55);
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+    .hero-tag svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 32px;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .hero-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-card-badge {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 800;
       padding: 4px 10px;
       border-radius: 4px;
-      margin-bottom: 12px;
+      letter-spacing: 0.05em;
     }
-    .course-box h3 { margin: 0 0 12px; font-size: 22px; color: var(--navy); }
-    .scope-note {
-      background: var(--bg-alt);
-      border-left: 4px solid var(--teal);
-      padding: 14px 18px;
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .modules { list-style: none; padding: 0; margin: 20px 0 0; }
-    .modules li {
-      padding: 12px 0 12px 28px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .modules li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 18px;
-      width: 10px;
-      height: 10px;
-      background: var(--teal);
-      border-radius: 2px;
-      transform: rotate(45deg);
-    }
-    .modules li:last-child { border: none; }
-    .modules li b { color: var(--text); }
-    .compare {
+    .hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-top: 16px;
     }
-    .compare-col {
-      border-radius: 10px;
-      padding: 18px;
-      font-size: 14px;
+    .hero-stat {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
     }
-    .compare-yes { background: #ecfdf5; border: 1px solid #a7f3d0; }
-    .compare-no { background: #f8fafc; border: 1px solid var(--border); color: var(--muted); }
-    .compare-col h4 { margin: 0 0 10px; font-size: 15px; color: var(--navy); }
-    .compare-col ul { margin: 0; padding-left: 18px; }
-    .features {
+    .hero-stat .num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat .lbl {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+    }
+    .hero-card-modules {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hero-module-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.80);
+    }
+    .hero-module-row .dot {
+      width: 28px;
+      height: 28px;
+      background: rgba(201,162,39,0.20);
+      border: 1px solid rgba(201,162,39,0.40);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .trust-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
       gap: 14px;
     }
-    .feat {
-      background: var(--bg-alt);
+    .trust-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--cream);
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 18px;
-      text-align: center;
-      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--navy);
     }
-    .feat .icon { font-size: 26px; margin-bottom: 6px; }
-    .feat h4 { margin: 0 0 6px; font-size: 14px; }
-    .feat p { margin: 0; color: var(--muted); }
-    .contact-cta {
-      text-align: center;
-      background: var(--bg-alt);
-      border-radius: 12px;
-      padding: 32px 24px;
+    .trust-icon svg { width: 22px; height: 22px; }
+    .trust-item h4 {
+      margin: 0 0 3px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
     }
-    .contact-cta p { color: var(--muted); margin: 0 0 16px; }
-    .contact-cta a.btn-dark {
+    .trust-item p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Sections ── */
+    .section {
+      padding: 80px 28px;
+    }
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 52px;
+    }
+    .section-eyebrow {
       display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .section-alt { background: var(--white); }
+    .section-cream { background: var(--cream); }
+
+    /* ── Course card ── */
+    .course-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .course-sidebar {
       background: var(--navy);
       color: #fff;
-      padding: 14px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
+      padding: 36px 28px;
     }
+    .course-sidebar .label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .course-sidebar h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      line-height: 1.2;
+    }
+    .course-meta {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .course-meta li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+    .course-meta li svg { width: 16px; height: 16px; color: var(--gold-light); flex-shrink: 0; }
+    .course-sidebar-cta {
+      display: block;
+      text-align: center;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+    }
+    .course-sidebar-cta:hover { opacity: 0.9; }
+    .course-main {
+      background: var(--white);
+      padding: 36px 40px;
+    }
+    .scope-banner {
+      background: var(--success-bg);
+      border-left: 4px solid var(--success);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      color: #2d5a4a;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .module-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .module-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      background: var(--cream);
+    }
+    .module-card:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: rgba(201,162,39,0.40);
+    }
+    .module-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .module-card h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .module-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── Audience ── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .audience-card {
+      border-radius: 16px;
+      padding: 36px;
+      border: 1px solid var(--border);
+    }
+    .audience-card.yes {
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid var(--success);
+    }
+    .audience-card.no {
+      background: transparent;
+      border-style: dashed;
+    }
+    .audience-card .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .audience-card.yes .card-icon { background: var(--success-bg); color: var(--success); }
+    .audience-card.no .card-icon { background: #f1f3f5; color: var(--muted); }
+    .audience-card h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 16px;
+    }
+    .audience-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .audience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .audience-list li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+    .audience-card.yes .audience-list li svg { color: var(--success); }
+    .audience-card.no .audience-list li svg { color: #adb5bd; }
+
+    /* ── Features ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--gold-light);
+    }
+    .feature-icon svg { width: 26px; height: 26px; }
+    .feature-card h4 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .feature-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── Process ── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .process-step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-circle {
+      width: 56px;
+      height: 56px;
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      box-shadow: var(--shadow-sm);
+    }
+    .process-step h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .process-step p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 22px;
+      text-align: left;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-q svg { width: 18px; height: 18px; color: var(--muted); flex-shrink: 0; transition: transform 0.25s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--navy);
+      color: #fff;
+      padding: 80px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(201,162,39,0.15) 0%, transparent 70%);
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cta-inner h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+    .cta-inner p {
+      margin: 0 0 32px;
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .btn-cta-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(201,162,39,0.40);
+      transition: transform 0.2s;
+    }
+    .btn-cta-large:hover { transform: translateY(-2px); }
+    .cta-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── Disclaimer & Footer ── */
     .disclaimer {
-      background: var(--bg-alt);
+      background: #f1f0ec;
       border-top: 1px solid var(--border);
-      padding: 22px 24px;
+      padding: 28px;
+    }
+    .disclaimer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
       font-size: 12px;
       color: var(--muted);
       line-height: 1.75;
     }
-    .disclaimer .W { max-width: 880px; margin: 0 auto; }
-    footer {
-      text-align: center;
-      padding: 18px;
-      font-size: 12px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      padding: 40px 28px 28px;
     }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 24px;
+    }
+    .footer-brand .logo-text .name { color: #fff; }
+    .footer-brand .logo-text .sub { color: rgba(255,255,255,0.40); }
+    .footer-brand p {
+      margin: 16px 0 0;
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .footer-col h5 {
+      margin: 0 0 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .footer-col a, .footer-col p {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── Lang toggle ── */
     [data-lang="en"] { display: none; }
     body.en [data-lang="zh"] { display: none; }
     body.en [data-lang="en"] { display: revert; }
-    @media (max-width: 600px) {
-      .compare { grid-template-columns: 1fr; }
+    body.en .nav [data-lang="en"] { display: inline; }
+    body.en .hero-tags [data-lang="en"] { display: flex; }
+    body.en .hero-tags [data-lang="zh"] { display: none; }
+    .hero-tags [data-lang="en"] { display: none; }
+    .hero-tags [data-lang="zh"] { display: flex; }
+    body.en .course-meta [data-lang="en"] { display: flex; }
+    body.en .course-meta [data-lang="zh"] { display: none; }
+    .course-meta [data-lang="en"] { display: none; }
+    .course-meta [data-lang="zh"] { display: flex; }
+
+    /* ── Mobile ── */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 56px 24px 64px; }
+      .hero-visual { order: -1; }
+      .trust-inner { grid-template-columns: 1fr 1fr; }
+      .course-layout { grid-template-columns: 1fr; }
+      .module-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .process-steps::before { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 640px) {
+      .nav, .btn-nav-cta { display: none; }
+      .nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 16px;
+        box-shadow: var(--shadow-md);
+      }
+      .menu-btn { display: block; }
+      .header-inner { position: relative; }
+      .trust-inner { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .course-main { padding: 24px; }
+      .section { padding: 56px 20px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand" data-lang="zh">纽约 <span>贷款助理</span> 培训中心</div>
-    <div class="brand" data-lang="en">NY <span>Loan Assistant</span> Academy</div>
-    <nav>
-      <a href="#course" data-lang="zh">课程</a>
-      <a href="#course" data-lang="en">Course</a>
-      <a href="#diff" data-lang="zh">适合谁学</a>
-      <a href="#diff" data-lang="en">Who It's For</a>
-      <a href="#contact" data-lang="zh">报名咨询</a>
-      <a href="#contact" data-lang="en">Enroll</a>
-    </nav>
-    <div class="lang-toggle">
-      <button type="button" id="btn-zh" class="active">中文</button>
-      <button type="button" id="btn-en">EN</button>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="name" data-lang="zh">纽约<span>贷款助理</span>培训中心</div>
+          <div class="name" data-lang="en">NY <span>Loan Assistant</span> Academy</div>
+          <div class="sub" data-lang="zh">Online Professional Training</div>
+          <div class="sub" data-lang="en">Online Professional Training</div>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#course" data-lang="zh">课程大纲</a>
+        <a href="#course" data-lang="en">Syllabus</a>
+        <a href="#audience" data-lang="zh">适合谁学</a>
+        <a href="#audience" data-lang="en">Who It's For</a>
+        <a href="#faq" data-lang="zh">常见问题</a>
+        <a href="#faq" data-lang="en">FAQ</a>
+        <a href="#contact" data-lang="zh">报名咨询</a>
+        <a href="#contact" data-lang="en">Enroll</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-toggle">
+          <button type="button" id="btn-zh" class="active">中文</button>
+          <button type="button" id="btn-en">EN</button>
+        </div>
+        <a class="btn-nav-cta" href="#contact" data-lang="zh">立即咨询</a>
+        <a class="btn-nav-cta" href="#contact" data-lang="en">Enroll Now</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <h1 data-lang="zh">贷款助理实务培训</h1>
-    <h1 data-lang="en">Loan Assistant Professional Training</h1>
-    <p class="sub" data-lang="zh">
-      系统学习房贷申请流程、客户资料收档与跟进沟通，快速胜任贷款公司助理岗位。全程线上，支持中英双语。
-    </p>
-    <p class="sub" data-lang="en">
-      Master mortgage workflows, document intake, and client follow-up — fully online, bilingual EN/ZH support.
-    </p>
-    <div class="hero-badges">
-      <span class="badge" data-lang="zh">线上视频课</span>
-      <span class="badge" data-lang="en">Online Video Lessons</span>
-      <span class="badge" data-lang="zh">Zoom 直播答疑</span>
-      <span class="badge" data-lang="en">Live Zoom Q&amp;A</span>
-      <span class="badge" data-lang="zh">中英双语</span>
-      <span class="badge" data-lang="en">Bilingual</span>
-    </div>
-    <a class="btn btn-primary" href="#contact" data-lang="zh">立即咨询报名</a>
-    <a class="btn btn-primary" href="#contact" data-lang="en">Enroll Today</a>
-    <a class="btn btn-outline" href="#course" data-lang="zh">查看课程大纲</a>
-    <a class="btn btn-outline" href="#course" data-lang="en">View Syllabus</a>
-  </section>
-
-  <section class="section" id="course">
-    <h2 data-lang="zh">课程大纲</h2>
-    <h2 data-lang="en">Course Syllabus</h2>
-    <p class="lead" data-lang="zh">一门课贯穿助理上岗所需核心技能，录播随时回看，配合定期 Zoom 答疑。</p>
-    <p class="lead" data-lang="en">One comprehensive course — watch on your schedule, plus live Zoom support.</p>
-
-    <div class="course-box">
-      <span class="tag">ONLINE</span>
-      <h3 data-lang="zh">贷款助理上岗实务班</h3>
-      <h3 data-lang="en">Loan Assistant Onboarding Program</h3>
-      <div class="scope-note" data-lang="zh">
-        本课程为<strong>岗位技能培训</strong>，帮助您在贷款团队担任助理角色。不含贷款经纪人（MLO）执照考试辅导，也不含房地产经纪课程。
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow" data-lang="zh">纽约华人 · 线上实务培训</div>
+        <div class="hero-eyebrow" data-lang="en">NYC Chinese Community · Online Training</div>
+        <h1 data-lang="zh">贷款助理<br>上岗实务培训</h1>
+        <h1 data-lang="en">Loan Assistant<br>Professional Training</h1>
+        <p class="hero-desc" data-lang="zh">
+          系统掌握房贷申请全流程、客户资料收档与跟进沟通，快速胜任贷款公司助理岗位。录播随时回看，配合定期 Zoom 直播答疑。
+        </p>
+        <p class="hero-desc" data-lang="en">
+          Master mortgage workflows, document intake, and client follow-up. On-demand video lessons plus live Zoom Q&amp;A — fully online, bilingual support.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact" data-lang="zh">
+            立即咨询报名
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn-primary" href="#contact" data-lang="en">
+            Enroll Today
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn-ghost" href="#course" data-lang="zh">查看课程大纲</a>
+          <a class="btn-ghost" href="#course" data-lang="en">View Syllabus</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag" data-lang="zh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            录播随时回看
+          </span>
+          <span class="hero-tag" data-lang="en">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            On-demand replay
+          </span>
+          <span class="hero-tag" data-lang="zh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            Zoom 直播答疑
+          </span>
+          <span class="hero-tag" data-lang="en">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            Live Zoom Q&amp;A
+          </span>
+          <span class="hero-tag" data-lang="zh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            中英双语
+          </span>
+          <span class="hero-tag" data-lang="en">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            Bilingual EN/ZH
+          </span>
+        </div>
       </div>
-      <div class="scope-note" data-lang="en">
-        This is a <strong>job-skills program</strong> for assistant roles in mortgage teams. It does not include MLO license exam prep or real estate licensing.
-      </div>
-      <ul class="modules">
-        <li data-lang="zh"><b>模块 1</b> — 房贷全流程：从客户咨询到结案过户</li>
-        <li data-lang="en"><b>Module 1</b> — End-to-end mortgage workflow</li>
-        <li data-lang="zh"><b>模块 2</b> — 资料收档清单：申请表、收入、资产与信用文件</li>
-        <li data-lang="en"><b>Module 2</b> — Document intake &amp; file checklists</li>
-        <li data-lang="zh"><b>模块 3</b> — 客户沟通：电话、邮件与微信跟进话术（中英）</li>
-        <li data-lang="en"><b>Module 3</b> — Client communication best practices (EN/ZH)</li>
-        <li data-lang="zh"><b>模块 4</b> — 合规要点：客户隐私、宣传用语与审批承诺边界</li>
-        <li data-lang="en"><b>Module 4</b> — Compliance essentials for assistants</li>
-        <li data-lang="zh"><b>模块 5</b> — 业务系统入门：任务跟进、截止日期与文件状态</li>
-        <li data-lang="en"><b>Module 5</b> — Pipeline tracking &amp; deadline management</li>
-        <li data-lang="zh"><b>模块 6</b> — 综合案例演练 + 讲师 Zoom 答疑</li>
-        <li data-lang="en"><b>Module 6</b> — Capstone case study + instructor review</li>
-      </ul>
-      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="zh">咨询邮箱获取开课时间与学费详情</p>
-      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="en">Email us for schedule and tuition details</p>
-    </div>
-  </section>
-
-  <section class="section" id="diff" style="background:var(--bg-alt);">
-    <h2 data-lang="zh">这门课适合您，如果……</h2>
-    <h2 data-lang="en">This Course Is For You If…</h2>
-    <div class="compare">
-      <div class="compare-col compare-yes">
-        <h4 data-lang="zh">您将学到</h4>
-        <h4 data-lang="en">You will learn</h4>
-        <ul>
-          <li data-lang="zh">贷款公司助理日常实务</li>
-          <li data-lang="en">Day-to-day assistant workflows</li>
-          <li data-lang="zh">申请文件整理与跟进</li>
-          <li data-lang="en">Application file management</li>
-          <li data-lang="zh">与借款人及团队的高效沟通</li>
-          <li data-lang="en">Effective client &amp; team communication</li>
-          <li data-lang="zh">在持牌经纪人指导下合规协作</li>
-          <li data-lang="en">Compliant teamwork under licensed LOs</li>
-        </ul>
-      </div>
-      <div class="compare-col compare-no">
-        <h4 data-lang="zh">若您的目标是</h4>
-        <h4 data-lang="en">If your goal is</h4>
-        <ul>
-          <li data-lang="zh">考取 NMLS 贷款经纪人执照 → 请选择执照考试培训学校</li>
-          <li data-lang="en">NMLS Loan Officer license → choose a licensed exam-prep school</li>
-          <li data-lang="zh">地产经纪执照 → 请选择地产培训学校</li>
-          <li data-lang="en">Real estate license → choose a real estate school</li>
-          <li data-lang="zh">年度 CE 续证课时 → 请选择 NMLS 认可续证机构</li>
-          <li data-lang="en">Annual CE credits → choose an NMLS-approved CE provider</li>
-        </ul>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="hero-card-title" data-lang="zh">课程概览</span>
+            <span class="hero-card-title" data-lang="en">Program Overview</span>
+            <span class="hero-card-badge">ONLINE</span>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="num">6</div>
+              <div class="lbl" data-lang="zh">核心模块</div>
+              <div class="lbl" data-lang="en">Core Modules</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">100%</div>
+              <div class="lbl" data-lang="zh">线上授课</div>
+              <div class="lbl" data-lang="en">Online Delivery</div>
+            </div>
+          </div>
+          <div class="hero-card-modules">
+            <div class="hero-module-row"><span class="dot">01</span><span data-lang="zh">房贷全流程实务</span><span data-lang="en">End-to-end mortgage workflow</span></div>
+            <div class="hero-module-row"><span class="dot">02</span><span data-lang="zh">资料收档与文件管理</span><span data-lang="en">Document intake &amp; file management</span></div>
+            <div class="hero-module-row"><span class="dot">03</span><span data-lang="zh">客户沟通与跟进话术</span><span data-lang="en">Client communication skills</span></div>
+            <div class="hero-module-row"><span class="dot">04</span><span data-lang="zh">合规要点与隐私保护</span><span data-lang="en">Compliance &amp; privacy essentials</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="why">
-    <h2 data-lang="zh">线上学习优势</h2>
-    <h2 data-lang="en">Why Learn Online</h2>
-    <div class="features">
-      <div class="feat">
-        <div class="icon">🕐</div>
-        <h4 data-lang="zh">时间灵活</h4>
-        <h4 data-lang="en">Flexible Schedule</h4>
-        <p data-lang="zh">录播随时回看，适合在职进修</p>
-        <p data-lang="en">Replay lessons anytime — ideal for working professionals</p>
+  <!-- Trust bar -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4 data-lang="zh">岗位技能培训</h4>
+          <h4 data-lang="en">Job-Skills Focus</h4>
+          <p data-lang="zh">专为贷款助理角色设计</p>
+          <p data-lang="en">Built for assistant roles</p>
+        </div>
       </div>
-      <div class="feat">
-        <div class="icon">💻</div>
-        <h4 data-lang="zh">随时随地</h4>
-        <h4 data-lang="en">Learn Anywhere</h4>
-        <p data-lang="zh">手机、平板、电脑均可学习</p>
-        <p data-lang="en">Phone, tablet, or laptop</p>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <h4 data-lang="zh">全程线上学习</h4>
+          <h4 data-lang="en">Fully Online</h4>
+          <p data-lang="zh">手机、平板、电脑均可</p>
+          <p data-lang="en">Any device, anywhere</p>
+        </div>
       </div>
-      <div class="feat">
-        <div class="icon">🎯</div>
-        <h4 data-lang="zh">目标明确</h4>
-        <h4 data-lang="en">Focused Curriculum</h4>
-        <p data-lang="zh">专为贷款助理岗位设计</p>
-        <p data-lang="en">Built specifically for assistant roles</p>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <h4 data-lang="zh">讲师直播答疑</h4>
+          <h4 data-lang="en">Live Instructor Q&amp;A</h4>
+          <p data-lang="zh">定期 Zoom 互动辅导</p>
+          <p data-lang="en">Regular Zoom sessions</p>
+        </div>
       </div>
-      <div class="feat">
-        <div class="icon">💬</div>
-        <h4 data-lang="zh">讲师答疑</h4>
-        <h4 data-lang="en">Instructor Support</h4>
-        <p data-lang="zh">定期 Zoom 直播解答您的疑问</p>
-        <p data-lang="en">Regular live Zoom Q&amp;A sessions</p>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div>
+          <h4 data-lang="zh">中英双语教学</h4>
+          <h4 data-lang="en">Bilingual Instruction</h4>
+          <p data-lang="zh">华人学员友好</p>
+          <p data-lang="en">Chinese community friendly</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2 data-lang="zh">报名咨询</h2>
-    <h2 data-lang="en">Enrollment</h2>
-    <div class="contact-cta">
-      <p data-lang="zh">欢迎来信咨询开课时间、学费与报名方式。我们将在一个工作日内回复。</p>
-      <p data-lang="en">Contact us for class dates, tuition, and enrollment. We reply within one business day.</p>
-      <a class="btn-dark" href="mailto:contact@insynbio.com?subject=贷款助理培训报名咨询" data-lang="zh">发送报名咨询邮件</a>
-      <a class="btn-dark" href="mailto:contact@insynbio.com?subject=Loan%20Assistant%20Training%20Inquiry" data-lang="en">Send Enrollment Inquiry</a>
-    </div>
-  </section>
-
-  <div class="disclaimer">
-    <div class="W">
-      <p data-lang="zh">
-        本课程为岗位技能培训，不颁发贷款经纪人或房地产经纪执照，亦不保证就业或贷款审批结果。执业资格须通过相应官方考试与持牌机构另行取得。本页内容不构成法律或财务建议。
-      </p>
-      <p data-lang="en">
-        This is a vocational skills course. It does not issue MLO or real estate licenses and does not guarantee employment or loan approvals. Licensing requires separate official examinations. Not legal or financial advice.
-      </p>
     </div>
   </div>
 
-  <footer>
-    <span data-lang="zh">© 2026 纽约贷款助理培训中心</span>
-    <span data-lang="en">© 2026 NY Loan Assistant Academy</span>
+  <!-- Course -->
+  <section class="section section-cream" id="course">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow" data-lang="zh">课程体系</div>
+        <div class="section-eyebrow" data-lang="en">Curriculum</div>
+        <h2 data-lang="zh">贷款助理上岗实务班</h2>
+        <h2 data-lang="en">Loan Assistant Onboarding Program</h2>
+        <p data-lang="zh">一门课贯穿助理上岗所需核心技能，6 大模块由浅入深，配合案例演练与讲师答疑。</p>
+        <p data-lang="en">Six progressive modules covering everything you need to start as a loan assistant — plus capstone cases and live review.</p>
+      </div>
+      <div class="course-layout">
+        <aside class="course-sidebar">
+          <div class="label">Featured Course</div>
+          <h3 data-lang="zh">上岗实务班</h3>
+          <h3 data-lang="en">Onboarding Program</h3>
+          <ul class="course-meta">
+            <li data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              录播 + 直播答疑
+            </li>
+            <li data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Video + live Q&amp;A
+            </li>
+            <li data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              纽约及周边地区
+            </li>
+            <li data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Greater NYC area
+            </li>
+            <li data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              6 大实务模块
+            </li>
+            <li data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              6 practical modules
+            </li>
+            <li data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+              中英双语教材
+            </li>
+            <li data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+              Bilingual materials
+            </li>
+          </ul>
+          <a class="course-sidebar-cta" href="#contact" data-lang="zh">咨询开课时间与学费</a>
+          <a class="course-sidebar-cta" href="#contact" data-lang="en">Ask About Schedule &amp; Tuition</a>
+        </aside>
+        <div class="course-main">
+          <div class="scope-banner" data-lang="zh">
+            本课程为<strong>岗位技能培训</strong>，帮助您在贷款团队担任助理角色。不含贷款经纪人（MLO）执照考试辅导，也不含房地产经纪课程。
+          </div>
+          <div class="scope-banner" data-lang="en">
+            This is a <strong>job-skills program</strong> for assistant roles in mortgage teams. It does not include MLO license exam prep or real estate licensing courses.
+          </div>
+          <div class="module-grid">
+            <div class="module-card">
+              <div class="module-num">01</div>
+              <h4 data-lang="zh">房贷全流程</h4>
+              <h4 data-lang="en">Mortgage Workflow</h4>
+              <p data-lang="zh">从客户咨询、预批到结案过户的完整流程与各环节职责分工。</p>
+              <p data-lang="en">Full pipeline from inquiry and pre-approval through closing — roles at each stage.</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">02</div>
+              <h4 data-lang="zh">资料收档清单</h4>
+              <h4 data-lang="en">Document Intake</h4>
+              <p data-lang="zh">申请表、收入证明、资产文件与信用报告的收集、核对与归档规范。</p>
+              <p data-lang="en">Income, asset, credit, and application documents — collection and filing standards.</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">03</div>
+              <h4 data-lang="zh">客户沟通话术</h4>
+              <h4 data-lang="en">Client Communication</h4>
+              <p data-lang="zh">电话、邮件与微信跟进的专业话术，中英双语场景演练。</p>
+              <p data-lang="en">Professional follow-up via phone, email, and messaging — EN/ZH scenarios.</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">04</div>
+              <h4 data-lang="zh">合规要点</h4>
+              <h4 data-lang="en">Compliance Essentials</h4>
+              <p data-lang="zh">客户隐私保护、宣传用语规范与审批承诺的合规边界。</p>
+              <p data-lang="en">Privacy, advertising language, and boundaries on approval commitments.</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">05</div>
+              <h4 data-lang="zh">业务系统入门</h4>
+              <h4 data-lang="en">Pipeline Management</h4>
+              <p data-lang="zh">任务跟进、截止日期提醒与文件状态更新的实务操作。</p>
+              <p data-lang="en">Task tracking, deadline alerts, and file status management in practice.</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">06</div>
+              <h4 data-lang="zh">综合案例 + 答疑</h4>
+              <h4 data-lang="en">Capstone + Live Review</h4>
+              <p data-lang="zh">真实场景综合演练，讲师 Zoom 直播点评与答疑。</p>
+              <p data-lang="en">Real-world case simulation with instructor review via live Zoom.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow" data-lang="zh">学习流程</div>
+        <div class="section-eyebrow" data-lang="en">How It Works</div>
+        <h2 data-lang="zh">四步开启学习</h2>
+        <h2 data-lang="en">Four Steps to Get Started</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-circle">1</div>
+          <h4 data-lang="zh">咨询报名</h4>
+          <h4 data-lang="en">Inquire</h4>
+          <p data-lang="zh">邮件咨询开课时间与学费</p>
+          <p data-lang="en">Email us for dates and tuition</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">2</div>
+          <h4 data-lang="zh">获取账号</h4>
+          <h4 data-lang="en">Get Access</h4>
+          <p data-lang="zh">收到课程平台登录信息</p>
+          <p data-lang="en">Receive your course login</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">3</div>
+          <h4 data-lang="zh">自主学习</h4>
+          <h4 data-lang="en">Learn at Your Pace</h4>
+          <p data-lang="zh">按模块观看录播课程</p>
+          <p data-lang="en">Watch modules on your schedule</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">4</div>
+          <h4 data-lang="zh">直播答疑</h4>
+          <h4 data-lang="en">Live Q&amp;A</h4>
+          <p data-lang="zh">参加 Zoom 讲师互动辅导</p>
+          <p data-lang="en">Join live Zoom with instructor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience -->
+  <section class="section section-cream" id="audience">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow" data-lang="zh">课程定位</div>
+        <div class="section-eyebrow" data-lang="en">Course Fit</div>
+        <h2 data-lang="zh">这门课适合您吗？</h2>
+        <h2 data-lang="en">Is This Course Right for You?</h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card yes">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 data-lang="zh">适合您，如果……</h3>
+          <h3 data-lang="en">This is for you if…</h3>
+          <ul class="audience-list">
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>希望进入贷款行业，从助理岗位起步</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Starting a career in mortgage as an assistant</li>
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>需要掌握申请文件整理与跟进实务</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Need practical file management skills</li>
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>想提升与借款人及团队的高效沟通能力</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Want stronger client &amp; team communication</li>
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>在持牌经纪人指导下合规协作</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Working under licensed loan officers</li>
+          </ul>
+        </div>
+        <div class="audience-card no">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <h3 data-lang="zh">请选择其他学校，如果……</h3>
+          <h3 data-lang="en">Choose another school if…</h3>
+          <ul class="audience-list">
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>目标是考取 NMLS 贷款经纪人执照</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Your goal is an NMLS Loan Officer license</li>
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>需要地产经纪执照培训</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You need real estate licensing courses</li>
+            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>需要 NMLS 认可的年度 CE 续证课时</li>
+            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You need NMLS-approved CE credits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-alt" id="why">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow" data-lang="zh">学习优势</div>
+        <div class="section-eyebrow" data-lang="en">Why Online</div>
+        <h2 data-lang="zh">灵活高效的线上学习体验</h2>
+        <h2 data-lang="en">Flexible, Effective Online Learning</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4 data-lang="zh">时间灵活</h4>
+          <h4 data-lang="en">Flexible Schedule</h4>
+          <p data-lang="zh">录播随时回看，适合在职进修</p>
+          <p data-lang="en">Replay anytime — ideal for working professionals</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h4 data-lang="zh">随时随地</h4>
+          <h4 data-lang="en">Learn Anywhere</h4>
+          <p data-lang="zh">手机、平板、电脑均可学习</p>
+          <p data-lang="en">Phone, tablet, or laptop</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h4 data-lang="zh">目标明确</h4>
+          <h4 data-lang="en">Focused Curriculum</h4>
+          <p data-lang="zh">专为贷款助理岗位设计</p>
+          <p data-lang="en">Built for assistant roles only</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h4 data-lang="zh">讲师答疑</h4>
+          <h4 data-lang="en">Instructor Support</h4>
+          <p data-lang="zh">定期 Zoom 直播解答疑问</p>
+          <p data-lang="en">Regular live Zoom Q&amp;A</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-cream" id="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 data-lang="zh">常见问题</h2>
+        <h2 data-lang="en">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span data-lang="zh">学完可以考取贷款经纪人执照吗？</span>
+            <span data-lang="en">Can I get an MLO license after this course?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a" data-lang="zh">不可以。本课程为贷款助理岗位技能培训，不含 NMLS 执照考试辅导。若您的目标是考取贷款经纪人执照，请选择持有 NMLS 认可资格的培训学校。</div>
+          <div class="faq-a" data-lang="en">No. This is an assistant job-skills program, not MLO license exam prep. For licensing, choose an NMLS-approved pre-license education provider.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span data-lang="zh">课程是线上还是线下？</span>
+            <span data-lang="en">Is the course online or in-person?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a" data-lang="zh">全程线上授课。核心内容为录播视频，可反复观看；另设定期 Zoom 直播答疑，与讲师实时互动。</div>
+          <div class="faq-a" data-lang="en">Fully online. Core content is on-demand video you can replay anytime, plus regular live Zoom Q&amp;A sessions with the instructor.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span data-lang="zh">需要英语基础吗？</span>
+            <span data-lang="en">Do I need English proficiency?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a" data-lang="zh">课程提供中英双语教学与教材。基础中文阅读能力即可开始学习；英文沟通模块将帮助您掌握贷款行业常用英语表达。</div>
+          <div class="faq-a" data-lang="en">Instruction and materials are bilingual. Basic Chinese reading is sufficient to start; the communication module covers industry-standard English phrases.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span data-lang="zh">如何报名？学费多少？</span>
+            <span data-lang="en">How do I enroll? What is the tuition?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a" data-lang="zh">请发送邮件至下方咨询邮箱，我们将在一个工作日内回复开课时间、学费详情与报名方式。</div>
+          <div class="faq-a" data-lang="en">Send an inquiry email below. We reply within one business day with class dates, tuition, and enrollment steps.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <h2 data-lang="zh">准备好开始了吗？</h2>
+      <h2 data-lang="en">Ready to Get Started?</h2>
+      <p data-lang="zh">欢迎来信咨询开课时间、学费与报名方式。我们将在一个工作日内回复。</p>
+      <p data-lang="en">Contact us for class dates, tuition, and enrollment. We reply within one business day.</p>
+      <a class="btn-cta-large" href="mailto:contact@insynbio.com?subject=贷款助理培训报名咨询" data-lang="zh">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        发送报名咨询邮件
+      </a>
+      <a class="btn-cta-large" href="mailto:contact@insynbio.com?subject=Loan%20Assistant%20Training%20Inquiry" data-lang="en">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send Enrollment Inquiry
+      </a>
+      <p class="cta-note">contact@insynbio.com</p>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <div class="disclaimer-inner">
+      <p data-lang="zh">本课程为岗位技能培训，不颁发贷款经纪人或房地产经纪执照，亦不保证就业或贷款审批结果。执业资格须通过相应官方考试与持牌机构另行取得。本页内容不构成法律或财务建议。</p>
+      <p data-lang="en">This is a vocational skills course. It does not issue MLO or real estate licenses and does not guarantee employment or loan approvals. Licensing requires separate official examinations. Not legal or financial advice.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="#" style="text-decoration:none;">
+          <div class="logo-mark" style="width:36px;height:36px;border-radius:8px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" style="width:20px;height:20px;">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="logo-text" style="margin-left:10px;">
+            <div class="name" data-lang="zh">纽约贷款助理培训中心</div>
+            <div class="name" data-lang="en">NY Loan Assistant Academy</div>
+          </div>
+        </a>
+        <p data-lang="zh">纽约华人贷款助理线上实务培训，助您快速胜任贷款公司助理岗位。</p>
+        <p data-lang="en">Online loan assistant training for the Greater NYC Chinese community.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-lang="zh">快速导航</h5>
+        <h5 data-lang="en">Quick Links</h5>
+        <a href="#course" data-lang="zh">课程大纲</a>
+        <a href="#course" data-lang="en">Syllabus</a>
+        <a href="#audience" data-lang="zh">适合谁学</a>
+        <a href="#audience" data-lang="en">Who It's For</a>
+        <a href="#faq" data-lang="zh">常见问题</a>
+        <a href="#faq" data-lang="en">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-lang="zh">联系我们</h5>
+        <h5 data-lang="en">Contact</h5>
+        <a href="mailto:contact@insynbio.com">contact@insynbio.com</a>
+        <p data-lang="zh">线上咨询 · 一个工作日内回复</p>
+        <p data-lang="en">Online inquiries · Reply within 1 business day</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-lang="zh">© 2026 纽约贷款助理培训中心 · 保留所有权利</span>
+      <span data-lang="en">© 2026 NY Loan Assistant Academy · All rights reserved</span>
+    </div>
   </footer>
 
   <script>
@@ -392,6 +1500,12 @@
       document.getElementById('btn-en').classList.add('active');
       document.getElementById('btn-zh').classList.remove('active');
     };
+    document.getElementById('menu-btn').onclick = () => {
+      document.getElementById('nav').classList.toggle('open');
+    };
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.onclick = () => btn.closest('.faq-item').classList.toggle('open');
+    });
   </script>
 </body>
 </html>
