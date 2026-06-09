@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>纽约贷款执照培训 · MLO License School | Flushing NY</title>
+  <meta name="description" content="纽约法拉盛贷款经纪人（MLO）考前培训与 NMLS 年度续证 CE 课程。网课、Zoom 直播、面授可选。">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1e3a5f;
+      --navy-dark: #152a45;
+      --blue: #2563eb;
+      --blue-light: #dbeafe;
+      --gold: #d97706;
+      --gold-bg: #fffbeb;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans SC', 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .host-banner {
+      background: #fef3c7;
+      border-bottom: 1px solid #fcd34d;
+      padding: 8px 16px;
+      font-size: 12px;
+      color: #92400e;
+      text-align: center;
+    }
+    .host-banner a { color: var(--navy); font-weight: 600; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand { font-size: 20px; font-weight: 700; color: var(--navy); }
+    .brand span { color: var(--blue); }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    nav a:hover { color: var(--blue); background: var(--bg-alt); }
+    .lang-toggle button {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .lang-toggle button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1d4ed8 55%, #3b82f6 100%);
+      color: #fff;
+      padding: 56px 24px 64px;
+      text-align: center;
+    }
+    .hero h1 { font-size: clamp(28px, 5vw, 42px); margin: 0 0 12px; line-height: 1.2; }
+    .hero .sub { font-size: 17px; opacity: 0.92; max-width: 640px; margin: 0 auto 28px; }
+    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .btn-primary { background: #fff; color: var(--navy); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.7); color: #fff; }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: -28px auto 0;
+      max-width: 720px;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 16px 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab:first-child { border-radius: 10px 0 0 10px; }
+    .tab:last-child { border-radius: 0 10px 10px 0; }
+    .tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .section { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+    .section h2 { font-size: 26px; margin: 0 0 8px; color: var(--navy); }
+    .section .lead { color: var(--muted); margin-bottom: 28px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 8px 24px rgba(30,58,95,0.08); }
+    .card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .tag-pre { background: var(--blue-light); color: var(--blue); }
+    .tag-ce { background: #dcfce7; color: #166534; }
+    .tag-exam { background: var(--gold-bg); color: var(--gold); }
+    .card h3 { margin: 0 0 10px; font-size: 18px; }
+    .card p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+    .card .price { font-size: 22px; font-weight: 700; color: var(--navy); margin-top: 12px; }
+    .card .price small { font-size: 13px; font-weight: 500; color: var(--muted); }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .feat {
+      background: var(--bg-alt);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .feat .icon { font-size: 28px; margin-bottom: 8px; }
+    .feat h4 { margin: 0 0 6px; font-size: 15px; }
+    .feat p { margin: 0; font-size: 13px; color: var(--muted); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .contact-box {
+      background: var(--bg-alt);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .contact-box strong { display: block; margin-bottom: 6px; color: var(--navy); }
+    .disclaimer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .disclaimer .W { max-width: 960px; margin: 0 auto; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="zh"] { display: none; }
+    body.en [data-lang="en"] { display: revert; }
+    body.en nav a[data-lang="en"],
+    body.en .tab[data-lang="en"] { display: inline-block; }
+    @media (max-width: 640px) {
+      .tabs { flex-direction: column; margin-top: -16px; }
+      .tab { border-radius: 8px !important; margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="host-banner">
+    <span data-lang="zh">预览页 · 临时托管于</span>
+    <span data-lang="en">Preview · Temporarily hosted on</span>
+    <a href="https://www.therasik.com/">www.therasik.com</a>
+    — <span data-lang="zh">正式域名上线后将迁移</span><span data-lang="en">will move to client domain when ready</span>
+  </div>
+
+  <header>
+    <div class="brand">Flushing <span>MLO</span> School</div>
+    <nav>
+      <a href="#courses" data-lang="zh">课程</a>
+      <a href="#courses" data-lang="en">Courses</a>
+      <a href="#why" data-lang="zh">优势</a>
+      <a href="#why" data-lang="en">Why Us</a>
+      <a href="#contact" data-lang="zh">报名咨询</a>
+      <a href="#contact" data-lang="en">Contact</a>
+    </nav>
+    <div class="lang-toggle">
+      <button type="button" id="btn-zh" class="active">中文</button>
+      <button type="button" id="btn-en">EN</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 data-lang="zh">纽约贷款执照培训 · 考前 + 每年续证</h1>
+    <h1 data-lang="en">NY MLO License Training · Pre-License &amp; Annual CE</h1>
+    <p class="sub" data-lang="zh">法拉盛面授 · Zoom 直播 · 自学视频 — 一条故事讲清楚：如何备考 NMLS SAFE、如何完成每年 Continuing Education。</p>
+    <p class="sub" data-lang="en">Flushing classroom · Zoom live · Self-paced video — Your path to NMLS SAFE exam and annual CE renewal.</p>
+    <div class="hero-badges">
+      <span class="badge" data-lang="zh">20 小时 SAFE 考前培训</span>
+      <span class="badge" data-lang="en">20-Hour SAFE Pre-License</span>
+      <span class="badge" data-lang="zh">NMLS 年度 CE 续证</span>
+      <span class="badge" data-lang="en">NMLS Annual CE</span>
+      <span class="badge" data-lang="zh">中英双语辅导</span>
+      <span class="badge" data-lang="en">Bilingual Support</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact" data-lang="zh">预约试听 / 咨询</a>
+      <a class="btn btn-primary" href="#contact" data-lang="en">Book a Consultation</a>
+      <a class="btn btn-outline" href="#courses" data-lang="zh">查看课程</a>
+      <a class="btn btn-outline" href="#courses" data-lang="en">View Courses</a>
+    </div>
+  </section>
+
+  <div class="tabs" id="course-tabs">
+    <div class="tab active" data-tab="pre" data-lang="zh">考前培训</div>
+    <div class="tab active" data-tab="pre" data-lang="en">Pre-License</div>
+    <div class="tab" data-tab="ce" data-lang="zh">续证 CE</div>
+    <div class="tab" data-tab="ce" data-lang="en">CE Renewal</div>
+    <div class="tab" data-tab="exam" data-lang="zh">刷题辅导</div>
+    <div class="tab" data-tab="exam" data-lang="en">Exam Prep</div>
+  </div>
+
+  <section class="section" id="courses">
+    <h2 data-lang="zh">课程体系</h2>
+    <h2 data-lang="en">Course Catalog</h2>
+    <p class="lead" data-lang="zh">参考纽约主流驾校模式（REEDC / iTraining / Mortgage Educators）：考前、续证、刷题分线清晰，每次只推进一个目标。</p>
+    <p class="lead" data-lang="en">Modeled after leading NY providers — clear paths for pre-license, renewal, and exam prep.</p>
+
+    <div class="cards">
+      <article class="card" data-course="pre">
+        <span class="tag tag-pre">Pre-License</span>
+        <h3 data-lang="zh">20 小时 SAFE 考前培训（纽约州）</h3>
+        <h3 data-lang="en">20-Hour SAFE Pre-Licensing (NY)</h3>
+        <p data-lang="zh">满足 NMLS 全国 + 纽约州州级课时要求。适合首次申请 MLO 执照学员。</p>
+        <p data-lang="en">Meets NMLS national + NY state pre-education requirements for first-time licensees.</p>
+        <ul>
+          <li data-lang="zh">面授 / Zoom 直播 / 视频自学</li>
+          <li data-lang="en">In-person / Zoom live / self-paced video</li>
+          <li data-lang="zh">滚动开班，小班答疑</li>
+          <li data-lang="en">Rolling schedule, small-group Q&amp;A</li>
+        </ul>
+        <div class="price" data-lang="zh">询价 <small>（课表待定）</small></div>
+        <div class="price" data-lang="en">Contact <small>for schedule &amp; pricing</small></div>
+      </article>
+
+      <article class="card" data-course="ce">
+        <span class="tag tag-ce">Continuing Ed</span>
+        <h3 data-lang="zh">NMLS 年度 Continuing Education</h3>
+        <h3 data-lang="en">NMLS Annual Continuing Education</h3>
+        <p data-lang="zh">已持证 MLO 每年必修 CE，含联邦 + 纽约州选修。避免执照过期。</p>
+        <p data-lang="en">Required annual CE for licensed MLOs — federal + NY state electives.</p>
+        <ul>
+          <li data-lang="zh">8 小时 CE 套餐（结构同 MEC Late CE）</li>
+          <li data-lang="en">8-hour CE bundles (federal + state)</li>
+          <li data-lang="zh">网课完成，进度可追踪</li>
+          <li data-lang="en">Online completion with progress tracking</li>
+        </ul>
+        <div class="price" data-lang="zh">询价 <small>（含晚交 CE 加急班）</small></div>
+        <div class="price" data-lang="en">Contact <small>incl. late CE options</small></div>
+      </article>
+
+      <article class="card" data-course="exam">
+        <span class="tag tag-exam">Exam Prep</span>
+        <h3 data-lang="zh">SAFE 国考刷题 + 模拟</h3>
+        <h3 data-lang="en">SAFE National Exam Prep</h3>
+        <p data-lang="zh">仿 iTraining 模式：500+ 练习题、错题讲解、考前冲刺。</p>
+        <p data-lang="en">500+ practice questions, review sessions, and exam-day strategy.</p>
+        <ul>
+          <li data-lang="zh">中英双语题解</li>
+          <li data-lang="en">Bilingual explanations</li>
+          <li data-lang="zh">可与考前班打包</li>
+          <li data-lang="en">Bundle with pre-license course</li>
+        </ul>
+        <div class="price" data-lang="zh">询价</div>
+        <div class="price" data-lang="en">Contact us</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="why" style="background:var(--bg-alt);">
+    <h2 data-lang="zh">为什么选择我们</h2>
+    <h2 data-lang="en">Why Train Here</h2>
+    <div class="features">
+      <div class="feat">
+        <div class="icon">📍</div>
+        <h4 data-lang="zh">法拉盛实体 + 线上</h4>
+        <h4 data-lang="en">Flushing + Online</h4>
+        <p data-lang="zh">近 7 号线，方便纽约华人学员</p>
+        <p data-lang="en">Near 7 train, convenient for NYC students</p>
+      </div>
+      <div class="feat">
+        <div class="icon">🎓</div>
+        <h4 data-lang="zh">资深讲师</h4>
+        <h4 data-lang="en">Experienced Instructors</h4>
+        <p data-lang="zh">熟悉 REEDC / 行业实务背景</p>
+        <p data-lang="en">Industry-experienced educators</p>
+      </div>
+      <div class="feat">
+        <div class="icon">📋</div>
+        <h4 data-lang="zh">一条故事走到底</h4>
+        <h4 data-lang="en">One Clear Path</h4>
+        <p data-lang="zh">考前 → 国考 → 持证 → 每年 CE</p>
+        <p data-lang="en">Pre-license → exam → license → annual CE</p>
+      </div>
+      <div class="feat">
+        <div class="icon">💬</div>
+        <h4 data-lang="zh">微信 / 电话答疑</h4>
+        <h4 data-lang="en">WeChat &amp; Phone Support</h4>
+        <p data-lang="zh">报名、选课、续证提醒</p>
+        <p data-lang="en">Enrollment &amp; renewal reminders</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 data-lang="zh">报名咨询</h2>
+    <h2 data-lang="en">Contact &amp; Enrollment</h2>
+    <p class="lead" data-lang="zh">以下信息为占位，客户确认后将更新为正式校名、地址与 NMLS Provider ID。</p>
+    <p class="lead" data-lang="en">Placeholder info — will update with official school name, address, and NMLS Provider ID.</p>
+    <div class="contact-grid">
+      <div class="contact-box">
+        <strong data-lang="zh">校区地址</strong>
+        <strong data-lang="en">Campus</strong>
+        <span data-lang="zh">法拉盛, NY 11355 一带（具体门牌待定）</span>
+        <span data-lang="en">Flushing, NY 11355 area (exact address TBD)</span>
+      </div>
+      <div class="contact-box">
+        <strong data-lang="zh">营业时间</strong>
+        <strong data-lang="en">Hours</strong>
+        <span data-lang="zh">周一至周五 11:00 – 17:30</span>
+        <span data-lang="en">Mon – Fri 11:00 AM – 5:30 PM</span>
+      </div>
+      <div class="contact-box">
+        <strong data-lang="zh">电话 / 短信</strong>
+        <strong data-lang="en">Phone / Text</strong>
+        <span data-lang="zh">（待客户提供）</span>
+        <span data-lang="en">(To be provided)</span>
+      </div>
+      <div class="contact-box">
+        <strong data-lang="zh">微信</strong>
+        <strong data-lang="en">WeChat</strong>
+        <span data-lang="zh">（待客户提供）</span>
+        <span data-lang="en">(To be provided)</span>
+      </div>
+      <div class="contact-box">
+        <strong>Email</strong>
+        <a href="mailto:contact@insynbio.com">contact@insynbio.com</a>
+        <span data-lang="zh">（临时咨询入口）</span>
+        <span data-lang="en">(temporary inquiry)</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    <div class="W">
+      <p data-lang="zh"><strong>免责声明：</strong>本页为培训学校预览站，不提供房dai / 抵押dai款经纪服务。课程内容以 NMLS 与纽约州当期规定为准。通过率等数据需校方提供书面授权后方可展示。本页不构成法律或财务建议。</p>
+      <p data-lang="en"><strong>Disclaimer:</strong> This is a school preview site, not a lending brokerage. Courses align with current NMLS and NY DFS requirements. Pass-rate claims require verified school authorization. Not legal or financial advice.</p>
+    </div>
+  </div>
+
+  <footer>
+    <span data-lang="zh">© 2026 Flushing MLO School（预览）· 临时托管</span>
+    <span data-lang="en">© 2026 Flushing MLO School (Preview) · Temporarily hosted on</span>
+    <a href="https://www.therasik.com/">Therasik.com</a>
+  </footer>
+
+  <script>
+    const body = document.body;
+    document.getElementById('btn-zh').onclick = () => {
+      body.classList.remove('en');
+      document.getElementById('btn-zh').classList.add('active');
+      document.getElementById('btn-en').classList.remove('active');
+    };
+    document.getElementById('btn-en').onclick = () => {
+      body.classList.add('en');
+      document.getElementById('btn-en').classList.add('active');
+      document.getElementById('btn-zh').classList.remove('active');
+    };
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const t = tab.dataset.tab;
+        document.querySelectorAll('.tab').forEach(x => {
+          if (x.dataset.tab === t) x.classList.add('active');
+          else x.classList.remove('active');
+        });
+        document.querySelectorAll('.card').forEach(card => {
+          card.style.outline = card.dataset.course === t ? '2px solid var(--blue)' : '';
+        });
+        document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

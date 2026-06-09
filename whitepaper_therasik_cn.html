@@ -11,7 +11,7 @@
       --r7:#b91c1c;--r6:#dc2626;--r1:#fee2e2;
       --a6:#d97706;--a5:#f59e0b;--a0:#fffbeb;
       --b7:#1d4ed8;--b1:#dbeafe;
-      --g9:#111827;--g8:#1f2937;--g7:#374151;--g5:#6b7280;--g3:#d1d5db;--g1:#f9fafb;
+      --g9:#111827;--g8:#1f2937;--g7:#1f2937;--g5:#4b5563;--g3:#d1d5db;--g1:#f9fafb;
       --wh:#ffffff;
     }
     /* ══════════════════════ BASE ══════════════════════ */
@@ -158,22 +158,35 @@
     .d-col-ai .d-row span,.d-col-cro .d-row span{color:var(--g7);}
 
     /* ══════════════════════ SERVICE PIPELINE ══════════════════════ */
-    .svc-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;}
+    .svc-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;align-items:stretch;}
     .sc-card{
       background:#fff;border-radius:10px;border:1.5px solid var(--g3);overflow:hidden;
       transition:box-shadow .2s;
+      display:flex;flex-direction:column;height:100%;
     }
-    .sc-hd{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--g3);}
-    .sc-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-    .sc-ico-t{background:var(--t1);}
-    .sc-ico-b{background:var(--b1);}
-    .sc-ico-o{background:#ffedd5;}
-    .sc-ico-r{background:var(--r1);}
-    .sc-ico-p{background:#fae8ff;}
-    .sc-ico-g{background:var(--g1);}
-    .sc-name{font-size:12px;font-weight:800;color:var(--g9);}
-    .sc-en{font-size:9px;color:var(--g5);font-weight:400;}
-    .sc-pts{list-style:none;padding:0;margin:0;}
+    .sc-hd{
+      display:flex;align-items:flex-start;gap:8px;padding:10px 10px;
+      border-bottom:1px solid var(--g3);width:100%;box-sizing:border-box;
+      min-height:58px;
+    }
+    .sc-hd:has(.sc-ico-t){background:var(--t1);border-bottom-color:var(--t3);}
+    .sc-hd:has(.sc-ico-b){background:var(--b1);border-bottom-color:#93c5fd;}
+    .sc-hd:has(.sc-ico-o){background:#ffedd5;border-bottom-color:#fde68a;}
+    .sc-hd:has(.sc-ico-r){background:var(--r1);border-bottom-color:#fca5a5;}
+    .sc-hd:has(.sc-ico-p){background:#fae8ff;border-bottom-color:#e9d5ff;}
+    .sc-hd:has(.sc-ico-g){background:var(--g1);border-bottom-color:var(--g3);}
+    .sc-hd > div:nth-child(2){flex:1;min-width:0;}
+    .sc-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:rgba(255,255,255,.55);}
+    .sc-ico-t{background:rgba(255,255,255,.55);}
+    .sc-ico-b{background:rgba(255,255,255,.55);}
+    .sc-ico-o{background:rgba(255,255,255,.55);}
+    .sc-ico-r{background:rgba(255,255,255,.55);}
+    .sc-ico-p{background:rgba(255,255,255,.55);}
+    .sc-ico-g{background:rgba(255,255,255,.55);}
+    .sc-name{font-size:12px;font-weight:800;color:var(--g9);line-height:1.3;min-height:2.6em;}
+    .sc-en{font-size:9px;color:var(--g5);font-weight:400;line-height:1.35;min-height:2.5em;}
+    .sc-body{flex:1;padding:8px 10px 10px;display:flex;flex-direction:column;}
+    .sc-pts{list-style:none;padding:0;margin:0;flex:1;}
     .sc-pts li{font-size:11px;color:var(--g7);padding:2px 0 2px 12px;position:relative;line-height:1.4;}
     .sc-pts li::before{content:'·';position:absolute;left:3px;color:var(--t6);font-weight:900;font-size:14px;top:-1px;}
     .sc-tag{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:8px;margin-top:4px;margin-right:3px;}
@@ -270,6 +283,12 @@
 
     /* ══════════════════════ CONTACTS ══════════════════════ */
     .cc3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px;}
+    .cc4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:16px;}
+    .cc4 .cc{padding:11px 8px;min-width:0;}
+    .cc4 .cc-ico{margin-bottom:4px;}
+    .cc4 .cc-val{font-size:12px;line-height:1.25;word-break:break-word;}
+    .cc4 .cc-val.long{font-size:10.6px;letter-spacing:-.02em;}
+    .cc4 .cc-hint{font-size:9.2px;line-height:1.35;}
     .cc{background:#fff;border:1.5px solid var(--t3);border-radius:10px;padding:14px 12px;text-align:center;}
     .cc.pri{background:var(--t0);border-color:var(--t5);box-shadow:0 2px 14px rgba(13,148,136,.18);}
     .cc-ico{font-size:22px;margin-bottom:6px;}
@@ -297,6 +316,7 @@
       .cv-stats{grid-template-columns:repeat(2,1fr) !important;}
       .svc-chain{grid-template-columns:1fr 1fr;}
       .proc5{grid-template-columns:1fr 1fr;}
+      .cc4{grid-template-columns:1fr 1fr !important;}
       .cc3{grid-template-columns:1fr !important;}
       h1{font-size:22px;}h2{font-size:16px;}
     }
@@ -306,7 +326,13 @@
       /* ── 基础 ── */
       *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
       html, body { overflow-x: auto; }
-    body {font-size:12.5px;line-height:1.6;}
+      body {font-size:12.5px;line-height:1.6;color:#111827 !important;}
+      .pg, .pg * { text-shadow:none !important; }
+      p, li, .pc-d, .ab-txt, .db-desc, .case-detail, .case-impact, .sc-pts li, .p5-d, .cc-hint, .cmp-row em {
+        color:#111827 !important;
+        font-weight:500;
+      }
+      .cv-sl, .sc-en, .cs-l { color:#374151 !important; font-weight:500; }
       .doc{max-width:100%;}
       .div{display:none;}
 
@@ -714,7 +740,7 @@
     <div class="prob-card">
       <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
       <div class="pc-t">提高临床前成功率</div>
-      <div class="pc-d">CMC 可开发性、免疫原性、稳定性在序列阶段就完成平衡诊断，让候选分子进入 IND 阶段时已具备成药性边界，降低后期推倒重来的概率。</div>
+      <div class="pc-d">以近千级临床抗体的 30+ 可开发性指标作为标尺，提前评估人源化候选的 CMC、免疫原性与稳定性边界，并接入智能优化系统，降低后期推倒重来的概率。</div>
       <div style="font-size:10px;color:var(--t6);font-weight:700;margin-top:5px;">早暴露 · 早修复 · 早收敛</div>
     </div>
   </div>
@@ -747,7 +773,7 @@
   <div class="cv-stats" style="position:relative;z-index:1;grid-template-columns:repeat(4,1fr);">
     <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">结构相似</span><span class="cv-sl">不是序列<br>相似的人源化</span></div>
     <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">一案一候选</span><span class="cv-sl">减少筛选<br>节省实验规模</span></div>
-    <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">多指标平衡</span><span class="cv-sl">CMC 不打分<br>做权衡诊断</span></div>
+    <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">临床标尺</span><span class="cv-sl">30+ 指标<br>智能优化</span></div>
     <div class="cv-stat" style="padding:10px 6px;"><span class="cv-sn" style="font-size:14px;line-height:1.2;">Agent Skills</span><span class="cv-sl">专业知识<br>安全问答</span></div>
   </div>
 
@@ -861,12 +887,13 @@
           <span style="font-size:10px;color:var(--g5);">CMC &amp; Immunogenicity Balance</span>
         </div>
         <div style="font-size:11.5px;color:var(--g7);margin-top:5px;line-height:1.5;">
-          多指标综合诊断：pI、疏水、电荷、聚集、脱酰胺、异构化、糖基化、免疫原性热区——指标之间存在冲突时给出<strong>权衡建议而非单一打分</strong>，CMC 优化建议<strong>只动 FR 不动 CDR</strong>，保留结合活性。
+          以近千级临床抗体的 30+ 可开发性指标作为人源化候选标尺，综合诊断 pI、疏水、电荷、聚集、脱酰胺、异构化、糖基化、免疫原性热区等风险——指标之间存在冲突时给出<strong>权衡建议而非单一打分</strong>，并通过智能优化系统优先给出<strong>FR-only 优化</strong>方向，保留结合活性。
         </div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;">
-          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">多指标平衡</span>
+          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">临床标尺</span>
+          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">30+ 指标</span>
           <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">免疫原性热区</span>
-          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">FR-only 优化</span>
+          <span style="font-size:9px;background:var(--r6);color:#fff;border-radius:5px;padding:1px 7px;font-weight:800;">智能优化</span>
         </div>
       </div>
     </div>
@@ -942,7 +969,7 @@
       </tr>
       <tr>
         <td class="cmp-col cmp-ai"><div class="cmp-row"><span class="cx">✗</span><em>单点 CMC 打分</em></div></td>
-        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>多指标平衡诊断 + FR-only 优化</em></div></td>
+        <td class="cmp-col cmp-us"><div class="cmp-row"><span class="ck">✓</span><em>临床抗体可开发性标尺 + 智能优化</em></div></td>
         <td class="cmp-col cmp-cro"><div class="cmp-row"><span class="cx">✗</span><em>费用是计算分析的 10–100×</em></div></td>
       </tr>
       <tr>
@@ -1151,7 +1178,7 @@
   <div class="lbl">03 · 独家能力</div>
   <h2 style="margin-bottom:6px;">与其他 AI 药物设计平台的 <em>8 大本质差异</em></h2>
   <p style="font-size:12.5px;color:var(--g7);margin-bottom:18px;">
-    我们不与公开 AI 工具比"工具数量"，而是比"对临床抗体规律的迁移能力"。以下 8 项能力强调客户可见价值，内部规则、阈值与决策路径不在白皮书中披露。
+    我们不与公开 AI 工具比"工具数量"，而是比"对临床抗体规律的迁移能力"。以下 8 项能力强调客户可见价值，平台后台细节与逐步判断过程不在白皮书中披露。
   </p>
 
   <!-- 8 differentiator cards (2 rows × 4) -->
@@ -1189,8 +1216,8 @@
 
     <div class="db-card c-t">
       <div class="db-n c-t" style="font-size:18px;line-height:1.2;">06</div>
-      <span class="db-label">CMC 多指标平衡诊断</span>
-      <div class="db-desc">不打"CMC 总分"，而是给出 pI / 疏水 / 电荷 / 聚集 / 脱酰胺等指标的<strong>权衡报告</strong>——优化建议<strong>只动 FR 不动 CDR</strong>，保留结合活性。</div>
+      <span class="db-label">临床抗体可开发性标尺</span>
+      <div class="db-desc">以近千级临床抗体的 30+ 可开发性指标作为人源化候选标尺，不打单一 CMC 总分，而是给出多维<strong>权衡报告</strong>，并由智能优化系统优先推荐 FR 区域优化方向，尽量保留结合活性。</div>
     </div>
 
     <div class="db-card c-r">
@@ -1227,7 +1254,7 @@
     <div class="tool-cat">
       <div class="tc-head">中英双语 · 可审计报告</div>
       <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
-        每份报告含版本水印与质控审计段；客户可见内容呈现工程结论、风险类别与推荐动作，不展示内部算法、阈值、数据库结构或决策树。
+        每份报告含版本水印与质控审计段；客户可见内容呈现工程结论、风险类别与推荐动作，不展示平台后台细节、数据来源细节或逐步判断过程。
       </div>
     </div>
     <div class="tool-cat">
@@ -1239,7 +1266,7 @@
     <div class="tool-cat" style="grid-column:1 / -1;background:var(--t0);border:1.5px solid var(--t3);">
       <div class="tc-head">客户安全输出边界</div>
       <div style="font-size:11.5px;color:var(--g7);line-height:1.6;">
-        Agent 可调用平台安全知识库辅助问答与方案初筛，但只输出结论、风险解释、建议动作与实验验证路线；不复述回复突变决策、germline 选择方法、内部阈值、数据库规模或工具链路径。
+        Agent 可调用平台安全知识库辅助问答与方案初筛，但只输出结论、风险解释、建议动作与实验验证路线；不复述后台工程规则、数据来源细节或逐步判断过程。
       </div>
     </div>
   </div>
@@ -1281,7 +1308,7 @@
       </div>
       <div class="case-body">
         <div class="case-result">全指标通过 · 优于参照</div>
-        <div class="case-detail">基于临床抗体队列的 CMC 多指标平衡诊断——所有维度均通过，在免疫原性与脱酰胺风险上优于赫赛汀®。</div>
+        <div class="case-detail">基于近千级临床抗体可开发性标尺的 CMC 多指标平衡诊断——所有维度均通过，并由智能优化系统给出优先级明确的可开发性修正建议。</div>
         <div class="case-impact">临床前确认候选分子可开发性，降低一期免疫原性风险</div>
       </div>
     </div>
@@ -1514,7 +1541,7 @@
   </div>
 
   <!-- Contact (4 cards: WeChat / Email / Website / Console) -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px;">
+  <div class="cc4">
     <div class="cc pri">
       <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg></div>
       <div class="cc-lbl">客服微信 · 快速响应</div>
@@ -1524,19 +1551,19 @@
     <div class="cc">
       <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
       <div class="cc-lbl">邮箱 · NDA / 正式合作</div>
-      <div class="cc-val" style="font-size:11.5px;">contact@therasik.com</div>
+      <div class="cc-val long">contact@therasik.com</div>
       <div class="cc-hint">委托 / 询价 / NDA 签署</div>
     </div>
     <div class="cc">
       <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
       <div class="cc-lbl">官方网站 · 服务与案例</div>
-      <div class="cc-val" style="font-size:12px;">www.therasik.com</div>
+      <div class="cc-val long">www.therasik.com</div>
       <div class="cc-hint">服务详情 · 团队 · 案例展示</div>
     </div>
     <div class="cc">
       <div class="cc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
       <div class="cc-lbl">在线控制台 · 即刻体验</div>
-      <div class="cc-val" style="font-size:11.5px;">console.therasik.com</div>
+      <div class="cc-val long">console.therasik.com</div>
       <div class="cc-hint">注册即送积分 · 立即评估</div>
     </div>
   </div>
