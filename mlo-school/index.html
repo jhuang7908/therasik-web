@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>纽约贷款执照培训 · MLO License School | Flushing NY</title>
-  <meta name="description" content="纽约法拉盛贷款经纪人（MLO）考前培训与 NMLS 年度续证 CE 课程。网课、Zoom 直播、面授可选。">
+  <title>贷款助理线上培训 · Loan Assistant Training | 纽约华人</title>
+  <meta name="description" content="一门课培养抵押贷款团队贷款助理（非执照经纪人）。100% 线上视频+Zoom，无地产课，非 NMLS 执照培训。">
   <meta name="robots" content="noindex, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,15 +12,12 @@
   <style>
     :root {
       --navy: #1e3a5f;
-      --navy-dark: #152a45;
       --blue: #2563eb;
       --blue-light: #dbeafe;
-      --gold: #d97706;
-      --gold-bg: #fffbeb;
+      --teal: #0d9488;
       --text: #0f172a;
       --muted: #475569;
       --border: #e2e8f0;
-      --bg: #ffffff;
       --bg-alt: #f8fafc;
     }
     * { box-sizing: border-box; }
@@ -30,7 +27,6 @@
       font-size: 15px;
       line-height: 1.6;
       color: var(--text);
-      background: var(--bg);
     }
     .host-banner {
       background: #fef3c7;
@@ -54,9 +50,8 @@
       top: 0;
       z-index: 100;
     }
-    .brand { font-size: 20px; font-weight: 700; color: var(--navy); }
+    .brand { font-size: 19px; font-weight: 700; color: var(--navy); }
     .brand span { color: var(--blue); }
-    nav { display: flex; gap: 8px; flex-wrap: wrap; }
     nav a {
       text-decoration: none;
       color: var(--muted);
@@ -78,126 +73,138 @@
     }
     .lang-toggle button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #1d4ed8 55%, #3b82f6 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, #1d4ed8 60%, #3b82f6 100%);
       color: #fff;
-      padding: 56px 24px 64px;
+      padding: 52px 24px 56px;
       text-align: center;
     }
-    .hero h1 { font-size: clamp(28px, 5vw, 42px); margin: 0 0 12px; line-height: 1.2; }
-    .hero .sub { font-size: 17px; opacity: 0.92; max-width: 640px; margin: 0 auto 28px; }
-    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(26px, 5vw, 38px); margin: 0 0 12px; line-height: 1.25; }
+    .hero .sub { font-size: 16px; opacity: 0.93; max-width: 680px; margin: 0 auto 24px; }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
     .badge {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.28);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 13px;
-      font-weight: 500;
     }
-    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      padding: 12px 28px;
+      padding: 12px 26px;
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
       font-size: 15px;
+      margin: 4px;
     }
     .btn-primary { background: #fff; color: var(--navy); }
-    .btn-outline { border: 2px solid rgba(255,255,255,0.7); color: #fff; }
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      margin: -28px auto 0;
-      max-width: 720px;
-      padding: 0 16px;
-      position: relative;
-      z-index: 2;
-    }
-    .tab {
-      flex: 1;
-      text-align: center;
-      padding: 16px 12px;
-      background: #fff;
-      border: 1px solid var(--border);
-      font-weight: 700;
+    .btn-outline { border: 2px solid rgba(255,255,255,0.75); color: #fff; }
+    .section { max-width: 880px; margin: 0 auto; padding: 44px 24px; }
+    .section h2 { font-size: 24px; margin: 0 0 8px; color: var(--navy); }
+    .section .lead { color: var(--muted); margin-bottom: 24px; }
+    .notice {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
       font-size: 14px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.2s;
+      color: #1e40af;
     }
-    .tab:first-child { border-radius: 10px 0 0 10px; }
-    .tab:last-child { border-radius: 0 10px 10px 0; }
-    .tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .section { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
-    .section h2 { font-size: 26px; margin: 0 0 8px; color: var(--navy); }
-    .section .lead { color: var(--muted); margin-bottom: 28px; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
+    .notice strong { display: block; margin-bottom: 6px; }
+    .course-box {
+      border: 2px solid var(--navy);
+      border-radius: 14px;
+      padding: 28px;
       background: #fff;
-      transition: box-shadow 0.2s;
     }
-    .card:hover { box-shadow: 0 8px 24px rgba(30,58,95,0.08); }
-    .card .tag {
+    .course-box .tag {
       display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
       font-size: 11px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       padding: 4px 10px;
       border-radius: 4px;
       margin-bottom: 12px;
     }
-    .tag-pre { background: var(--blue-light); color: var(--blue); }
-    .tag-ce { background: #dcfce7; color: #166534; }
-    .tag-exam { background: var(--gold-bg); color: var(--gold); }
-    .card h3 { margin: 0 0 10px; font-size: 18px; }
-    .card p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-    .card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
-    .card .price { font-size: 22px; font-weight: 700; color: var(--navy); margin-top: 12px; }
-    .card .price small { font-size: 13px; font-weight: 500; color: var(--muted); }
+    .course-box h3 { margin: 0 0 12px; font-size: 22px; color: var(--navy); }
+    .modules { list-style: none; padding: 0; margin: 20px 0 0; }
+    .modules li {
+      padding: 12px 0 12px 28px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .modules li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      background: var(--teal);
+      border-radius: 2px;
+      transform: rotate(45deg);
+    }
+    .modules li:last-child { border: none; }
+    .modules li b { color: var(--text); }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .compare-col {
+      border-radius: 10px;
+      padding: 18px;
+      font-size: 14px;
+    }
+    .compare-yes { background: #ecfdf5; border: 1px solid #a7f3d0; }
+    .compare-no { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+    .compare-col h4 { margin: 0 0 10px; font-size: 15px; }
+    .compare-col ul { margin: 0; padding-left: 18px; }
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
     }
     .feat {
       background: var(--bg-alt);
       border-radius: 10px;
-      padding: 20px;
+      padding: 18px;
       text-align: center;
+      font-size: 13px;
     }
-    .feat .icon { font-size: 28px; margin-bottom: 8px; }
-    .feat h4 { margin: 0 0 6px; font-size: 15px; }
-    .feat p { margin: 0; font-size: 13px; color: var(--muted); }
+    .feat .icon { font-size: 26px; margin-bottom: 6px; }
+    .feat h4 { margin: 0 0 6px; font-size: 14px; }
+    .feat p { margin: 0; color: var(--muted); }
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
     }
     .contact-box {
       background: var(--bg-alt);
       border-radius: 10px;
-      padding: 20px;
+      padding: 18px;
+      font-size: 14px;
     }
     .contact-box strong { display: block; margin-bottom: 6px; color: var(--navy); }
     .disclaimer {
       background: var(--bg-alt);
       border-top: 1px solid var(--border);
-      padding: 24px;
+      padding: 22px 24px;
       font-size: 12px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
     }
-    .disclaimer .W { max-width: 960px; margin: 0 auto; }
+    .disclaimer .W { max-width: 880px; margin: 0 auto; }
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 18px;
       font-size: 12px;
       color: var(--muted);
       border-top: 1px solid var(--border);
@@ -205,11 +212,8 @@
     [data-lang="en"] { display: none; }
     body.en [data-lang="zh"] { display: none; }
     body.en [data-lang="en"] { display: revert; }
-    body.en nav a[data-lang="en"],
-    body.en .tab[data-lang="en"] { display: inline-block; }
-    @media (max-width: 640px) {
-      .tabs { flex-direction: column; margin-top: -16px; }
-      .tab { border-radius: 8px !important; margin-bottom: 4px; }
+    @media (max-width: 600px) {
+      .compare { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -218,17 +222,17 @@
     <span data-lang="zh">预览页 · 临时托管于</span>
     <span data-lang="en">Preview · Temporarily hosted on</span>
     <a href="https://www.therasik.com/">www.therasik.com</a>
-    — <span data-lang="zh">正式域名上线后将迁移</span><span data-lang="en">will move to client domain when ready</span>
   </div>
 
   <header>
-    <div class="brand">Flushing <span>MLO</span> School</div>
+    <div class="brand" data-lang="zh">纽约 <span>贷款助理</span> 培训</div>
+    <div class="brand" data-lang="en">NY <span>Loan Assistant</span> Training</div>
     <nav>
-      <a href="#courses" data-lang="zh">课程</a>
-      <a href="#courses" data-lang="en">Courses</a>
-      <a href="#why" data-lang="zh">优势</a>
-      <a href="#why" data-lang="en">Why Us</a>
-      <a href="#contact" data-lang="zh">报名咨询</a>
+      <a href="#course" data-lang="zh">课程</a>
+      <a href="#course" data-lang="en">Course</a>
+      <a href="#diff" data-lang="zh">助理 vs 专员</a>
+      <a href="#diff" data-lang="en">Assistant vs LO</a>
+      <a href="#contact" data-lang="zh">咨询报名</a>
       <a href="#contact" data-lang="en">Contact</a>
     </nav>
     <div class="lang-toggle">
@@ -238,176 +242,190 @@
   </header>
 
   <section class="hero">
-    <h1 data-lang="zh">纽约贷款执照培训 · 考前 + 每年续证</h1>
-    <h1 data-lang="en">NY MLO License Training · Pre-License &amp; Annual CE</h1>
-    <p class="sub" data-lang="zh">法拉盛面授 · Zoom 直播 · 自学视频 — 一条故事讲清楚：如何备考 NMLS SAFE、如何完成每年 Continuing Education。</p>
-    <p class="sub" data-lang="en">Flushing classroom · Zoom live · Self-paced video — Your path to NMLS SAFE exam and annual CE renewal.</p>
+    <h1 data-lang="zh">贷款助理线上培训 · 一门课</h1>
+    <h1 data-lang="en">Loan Assistant Training · One Course, Online</h1>
+    <p class="sub" data-lang="zh">
+      培养抵押贷款团队的<strong>贷款助理</strong>（Loan Assistant）——协助处理申请、文档与客户沟通。
+      <strong>不是</strong>执照经纪人（MLO）培训；<strong>不含</strong>地产执照课程。
+    </p>
+    <p class="sub" data-lang="en">
+      Train for a <strong>Loan Assistant</strong> role — applications, documents, client coordination.
+      <strong>Not</strong> licensed Loan Officer (MLO) education. <strong>No</strong> real estate courses.
+    </p>
     <div class="hero-badges">
-      <span class="badge" data-lang="zh">20 小时 SAFE 考前培训</span>
-      <span class="badge" data-lang="en">20-Hour SAFE Pre-License</span>
-      <span class="badge" data-lang="zh">NMLS 年度 CE 续证</span>
-      <span class="badge" data-lang="en">NMLS Annual CE</span>
-      <span class="badge" data-lang="zh">中英双语辅导</span>
-      <span class="badge" data-lang="en">Bilingual Support</span>
+      <span class="badge" data-lang="zh">100% 线上</span>
+      <span class="badge" data-lang="en">100% Online</span>
+      <span class="badge" data-lang="zh">视频 + Zoom 答疑</span>
+      <span class="badge" data-lang="en">Video + Zoom Q&amp;A</span>
+      <span class="badge" data-lang="zh">中英双语</span>
+      <span class="badge" data-lang="en">Bilingual</span>
     </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#contact" data-lang="zh">预约试听 / 咨询</a>
-      <a class="btn btn-primary" href="#contact" data-lang="en">Book a Consultation</a>
-      <a class="btn btn-outline" href="#courses" data-lang="zh">查看课程</a>
-      <a class="btn btn-outline" href="#courses" data-lang="en">View Courses</a>
+    <a class="btn btn-primary" href="#contact" data-lang="zh">咨询报名</a>
+    <a class="btn btn-primary" href="#contact" data-lang="en">Inquire / Enroll</a>
+    <a class="btn btn-outline" href="#course" data-lang="zh">查看课程大纲</a>
+    <a class="btn btn-outline" href="#course" data-lang="en">View Syllabus</a>
+  </section>
+
+  <section class="section" id="course">
+    <h2 data-lang="zh">唯一课程：贷款助理实务培训</h2>
+    <h2 data-lang="en">Our Only Course: Loan Assistant Skills</h2>
+    <p class="lead" data-lang="zh">现阶段仅开设此一门课。全部线上授课，暂无线下教室（降低开办成本）。</p>
+    <p class="lead" data-lang="en">One course only. Fully online for now — no rented classroom.</p>
+
+    <div class="notice">
+      <strong data-lang="zh">重要说明</strong>
+      <strong data-lang="en">Important</strong>
+      <span data-lang="zh">教「贷款专员 / 持牌 MLO」需教育机构另行取得执照。本培训<strong>不申请</strong>该执照，因此<strong>不提供</strong> NMLS 20 小时考前课、续证 CE 或国考辅导。</span>
+      <span data-lang="en">Teaching licensed Loan Officers requires a separate school license. We do <strong>not</strong> hold that license — no NMLS pre-license, CE renewal, or SAFE exam prep.</span>
+    </div>
+
+    <div class="course-box">
+      <span class="tag">ONLINE ONLY</span>
+      <h3 data-lang="zh">贷款助理上岗实务（线上班）</h3>
+      <h3 data-lang="en">Loan Assistant Onboarding (Online)</h3>
+      <p data-lang="zh" style="color:var(--muted);margin:0 0 8px;">
+        适合：想进入房贷公司做助理、行政支持、客户跟进岗位的学员；由持牌经纪人团队雇佣后配合使用。
+      </p>
+      <p data-lang="en" style="color:var(--muted);margin:0 0 8px;">
+        For candidates seeking assistant / processor support roles at mortgage shops — not for obtaining an MLO license.
+      </p>
+      <ul class="modules">
+        <li data-lang="zh"><b>模块 1</b> — 房贷流程概览：从咨询到结案各阶段</li>
+        <li data-lang="en"><b>Module 1</b> — Mortgage workflow overview</li>
+        <li data-lang="zh"><b>模块 2</b> — 客户资料清单与收档（1003、收入、资产、信用）</li>
+        <li data-lang="en"><b>Module 2</b> — Document checklists &amp; file intake</li>
+        <li data-lang="zh"><b>模块 3</b> — 与借款人、经纪人、银行的沟通话术（中英）</li>
+        <li data-lang="en"><b>Module 3</b> — Client &amp; lender communication (EN/ZH)</li>
+        <li data-lang="zh"><b>模块 4</b> — 合规意识：隐私、广告用语、不可承诺批复</li>
+        <li data-lang="en"><b>Module 4</b> — Compliance basics &amp; what not to promise</li>
+        <li data-lang="zh"><b>模块 5</b> — 常见系统入门（LOS 概念、任务跟进、截止日期）</li>
+        <li data-lang="en"><b>Module 5</b> — LOS basics, tasks &amp; deadlines</li>
+        <li data-lang="zh"><b>模块 6</b> — 结业：模拟案例 + Zoom 答疑</li>
+        <li data-lang="en"><b>Module 6</b> — Capstone case study + Zoom review</li>
+      </ul>
+      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="zh">授课形式：录播视频 + 定期 Zoom 直播答疑 · 学费待定</p>
+      <p style="margin-top:20px;font-size:15px;color:var(--navy);font-weight:600;" data-lang="en">Format: recorded lessons + scheduled Zoom Q&amp;A · pricing TBD</p>
     </div>
   </section>
 
-  <div class="tabs" id="course-tabs">
-    <div class="tab active" data-tab="pre" data-lang="zh">考前培训</div>
-    <div class="tab active" data-tab="pre" data-lang="en">Pre-License</div>
-    <div class="tab" data-tab="ce" data-lang="zh">续证 CE</div>
-    <div class="tab" data-tab="ce" data-lang="en">CE Renewal</div>
-    <div class="tab" data-tab="exam" data-lang="zh">刷题辅导</div>
-    <div class="tab" data-tab="exam" data-lang="en">Exam Prep</div>
-  </div>
-
-  <section class="section" id="courses">
-    <h2 data-lang="zh">课程体系</h2>
-    <h2 data-lang="en">Course Catalog</h2>
-    <p class="lead" data-lang="zh">参考纽约主流驾校模式（REEDC / iTraining / Mortgage Educators）：考前、续证、刷题分线清晰，每次只推进一个目标。</p>
-    <p class="lead" data-lang="en">Modeled after leading NY providers — clear paths for pre-license, renewal, and exam prep.</p>
-
-    <div class="cards">
-      <article class="card" data-course="pre">
-        <span class="tag tag-pre">Pre-License</span>
-        <h3 data-lang="zh">20 小时 SAFE 考前培训（纽约州）</h3>
-        <h3 data-lang="en">20-Hour SAFE Pre-Licensing (NY)</h3>
-        <p data-lang="zh">满足 NMLS 全国 + 纽约州州级课时要求。适合首次申请 MLO 执照学员。</p>
-        <p data-lang="en">Meets NMLS national + NY state pre-education requirements for first-time licensees.</p>
+  <section class="section" id="diff" style="background:var(--bg-alt);">
+    <h2 data-lang="zh">贷款助理 ≠ 贷款专员（执照经纪人）</h2>
+    <h2 data-lang="en">Loan Assistant ≠ Licensed Loan Officer</h2>
+    <p class="lead" data-lang="zh">与 REEDC / iTraining 等「考执照学校」不同，我们的定位是岗位技能培训。</p>
+    <p class="lead" data-lang="en">Unlike REEDC / iTraining license schools — we train for a support role, not the MLO exam.</p>
+    <div class="compare">
+      <div class="compare-col compare-yes">
+        <h4 data-lang="zh">本课程培养</h4>
+        <h4 data-lang="en">This course trains</h4>
         <ul>
-          <li data-lang="zh">面授 / Zoom 直播 / 视频自学</li>
-          <li data-lang="en">In-person / Zoom live / self-paced video</li>
-          <li data-lang="zh">滚动开班，小班答疑</li>
-          <li data-lang="en">Rolling schedule, small-group Q&amp;A</li>
+          <li data-lang="zh">贷款助理 / 行政支持</li>
+          <li data-lang="en">Loan assistant / admin support</li>
+          <li data-lang="zh">文档整理与客户跟进</li>
+          <li data-lang="en">Docs &amp; client follow-up</li>
+          <li data-lang="zh">在持牌经纪人指导下工作</li>
+          <li data-lang="en">Work under licensed LO supervision</li>
         </ul>
-        <div class="price" data-lang="zh">询价 <small>（课表待定）</small></div>
-        <div class="price" data-lang="en">Contact <small>for schedule &amp; pricing</small></div>
-      </article>
-
-      <article class="card" data-course="ce">
-        <span class="tag tag-ce">Continuing Ed</span>
-        <h3 data-lang="zh">NMLS 年度 Continuing Education</h3>
-        <h3 data-lang="en">NMLS Annual Continuing Education</h3>
-        <p data-lang="zh">已持证 MLO 每年必修 CE，含联邦 + 纽约州选修。避免执照过期。</p>
-        <p data-lang="en">Required annual CE for licensed MLOs — federal + NY state electives.</p>
+      </div>
+      <div class="compare-col compare-no">
+        <h4 data-lang="zh">本课程不提供</h4>
+        <h4 data-lang="en">Not offered here</h4>
         <ul>
-          <li data-lang="zh">8 小时 CE 套餐（结构同 MEC Late CE）</li>
-          <li data-lang="en">8-hour CE bundles (federal + state)</li>
-          <li data-lang="zh">网课完成，进度可追踪</li>
-          <li data-lang="en">Online completion with progress tracking</li>
+          <li data-lang="zh">NMLS / SAFE 执照考试培训</li>
+          <li data-lang="en">NMLS / SAFE license exam prep</li>
+          <li data-lang="zh">年度 CE 续证课时</li>
+          <li data-lang="en">Annual CE renewal credits</li>
+          <li data-lang="zh">地产经纪执照课程</li>
+          <li data-lang="en">Real estate license courses</li>
+          <li data-lang="zh">线下教室面授（暂无）</li>
+          <li data-lang="en">In-person classroom (not yet)</li>
         </ul>
-        <div class="price" data-lang="zh">询价 <small>（含晚交 CE 加急班）</small></div>
-        <div class="price" data-lang="en">Contact <small>incl. late CE options</small></div>
-      </article>
-
-      <article class="card" data-course="exam">
-        <span class="tag tag-exam">Exam Prep</span>
-        <h3 data-lang="zh">SAFE 国考刷题 + 模拟</h3>
-        <h3 data-lang="en">SAFE National Exam Prep</h3>
-        <p data-lang="zh">仿 iTraining 模式：500+ 练习题、错题讲解、考前冲刺。</p>
-        <p data-lang="en">500+ practice questions, review sessions, and exam-day strategy.</p>
-        <ul>
-          <li data-lang="zh">中英双语题解</li>
-          <li data-lang="en">Bilingual explanations</li>
-          <li data-lang="zh">可与考前班打包</li>
-          <li data-lang="en">Bundle with pre-license course</li>
-        </ul>
-        <div class="price" data-lang="zh">询价</div>
-        <div class="price" data-lang="en">Contact us</div>
-      </article>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="why" style="background:var(--bg-alt);">
-    <h2 data-lang="zh">为什么选择我们</h2>
-    <h2 data-lang="en">Why Train Here</h2>
+  <section class="section" id="why">
+    <h2 data-lang="zh">为什么先做线上</h2>
+    <h2 data-lang="en">Why Online First</h2>
     <div class="features">
       <div class="feat">
-        <div class="icon">📍</div>
-        <h4 data-lang="zh">法拉盛实体 + 线上</h4>
-        <h4 data-lang="en">Flushing + Online</h4>
-        <p data-lang="zh">近 7 号线，方便纽约华人学员</p>
-        <p data-lang="en">Near 7 train, convenient for NYC students</p>
+        <div class="icon">💻</div>
+        <h4 data-lang="zh">零教室租金</h4>
+        <h4 data-lang="en">No rent</h4>
+        <p data-lang="zh">法拉盛租教室成本高，线上先验证招生</p>
+        <p data-lang="en">Avoid upfront classroom overhead</p>
       </div>
       <div class="feat">
-        <div class="icon">🎓</div>
-        <h4 data-lang="zh">资深讲师</h4>
-        <h4 data-lang="en">Experienced Instructors</h4>
-        <p data-lang="zh">熟悉 REEDC / 行业实务背景</p>
-        <p data-lang="en">Industry-experienced educators</p>
+        <div class="icon">🕐</div>
+        <h4 data-lang="zh">灵活学习</h4>
+        <h4 data-lang="en">Flexible</h4>
+        <p data-lang="zh">在职学员可晚间看录播</p>
+        <p data-lang="en">Evening-friendly recorded lessons</p>
       </div>
       <div class="feat">
-        <div class="icon">📋</div>
-        <h4 data-lang="zh">一条故事走到底</h4>
-        <h4 data-lang="en">One Clear Path</h4>
-        <p data-lang="zh">考前 → 国考 → 持证 → 每年 CE</p>
-        <p data-lang="en">Pre-license → exam → license → annual CE</p>
+        <div class="icon">🎯</div>
+        <h4 data-lang="zh">一门课聚焦</h4>
+        <h4 data-lang="en">One focus</h4>
+        <p data-lang="zh">只讲助理上岗，不分散战线</p>
+        <p data-lang="en">Single clear career path</p>
       </div>
       <div class="feat">
         <div class="icon">💬</div>
-        <h4 data-lang="zh">微信 / 电话答疑</h4>
-        <h4 data-lang="en">WeChat &amp; Phone Support</h4>
-        <p data-lang="zh">报名、选课、续证提醒</p>
-        <p data-lang="en">Enrollment &amp; renewal reminders</p>
+        <h4 data-lang="zh">微信 + Zoom</h4>
+        <h4 data-lang="en">WeChat + Zoom</h4>
+        <p data-lang="zh">报名与答疑全线上完成</p>
+        <p data-lang="en">Enrollment &amp; support online</p>
       </div>
     </div>
   </section>
 
   <section class="section" id="contact">
-    <h2 data-lang="zh">报名咨询</h2>
-    <h2 data-lang="en">Contact &amp; Enrollment</h2>
-    <p class="lead" data-lang="zh">以下信息为占位，客户确认后将更新为正式校名、地址与 NMLS Provider ID。</p>
-    <p class="lead" data-lang="en">Placeholder info — will update with official school name, address, and NMLS Provider ID.</p>
+    <h2 data-lang="zh">咨询报名（线上）</h2>
+    <h2 data-lang="en">Contact (Online Only)</h2>
     <div class="contact-grid">
       <div class="contact-box">
-        <strong data-lang="zh">校区地址</strong>
-        <strong data-lang="en">Campus</strong>
-        <span data-lang="zh">法拉盛, NY 11355 一带（具体门牌待定）</span>
-        <span data-lang="en">Flushing, NY 11355 area (exact address TBD)</span>
-      </div>
-      <div class="contact-box">
-        <strong data-lang="zh">营业时间</strong>
-        <strong data-lang="en">Hours</strong>
-        <span data-lang="zh">周一至周五 11:00 – 17:30</span>
-        <span data-lang="en">Mon – Fri 11:00 AM – 5:30 PM</span>
-      </div>
-      <div class="contact-box">
-        <strong data-lang="zh">电话 / 短信</strong>
-        <strong data-lang="en">Phone / Text</strong>
-        <span data-lang="zh">（待客户提供）</span>
-        <span data-lang="en">(To be provided)</span>
+        <strong data-lang="zh">授课方式</strong>
+        <strong data-lang="en">Delivery</strong>
+        <span data-lang="zh">录播视频 + Zoom 答疑（暂无线下课）</span>
+        <span data-lang="en">Recorded video + Zoom Q&amp;A — no in-person class</span>
       </div>
       <div class="contact-box">
         <strong data-lang="zh">微信</strong>
         <strong data-lang="en">WeChat</strong>
-        <span data-lang="zh">（待客户提供）</span>
-        <span data-lang="en">(To be provided)</span>
+        <span data-lang="zh">（待填写）</span>
+        <span data-lang="en">(TBD)</span>
+      </div>
+      <div class="contact-box">
+        <strong data-lang="zh">电话 / 短信</strong>
+        <strong data-lang="en">Phone / Text</strong>
+        <span data-lang="zh">（待填写）</span>
+        <span data-lang="en">(TBD)</span>
       </div>
       <div class="contact-box">
         <strong>Email</strong>
         <a href="mailto:contact@insynbio.com">contact@insynbio.com</a>
-        <span data-lang="zh">（临时咨询入口）</span>
-        <span data-lang="en">(temporary inquiry)</span>
+        <span data-lang="zh">（临时咨询）</span>
+        <span data-lang="en">(temp inquiry)</span>
       </div>
     </div>
   </section>
 
   <div class="disclaimer">
     <div class="W">
-      <p data-lang="zh"><strong>免责声明：</strong>本页为培训学校预览站，不提供房dai / 抵押dai款经纪服务。课程内容以 NMLS 与纽约州当期规定为准。通过率等数据需校方提供书面授权后方可展示。本页不构成法律或财务建议。</p>
-      <p data-lang="en"><strong>Disclaimer:</strong> This is a school preview site, not a lending brokerage. Courses align with current NMLS and NY DFS requirements. Pass-rate claims require verified school authorization. Not legal or financial advice.</p>
+      <p data-lang="zh">
+        <strong>免责声明：</strong>本机构为技能培训预览站，<strong>非</strong> NMLS 批准的教育提供商，<strong>不</strong>颁发贷款经纪人执照或地产执照。
+        本课程不保证就业或批复结果。涉及房dai / 抵押dai 的执业资格须通过持牌机构与官方考试另行取得。
+        本页不构成法律、财务或执业建议。
+      </p>
+      <p data-lang="en">
+        <strong>Disclaimer:</strong> Skills-training preview only — <strong>not</strong> an NMLS-approved education provider.
+        Does not issue MLO or real estate licenses. No employment or loan-approval guarantees. Not legal or financial advice.
+      </p>
     </div>
   </div>
 
   <footer>
-    <span data-lang="zh">© 2026 Flushing MLO School（预览）· 临时托管</span>
-    <span data-lang="en">© 2026 Flushing MLO School (Preview) · Temporarily hosted on</span>
+    <span data-lang="zh">© 2026 贷款助理线上培训（预览）·</span>
+    <span data-lang="en">© 2026 Loan Assistant Training (Preview) ·</span>
     <a href="https://www.therasik.com/">Therasik.com</a>
   </footer>
 
@@ -423,19 +441,6 @@
       document.getElementById('btn-en').classList.add('active');
       document.getElementById('btn-zh').classList.remove('active');
     };
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const t = tab.dataset.tab;
-        document.querySelectorAll('.tab').forEach(x => {
-          if (x.dataset.tab === t) x.classList.add('active');
-          else x.classList.remove('active');
-        });
-        document.querySelectorAll('.card').forEach(card => {
-          card.style.outline = card.dataset.course === t ? '2px solid var(--blue)' : '';
-        });
-        document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-      });
-    });
   </script>
 </body>
 </html>
