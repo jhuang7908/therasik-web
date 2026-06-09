@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loaneers · 纽约贷款助理线上培训</title>
-  <meta name="description" content="Loaneers — Christina Lu 创办：布法罗大学经济学硕士、持牌贷款经纪人、贷款公司合伙人，十余年实务亲授贷款助理培训。">
-  <meta property="og:title" content="Loaneers · Christina Lu">
-  <meta property="og:description" content="Loaneers.com — Founded by Christina Lu. MA Economics (UB), licensed MLO &amp; mortgage company partner. Online loan assistant training.">
+  <title>Loaneers · Online Loan Assistant Training</title>
+  <meta name="description" content="Loaneers — online loan assistant training led by experienced industry faculty. Job-skills program for mortgage teams in Greater NYC.">
+  <meta property="og:title" content="Loaneers · Loan Assistant Training">
+  <meta property="og:description" content="Online loan assistant training with licensed industry instructors. Greater NYC.">
   <link rel="canonical" href="https://loaneers.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #0c2340;
@@ -34,7 +34,7 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
       font-size: 15px;
       line-height: 1.65;
       color: var(--text);
@@ -44,1004 +44,312 @@
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; }
 
-    /* ── Header ── */
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
+      position: sticky; top: 0; z-index: 200;
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
     }
     .header-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 28px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      max-width: var(--max); margin: 0 auto; padding: 0 28px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
     .logo-mark {
-      width: 42px;
-      height: 42px;
-      background: var(--navy);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 42px; height: 42px; background: var(--navy); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px; font-weight: 700; color: var(--gold);
       box-shadow: 0 4px 12px rgba(12,35,64,0.25);
     }
-    .logo-mark svg { width: 24px; height: 24px; }
     .logo-text { line-height: 1.2; }
     .logo-text .name {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -0.02em;
+      font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: -0.02em;
     }
     .logo-text .name span { color: var(--gold); }
     .logo-text .sub {
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-size: 11px; color: var(--muted); font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .nav { display: flex; align-items: center; gap: 4px; }
     .nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: color 0.2s, background 0.2s;
+      text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 600;
+      padding: 8px 14px; border-radius: 8px; transition: color 0.2s, background 0.2s;
     }
     .nav a:hover { color: var(--navy); background: var(--cream); }
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .lang-toggle {
-      display: flex;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .lang-toggle button {
-      border: none;
-      background: transparent;
-      padding: 7px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--muted);
-      font-family: inherit;
-      transition: all 0.2s;
-    }
-    .lang-toggle button.active {
-      background: var(--navy);
-      color: #fff;
-    }
     .btn-nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 18px;
-      border-radius: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 14px rgba(201,162,39,0.35);
-      white-space: nowrap;
+      display: inline-flex; align-items: center; background: var(--gold); color: var(--navy);
+      text-decoration: none; font-size: 13px; font-weight: 700; padding: 10px 18px;
+      border-radius: 8px; box-shadow: 0 4px 14px rgba(201,162,39,0.35); white-space: nowrap;
+      transition: transform 0.2s;
     }
-    .btn-nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(201,162,39,0.45);
-    }
+    .btn-nav-cta:hover { transform: translateY(-1px); }
     .menu-btn {
-      display: none;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px;
-      cursor: pointer;
-      color: var(--navy);
+      display: none; background: none; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px; cursor: pointer; color: var(--navy);
     }
 
-    /* ── Hero ── */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-      color: #fff;
-    }
+    .hero { position: relative; overflow: hidden; background: var(--navy); color: #fff; }
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,162,39,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(59,130,246,0.10) 0%, transparent 50%),
         linear-gradient(160deg, #0c2340 0%, #163a5f 55%, #1e4976 100%);
     }
     .hero-pattern {
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
     }
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 72px 28px 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
+      position: relative; z-index: 1; max-width: var(--max); margin: 0 auto;
+      padding: 72px 28px 80px; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
     }
     .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      color: var(--gold-light);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px; color: var(--gold-light);
     }
-    .hero-eyebrow::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
     .hero h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 700;
-      line-height: 1.1;
-      margin: 0 0 20px;
-      letter-spacing: -0.03em;
+      font-size: clamp(36px, 5vw, 52px); font-weight: 700; line-height: 1.1;
+      margin: 0 0 20px; letter-spacing: -0.03em;
     }
-    .hero-desc {
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.82);
-      margin: 0 0 32px;
-      max-width: 480px;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 36px;
-    }
+    .hero-desc { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.82); margin: 0 0 32px; max-width: 480px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      box-shadow: 0 6px 24px rgba(201,162,39,0.40);
-      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy);
+      text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 28px;
+      border-radius: 10px; box-shadow: 0 6px 24px rgba(201,162,39,0.40); transition: transform 0.2s;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(201,162,39,0.50);
-    }
+    .btn-primary:hover { transform: translateY(-2px); }
     .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 14px 24px;
-      border-radius: 10px;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      transition: background 0.2s, border-color 0.2s;
+      display: inline-flex; align-items: center; background: transparent; color: #fff;
+      text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px;
+      border-radius: 10px; border: 1.5px solid rgba(255,255,255,0.35); transition: background 0.2s;
     }
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.55);
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
     .hero-tag {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      font-weight: 500;
+      display: flex; align-items: center; gap: 7px; font-size: 13px;
+      color: rgba(255,255,255,0.75); font-weight: 500;
     }
     .hero-tag svg { width: 16px; height: 16px; opacity: 0.7; flex-shrink: 0; }
-    .hero-visual {
-      position: relative;
-    }
     .hero-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 32px;
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow-lg);
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 32px; backdrop-filter: blur(8px); box-shadow: var(--shadow-lg);
     }
     .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.10);
     }
-    .hero-card-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .hero-card-badge {
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-    }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .hero-stat {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 18px 16px;
-      text-align: center;
-    }
-    .hero-stat .num {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .hero-stat .lbl {
-      font-size: 12px;
-      color: rgba(255,255,255,0.65);
-      font-weight: 500;
-    }
-    .hero-card-modules {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .hero-module-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.80);
-    }
+    .hero-card-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); }
+    .hero-card-badge { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 4px; }
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .hero-stat { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 18px 16px; text-align: center; }
+    .hero-stat .num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.65); }
+    .hero-module-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.80); margin-top: 8px; }
     .hero-module-row .dot {
-      width: 28px;
-      height: 28px;
-      background: rgba(201,162,39,0.20);
-      border: 1px solid rgba(201,162,39,0.40);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold-light);
-      flex-shrink: 0;
+      width: 28px; height: 28px; background: rgba(201,162,39,0.20); border: 1px solid rgba(201,162,39,0.40);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--gold-light); flex-shrink: 0;
     }
 
-    /* ── Trust bar ── */
-    .trust-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-    }
-    .trust-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .trust-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
+    .trust-bar { background: var(--white); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .trust-inner { max-width: var(--max); margin: 0 auto; padding: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .trust-item { display: flex; align-items: flex-start; gap: 14px; }
     .trust-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--navy);
+      width: 44px; height: 44px; background: var(--cream); border: 1px solid var(--border);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--navy); flex-shrink: 0;
     }
     .trust-icon svg { width: 22px; height: 22px; }
-    .trust-item h4 {
-      margin: 0 0 3px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .trust-item p {
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .trust-item h4 { margin: 0 0 3px; font-size: 14px; font-weight: 700; color: var(--navy); }
+    .trust-item p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
 
-    /* ── Sections ── */
-    .section {
-      padding: 80px 28px;
-    }
-    .section-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 52px;
-    }
-    .section-eyebrow {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
+    .section { padding: 80px 28px; }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+    .section-eyebrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
     .section-header h2 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 700;
-      color: var(--navy);
-      margin: 0 0 14px;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--navy);
+      margin: 0 0 14px; letter-spacing: -0.02em; line-height: 1.15;
     }
-    .section-header p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-    }
+    .section-header p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
     .section-alt { background: var(--white); }
     .section-cream { background: var(--cream); }
 
-    /* ── Course card ── */
     .course-layout {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: 300px 1fr; gap: 0;
+      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--border);
     }
-    .course-sidebar {
-      background: var(--navy);
-      color: #fff;
-      padding: 36px 28px;
-    }
-    .course-sidebar .label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-    .course-sidebar h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 26px;
-      font-weight: 700;
-      margin: 0 0 20px;
-      line-height: 1.2;
-    }
-    .course-meta {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .course-meta li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-    }
+    .course-sidebar { background: var(--navy); color: #fff; padding: 36px 28px; }
+    .course-sidebar .label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .course-sidebar h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 700; margin: 0 0 20px; }
+    .course-meta { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .course-meta li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.75); }
     .course-meta li svg { width: 16px; height: 16px; color: var(--gold-light); flex-shrink: 0; }
-    .course-sidebar-cta {
-      display: block;
-      text-align: center;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      transition: opacity 0.2s;
-    }
-    .course-sidebar-cta:hover { opacity: 0.9; }
-    .course-main {
-      background: var(--white);
-      padding: 36px 40px;
-    }
+    .course-main { background: var(--white); padding: 36px 40px; }
     .scope-banner {
-      background: var(--success-bg);
-      border-left: 4px solid var(--success);
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-size: 14px;
-      color: #2d5a4a;
-      margin-bottom: 32px;
-      line-height: 1.6;
+      background: var(--success-bg); border-left: 4px solid var(--success);
+      padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: 14px; color: #2d5a4a; margin-bottom: 32px; line-height: 1.6;
     }
-    .module-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .module-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      transition: box-shadow 0.2s, border-color 0.2s;
-      background: var(--cream);
-    }
-    .module-card:hover {
-      box-shadow: var(--shadow-sm);
-      border-color: rgba(201,162,39,0.40);
-    }
+    .module-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .module-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; background: var(--cream); transition: box-shadow 0.2s; }
+    .module-card:hover { box-shadow: var(--shadow-sm); border-color: rgba(201,162,39,0.40); }
     .module-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: var(--navy);
-      color: var(--gold-light);
-      font-size: 13px;
-      font-weight: 800;
-      border-radius: 8px;
-      margin-bottom: 10px;
+      display: inline-flex; width: 32px; height: 32px; background: var(--navy); color: var(--gold-light);
+      font-size: 13px; font-weight: 800; border-radius: 8px; align-items: center; justify-content: center; margin-bottom: 10px;
     }
-    .module-card h4 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .module-card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
+    .module-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--navy); }
+    .module-card p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.55; }
 
-    /* ── Audience ── */
-    .audience-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .audience-card {
-      border-radius: 16px;
-      padding: 36px;
-      border: 1px solid var(--border);
-    }
-    .audience-card.yes {
-      background: var(--white);
-      box-shadow: var(--shadow-md);
-      border-top: 4px solid var(--success);
-    }
-    .audience-card.no {
-      background: transparent;
-      border-style: dashed;
-    }
-    .audience-card .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-    .audience-card.yes .card-icon { background: var(--success-bg); color: var(--success); }
-    .audience-card.no .card-icon { background: #f1f3f5; color: var(--muted); }
-    .audience-card h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 0 0 16px;
-    }
-    .audience-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .audience-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .audience-list li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
-    .audience-card.yes .audience-list li svg { color: var(--success); }
-    .audience-card.no .audience-list li svg { color: #adb5bd; }
-
-    /* ── Features ── */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .feature-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 22px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .feature-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      color: var(--gold-light);
-    }
-    .feature-icon svg { width: 26px; height: 26px; }
-    .feature-card h4 {
-      margin: 0 0 8px;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .feature-card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ── Process ── */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
-    }
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 12.5%;
-      right: 12.5%;
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
-    }
-    .process-step {
-      text-align: center;
-      padding: 0 16px;
-      position: relative;
-      z-index: 1;
-    }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .process-steps::before { content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 2px; background: var(--border); z-index: 0; }
+    .process-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
     .step-circle {
-      width: 56px;
-      height: 56px;
-      background: var(--white);
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-      box-shadow: var(--shadow-sm);
+      width: 56px; height: 56px; background: var(--white); border: 2px solid var(--gold);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px; font-weight: 700; color: var(--navy); box-shadow: var(--shadow-sm);
     }
-    .process-step h4 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .process-step p {
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .process-step h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--navy); }
+    .process-step p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
 
-    /* ── FAQ ── */
-    .faq-list {
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 18px 22px;
-      text-align: left;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--navy);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .faq-q svg { width: 18px; height: 18px; color: var(--muted); flex-shrink: 0; transition: transform 0.25s; }
-    .faq-item.open .faq-q svg { transform: rotate(180deg); }
-    .faq-a {
-      display: none;
-      padding: 0 22px 18px;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .faq-item.open .faq-a { display: block; }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--navy);
-      color: #fff;
-      padding: 80px 28px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(201,162,39,0.15) 0%, transparent 70%);
-    }
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .cta-inner h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 700;
-      margin: 0 0 14px;
-      letter-spacing: -0.02em;
-    }
-    .cta-inner p {
-      margin: 0 0 32px;
-      color: rgba(255,255,255,0.75);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-    .btn-cta-large {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 16px 36px;
-      border-radius: 10px;
-      box-shadow: 0 8px 32px rgba(201,162,39,0.40);
-      transition: transform 0.2s;
-    }
-    .btn-cta-large:hover { transform: translateY(-2px); }
-    .cta-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-    }
-
-    /* ── Disclaimer & Footer ── */
-    .disclaimer {
-      background: #f1f0ec;
-      border-top: 1px solid var(--border);
-      padding: 28px;
-    }
-    .disclaimer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-    .site-footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.55);
-      padding: 40px 28px 28px;
-    }
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 24px;
-    }
-    .footer-brand .logo-text .name { color: #fff; }
-    .footer-brand .logo-text .sub { color: rgba(255,255,255,0.40); }
-    .footer-brand p {
-      margin: 16px 0 0;
-      font-size: 13px;
-      line-height: 1.6;
-      max-width: 280px;
-    }
-    .footer-col h5 {
-      margin: 0 0 14px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .footer-col a, .footer-col p {
-      display: block;
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-    .footer-col a:hover { color: #fff; }
-    .footer-bottom {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    /* ── Instructor ── */
     .instructor-card {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 48px;
-      align-items: center;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 44px;
-      box-shadow: var(--shadow-md);
+      display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center;
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+      padding: 44px; box-shadow: var(--shadow-md);
     }
-    .instructor-photo {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      background: var(--navy);
-      box-shadow: var(--shadow-md);
-    }
-    .instructor-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
+    .instructor-photo { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; background: var(--navy); }
+    .instructor-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .instructor-photo .badge-lic {
-      position: absolute;
-      left: 16px;
-      bottom: 16px;
-      z-index: 2;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 4px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: absolute; left: 16px; bottom: 16px; z-index: 2;
+      background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px;
     }
     .instructor-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(12,35,64,0.35) 0%, transparent 45%);
-      pointer-events: none;
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,35,64,0.35) 0%, transparent 45%); pointer-events: none;
     }
     .instructor-content h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 0 0 6px;
-      letter-spacing: -0.02em;
+      font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 700;
+      color: var(--navy); margin: 0 0 6px; letter-spacing: -0.02em;
     }
-    .instructor-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gold);
-      margin-bottom: 18px;
-      letter-spacing: 0.02em;
-    }
-    .instructor-bio {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin: 0 0 24px;
-    }
-    .credential-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+    .instructor-title { font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 18px; }
+    .instructor-bio { font-size: 15px; color: var(--muted); line-height: 1.75; margin: 0 0 24px; }
+    .credential-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .credential-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.45;
+      display: flex; align-items: flex-start; gap: 10px; background: var(--cream);
+      border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 13px; line-height: 1.45;
     }
     .credential-item svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
     .credential-item strong { display: block; color: var(--navy); font-size: 14px; margin-bottom: 2px; }
     .about-note {
-      margin-top: 28px;
-      padding: 16px 20px;
-      background: var(--success-bg);
-      border-radius: 10px;
-      font-size: 13px;
-      color: #2d5a4a;
-      line-height: 1.65;
-      border-left: 4px solid var(--success);
+      margin-top: 28px; padding: 16px 20px; background: var(--success-bg); border-radius: 10px;
+      font-size: 13px; color: #2d5a4a; line-height: 1.65; border-left: 4px solid var(--success);
     }
 
-    /* ── Lang toggle ── */
-    [data-lang="en"] { display: none; }
-    body.en [data-lang="zh"] { display: none; }
-    body.en [data-lang="en"] { display: revert; }
-    body.en .nav [data-lang="en"] { display: inline; }
-    body.en .hero-tags [data-lang="en"] { display: flex; }
-    body.en .hero-tags [data-lang="zh"] { display: none; }
-    .hero-tags [data-lang="en"] { display: none; }
-    .hero-tags [data-lang="zh"] { display: flex; }
-    body.en .course-meta [data-lang="en"] { display: flex; }
-    body.en .course-meta [data-lang="zh"] { display: none; }
-    .course-meta [data-lang="en"] { display: none; }
-    .course-meta [data-lang="zh"] { display: flex; }
+    .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .audience-card { border-radius: 16px; padding: 36px; border: 1px solid var(--border); }
+    .audience-card.yes { background: var(--white); box-shadow: var(--shadow-md); border-top: 4px solid var(--success); }
+    .audience-card.no { background: transparent; border-style: dashed; }
+    .audience-card .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .audience-card.yes .card-icon { background: var(--success-bg); color: var(--success); }
+    .audience-card.no .card-icon { background: #f1f3f5; color: var(--muted); }
+    .audience-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 700; color: var(--navy); margin: 0 0 16px; }
+    .audience-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .audience-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .audience-list li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+    .audience-card.yes .audience-list li svg { color: var(--success); }
+    .audience-card.no .audience-list li svg { color: #adb5bd; }
 
-    /* ── Mobile ── */
+    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .feature-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 22px; text-align: center; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .feature-icon {
+      width: 56px; height: 56px; background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; color: var(--gold-light);
+    }
+    .feature-icon svg { width: 26px; height: 26px; }
+    .feature-card h4 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--navy); }
+    .feature-card p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .faq-q {
+      width: 100%; background: none; border: none; padding: 18px 22px; text-align: left;
+      font-family: inherit; font-size: 15px; font-weight: 600; color: var(--navy); cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq-q svg { width: 18px; height: 18px; color: var(--muted); flex-shrink: 0; transition: transform 0.25s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 22px 18px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+
+    .cta-section {
+      background: var(--navy); color: #fff; padding: 80px 28px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(201,162,39,0.15) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta-inner h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 4vw, 38px); font-weight: 700; margin: 0 0 14px;
+    }
+    .cta-inner p { margin: 0 0 32px; color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; }
+
+    .disclaimer { background: #f1f0ec; border-top: 1px solid var(--border); padding: 28px; }
+    .disclaimer-inner { max-width: var(--max); margin: 0 auto; font-size: 12px; color: var(--muted); line-height: 1.75; }
+    .site-footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 40px 28px 28px; }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr;
+      gap: 40px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px;
+    }
+    .footer-brand .logo-text .name { color: #fff; }
+    .footer-brand p { margin: 16px 0 0; font-size: 13px; line-height: 1.6; max-width: 320px; }
+    .footer-col h5 { margin: 0 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--gold-light); }
+    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 8px; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { max-width: var(--max); margin: 0 auto; font-size: 12px; }
+
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 56px 24px 64px; }
       .hero-visual { order: -1; }
       .trust-inner { grid-template-columns: 1fr 1fr; }
       .course-layout { grid-template-columns: 1fr; }
-      .module-grid { grid-template-columns: 1fr; }
-      .audience-grid { grid-template-columns: 1fr; }
+      .module-grid, .audience-grid { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
       .process-steps::before { display: none; }
-      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
-      .instructor-card { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+      .instructor-card { grid-template-columns: 1fr; padding: 28px; }
       .instructor-photo { max-width: 240px; margin: 0 auto; width: 100%; }
       .credential-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .nav, .btn-nav-cta { display: none; }
       .nav.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-bottom: 1px solid var(--border);
-        padding: 16px;
-        box-shadow: var(--shadow-md);
+        display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid var(--border); padding: 16px; box-shadow: var(--shadow-md);
       }
       .menu-btn { display: block; }
       .header-inner { position: relative; }
-      .trust-inner { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
+      .trust-inner, .features-grid, .process-steps { grid-template-columns: 1fr; }
       .course-main { padding: 24px; }
       .section { padding: 56px 20px; }
     }
@@ -1049,36 +357,23 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="#">
-        <div class="logo-mark" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#c9a227;letter-spacing:-0.03em;">Lo</div>
+        <div class="logo-mark">Lo</div>
         <div class="logo-text">
           <div class="name">Loane<span>ers</span></div>
-          <div class="sub" data-lang="zh">贷款助理实务培训 · loaneers.com</div>
-          <div class="sub" data-lang="en">Loan Assistant Training · loaneers.com</div>
+          <div class="sub">Loan Assistant Training · loaneers.com</div>
         </div>
       </a>
       <nav class="nav" id="nav">
-        <a href="#course" data-lang="zh">课程大纲</a>
-        <a href="#course" data-lang="en">Syllabus</a>
-        <a href="#instructor" data-lang="zh">主讲讲师</a>
-        <a href="#instructor" data-lang="en">Instructor</a>
-        <a href="#audience" data-lang="zh">适合谁学</a>
-        <a href="#audience" data-lang="en">Who It's For</a>
-        <a href="#faq" data-lang="zh">常见问题</a>
-        <a href="#faq" data-lang="en">FAQ</a>
-        <a href="#contact" data-lang="zh">报名咨询</a>
-        <a href="#contact" data-lang="en">Enroll</a>
+        <a href="#course">Syllabus</a>
+        <a href="#instructor">Faculty</a>
+        <a href="#audience">Who It's For</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
-        <div class="lang-toggle">
-          <button type="button" id="btn-zh" class="active">中文</button>
-          <button type="button" id="btn-en">EN</button>
-        </div>
-        <a class="btn-nav-cta" href="#contact" data-lang="zh">立即咨询</a>
-        <a class="btn-nav-cta" href="#contact" data-lang="en">Enroll Now</a>
+        <a class="btn-nav-cta" href="#course">View Syllabus</a>
         <button class="menu-btn" id="menu-btn" aria-label="Menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -1088,613 +383,307 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-pattern"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-eyebrow" data-lang="zh">Loaneers · Christina Lu 亲授</div>
-        <div class="hero-eyebrow" data-lang="en">Loaneers · Taught by Christina Lu</div>
-        <h1 data-lang="zh">贷款助理<br>上岗实务培训</h1>
-        <h1 data-lang="en">Loan Assistant<br>Professional Training</h1>
-        <p class="hero-desc" data-lang="zh">
-          由 Christina Lu 创办并亲授——布法罗大学经济学硕士、持牌贷款经纪人、贷款公司合伙人，十余年纽约房贷一线经验。专为贷款助理岗位设计，系统掌握申请流程、资料收档与客户跟进。
-        </p>
-        <p class="hero-desc" data-lang="en">
-          Founded and taught by Christina Lu — MA Economics (University at Buffalo), licensed MLO, and mortgage company partner with 10+ years of NYC experience. Built for loan assistant roles from day one.
+        <div class="hero-eyebrow">Loaneers · Greater NYC</div>
+        <h1>Loan Assistant<br>Professional Training</h1>
+        <p class="hero-desc">
+          Loaneers delivers practical, online training for mortgage team assistant roles — taught by experienced industry faculty with real-world loan operations expertise.
         </p>
         <div class="hero-actions">
-          <a class="btn-primary" href="#contact" data-lang="zh">
-            立即咨询报名
+          <a class="btn-primary" href="#course">
+            View Syllabus
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a class="btn-primary" href="#contact" data-lang="en">
-            Enroll Today
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a class="btn-ghost" href="#course" data-lang="zh">查看课程大纲</a>
-          <a class="btn-ghost" href="#course" data-lang="en">View Syllabus</a>
+          <a class="btn-ghost" href="#instructor">Meet Our Faculty</a>
         </div>
         <div class="hero-tags">
-          <span class="hero-tag" data-lang="zh">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            录播随时回看
-          </span>
-          <span class="hero-tag" data-lang="en">
+          <span class="hero-tag">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             On-demand replay
           </span>
-          <span class="hero-tag" data-lang="zh">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-            Zoom 直播答疑
-          </span>
-          <span class="hero-tag" data-lang="en">
+          <span class="hero-tag">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
             Live Zoom Q&amp;A
           </span>
-          <span class="hero-tag" data-lang="zh">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-            中英双语
-          </span>
-          <span class="hero-tag" data-lang="en">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-            Bilingual EN/ZH
+          <span class="hero-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Industry faculty
           </span>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-card">
           <div class="hero-card-header">
-            <span class="hero-card-title" data-lang="zh">课程概览</span>
-            <span class="hero-card-title" data-lang="en">Program Overview</span>
+            <span class="hero-card-title">Program Overview</span>
             <span class="hero-card-badge">ONLINE</span>
           </div>
           <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="num">6</div>
-              <div class="lbl" data-lang="zh">核心模块</div>
-              <div class="lbl" data-lang="en">Core Modules</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">10+</div>
-              <div class="lbl" data-lang="zh">年实务经验</div>
-              <div class="lbl" data-lang="en">Years Experience</div>
-            </div>
+            <div class="hero-stat"><div class="num">6</div><div class="lbl">Core Modules</div></div>
+            <div class="hero-stat"><div class="num">10+</div><div class="lbl">Yrs Faculty Experience</div></div>
           </div>
-          <div class="hero-card-modules">
-            <div class="hero-module-row"><span class="dot">01</span><span data-lang="zh">房贷全流程实务</span><span data-lang="en">End-to-end mortgage workflow</span></div>
-            <div class="hero-module-row"><span class="dot">02</span><span data-lang="zh">资料收档与文件管理</span><span data-lang="en">Document intake &amp; file management</span></div>
-            <div class="hero-module-row"><span class="dot">03</span><span data-lang="zh">客户沟通与跟进话术</span><span data-lang="en">Client communication skills</span></div>
-            <div class="hero-module-row"><span class="dot">04</span><span data-lang="zh">合规要点与隐私保护</span><span data-lang="en">Compliance &amp; privacy essentials</span></div>
-          </div>
+          <div class="hero-module-row"><span class="dot">01</span>End-to-end mortgage workflow</div>
+          <div class="hero-module-row"><span class="dot">02</span>Document intake &amp; file management</div>
+          <div class="hero-module-row"><span class="dot">03</span>Client communication skills</div>
+          <div class="hero-module-row"><span class="dot">04</span>Compliance &amp; privacy essentials</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Trust bar -->
   <div class="trust-bar">
     <div class="trust-inner">
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <h4 data-lang="zh">持牌讲师亲授</h4>
-          <h4 data-lang="en">Licensed Instructor</h4>
-          <p data-lang="zh">Christina Lu · 合伙人</p>
-          <p data-lang="en">Christina Lu · Partner</p>
-        </div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div><h4>Industry Faculty</h4><p>Licensed professionals on staff</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <div>
-          <h4 data-lang="zh">全程线上学习</h4>
-          <h4 data-lang="en">Fully Online</h4>
-          <p data-lang="zh">手机、平板、电脑均可</p>
-          <p data-lang="en">Any device, anywhere</p>
-        </div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div><h4>Fully Online</h4><p>Any device, anywhere</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div>
-          <h4 data-lang="zh">讲师直播答疑</h4>
-          <h4 data-lang="en">Live Instructor Q&amp;A</h4>
-          <p data-lang="zh">定期 Zoom 互动辅导</p>
-          <p data-lang="en">Regular Zoom sessions</p>
-        </div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h4>Job-Skills Focus</h4><p>Built for assistant roles</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        </div>
-        <div>
-          <h4 data-lang="zh">中英双语教学</h4>
-          <h4 data-lang="en">Bilingual Instruction</h4>
-          <p data-lang="zh">华人学员友好</p>
-          <p data-lang="en">Chinese community friendly</p>
-        </div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><h4>Greater NYC</h4><p>Local market expertise</p></div>
       </div>
     </div>
   </div>
 
-  <!-- Course -->
   <section class="section section-cream" id="course">
     <div class="section-inner">
       <div class="section-header">
-        <div class="section-eyebrow" data-lang="zh">课程体系</div>
-        <div class="section-eyebrow" data-lang="en">Curriculum</div>
-        <h2 data-lang="zh">贷款助理上岗实务班</h2>
-        <h2 data-lang="en">Loan Assistant Onboarding Program</h2>
-        <p data-lang="zh">一门课贯穿助理上岗所需核心技能，6 大模块由浅入深，配合案例演练与讲师答疑。</p>
-        <p data-lang="en">Six progressive modules covering everything you need to start as a loan assistant — plus capstone cases and live review.</p>
+        <div class="section-eyebrow">Curriculum</div>
+        <h2>Loan Assistant Onboarding Program</h2>
+        <p>Six progressive modules covering everything you need to start as a loan assistant — plus capstone cases and live faculty review.</p>
       </div>
       <div class="course-layout">
         <aside class="course-sidebar">
           <div class="label">Featured Course</div>
-          <h3 data-lang="zh">上岗实务班</h3>
-          <h3 data-lang="en">Onboarding Program</h3>
+          <h3>Onboarding Program</h3>
           <ul class="course-meta">
-            <li data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              录播 + 直播答疑
-            </li>
-            <li data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Video + live Q&amp;A
-            </li>
-            <li data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              纽约及周边地区
-            </li>
-            <li data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Greater NYC area
-            </li>
-            <li data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-              6 大实务模块
-            </li>
-            <li data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-              6 practical modules
-            </li>
-            <li data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-              中英双语教材
-            </li>
-            <li data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-              Bilingual materials
-            </li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Video + live Q&amp;A</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Greater NYC area</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>6 practical modules</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Industry-led instruction</li>
           </ul>
-          <a class="course-sidebar-cta" href="#contact" data-lang="zh">咨询开课时间与学费</a>
-          <a class="course-sidebar-cta" href="#contact" data-lang="en">Ask About Schedule &amp; Tuition</a>
         </aside>
         <div class="course-main">
-          <div class="scope-banner" data-lang="zh">
-            本课程为<strong>岗位技能培训</strong>，帮助您在贷款团队担任助理角色。不含贷款经纪人（MLO）执照考试辅导，也不含房地产经纪课程。
-          </div>
-          <div class="scope-banner" data-lang="en">
+          <div class="scope-banner">
             This is a <strong>job-skills program</strong> for assistant roles in mortgage teams. It does not include MLO license exam prep or real estate licensing courses.
           </div>
           <div class="module-grid">
-            <div class="module-card">
-              <div class="module-num">01</div>
-              <h4 data-lang="zh">房贷全流程</h4>
-              <h4 data-lang="en">Mortgage Workflow</h4>
-              <p data-lang="zh">从客户咨询、预批到结案过户的完整流程与各环节职责分工。</p>
-              <p data-lang="en">Full pipeline from inquiry and pre-approval through closing — roles at each stage.</p>
-            </div>
-            <div class="module-card">
-              <div class="module-num">02</div>
-              <h4 data-lang="zh">资料收档清单</h4>
-              <h4 data-lang="en">Document Intake</h4>
-              <p data-lang="zh">申请表、收入证明、资产文件与信用报告的收集、核对与归档规范。</p>
-              <p data-lang="en">Income, asset, credit, and application documents — collection and filing standards.</p>
-            </div>
-            <div class="module-card">
-              <div class="module-num">03</div>
-              <h4 data-lang="zh">客户沟通话术</h4>
-              <h4 data-lang="en">Client Communication</h4>
-              <p data-lang="zh">电话、邮件与微信跟进的专业话术，中英双语场景演练。</p>
-              <p data-lang="en">Professional follow-up via phone, email, and messaging — EN/ZH scenarios.</p>
-            </div>
-            <div class="module-card">
-              <div class="module-num">04</div>
-              <h4 data-lang="zh">合规要点</h4>
-              <h4 data-lang="en">Compliance Essentials</h4>
-              <p data-lang="zh">客户隐私保护、宣传用语规范与审批承诺的合规边界。</p>
-              <p data-lang="en">Privacy, advertising language, and boundaries on approval commitments.</p>
-            </div>
-            <div class="module-card">
-              <div class="module-num">05</div>
-              <h4 data-lang="zh">业务系统入门</h4>
-              <h4 data-lang="en">Pipeline Management</h4>
-              <p data-lang="zh">任务跟进、截止日期提醒与文件状态更新的实务操作。</p>
-              <p data-lang="en">Task tracking, deadline alerts, and file status management in practice.</p>
-            </div>
-            <div class="module-card">
-              <div class="module-num">06</div>
-              <h4 data-lang="zh">综合案例 + 答疑</h4>
-              <h4 data-lang="en">Capstone + Live Review</h4>
-              <p data-lang="zh">真实场景综合演练，讲师 Zoom 直播点评与答疑。</p>
-              <p data-lang="en">Real-world case simulation with instructor review via live Zoom.</p>
-            </div>
+            <div class="module-card"><div class="module-num">01</div><h4>Mortgage Workflow</h4><p>Full pipeline from inquiry and pre-approval through closing — roles at each stage.</p></div>
+            <div class="module-card"><div class="module-num">02</div><h4>Document Intake</h4><p>Income, asset, credit, and application documents — collection and filing standards.</p></div>
+            <div class="module-card"><div class="module-num">03</div><h4>Client Communication</h4><p>Professional follow-up via phone, email, and messaging in real-world scenarios.</p></div>
+            <div class="module-card"><div class="module-num">04</div><h4>Compliance Essentials</h4><p>Privacy, advertising language, and boundaries on approval commitments.</p></div>
+            <div class="module-card"><div class="module-num">05</div><h4>Pipeline Management</h4><p>Task tracking, deadline alerts, and file status management in practice.</p></div>
+            <div class="module-card"><div class="module-num">06</div><h4>Capstone + Live Review</h4><p>Real-world case simulation with faculty review via live Zoom.</p></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Process -->
   <section class="section section-alt">
     <div class="section-inner">
       <div class="section-header">
-        <div class="section-eyebrow" data-lang="zh">学习流程</div>
-        <div class="section-eyebrow" data-lang="en">How It Works</div>
-        <h2 data-lang="zh">四步开启学习</h2>
-        <h2 data-lang="en">Four Steps to Get Started</h2>
+        <div class="section-eyebrow">How It Works</div>
+        <h2>Four Steps to Get Started</h2>
       </div>
       <div class="process-steps">
-        <div class="process-step">
-          <div class="step-circle">1</div>
-          <h4 data-lang="zh">咨询报名</h4>
-          <h4 data-lang="en">Inquire</h4>
-          <p data-lang="zh">邮件咨询开课时间与学费</p>
-          <p data-lang="en">Email us for dates and tuition</p>
-        </div>
-        <div class="process-step">
-          <div class="step-circle">2</div>
-          <h4 data-lang="zh">获取账号</h4>
-          <h4 data-lang="en">Get Access</h4>
-          <p data-lang="zh">收到课程平台登录信息</p>
-          <p data-lang="en">Receive your course login</p>
-        </div>
-        <div class="process-step">
-          <div class="step-circle">3</div>
-          <h4 data-lang="zh">自主学习</h4>
-          <h4 data-lang="en">Learn at Your Pace</h4>
-          <p data-lang="zh">按模块观看录播课程</p>
-          <p data-lang="en">Watch modules on your schedule</p>
-        </div>
-        <div class="process-step">
-          <div class="step-circle">4</div>
-          <h4 data-lang="zh">直播答疑</h4>
-          <h4 data-lang="en">Live Q&amp;A</h4>
-          <p data-lang="zh">参加 Zoom 讲师互动辅导</p>
-          <p data-lang="en">Join live Zoom with instructor</p>
-        </div>
+        <div class="process-step"><div class="step-circle">1</div><h4>Review Program</h4><p>Explore the syllabus and module outline</p></div>
+        <div class="process-step"><div class="step-circle">2</div><h4>Enroll</h4><p>Register when enrollment opens</p></div>
+        <div class="process-step"><div class="step-circle">3</div><h4>Learn at Your Pace</h4><p>Watch modules on your schedule</p></div>
+        <div class="process-step"><div class="step-circle">4</div><h4>Live Q&amp;A</h4><p>Join scheduled Zoom sessions with faculty</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Instructor -->
   <section class="section section-cream" id="instructor">
     <div class="section-inner">
       <div class="section-header">
-        <div class="section-eyebrow" data-lang="zh">创办人亲授</div>
-        <div class="section-eyebrow" data-lang="en">Meet Your Instructor</div>
-        <h2 data-lang="zh">一线实务，亲自带教</h2>
-        <h2 data-lang="en">Real-World Experience, Personal Instruction</h2>
-        <p data-lang="zh">Christina Lu 创办 Loaneers，将十余年贷款公司管理与一线实务经验，系统传授给贷款助理学员。</p>
-        <p data-lang="en">Christina Lu founded Loaneers to share 10+ years of mortgage company leadership and hands-on practice with aspiring loan assistants.</p>
+        <div class="section-eyebrow">Our Faculty</div>
+        <h2>Experienced Industry Instructors</h2>
+        <p>Loaneers brings together licensed mortgage professionals with deep operational experience to guide assistant training.</p>
       </div>
       <div class="instructor-card">
         <div class="instructor-photo">
-          <img src="christina-lu-portrait.png" alt="Christina Lu — Loaneers Founder &amp; Lead Instructor" width="280" height="350" loading="lazy">
-          <span class="badge-lic" data-lang="zh">持牌贷款专员</span>
-          <span class="badge-lic" data-lang="en">Licensed MLO</span>
+          <img src="christina-lu-portrait.png" alt="Christina Lu — Lead Instructor at Loaneers" width="280" height="350" loading="lazy">
+          <span class="badge-lic">Licensed MLO</span>
         </div>
         <div class="instructor-content">
           <h3>Christina Lu</h3>
-          <div class="instructor-title" data-lang="zh">创办人 · 主讲讲师 · 贷款公司合伙人</div>
-          <div class="instructor-title" data-lang="en">Founder · Lead Instructor · Mortgage Company Partner</div>
-          <p class="instructor-bio" data-lang="zh">
-            Christina Lu 拥有美国布法罗大学（University at Buffalo）经济学硕士学位，持有纽约贷款专员（MLO）执照，现任贷款公司合伙人。在纽约房贷行业深耕十余年，从客户开发、文件收档、团队管理到结案跟进，亲历贷款业务全流程。她创办 Loaneers，将一线助理岗位真正需要的核心技能系统传授给学员——培养能立即上岗的贷款助理，而非执照考试辅导。
-          </p>
-          <p class="instructor-bio" data-lang="en">
-            Christina Lu holds an MA in Economics from the University at Buffalo and a New York MLO license, and serves as a partner at a mortgage company. With over a decade in the NYC mortgage industry — spanning client development, document intake, team management, and closings — she founded Loaneers to teach the practical assistant skills teams need on day one, not license exam prep.
+          <div class="instructor-title">Lead Instructor · Mortgage Company Partner</div>
+          <p class="instructor-bio">
+            Christina Lu serves as lead instructor at Loaneers. She holds an MA in Economics from the University at Buffalo and a New York MLO license, and brings over a decade of hands-on experience as a mortgage company partner. Her expertise spans client development, document intake, team management, and closings — giving students direct insight into what loan assistants need on day one.
           </p>
           <div class="credential-grid">
-            <div class="credential-item" data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              <div><strong>布法罗大学经济学硕士</strong>University at Buffalo, MA Economics</div>
-            </div>
-            <div class="credential-item" data-lang="en">
+            <div class="credential-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               <div><strong>MA Economics</strong>University at Buffalo</div>
             </div>
-            <div class="credential-item" data-lang="zh">
+            <div class="credential-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div><strong>持牌贷款专员</strong>纽约 MLO 执照，合规执业十余年</div>
+              <div><strong>Licensed MLO</strong>New York · 10+ years in practice</div>
             </div>
-            <div class="credential-item" data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div><strong>Licensed MLO</strong>New York license · 10+ years in practice</div>
-            </div>
-            <div class="credential-item" data-lang="zh">
+            <div class="credential-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <div><strong>贷款公司合伙人</strong>深谙团队运作与助理培养体系</div>
+              <div><strong>Company Partner</strong>Team operations &amp; assistant training</div>
             </div>
-            <div class="credential-item" data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <div><strong>Company Partner</strong>Deep insight into team ops &amp; assistant training</div>
-            </div>
-            <div class="credential-item" data-lang="zh">
+            <div class="credential-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <div><strong>十余年房贷实务</strong>从一线操作到公司管理全覆盖</div>
-            </div>
-            <div class="credential-item" data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <div><strong>10+ Years Experience</strong>Front-line operations to company leadership</div>
-            </div>
-            <div class="credential-item" data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              <div><strong>创办人亲授</strong>小班线上教学，Zoom 直接答疑</div>
-            </div>
-            <div class="credential-item" data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              <div><strong>Personally Taught</strong>Small-group online · direct Zoom access</div>
-            </div>
-            <div class="credential-item" data-lang="zh">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-              <div><strong>中英双语</strong>华人学员友好，行业英语同步教授</div>
-            </div>
-            <div class="credential-item" data-lang="en">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-              <div><strong>Bilingual EN/ZH</strong>Chinese-friendly with industry English</div>
+              <div><strong>10+ Years Experience</strong>Front-line ops to leadership</div>
             </div>
           </div>
-          <div class="about-note" data-lang="zh">
-            Loaneers 由 Christina Lu 个人创办。Christina 本人为持牌贷款专员及贷款公司合伙人，本课程专注培养贷款助理，非 NMLS 执照考试培训学校，亦不颁发任何执业执照。
-          </div>
-          <div class="about-note" data-lang="en">
-            Loaneers is personally founded by Christina Lu, a licensed MLO and mortgage company partner. This course trains loan assistants — it is not an NMLS license exam prep school and does not issue any professional licenses.
+          <div class="about-note">
+            Christina Lu is part of Loaneers' instructional faculty. This program trains loan assistants — it is not an NMLS license exam prep school and does not issue professional licenses.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Audience -->
   <section class="section section-alt" id="audience">
     <div class="section-inner">
       <div class="section-header">
-        <div class="section-eyebrow" data-lang="zh">课程定位</div>
-        <div class="section-eyebrow" data-lang="en">Course Fit</div>
-        <h2 data-lang="zh">这门课适合您吗？</h2>
-        <h2 data-lang="en">Is This Course Right for You?</h2>
+        <div class="section-eyebrow">Course Fit</div>
+        <h2>Is This Course Right for You?</h2>
       </div>
       <div class="audience-grid">
         <div class="audience-card yes">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 data-lang="zh">适合您，如果……</h3>
-          <h3 data-lang="en">This is for you if…</h3>
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>This is for you if…</h3>
           <ul class="audience-list">
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>希望进入贷款行业，从助理岗位起步</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Starting a career in mortgage as an assistant</li>
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>需要掌握申请文件整理与跟进实务</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Need practical file management skills</li>
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>想提升与借款人及团队的高效沟通能力</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Want stronger client &amp; team communication</li>
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>在持牌经纪人指导下合规协作</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Working under licensed loan officers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Starting a career in mortgage as an assistant</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Need practical file management skills</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Want stronger client &amp; team communication</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Working under licensed loan officers</li>
           </ul>
         </div>
         <div class="audience-card no">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          </div>
-          <h3 data-lang="zh">请选择其他学校，如果……</h3>
-          <h3 data-lang="en">Choose another school if…</h3>
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+          <h3>Choose another school if…</h3>
           <ul class="audience-list">
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>目标是考取 NMLS 贷款经纪人执照</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Your goal is an NMLS Loan Officer license</li>
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>需要地产经纪执照培训</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You need real estate licensing courses</li>
-            <li data-lang="zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>需要 NMLS 认可的年度 CE 续证课时</li>
-            <li data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You need NMLS-approved CE credits</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Your goal is an NMLS Loan Officer license</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You need real estate licensing courses</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You need NMLS-approved CE credits</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="section section-alt" id="why">
+  <section class="section section-cream" id="why">
     <div class="section-inner">
       <div class="section-header">
-        <div class="section-eyebrow" data-lang="zh">学习优势</div>
-        <div class="section-eyebrow" data-lang="en">Why Online</div>
-        <h2 data-lang="zh">灵活高效的线上学习体验</h2>
-        <h2 data-lang="en">Flexible, Effective Online Learning</h2>
+        <div class="section-eyebrow">Why Online</div>
+        <h2>Flexible, Effective Online Learning</h2>
       </div>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h4 data-lang="zh">时间灵活</h4>
-          <h4 data-lang="en">Flexible Schedule</h4>
-          <p data-lang="zh">录播随时回看，适合在职进修</p>
-          <p data-lang="en">Replay anytime — ideal for working professionals</p>
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h4>Flexible Schedule</h4><p>Replay anytime — ideal for working professionals</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h4 data-lang="zh">随时随地</h4>
-          <h4 data-lang="en">Learn Anywhere</h4>
-          <p data-lang="zh">手机、平板、电脑均可学习</p>
-          <p data-lang="en">Phone, tablet, or laptop</p>
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h4>Learn Anywhere</h4><p>Phone, tablet, or laptop</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </div>
-          <h4 data-lang="zh">目标明确</h4>
-          <h4 data-lang="en">Focused Curriculum</h4>
-          <p data-lang="zh">专为贷款助理岗位设计</p>
-          <p data-lang="en">Built for assistant roles only</p>
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h4>Focused Curriculum</h4><p>Built for assistant roles only</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          </div>
-          <h4 data-lang="zh">讲师答疑</h4>
-          <h4 data-lang="en">Instructor Support</h4>
-          <p data-lang="zh">定期 Zoom 直播解答疑问</p>
-          <p data-lang="en">Regular live Zoom Q&amp;A</p>
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h4>Faculty Support</h4><p>Regular live Zoom Q&amp;A</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section-cream" id="faq">
+  <section class="section section-alt" id="faq">
     <div class="section-inner">
       <div class="section-header">
         <div class="section-eyebrow">FAQ</div>
-        <h2 data-lang="zh">常见问题</h2>
-        <h2 data-lang="en">Frequently Asked Questions</h2>
+        <h2>Frequently Asked Questions</h2>
       </div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" type="button">
-            <span data-lang="zh">学完可以考取贷款经纪人执照吗？</span>
-            <span data-lang="en">Can I get an MLO license after this course?</span>
+            <span>Can I get an MLO license after this course?</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-a" data-lang="zh">不可以。本课程为贷款助理岗位技能培训，不含 NMLS 执照考试辅导。若您的目标是考取贷款经纪人执照，请选择持有 NMLS 认可资格的培训学校。</div>
-          <div class="faq-a" data-lang="en">No. This is an assistant job-skills program, not MLO license exam prep. For licensing, choose an NMLS-approved pre-license education provider.</div>
+          <div class="faq-a">No. This is an assistant job-skills program, not MLO license exam prep. For licensing, choose an NMLS-approved pre-license education provider.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">
-            <span data-lang="zh">课程是线上还是线下？</span>
-            <span data-lang="en">Is the course online or in-person?</span>
+            <span>Is the course online or in-person?</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-a" data-lang="zh">全程线上授课。核心内容为录播视频，可反复观看；另设定期 Zoom 直播答疑，与讲师实时互动。</div>
-          <div class="faq-a" data-lang="en">Fully online. Core content is on-demand video you can replay anytime, plus regular live Zoom Q&amp;A sessions with the instructor.</div>
+          <div class="faq-a">Fully online. Core content is on-demand video you can replay anytime, plus regular live Zoom Q&amp;A sessions with Loaneers faculty.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">
-            <span data-lang="zh">需要英语基础吗？</span>
-            <span data-lang="en">Do I need English proficiency?</span>
+            <span>Who teaches the course?</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-a" data-lang="zh">课程提供中英双语教学与教材。基础中文阅读能力即可开始学习；英文沟通模块将帮助您掌握贷款行业常用英语表达。</div>
-          <div class="faq-a" data-lang="en">Instruction and materials are bilingual. Basic Chinese reading is sufficient to start; the communication module covers industry-standard English phrases.</div>
+          <div class="faq-a">Loaneers faculty includes licensed mortgage professionals with extensive industry experience. Lead instructor Christina Lu holds an MA in Economics from the University at Buffalo, a New York MLO license, and over 10 years as a mortgage company partner.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">
-            <span data-lang="zh">讲师是谁？有什么资质？</span>
-            <span data-lang="en">Who is the instructor?</span>
+            <span>How do I enroll?</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-a" data-lang="zh">主讲讲师为 Christina Lu——布法罗大学经济学硕士、纽约持牌贷款专员（MLO）、贷款公司合伙人，拥有十余年房贷实务经验。她个人创办 Loaneers 并亲授课程，专注培养贷款助理，而非执照考试辅导。</div>
-          <div class="faq-a" data-lang="en">Your instructor is Christina Lu — MA Economics (University at Buffalo), licensed New York MLO, and mortgage company partner with 10+ years of experience. She personally founded and teaches at Loaneers, focusing on assistant job skills, not license exam prep.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button">
-            <span data-lang="zh">如何报名？学费多少？</span>
-            <span data-lang="en">How do I enroll? What is the tuition?</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-a" data-lang="zh">请发送邮件至下方咨询邮箱，我们将在一个工作日内回复开课时间、学费详情与报名方式。</div>
-          <div class="faq-a" data-lang="en">Send an inquiry email below. We reply within one business day with class dates, tuition, and enrollment steps.</div>
+          <div class="faq-a">Enrollment details will be announced when the program launches. Review the syllabus above to learn what the program covers.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="contact">
+  <section class="cta-section">
     <div class="cta-inner">
-      <h2 data-lang="zh">准备好开始了吗？</h2>
-      <h2 data-lang="en">Ready to Get Started?</h2>
-      <p data-lang="zh">欢迎来信咨询开课时间、学费与报名方式。我们将在一个工作日内回复。</p>
-      <p data-lang="en">Contact us for class dates, tuition, and enrollment. We reply within one business day.</p>
-      <a class="btn-cta-large" href="mailto:info@loaneers.com?subject=贷款助理培训报名咨询" data-lang="zh">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        发送报名咨询邮件
-      </a>
-      <a class="btn-cta-large" href="mailto:info@loaneers.com?subject=Loan%20Assistant%20Training%20Inquiry" data-lang="en">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Send Enrollment Inquiry
-      </a>
-      <p class="cta-note">info@loaneers.com</p>
+      <h2>Explore the Program</h2>
+      <p>Review the full syllabus and faculty credentials to see how Loaneers prepares you for a loan assistant role.</p>
+      <a class="btn-primary" href="#course">View Full Syllabus</a>
     </div>
   </section>
 
-  <!-- Disclaimer -->
   <div class="disclaimer">
     <div class="disclaimer-inner">
-      <p data-lang="zh">Loaneers 由 Christina Lu 个人创办。本课程为岗位技能培训，不颁发贷款专员或房地产经纪执照，亦非 NMLS 认可教育机构，不保证就业或贷款审批结果。执业资格须通过相应官方考试另行取得。本页内容不构成法律或财务建议。</p>
-      <p data-lang="en">Loaneers is personally founded by Christina Lu. This vocational course does not issue MLO or real estate licenses, is not an NMLS-approved education provider, and does not guarantee employment or loan approvals. Not legal or financial advice.</p>
+      <p>Loaneers is a vocational job-skills training program. It does not issue MLO or real estate licenses, is not an NMLS-approved education provider, and does not guarantee employment or loan approvals. Not legal or financial advice.</p>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="logo" href="#" style="text-decoration:none;">
-          <div class="logo-mark" style="width:36px;height:36px;border-radius:8px;font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-weight:700;color:#c9a227;">Lo</div>
+          <div class="logo-mark" style="width:36px;height:36px;border-radius:8px;font-size:13px;">Lo</div>
           <div class="logo-text" style="margin-left:10px;">
             <div class="name">Loane<span style="color:#c9a227;">ers</span></div>
           </div>
         </a>
-        <p data-lang="zh">Christina Lu 创办的贷款助理线上实务培训，服务纽约华人社区。</p>
-        <p data-lang="en">Online loan assistant training founded by Christina Lu, serving the NYC Chinese community.</p>
+        <p>Online loan assistant training for the Greater NYC market, delivered by experienced industry faculty.</p>
       </div>
       <div class="footer-col">
-        <h5 data-lang="zh">快速导航</h5>
-        <h5 data-lang="en">Quick Links</h5>
-        <a href="#course" data-lang="zh">课程大纲</a>
-        <a href="#course" data-lang="en">Syllabus</a>
-        <a href="#instructor" data-lang="zh">主讲讲师</a>
-        <a href="#instructor" data-lang="en">Instructor</a>
-        <a href="#audience" data-lang="zh">适合谁学</a>
-        <a href="#audience" data-lang="en">Who It's For</a>
-        <a href="#faq" data-lang="zh">常见问题</a>
-        <a href="#faq" data-lang="en">FAQ</a>
-      </div>
-      <div class="footer-col">
-        <h5 data-lang="zh">联系我们</h5>
-        <h5 data-lang="en">Contact</h5>
-        <a href="mailto:info@loaneers.com">info@loaneers.com</a>
-        <a href="https://loaneers.com" style="margin-top:4px;">loaneers.com</a>
-        <p data-lang="zh">线上咨询 · 一个工作日内回复</p>
-        <p data-lang="en">Online inquiries · Reply within 1 business day</p>
+        <h5>Quick Links</h5>
+        <a href="#course">Syllabus</a>
+        <a href="#instructor">Faculty</a>
+        <a href="#audience">Who It's For</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-lang="zh">© 2026 Loaneers · loaneers.com · 保留所有权利</span>
-      <span data-lang="en">© 2026 Loaneers · loaneers.com · All rights reserved</span>
+      <span>© 2026 Loaneers · loaneers.com · All rights reserved</span>
     </div>
   </footer>
 
   <script>
-    const body = document.body;
-    document.getElementById('btn-zh').onclick = () => {
-      body.classList.remove('en');
-      document.getElementById('btn-zh').classList.add('active');
-      document.getElementById('btn-en').classList.remove('active');
-    };
-    document.getElementById('btn-en').onclick = () => {
-      body.classList.add('en');
-      document.getElementById('btn-en').classList.add('active');
-      document.getElementById('btn-zh').classList.remove('active');
-    };
     document.getElementById('menu-btn').onclick = () => {
       document.getElementById('nav').classList.toggle('open');
     };
