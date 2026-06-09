@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>纽约贷款助理培训 · 线上实务课程</title>
-  <meta name="description" content="纽约华人贷款助理线上培训：文档收档、客户沟通、流程合规。视频课程 + Zoom 答疑。">
-  <meta property="og:title" content="纽约贷款助理培训中心">
-  <meta property="og:description" content="系统学习房贷助理实务，全程线上，中英双语。">
+  <title>Loaneer Edu · 纽约贷款助理线上培训</title>
+  <meta name="description" content="Loaneer Edu — 持牌贷款经纪人创办，十余年实务经验亲授贷款助理上岗培训。全程线上，中英双语。">
+  <meta property="og:title" content="Loaneer Edu · Loan Assistant Training">
+  <meta property="og:description" content="Licensed MLO with 10+ years experience. Online loan assistant training for NYC Chinese community.">
+  <link rel="canonical" href="https://loaneeredu.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -892,6 +893,114 @@
       gap: 8px;
     }
 
+    /* ── Instructor ── */
+    .instructor-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px;
+      box-shadow: var(--shadow-md);
+    }
+    .instructor-photo {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 55%, #2a5080 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .instructor-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(201,162,39,0.18) 0%, transparent 70%);
+    }
+    .instructor-avatar {
+      position: relative;
+      z-index: 1;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(201,162,39,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .instructor-avatar svg { width: 48px; height: 48px; color: var(--gold-light); opacity: 0.85; }
+    .instructor-photo .badge-lic {
+      position: relative;
+      z-index: 1;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+    .instructor-content h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+    .instructor-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+    .instructor-bio {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0 0 24px;
+    }
+    .credential-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .credential-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .credential-item svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .credential-item strong { display: block; color: var(--navy); font-size: 14px; margin-bottom: 2px; }
+    .about-note {
+      margin-top: 28px;
+      padding: 16px 20px;
+      background: var(--success-bg);
+      border-radius: 10px;
+      font-size: 13px;
+      color: #2d5a4a;
+      line-height: 1.65;
+      border-left: 4px solid var(--success);
+    }
+
     /* ── Lang toggle ── */
     [data-lang="en"] { display: none; }
     body.en [data-lang="zh"] { display: none; }
@@ -918,6 +1027,9 @@
       .process-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
       .process-steps::before { display: none; }
       .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .instructor-card { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+      .instructor-photo { max-width: 240px; margin: 0 auto; width: 100%; }
+      .credential-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .nav, .btn-nav-cta { display: none; }
@@ -949,22 +1061,18 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="#">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-        </div>
+        <div class="logo-mark" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:700;color:#c9a227;letter-spacing:-0.03em;">LE</div>
         <div class="logo-text">
-          <div class="name" data-lang="zh">纽约<span>贷款助理</span>培训中心</div>
-          <div class="name" data-lang="en">NY <span>Loan Assistant</span> Academy</div>
-          <div class="sub" data-lang="zh">Online Professional Training</div>
-          <div class="sub" data-lang="en">Online Professional Training</div>
+          <div class="name">Loaneer<span>Edu</span></div>
+          <div class="sub" data-lang="zh">贷款助理实务培训 · loaneeredu.com</div>
+          <div class="sub" data-lang="en">Loan Assistant Training · loaneeredu.com</div>
         </div>
       </a>
       <nav class="nav" id="nav">
         <a href="#course" data-lang="zh">课程大纲</a>
         <a href="#course" data-lang="en">Syllabus</a>
+        <a href="#instructor" data-lang="zh">主讲讲师</a>
+        <a href="#instructor" data-lang="en">Instructor</a>
         <a href="#audience" data-lang="zh">适合谁学</a>
         <a href="#audience" data-lang="en">Who It's For</a>
         <a href="#faq" data-lang="zh">常见问题</a>
@@ -994,15 +1102,15 @@
     <div class="hero-pattern"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-eyebrow" data-lang="zh">纽约华人 · 线上实务培训</div>
-        <div class="hero-eyebrow" data-lang="en">NYC Chinese Community · Online Training</div>
+        <div class="hero-eyebrow" data-lang="zh">Loaneer Edu · 持牌讲师亲授</div>
+        <div class="hero-eyebrow" data-lang="en">Loaneer Edu · Taught by a Licensed MLO</div>
         <h1 data-lang="zh">贷款助理<br>上岗实务培训</h1>
         <h1 data-lang="en">Loan Assistant<br>Professional Training</h1>
         <p class="hero-desc" data-lang="zh">
-          系统掌握房贷申请全流程、客户资料收档与跟进沟通，快速胜任贷款公司助理岗位。录播随时回看，配合定期 Zoom 直播答疑。
+          由纽约持牌贷款经纪人创办并亲授，十余年一线房贷实务经验，专为贷款助理岗位设计。系统掌握申请流程、资料收档与客户跟进，录播随时回看，定期 Zoom 直播答疑。
         </p>
         <p class="hero-desc" data-lang="en">
-          Master mortgage workflows, document intake, and client follow-up. On-demand video lessons plus live Zoom Q&amp;A — fully online, bilingual support.
+          Founded and taught by a licensed New York MLO with 10+ years of hands-on mortgage experience. Master workflows, document intake, and client follow-up — on-demand video plus live Zoom Q&amp;A.
         </p>
         <div class="hero-actions">
           <a class="btn-primary" href="#contact" data-lang="zh">
@@ -1057,9 +1165,9 @@
               <div class="lbl" data-lang="en">Core Modules</div>
             </div>
             <div class="hero-stat">
-              <div class="num">100%</div>
-              <div class="lbl" data-lang="zh">线上授课</div>
-              <div class="lbl" data-lang="en">Online Delivery</div>
+              <div class="num">10+</div>
+              <div class="lbl" data-lang="zh">年实务经验</div>
+              <div class="lbl" data-lang="en">Years Experience</div>
             </div>
           </div>
           <div class="hero-card-modules">
@@ -1081,10 +1189,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
-          <h4 data-lang="zh">岗位技能培训</h4>
-          <h4 data-lang="en">Job-Skills Focus</h4>
-          <p data-lang="zh">专为贷款助理角色设计</p>
-          <p data-lang="en">Built for assistant roles</p>
+          <h4 data-lang="zh">持牌讲师亲授</h4>
+          <h4 data-lang="en">Licensed Instructor</h4>
+          <p data-lang="zh">纽约 MLO · 十余年实务</p>
+          <p data-lang="en">NY licensed MLO · 10+ years</p>
         </div>
       </div>
       <div class="trust-item">
@@ -1274,8 +1382,83 @@
     </div>
   </section>
 
+  <!-- Instructor -->
+  <section class="section section-cream" id="instructor">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow" data-lang="zh">创办人亲授</div>
+        <div class="section-eyebrow" data-lang="en">Meet Your Instructor</div>
+        <h2 data-lang="zh">一线实务，亲自带教</h2>
+        <h2 data-lang="en">Real-World Experience, Personal Instruction</h2>
+        <p data-lang="zh">Loaneer Edu 由资深持证贷款经纪人个人创办，课程来自十余年纽约房贷一线实战经验。</p>
+        <p data-lang="en">Loaneer Edu is personally founded by a seasoned licensed loan officer — curriculum built from 10+ years of NYC mortgage practice.</p>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-photo">
+          <div class="instructor-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <span class="badge-lic" data-lang="zh">持牌 MLO</span>
+          <span class="badge-lic" data-lang="en">Licensed MLO</span>
+        </div>
+        <div class="instructor-content">
+          <h3 data-lang="zh">创办人 · 主讲讲师</h3>
+          <h3 data-lang="en">Founder &amp; Lead Instructor</h3>
+          <div class="instructor-title" data-lang="zh">纽约持牌贷款经纪人 · 十余年房贷实务经验</div>
+          <div class="instructor-title" data-lang="en">Licensed NY Mortgage Loan Originator · 10+ Years in Practice</div>
+          <p class="instructor-bio" data-lang="zh">
+            在纽约房贷行业深耕十余年，从客户咨询、文件收档到结案跟进，亲历贷款团队日常运作的每一个环节。创办 Loaneer Edu，旨在将一线助理岗位所需的核心技能系统传授给有意进入贷款行业的学员——不是考执照，而是真正胜任助理工作。
+          </p>
+          <p class="instructor-bio" data-lang="en">
+            With over a decade in the New York mortgage industry, our founder has managed every stage of the loan pipeline — from client intake and document collection through closing coordination. Loaneer Edu was created to pass on the practical assistant skills that teams actually need: not license exam prep, but real job readiness.
+          </p>
+          <div class="credential-grid">
+            <div class="credential-item" data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div><strong>纽约持牌经纪人</strong>具备 NMLS 贷款经纪人执业资格</div>
+            </div>
+            <div class="credential-item" data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div><strong>Licensed MLO</strong>NMLS-licensed mortgage loan originator</div>
+            </div>
+            <div class="credential-item" data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div><strong>十余年一线经验</strong>深度理解助理岗位职责与培养路径</div>
+            </div>
+            <div class="credential-item" data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div><strong>10+ Years Practice</strong>Deep knowledge of assistant roles &amp; team workflows</div>
+            </div>
+            <div class="credential-item" data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <div><strong>个人创办精讲</strong>小班线上教学，Zoom 直接答疑</div>
+            </div>
+            <div class="credential-item" data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <div><strong>Personally Led</strong>Small-group online instruction with direct Zoom access</div>
+            </div>
+            <div class="credential-item" data-lang="zh">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+              <div><strong>中英双语</strong>华人学员友好，行业英语同步教授</div>
+            </div>
+            <div class="credential-item" data-lang="en">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+              <div><strong>Bilingual EN/ZH</strong>Chinese-friendly with industry English training</div>
+            </div>
+          </div>
+          <div class="about-note" data-lang="zh">
+            Loaneer Edu 为个人创办的岗位技能培训项目，主讲讲师本人为持牌贷款经纪人。本课程专注培养贷款助理，非 NMLS 执照考试培训学校，亦不颁发任何执业执照。
+          </div>
+          <div class="about-note" data-lang="en">
+            Loaneer Edu is an independently founded job-skills program led by a licensed loan officer. This course trains loan assistants — it is not an NMLS license exam prep school and does not issue any professional licenses.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Audience -->
-  <section class="section section-cream" id="audience">
+  <section class="section section-alt" id="audience">
     <div class="section-inner">
       <div class="section-header">
         <div class="section-eyebrow" data-lang="zh">课程定位</div>
@@ -1408,6 +1591,15 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">
+            <span data-lang="zh">讲师是谁？有什么资质？</span>
+            <span data-lang="en">Who is the instructor?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a" data-lang="zh">Loaneer Edu 由纽约持牌贷款经纪人（MLO）个人创办并亲授，拥有十余年纽约房贷一线实务经验。讲师本人具备执业资格，课程专注传授助理岗位实务技能，而非执照考试辅导。</div>
+          <div class="faq-a" data-lang="en">Loaneer Edu is personally founded and taught by a licensed New York MLO with 10+ years of hands-on mortgage experience. The instructor is a practicing professional; the course teaches assistant job skills, not license exam prep.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">
             <span data-lang="zh">如何报名？学费多少？</span>
             <span data-lang="en">How do I enroll? What is the tuition?</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1426,23 +1618,23 @@
       <h2 data-lang="en">Ready to Get Started?</h2>
       <p data-lang="zh">欢迎来信咨询开课时间、学费与报名方式。我们将在一个工作日内回复。</p>
       <p data-lang="en">Contact us for class dates, tuition, and enrollment. We reply within one business day.</p>
-      <a class="btn-cta-large" href="mailto:contact@insynbio.com?subject=贷款助理培训报名咨询" data-lang="zh">
+      <a class="btn-cta-large" href="mailto:info@loaneeredu.com?subject=贷款助理培训报名咨询" data-lang="zh">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         发送报名咨询邮件
       </a>
-      <a class="btn-cta-large" href="mailto:contact@insynbio.com?subject=Loan%20Assistant%20Training%20Inquiry" data-lang="en">
+      <a class="btn-cta-large" href="mailto:info@loaneeredu.com?subject=Loan%20Assistant%20Training%20Inquiry" data-lang="en">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Send Enrollment Inquiry
       </a>
-      <p class="cta-note">contact@insynbio.com</p>
+      <p class="cta-note">info@loaneeredu.com</p>
     </div>
   </section>
 
   <!-- Disclaimer -->
   <div class="disclaimer">
     <div class="disclaimer-inner">
-      <p data-lang="zh">本课程为岗位技能培训，不颁发贷款经纪人或房地产经纪执照，亦不保证就业或贷款审批结果。执业资格须通过相应官方考试与持牌机构另行取得。本页内容不构成法律或财务建议。</p>
-      <p data-lang="en">This is a vocational skills course. It does not issue MLO or real estate licenses and does not guarantee employment or loan approvals. Licensing requires separate official examinations. Not legal or financial advice.</p>
+      <p data-lang="zh">Loaneer Edu 为个人创办的岗位技能培训项目，主讲讲师为持牌贷款经纪人。本课程不颁发贷款经纪人或房地产经纪执照，亦非 NMLS 认可教育机构，不保证就业或贷款审批结果。执业资格须通过相应官方考试另行取得。本页内容不构成法律或财务建议。</p>
+      <p data-lang="en">Loaneer Edu is an independently founded vocational training program led by a licensed loan officer. This course does not issue MLO or real estate licenses, is not an NMLS-approved education provider, and does not guarantee employment or loan approvals. Not legal or financial advice.</p>
     </div>
   </div>
 
@@ -1451,24 +1643,21 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="logo" href="#" style="text-decoration:none;">
-          <div class="logo-mark" style="width:36px;height:36px;border-radius:8px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" style="width:20px;height:20px;">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
+          <div class="logo-mark" style="width:36px;height:36px;border-radius:8px;font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-weight:700;color:#c9a227;">LE</div>
           <div class="logo-text" style="margin-left:10px;">
-            <div class="name" data-lang="zh">纽约贷款助理培训中心</div>
-            <div class="name" data-lang="en">NY Loan Assistant Academy</div>
+            <div class="name">Loaneer<span style="color:#c9a227;">Edu</span></div>
           </div>
         </a>
-        <p data-lang="zh">纽约华人贷款助理线上实务培训，助您快速胜任贷款公司助理岗位。</p>
-        <p data-lang="en">Online loan assistant training for the Greater NYC Chinese community.</p>
+        <p data-lang="zh">持牌贷款经纪人创办的贷款助理线上实务培训，服务纽约华人社区。</p>
+        <p data-lang="en">Online loan assistant training founded by a licensed MLO, serving the NYC Chinese community.</p>
       </div>
       <div class="footer-col">
         <h5 data-lang="zh">快速导航</h5>
         <h5 data-lang="en">Quick Links</h5>
         <a href="#course" data-lang="zh">课程大纲</a>
         <a href="#course" data-lang="en">Syllabus</a>
+        <a href="#instructor" data-lang="zh">主讲讲师</a>
+        <a href="#instructor" data-lang="en">Instructor</a>
         <a href="#audience" data-lang="zh">适合谁学</a>
         <a href="#audience" data-lang="en">Who It's For</a>
         <a href="#faq" data-lang="zh">常见问题</a>
@@ -1477,14 +1666,15 @@
       <div class="footer-col">
         <h5 data-lang="zh">联系我们</h5>
         <h5 data-lang="en">Contact</h5>
-        <a href="mailto:contact@insynbio.com">contact@insynbio.com</a>
+        <a href="mailto:info@loaneeredu.com">info@loaneeredu.com</a>
+        <a href="https://loaneeredu.com" style="margin-top:4px;">loaneeredu.com</a>
         <p data-lang="zh">线上咨询 · 一个工作日内回复</p>
         <p data-lang="en">Online inquiries · Reply within 1 business day</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-lang="zh">© 2026 纽约贷款助理培训中心 · 保留所有权利</span>
-      <span data-lang="en">© 2026 NY Loan Assistant Academy · All rights reserved</span>
+      <span data-lang="zh">© 2026 Loaneer Edu · loaneeredu.com · 保留所有权利</span>
+      <span data-lang="en">© 2026 Loaneer Edu · loaneeredu.com · All rights reserved</span>
     </div>
   </footer>
 
